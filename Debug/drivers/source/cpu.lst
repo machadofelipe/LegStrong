@@ -1,0 +1,1138 @@
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                   PC v15.12.3.LTS *
+       3              ;* Date/Time created: Tue Sep 20 20:29:57 2016                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --abi=coffabi --float_support=softlib --hll_source=on --mem_model:code=flat --mem_mode
+       6        0002  FP      .set    XAR2
+       7              
+       8              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+       9                      .dwattr $C$DW$CU, DW_AT_name("../drivers/source/cpu.c")
+      10                      .dwattr $C$DW$CU, DW_AT_producer("TI TMS320C2000 C/C++ Codegen PC v15.12.3.LTS Copyright (c) 1996-201
+      11                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      12                      .dwattr $C$DW$CU, DW_AT_comp_dir("D:\Users\MaCHaDo\Dropbox\Legstrong\drv8301\legstrong\LegStrong\Debu
+      13                      .global _cpu
+      14 00000000       _cpu:   .usect  ".ebss",1,1,0
+      15              $C$DW$1 .dwtag  DW_TAG_variable
+      16                      .dwattr $C$DW$1, DW_AT_name("cpu")
+      17                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_cpu")
+      18                      .dwattr $C$DW$1, DW_AT_location[DW_OP_addr _cpu]
+      19                      .dwattr $C$DW$1, DW_AT_type(*$C$DW$T$25)
+      20                      .dwattr $C$DW$1, DW_AT_external
+      21              
+      22              ;       C:\ti\ccsv6\tools\compiler\c2000_15.12.3.LTS\bin\opt2000.exe C:\\Users\\MaCHaDo\\AppData\\Local\\Temp
+      23              ;       C:\ti\ccsv6\tools\compiler\c2000_15.12.3.LTS\bin\ac2000.exe -@C:\\Users\\MaCHaDo\\AppData\\Local\\Tem
+      24 00000000               .sect   ".text"
+      25                      .clink
+      26                      .global _CPU_init
+      27              
+      28              $C$DW$2 .dwtag  DW_TAG_subprogram
+      29                      .dwattr $C$DW$2, DW_AT_name("CPU_init")
+      30                      .dwattr $C$DW$2, DW_AT_low_pc(_CPU_init)
+      31                      .dwattr $C$DW$2, DW_AT_high_pc(0x00)
+      32                      .dwattr $C$DW$2, DW_AT_TI_symbol_name("_CPU_init")
+      33                      .dwattr $C$DW$2, DW_AT_external
+      34                      .dwattr $C$DW$2, DW_AT_type(*$C$DW$T$27)
+      35                      .dwattr $C$DW$2, DW_AT_TI_begin_file("../drivers/source/cpu.c")
+      36                      .dwattr $C$DW$2, DW_AT_TI_begin_line(0x9e)
+      37                      .dwattr $C$DW$2, DW_AT_TI_begin_column(0x0c)
+      38                      .dwattr $C$DW$2, DW_AT_TI_max_frame_size(-2)
+      39                      .dwpsn  file "../drivers/source/cpu.c",line 159,column 1,is_stmt,address _CPU_init,isa 0
+      40              
+      41                      .dwfde $C$DW$CIE, _CPU_init
+      42              $C$DW$3 .dwtag  DW_TAG_formal_parameter
+      43                      .dwattr $C$DW$3, DW_AT_name("pMemory")
+      44                      .dwattr $C$DW$3, DW_AT_TI_symbol_name("_pMemory")
+      45                      .dwattr $C$DW$3, DW_AT_type(*$C$DW$T$3)
+      46                      .dwattr $C$DW$3, DW_AT_location[DW_OP_reg12]
+      47              
+      48              $C$DW$4 .dwtag  DW_TAG_formal_parameter
+      49                      .dwattr $C$DW$4, DW_AT_name("numBytes")
+      50                      .dwattr $C$DW$4, DW_AT_TI_symbol_name("_numBytes")
+      51                      .dwattr $C$DW$4, DW_AT_type(*$C$DW$T$29)
+      52                      .dwattr $C$DW$4, DW_AT_location[DW_OP_reg0]
+      53              
+      54              
+      55              ;***************************************************************
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE    2
+
+      56              ;* FNAME: _CPU_init                     FR SIZE:   0           *
+      57              ;*                                                             *
+      58              ;* FUNCTION ENVIRONMENT                                        *
+      59              ;*                                                             *
+      60              ;* FUNCTION PROPERTIES                                         *
+      61              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+      62              ;***************************************************************
+      63              
+      64              _CPU_init:
+      65              ;* AL    assigned to _numBytes
+      66              $C$DW$5 .dwtag  DW_TAG_variable
+      67                      .dwattr $C$DW$5, DW_AT_name("numBytes")
+      68                      .dwattr $C$DW$5, DW_AT_TI_symbol_name("_numBytes")
+      69                      .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$29)
+      70                      .dwattr $C$DW$5, DW_AT_location[DW_OP_reg0]
+      71              
+      72                      .dwcfi  cfa_offset, -2
+      73                      .dwcfi  save_reg_to_mem, 26, 0
+      74                      .dwpsn  file "../drivers/source/cpu.c",line 169,column 3,is_stmt,isa 0
+      75 00000000 FF58          TEST      ACC                   ; [CPU_] |169| 
+      76 00000001 6002          B         $C$L1,NEQ             ; [CPU_] |169| 
+      77                      ; branchcc occurs ; [] |169| 
+      78 00000002 D400          MOVB      XAR4,#0               ; [CPU_] |169| 
+      79              $C$L1:    
+      80              $C$DW$6 .dwtag  DW_TAG_TI_branch
+      81                      .dwattr $C$DW$6, DW_AT_low_pc(0x00)
+      82                      .dwattr $C$DW$6, DW_AT_TI_return
+      83              
+      84 00000003 0006          LRETR     ; [CPU_] 
+      85                      ; return occurs ; [] 
+      86                      .dwattr $C$DW$2, DW_AT_TI_end_file("../drivers/source/cpu.c")
+      87                      .dwattr $C$DW$2, DW_AT_TI_end_line(0xaa)
+      88                      .dwattr $C$DW$2, DW_AT_TI_end_column(0x01)
+      89                      .dwendentry
+      90                      .dwendtag $C$DW$2
+      91              
+      92 00000004               .sect   ".text"
+      93                      .clink
+      94                      .global _CPU_enableProtectedRegisterWrite
+      95              
+      96              $C$DW$7 .dwtag  DW_TAG_subprogram
+      97                      .dwattr $C$DW$7, DW_AT_name("CPU_enableProtectedRegisterWrite")
+      98                      .dwattr $C$DW$7, DW_AT_low_pc(_CPU_enableProtectedRegisterWrite)
+      99                      .dwattr $C$DW$7, DW_AT_high_pc(0x00)
+     100                      .dwattr $C$DW$7, DW_AT_TI_symbol_name("_CPU_enableProtectedRegisterWrite")
+     101                      .dwattr $C$DW$7, DW_AT_external
+     102                      .dwattr $C$DW$7, DW_AT_TI_begin_file("../drivers/source/cpu.c")
+     103                      .dwattr $C$DW$7, DW_AT_TI_begin_line(0x94)
+     104                      .dwattr $C$DW$7, DW_AT_TI_begin_column(0x06)
+     105                      .dwattr $C$DW$7, DW_AT_TI_max_frame_size(-2)
+     106                      .dwpsn  file "../drivers/source/cpu.c",line 149,column 1,is_stmt,address _CPU_enableProtectedRegister
+     107              
+     108                      .dwfde $C$DW$CIE, _CPU_enableProtectedRegisterWrite
+     109              $C$DW$8 .dwtag  DW_TAG_formal_parameter
+     110                      .dwattr $C$DW$8, DW_AT_name("cpuHandle")
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE    3
+
+     111                      .dwattr $C$DW$8, DW_AT_TI_symbol_name("_cpuHandle")
+     112                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$27)
+     113                      .dwattr $C$DW$8, DW_AT_location[DW_OP_reg12]
+     114              
+     115              
+     116              ;***************************************************************
+     117              ;* FNAME: _CPU_enableProtectedRegisterWrite FR SIZE:   0           *
+     118              ;*                                                             *
+     119              ;* FUNCTION ENVIRONMENT                                        *
+     120              ;*                                                             *
+     121              ;* FUNCTION PROPERTIES                                         *
+     122              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     123              ;***************************************************************
+     124              
+     125 00000004       _CPU_enableProtectedRegisterWrite:
+     126                      .dwcfi  cfa_offset, -2
+     127                      .dwcfi  save_reg_to_mem, 26, 0
+     128 00000004 7622   EALLOW
+     129 00000005 FF69          SPM       #0                    ; [CPU_] 
+     130              $C$DW$9 .dwtag  DW_TAG_TI_branch
+     131                      .dwattr $C$DW$9, DW_AT_low_pc(0x00)
+     132                      .dwattr $C$DW$9, DW_AT_TI_return
+     133              
+     134 00000006 0006          LRETR     ; [CPU_] 
+     135                      ; return occurs ; [] 
+     136                      .dwattr $C$DW$7, DW_AT_TI_end_file("../drivers/source/cpu.c")
+     137                      .dwattr $C$DW$7, DW_AT_TI_end_line(0x9b)
+     138                      .dwattr $C$DW$7, DW_AT_TI_end_column(0x01)
+     139                      .dwendentry
+     140                      .dwendtag $C$DW$7
+     141              
+     142 00000007               .sect   ".text"
+     143                      .clink
+     144                      .global _CPU_enableInt
+     145              
+     146              $C$DW$10        .dwtag  DW_TAG_subprogram
+     147                      .dwattr $C$DW$10, DW_AT_name("CPU_enableInt")
+     148                      .dwattr $C$DW$10, DW_AT_low_pc(_CPU_enableInt)
+     149                      .dwattr $C$DW$10, DW_AT_high_pc(0x00)
+     150                      .dwattr $C$DW$10, DW_AT_TI_symbol_name("_CPU_enableInt")
+     151                      .dwattr $C$DW$10, DW_AT_external
+     152                      .dwattr $C$DW$10, DW_AT_TI_begin_file("../drivers/source/cpu.c")
+     153                      .dwattr $C$DW$10, DW_AT_TI_begin_line(0x8a)
+     154                      .dwattr $C$DW$10, DW_AT_TI_begin_column(0x06)
+     155                      .dwattr $C$DW$10, DW_AT_TI_max_frame_size(-2)
+     156                      .dwpsn  file "../drivers/source/cpu.c",line 139,column 1,is_stmt,address _CPU_enableInt,isa 0
+     157              
+     158                      .dwfde $C$DW$CIE, _CPU_enableInt
+     159              $C$DW$11        .dwtag  DW_TAG_formal_parameter
+     160                      .dwattr $C$DW$11, DW_AT_name("cpuHandle")
+     161                      .dwattr $C$DW$11, DW_AT_TI_symbol_name("_cpuHandle")
+     162                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$27)
+     163                      .dwattr $C$DW$11, DW_AT_location[DW_OP_reg12]
+     164              
+     165              $C$DW$12        .dwtag  DW_TAG_formal_parameter
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE    4
+
+     166                      .dwattr $C$DW$12, DW_AT_name("intNumber")
+     167                      .dwattr $C$DW$12, DW_AT_TI_symbol_name("_intNumber")
+     168                      .dwattr $C$DW$12, DW_AT_type(*$C$DW$T$24)
+     169                      .dwattr $C$DW$12, DW_AT_location[DW_OP_reg0]
+     170              
+     171              
+     172              ;***************************************************************
+     173              ;* FNAME: _CPU_enableInt                FR SIZE:   0           *
+     174              ;*                                                             *
+     175              ;* FUNCTION ENVIRONMENT                                        *
+     176              ;*                                                             *
+     177              ;* FUNCTION PROPERTIES                                         *
+     178              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     179              ;***************************************************************
+     180              
+     181              _CPU_enableInt:
+     182              ;* AL    assigned to _intNumber
+     183              $C$DW$13        .dwtag  DW_TAG_variable
+     184                      .dwattr $C$DW$13, DW_AT_name("intNumber")
+     185                      .dwattr $C$DW$13, DW_AT_TI_symbol_name("_intNumber")
+     186                      .dwattr $C$DW$13, DW_AT_type(*$C$DW$T$24)
+     187                      .dwattr $C$DW$13, DW_AT_location[DW_OP_reg0]
+     188              
+     189                      .dwcfi  cfa_offset, -2
+     190                      .dwcfi  save_reg_to_mem, 26, 0
+     191                      .dwpsn  file "../drivers/source/cpu.c",line 142,column 3,is_stmt,isa 0
+     192 00000007 20A8          MOV       AH,IER                ; [CPU_] |142| 
+     193 00000008 CBA9          OR        AH,AL                 ; [CPU_] |142| 
+     194 00000009 23A8          MOV       IER,AH                ; [CPU_] |142| 
+     195              $C$DW$14        .dwtag  DW_TAG_TI_branch
+     196                      .dwattr $C$DW$14, DW_AT_low_pc(0x00)
+     197                      .dwattr $C$DW$14, DW_AT_TI_return
+     198              
+     199 0000000a 0006          LRETR     ; [CPU_] 
+     200                      ; return occurs ; [] 
+     201                      .dwattr $C$DW$10, DW_AT_TI_end_file("../drivers/source/cpu.c")
+     202                      .dwattr $C$DW$10, DW_AT_TI_end_line(0x91)
+     203                      .dwattr $C$DW$10, DW_AT_TI_end_column(0x01)
+     204                      .dwendentry
+     205                      .dwendtag $C$DW$10
+     206              
+     207 0000000b               .sect   ".text"
+     208                      .clink
+     209                      .global _CPU_enableGlobalInts
+     210              
+     211              $C$DW$15        .dwtag  DW_TAG_subprogram
+     212                      .dwattr $C$DW$15, DW_AT_name("CPU_enableGlobalInts")
+     213                      .dwattr $C$DW$15, DW_AT_low_pc(_CPU_enableGlobalInts)
+     214                      .dwattr $C$DW$15, DW_AT_high_pc(0x00)
+     215                      .dwattr $C$DW$15, DW_AT_TI_symbol_name("_CPU_enableGlobalInts")
+     216                      .dwattr $C$DW$15, DW_AT_external
+     217                      .dwattr $C$DW$15, DW_AT_TI_begin_file("../drivers/source/cpu.c")
+     218                      .dwattr $C$DW$15, DW_AT_TI_begin_line(0x80)
+     219                      .dwattr $C$DW$15, DW_AT_TI_begin_column(0x06)
+     220                      .dwattr $C$DW$15, DW_AT_TI_max_frame_size(-2)
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE    5
+
+     221                      .dwpsn  file "../drivers/source/cpu.c",line 129,column 1,is_stmt,address _CPU_enableGlobalInts,isa 0
+     222              
+     223                      .dwfde $C$DW$CIE, _CPU_enableGlobalInts
+     224              $C$DW$16        .dwtag  DW_TAG_formal_parameter
+     225                      .dwattr $C$DW$16, DW_AT_name("cpuHandle")
+     226                      .dwattr $C$DW$16, DW_AT_TI_symbol_name("_cpuHandle")
+     227                      .dwattr $C$DW$16, DW_AT_type(*$C$DW$T$27)
+     228                      .dwattr $C$DW$16, DW_AT_location[DW_OP_reg12]
+     229              
+     230              
+     231              ;***************************************************************
+     232              ;* FNAME: _CPU_enableGlobalInts         FR SIZE:   0           *
+     233              ;*                                                             *
+     234              ;* FUNCTION ENVIRONMENT                                        *
+     235              ;*                                                             *
+     236              ;* FUNCTION PROPERTIES                                         *
+     237              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     238              ;***************************************************************
+     239              
+     240 0000000b       _CPU_enableGlobalInts:
+     241                      .dwcfi  cfa_offset, -2
+     242                      .dwcfi  save_reg_to_mem, 26, 0
+     243 0000000b 2910   clrc INTM
+     244 0000000c FF69          SPM       #0                    ; [CPU_] 
+     245              $C$DW$17        .dwtag  DW_TAG_TI_branch
+     246                      .dwattr $C$DW$17, DW_AT_low_pc(0x00)
+     247                      .dwattr $C$DW$17, DW_AT_TI_return
+     248              
+     249 0000000d 0006          LRETR     ; [CPU_] 
+     250                      ; return occurs ; [] 
+     251                      .dwattr $C$DW$15, DW_AT_TI_end_file("../drivers/source/cpu.c")
+     252                      .dwattr $C$DW$15, DW_AT_TI_end_line(0x87)
+     253                      .dwattr $C$DW$15, DW_AT_TI_end_column(0x01)
+     254                      .dwendentry
+     255                      .dwendtag $C$DW$15
+     256              
+     257 0000000e               .sect   ".text"
+     258                      .clink
+     259                      .global _CPU_enableDebugInt
+     260              
+     261              $C$DW$18        .dwtag  DW_TAG_subprogram
+     262                      .dwattr $C$DW$18, DW_AT_name("CPU_enableDebugInt")
+     263                      .dwattr $C$DW$18, DW_AT_low_pc(_CPU_enableDebugInt)
+     264                      .dwattr $C$DW$18, DW_AT_high_pc(0x00)
+     265                      .dwattr $C$DW$18, DW_AT_TI_symbol_name("_CPU_enableDebugInt")
+     266                      .dwattr $C$DW$18, DW_AT_external
+     267                      .dwattr $C$DW$18, DW_AT_TI_begin_file("../drivers/source/cpu.c")
+     268                      .dwattr $C$DW$18, DW_AT_TI_begin_line(0x76)
+     269                      .dwattr $C$DW$18, DW_AT_TI_begin_column(0x06)
+     270                      .dwattr $C$DW$18, DW_AT_TI_max_frame_size(-2)
+     271                      .dwpsn  file "../drivers/source/cpu.c",line 119,column 1,is_stmt,address _CPU_enableDebugInt,isa 0
+     272              
+     273                      .dwfde $C$DW$CIE, _CPU_enableDebugInt
+     274              $C$DW$19        .dwtag  DW_TAG_formal_parameter
+     275                      .dwattr $C$DW$19, DW_AT_name("cpuHandle")
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE    6
+
+     276                      .dwattr $C$DW$19, DW_AT_TI_symbol_name("_cpuHandle")
+     277                      .dwattr $C$DW$19, DW_AT_type(*$C$DW$T$27)
+     278                      .dwattr $C$DW$19, DW_AT_location[DW_OP_reg12]
+     279              
+     280              
+     281              ;***************************************************************
+     282              ;* FNAME: _CPU_enableDebugInt           FR SIZE:   0           *
+     283              ;*                                                             *
+     284              ;* FUNCTION ENVIRONMENT                                        *
+     285              ;*                                                             *
+     286              ;* FUNCTION PROPERTIES                                         *
+     287              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     288              ;***************************************************************
+     289              
+     290 0000000e       _CPU_enableDebugInt:
+     291                      .dwcfi  cfa_offset, -2
+     292                      .dwcfi  save_reg_to_mem, 26, 0
+     293 0000000e 2920   clrc DBGM
+     294 0000000f FF69          SPM       #0                    ; [CPU_] 
+     295              $C$DW$20        .dwtag  DW_TAG_TI_branch
+     296                      .dwattr $C$DW$20, DW_AT_low_pc(0x00)
+     297                      .dwattr $C$DW$20, DW_AT_TI_return
+     298              
+     299 00000010 0006          LRETR     ; [CPU_] 
+     300                      ; return occurs ; [] 
+     301                      .dwattr $C$DW$18, DW_AT_TI_end_file("../drivers/source/cpu.c")
+     302                      .dwattr $C$DW$18, DW_AT_TI_end_line(0x7d)
+     303                      .dwattr $C$DW$18, DW_AT_TI_end_column(0x01)
+     304                      .dwendentry
+     305                      .dwendtag $C$DW$18
+     306              
+     307 00000011               .sect   ".text"
+     308                      .clink
+     309                      .global _CPU_disableProtectedRegisterWrite
+     310              
+     311              $C$DW$21        .dwtag  DW_TAG_subprogram
+     312                      .dwattr $C$DW$21, DW_AT_name("CPU_disableProtectedRegisterWrite")
+     313                      .dwattr $C$DW$21, DW_AT_low_pc(_CPU_disableProtectedRegisterWrite)
+     314                      .dwattr $C$DW$21, DW_AT_high_pc(0x00)
+     315                      .dwattr $C$DW$21, DW_AT_TI_symbol_name("_CPU_disableProtectedRegisterWrite")
+     316                      .dwattr $C$DW$21, DW_AT_external
+     317                      .dwattr $C$DW$21, DW_AT_TI_begin_file("../drivers/source/cpu.c")
+     318                      .dwattr $C$DW$21, DW_AT_TI_begin_line(0x6c)
+     319                      .dwattr $C$DW$21, DW_AT_TI_begin_column(0x06)
+     320                      .dwattr $C$DW$21, DW_AT_TI_max_frame_size(-2)
+     321                      .dwpsn  file "../drivers/source/cpu.c",line 109,column 1,is_stmt,address _CPU_disableProtectedRegiste
+     322              
+     323                      .dwfde $C$DW$CIE, _CPU_disableProtectedRegisterWrite
+     324              $C$DW$22        .dwtag  DW_TAG_formal_parameter
+     325                      .dwattr $C$DW$22, DW_AT_name("cpuHandle")
+     326                      .dwattr $C$DW$22, DW_AT_TI_symbol_name("_cpuHandle")
+     327                      .dwattr $C$DW$22, DW_AT_type(*$C$DW$T$27)
+     328                      .dwattr $C$DW$22, DW_AT_location[DW_OP_reg12]
+     329              
+     330              
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE    7
+
+     331              ;***************************************************************
+     332              ;* FNAME: _CPU_disableProtectedRegisterWrite FR SIZE:   0           *
+     333              ;*                                                             *
+     334              ;* FUNCTION ENVIRONMENT                                        *
+     335              ;*                                                             *
+     336              ;* FUNCTION PROPERTIES                                         *
+     337              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     338              ;***************************************************************
+     339              
+     340 00000011       _CPU_disableProtectedRegisterWrite:
+     341                      .dwcfi  cfa_offset, -2
+     342                      .dwcfi  save_reg_to_mem, 26, 0
+     343 00000011 761A   EDIS
+     344 00000012 FF69          SPM       #0                    ; [CPU_] 
+     345              $C$DW$23        .dwtag  DW_TAG_TI_branch
+     346                      .dwattr $C$DW$23, DW_AT_low_pc(0x00)
+     347                      .dwattr $C$DW$23, DW_AT_TI_return
+     348              
+     349 00000013 0006          LRETR     ; [CPU_] 
+     350                      ; return occurs ; [] 
+     351                      .dwattr $C$DW$21, DW_AT_TI_end_file("../drivers/source/cpu.c")
+     352                      .dwattr $C$DW$21, DW_AT_TI_end_line(0x73)
+     353                      .dwattr $C$DW$21, DW_AT_TI_end_column(0x01)
+     354                      .dwendentry
+     355                      .dwendtag $C$DW$21
+     356              
+     357 00000014               .sect   ".text"
+     358                      .clink
+     359                      .global _CPU_disableInts
+     360              
+     361              $C$DW$24        .dwtag  DW_TAG_subprogram
+     362                      .dwattr $C$DW$24, DW_AT_name("CPU_disableInts")
+     363                      .dwattr $C$DW$24, DW_AT_low_pc(_CPU_disableInts)
+     364                      .dwattr $C$DW$24, DW_AT_high_pc(0x00)
+     365                      .dwattr $C$DW$24, DW_AT_TI_symbol_name("_CPU_disableInts")
+     366                      .dwattr $C$DW$24, DW_AT_external
+     367                      .dwattr $C$DW$24, DW_AT_TI_begin_file("../drivers/source/cpu.c")
+     368                      .dwattr $C$DW$24, DW_AT_TI_begin_line(0x62)
+     369                      .dwattr $C$DW$24, DW_AT_TI_begin_column(0x06)
+     370                      .dwattr $C$DW$24, DW_AT_TI_max_frame_size(-2)
+     371                      .dwpsn  file "../drivers/source/cpu.c",line 99,column 1,is_stmt,address _CPU_disableInts,isa 0
+     372              
+     373                      .dwfde $C$DW$CIE, _CPU_disableInts
+     374              $C$DW$25        .dwtag  DW_TAG_formal_parameter
+     375                      .dwattr $C$DW$25, DW_AT_name("cpuHandle")
+     376                      .dwattr $C$DW$25, DW_AT_TI_symbol_name("_cpuHandle")
+     377                      .dwattr $C$DW$25, DW_AT_type(*$C$DW$T$27)
+     378                      .dwattr $C$DW$25, DW_AT_location[DW_OP_reg12]
+     379              
+     380              
+     381              ;***************************************************************
+     382              ;* FNAME: _CPU_disableInts              FR SIZE:   0           *
+     383              ;*                                                             *
+     384              ;* FUNCTION ENVIRONMENT                                        *
+     385              ;*                                                             *
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE    8
+
+     386              ;* FUNCTION PROPERTIES                                         *
+     387              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     388              ;***************************************************************
+     389              
+     390 00000014       _CPU_disableInts:
+     391                      .dwcfi  cfa_offset, -2
+     392                      .dwcfi  save_reg_to_mem, 26, 0
+     393                      .dwpsn  file "../drivers/source/cpu.c",line 102,column 3,is_stmt,isa 0
+     394 00000014 7626          AND       IER,#0x0000           ; [CPU_] |102| 
+         00000015 0000 
+     395              $C$DW$26        .dwtag  DW_TAG_TI_branch
+     396                      .dwattr $C$DW$26, DW_AT_low_pc(0x00)
+     397                      .dwattr $C$DW$26, DW_AT_TI_return
+     398              
+     399 00000016 0006          LRETR     ; [CPU_] 
+     400                      ; return occurs ; [] 
+     401                      .dwattr $C$DW$24, DW_AT_TI_end_file("../drivers/source/cpu.c")
+     402                      .dwattr $C$DW$24, DW_AT_TI_end_line(0x69)
+     403                      .dwattr $C$DW$24, DW_AT_TI_end_column(0x01)
+     404                      .dwendentry
+     405                      .dwendtag $C$DW$24
+     406              
+     407 00000017               .sect   ".text"
+     408                      .clink
+     409                      .global _CPU_disableInt
+     410              
+     411              $C$DW$27        .dwtag  DW_TAG_subprogram
+     412                      .dwattr $C$DW$27, DW_AT_name("CPU_disableInt")
+     413                      .dwattr $C$DW$27, DW_AT_low_pc(_CPU_disableInt)
+     414                      .dwattr $C$DW$27, DW_AT_high_pc(0x00)
+     415                      .dwattr $C$DW$27, DW_AT_TI_symbol_name("_CPU_disableInt")
+     416                      .dwattr $C$DW$27, DW_AT_external
+     417                      .dwattr $C$DW$27, DW_AT_TI_begin_file("../drivers/source/cpu.c")
+     418                      .dwattr $C$DW$27, DW_AT_TI_begin_line(0x58)
+     419                      .dwattr $C$DW$27, DW_AT_TI_begin_column(0x06)
+     420                      .dwattr $C$DW$27, DW_AT_TI_max_frame_size(-2)
+     421                      .dwpsn  file "../drivers/source/cpu.c",line 89,column 1,is_stmt,address _CPU_disableInt,isa 0
+     422              
+     423                      .dwfde $C$DW$CIE, _CPU_disableInt
+     424              $C$DW$28        .dwtag  DW_TAG_formal_parameter
+     425                      .dwattr $C$DW$28, DW_AT_name("cpuHandle")
+     426                      .dwattr $C$DW$28, DW_AT_TI_symbol_name("_cpuHandle")
+     427                      .dwattr $C$DW$28, DW_AT_type(*$C$DW$T$27)
+     428                      .dwattr $C$DW$28, DW_AT_location[DW_OP_reg12]
+     429              
+     430              $C$DW$29        .dwtag  DW_TAG_formal_parameter
+     431                      .dwattr $C$DW$29, DW_AT_name("intNumber")
+     432                      .dwattr $C$DW$29, DW_AT_TI_symbol_name("_intNumber")
+     433                      .dwattr $C$DW$29, DW_AT_type(*$C$DW$T$24)
+     434                      .dwattr $C$DW$29, DW_AT_location[DW_OP_reg0]
+     435              
+     436              
+     437              ;***************************************************************
+     438              ;* FNAME: _CPU_disableInt               FR SIZE:   0           *
+     439              ;*                                                             *
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE    9
+
+     440              ;* FUNCTION ENVIRONMENT                                        *
+     441              ;*                                                             *
+     442              ;* FUNCTION PROPERTIES                                         *
+     443              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     444              ;***************************************************************
+     445              
+     446 00000017       _CPU_disableInt:
+     447                      .dwcfi  cfa_offset, -2
+     448                      .dwcfi  save_reg_to_mem, 26, 0
+     449                      .dwpsn  file "../drivers/source/cpu.c",line 92,column 3,is_stmt,isa 0
+     450 00000017 20A8          MOV       AH,IER                ; [CPU_] |92| 
+     451 00000018 FF5E          NOT       AL                    ; [CPU_] |92| 
+     452 00000019 CEA8          AND       AL,AH                 ; [CPU_] |92| 
+     453 0000001a 23A9          MOV       IER,AL                ; [CPU_] |92| 
+     454              $C$DW$30        .dwtag  DW_TAG_TI_branch
+     455                      .dwattr $C$DW$30, DW_AT_low_pc(0x00)
+     456                      .dwattr $C$DW$30, DW_AT_TI_return
+     457              
+     458 0000001b 0006          LRETR     ; [CPU_] 
+     459                      ; return occurs ; [] 
+     460                      .dwattr $C$DW$27, DW_AT_TI_end_file("../drivers/source/cpu.c")
+     461                      .dwattr $C$DW$27, DW_AT_TI_end_line(0x5f)
+     462                      .dwattr $C$DW$27, DW_AT_TI_end_column(0x01)
+     463                      .dwendentry
+     464                      .dwendtag $C$DW$27
+     465              
+     466 0000001c               .sect   ".text"
+     467                      .clink
+     468                      .global _CPU_disableGlobalInts
+     469              
+     470              $C$DW$31        .dwtag  DW_TAG_subprogram
+     471                      .dwattr $C$DW$31, DW_AT_name("CPU_disableGlobalInts")
+     472                      .dwattr $C$DW$31, DW_AT_low_pc(_CPU_disableGlobalInts)
+     473                      .dwattr $C$DW$31, DW_AT_high_pc(0x00)
+     474                      .dwattr $C$DW$31, DW_AT_TI_symbol_name("_CPU_disableGlobalInts")
+     475                      .dwattr $C$DW$31, DW_AT_external
+     476                      .dwattr $C$DW$31, DW_AT_TI_begin_file("../drivers/source/cpu.c")
+     477                      .dwattr $C$DW$31, DW_AT_TI_begin_line(0x4e)
+     478                      .dwattr $C$DW$31, DW_AT_TI_begin_column(0x06)
+     479                      .dwattr $C$DW$31, DW_AT_TI_max_frame_size(-2)
+     480                      .dwpsn  file "../drivers/source/cpu.c",line 79,column 1,is_stmt,address _CPU_disableGlobalInts,isa 0
+     481              
+     482                      .dwfde $C$DW$CIE, _CPU_disableGlobalInts
+     483              $C$DW$32        .dwtag  DW_TAG_formal_parameter
+     484                      .dwattr $C$DW$32, DW_AT_name("cpuHandle")
+     485                      .dwattr $C$DW$32, DW_AT_TI_symbol_name("_cpuHandle")
+     486                      .dwattr $C$DW$32, DW_AT_type(*$C$DW$T$27)
+     487                      .dwattr $C$DW$32, DW_AT_location[DW_OP_reg12]
+     488              
+     489              
+     490              ;***************************************************************
+     491              ;* FNAME: _CPU_disableGlobalInts        FR SIZE:   0           *
+     492              ;*                                                             *
+     493              ;* FUNCTION ENVIRONMENT                                        *
+     494              ;*                                                             *
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE   10
+
+     495              ;* FUNCTION PROPERTIES                                         *
+     496              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     497              ;***************************************************************
+     498              
+     499 0000001c       _CPU_disableGlobalInts:
+     500                      .dwcfi  cfa_offset, -2
+     501                      .dwcfi  save_reg_to_mem, 26, 0
+     502 0000001c 3B10   setc INTM
+     503 0000001d FF69          SPM       #0                    ; [CPU_] 
+     504              $C$DW$33        .dwtag  DW_TAG_TI_branch
+     505                      .dwattr $C$DW$33, DW_AT_low_pc(0x00)
+     506                      .dwattr $C$DW$33, DW_AT_TI_return
+     507              
+     508 0000001e 0006          LRETR     ; [CPU_] 
+     509                      ; return occurs ; [] 
+     510                      .dwattr $C$DW$31, DW_AT_TI_end_file("../drivers/source/cpu.c")
+     511                      .dwattr $C$DW$31, DW_AT_TI_end_line(0x55)
+     512                      .dwattr $C$DW$31, DW_AT_TI_end_column(0x01)
+     513                      .dwendentry
+     514                      .dwendtag $C$DW$31
+     515              
+     516 0000001f               .sect   ".text"
+     517                      .clink
+     518                      .global _CPU_disableDebugInt
+     519              
+     520              $C$DW$34        .dwtag  DW_TAG_subprogram
+     521                      .dwattr $C$DW$34, DW_AT_name("CPU_disableDebugInt")
+     522                      .dwattr $C$DW$34, DW_AT_low_pc(_CPU_disableDebugInt)
+     523                      .dwattr $C$DW$34, DW_AT_high_pc(0x00)
+     524                      .dwattr $C$DW$34, DW_AT_TI_symbol_name("_CPU_disableDebugInt")
+     525                      .dwattr $C$DW$34, DW_AT_external
+     526                      .dwattr $C$DW$34, DW_AT_TI_begin_file("../drivers/source/cpu.c")
+     527                      .dwattr $C$DW$34, DW_AT_TI_begin_line(0x44)
+     528                      .dwattr $C$DW$34, DW_AT_TI_begin_column(0x06)
+     529                      .dwattr $C$DW$34, DW_AT_TI_max_frame_size(-2)
+     530                      .dwpsn  file "../drivers/source/cpu.c",line 69,column 1,is_stmt,address _CPU_disableDebugInt,isa 0
+     531              
+     532                      .dwfde $C$DW$CIE, _CPU_disableDebugInt
+     533              $C$DW$35        .dwtag  DW_TAG_formal_parameter
+     534                      .dwattr $C$DW$35, DW_AT_name("cpuHandle")
+     535                      .dwattr $C$DW$35, DW_AT_TI_symbol_name("_cpuHandle")
+     536                      .dwattr $C$DW$35, DW_AT_type(*$C$DW$T$27)
+     537                      .dwattr $C$DW$35, DW_AT_location[DW_OP_reg12]
+     538              
+     539              
+     540              ;***************************************************************
+     541              ;* FNAME: _CPU_disableDebugInt          FR SIZE:   0           *
+     542              ;*                                                             *
+     543              ;* FUNCTION ENVIRONMENT                                        *
+     544              ;*                                                             *
+     545              ;* FUNCTION PROPERTIES                                         *
+     546              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     547              ;***************************************************************
+     548              
+     549 0000001f       _CPU_disableDebugInt:
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE   11
+
+     550                      .dwcfi  cfa_offset, -2
+     551                      .dwcfi  save_reg_to_mem, 26, 0
+     552 0000001f 3B20   setc DBGM
+     553 00000020 FF69          SPM       #0                    ; [CPU_] 
+     554              $C$DW$36        .dwtag  DW_TAG_TI_branch
+     555                      .dwattr $C$DW$36, DW_AT_low_pc(0x00)
+     556                      .dwattr $C$DW$36, DW_AT_TI_return
+     557              
+     558 00000021 0006          LRETR     ; [CPU_] 
+     559                      ; return occurs ; [] 
+     560                      .dwattr $C$DW$34, DW_AT_TI_end_file("../drivers/source/cpu.c")
+     561                      .dwattr $C$DW$34, DW_AT_TI_end_line(0x4b)
+     562                      .dwattr $C$DW$34, DW_AT_TI_end_column(0x01)
+     563                      .dwendentry
+     564                      .dwendtag $C$DW$34
+     565              
+     566 00000022               .sect   ".text"
+     567                      .clink
+     568                      .global _CPU_clearIntFlags
+     569              
+     570              $C$DW$37        .dwtag  DW_TAG_subprogram
+     571                      .dwattr $C$DW$37, DW_AT_name("CPU_clearIntFlags")
+     572                      .dwattr $C$DW$37, DW_AT_low_pc(_CPU_clearIntFlags)
+     573                      .dwattr $C$DW$37, DW_AT_high_pc(0x00)
+     574                      .dwattr $C$DW$37, DW_AT_TI_symbol_name("_CPU_clearIntFlags")
+     575                      .dwattr $C$DW$37, DW_AT_external
+     576                      .dwattr $C$DW$37, DW_AT_TI_begin_file("../drivers/source/cpu.c")
+     577                      .dwattr $C$DW$37, DW_AT_TI_begin_line(0x3a)
+     578                      .dwattr $C$DW$37, DW_AT_TI_begin_column(0x06)
+     579                      .dwattr $C$DW$37, DW_AT_TI_max_frame_size(-2)
+     580                      .dwpsn  file "../drivers/source/cpu.c",line 59,column 1,is_stmt,address _CPU_clearIntFlags,isa 0
+     581              
+     582                      .dwfde $C$DW$CIE, _CPU_clearIntFlags
+     583              $C$DW$38        .dwtag  DW_TAG_formal_parameter
+     584                      .dwattr $C$DW$38, DW_AT_name("cpuHandle")
+     585                      .dwattr $C$DW$38, DW_AT_TI_symbol_name("_cpuHandle")
+     586                      .dwattr $C$DW$38, DW_AT_type(*$C$DW$T$27)
+     587                      .dwattr $C$DW$38, DW_AT_location[DW_OP_reg12]
+     588              
+     589              
+     590              ;***************************************************************
+     591              ;* FNAME: _CPU_clearIntFlags            FR SIZE:   0           *
+     592              ;*                                                             *
+     593              ;* FUNCTION ENVIRONMENT                                        *
+     594              ;*                                                             *
+     595              ;* FUNCTION PROPERTIES                                         *
+     596              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     597              ;***************************************************************
+     598              
+     599 00000022       _CPU_clearIntFlags:
+     600                      .dwcfi  cfa_offset, -2
+     601                      .dwcfi  save_reg_to_mem, 26, 0
+     602                      .dwpsn  file "../drivers/source/cpu.c",line 62,column 3,is_stmt,isa 0
+     603 00000022 762F          AND       IFR,#0x0000           ; [CPU_] |62| 
+         00000023 0000 
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE   12
+
+     604              $C$DW$39        .dwtag  DW_TAG_TI_branch
+     605                      .dwattr $C$DW$39, DW_AT_low_pc(0x00)
+     606                      .dwattr $C$DW$39, DW_AT_TI_return
+     607              
+     608 00000024 0006          LRETR     ; [CPU_] 
+     609                      ; return occurs ; [] 
+     610                      .dwattr $C$DW$37, DW_AT_TI_end_file("../drivers/source/cpu.c")
+     611                      .dwattr $C$DW$37, DW_AT_TI_end_line(0x41)
+     612                      .dwattr $C$DW$37, DW_AT_TI_end_column(0x01)
+     613                      .dwendentry
+     614                      .dwendtag $C$DW$37
+     615              
+     616              
+     617              ;***************************************************************
+     618              ;* TYPE INFORMATION                                            *
+     619              ;***************************************************************
+     620              
+     621              $C$DW$T$22      .dwtag  DW_TAG_enumeration_type
+     622                      .dwattr $C$DW$T$22, DW_AT_byte_size(0x01)
+     623              $C$DW$40        .dwtag  DW_TAG_enumerator
+     624                      .dwattr $C$DW$40, DW_AT_name("CPU_IntNumber_1")
+     625                      .dwattr $C$DW$40, DW_AT_const_value(0x01)
+     626              
+     627              $C$DW$41        .dwtag  DW_TAG_enumerator
+     628                      .dwattr $C$DW$41, DW_AT_name("CPU_IntNumber_2")
+     629                      .dwattr $C$DW$41, DW_AT_const_value(0x02)
+     630              
+     631              $C$DW$42        .dwtag  DW_TAG_enumerator
+     632                      .dwattr $C$DW$42, DW_AT_name("CPU_IntNumber_3")
+     633                      .dwattr $C$DW$42, DW_AT_const_value(0x04)
+     634              
+     635              $C$DW$43        .dwtag  DW_TAG_enumerator
+     636                      .dwattr $C$DW$43, DW_AT_name("CPU_IntNumber_4")
+     637                      .dwattr $C$DW$43, DW_AT_const_value(0x08)
+     638              
+     639              $C$DW$44        .dwtag  DW_TAG_enumerator
+     640                      .dwattr $C$DW$44, DW_AT_name("CPU_IntNumber_5")
+     641                      .dwattr $C$DW$44, DW_AT_const_value(0x10)
+     642              
+     643              $C$DW$45        .dwtag  DW_TAG_enumerator
+     644                      .dwattr $C$DW$45, DW_AT_name("CPU_IntNumber_6")
+     645                      .dwattr $C$DW$45, DW_AT_const_value(0x20)
+     646              
+     647              $C$DW$46        .dwtag  DW_TAG_enumerator
+     648                      .dwattr $C$DW$46, DW_AT_name("CPU_IntNumber_7")
+     649                      .dwattr $C$DW$46, DW_AT_const_value(0x40)
+     650              
+     651              $C$DW$47        .dwtag  DW_TAG_enumerator
+     652                      .dwattr $C$DW$47, DW_AT_name("CPU_IntNumber_8")
+     653                      .dwattr $C$DW$47, DW_AT_const_value(0x80)
+     654              
+     655              $C$DW$48        .dwtag  DW_TAG_enumerator
+     656                      .dwattr $C$DW$48, DW_AT_name("CPU_IntNumber_9")
+     657                      .dwattr $C$DW$48, DW_AT_const_value(0x100)
+     658              
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE   13
+
+     659              $C$DW$49        .dwtag  DW_TAG_enumerator
+     660                      .dwattr $C$DW$49, DW_AT_name("CPU_IntNumber_10")
+     661                      .dwattr $C$DW$49, DW_AT_const_value(0x200)
+     662              
+     663              $C$DW$50        .dwtag  DW_TAG_enumerator
+     664                      .dwattr $C$DW$50, DW_AT_name("CPU_IntNumber_11")
+     665                      .dwattr $C$DW$50, DW_AT_const_value(0x400)
+     666              
+     667              $C$DW$51        .dwtag  DW_TAG_enumerator
+     668                      .dwattr $C$DW$51, DW_AT_name("CPU_IntNumber_12")
+     669                      .dwattr $C$DW$51, DW_AT_const_value(0x800)
+     670              
+     671              $C$DW$52        .dwtag  DW_TAG_enumerator
+     672                      .dwattr $C$DW$52, DW_AT_name("CPU_IntNumber_13")
+     673                      .dwattr $C$DW$52, DW_AT_const_value(0x1000)
+     674              
+     675              $C$DW$53        .dwtag  DW_TAG_enumerator
+     676                      .dwattr $C$DW$53, DW_AT_name("CPU_IntNumber_14")
+     677                      .dwattr $C$DW$53, DW_AT_const_value(0x2000)
+     678              
+     679                      .dwendtag $C$DW$T$22
+     680              
+     681              $C$DW$T$23      .dwtag  DW_TAG_typedef
+     682                      .dwattr $C$DW$T$23, DW_AT_name("CPU_IntNumber_e")
+     683                      .dwattr $C$DW$T$23, DW_AT_type(*$C$DW$T$22)
+     684                      .dwattr $C$DW$T$23, DW_AT_language(DW_LANG_C)
+     685              
+     686              $C$DW$54        .dwtag  DW_TAG_TI_far_type
+     687                      .dwattr $C$DW$54, DW_AT_type(*$C$DW$T$23)
+     688              
+     689              $C$DW$T$24      .dwtag  DW_TAG_const_type
+     690                      .dwattr $C$DW$T$24, DW_AT_type(*$C$DW$54)
+     691              
+     692              
+     693              $C$DW$T$21      .dwtag  DW_TAG_structure_type
+     694                      .dwattr $C$DW$T$21, DW_AT_name("_CPU_Obj_")
+     695                      .dwattr $C$DW$T$21, DW_AT_byte_size(0x01)
+     696              $C$DW$55        .dwtag  DW_TAG_member
+     697                      .dwattr $C$DW$55, DW_AT_type(*$C$DW$T$20)
+     698                      .dwattr $C$DW$55, DW_AT_name("tmp")
+     699                      .dwattr $C$DW$55, DW_AT_TI_symbol_name("_tmp")
+     700                      .dwattr $C$DW$55, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+     701                      .dwattr $C$DW$55, DW_AT_accessibility(DW_ACCESS_public)
+     702              
+     703                      .dwendtag $C$DW$T$21
+     704              
+     705              $C$DW$T$25      .dwtag  DW_TAG_typedef
+     706                      .dwattr $C$DW$T$25, DW_AT_name("CPU_Obj")
+     707                      .dwattr $C$DW$T$25, DW_AT_type(*$C$DW$T$21)
+     708                      .dwattr $C$DW$T$25, DW_AT_language(DW_LANG_C)
+     709              
+     710              $C$DW$T$26      .dwtag  DW_TAG_pointer_type
+     711                      .dwattr $C$DW$T$26, DW_AT_type(*$C$DW$T$21)
+     712                      .dwattr $C$DW$T$26, DW_AT_address_class(0x20)
+     713              
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE   14
+
+     714              $C$DW$T$27      .dwtag  DW_TAG_typedef
+     715                      .dwattr $C$DW$T$27, DW_AT_name("CPU_Handle")
+     716                      .dwattr $C$DW$T$27, DW_AT_type(*$C$DW$T$26)
+     717                      .dwattr $C$DW$T$27, DW_AT_language(DW_LANG_C)
+     718              
+     719              $C$DW$T$2       .dwtag  DW_TAG_unspecified_type
+     720                      .dwattr $C$DW$T$2, DW_AT_name("void")
+     721              
+     722              $C$DW$T$3       .dwtag  DW_TAG_pointer_type
+     723                      .dwattr $C$DW$T$3, DW_AT_type(*$C$DW$T$2)
+     724                      .dwattr $C$DW$T$3, DW_AT_address_class(0x20)
+     725              
+     726              $C$DW$T$4       .dwtag  DW_TAG_base_type
+     727                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+     728                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+     729                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+     730              
+     731              $C$DW$T$5       .dwtag  DW_TAG_base_type
+     732                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+     733                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+     734                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+     735              
+     736              $C$DW$T$6       .dwtag  DW_TAG_base_type
+     737                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+     738                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+     739                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+     740              
+     741              $C$DW$T$7       .dwtag  DW_TAG_base_type
+     742                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+     743                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+     744                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+     745              
+     746              $C$DW$T$8       .dwtag  DW_TAG_base_type
+     747                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+     748                      .dwattr $C$DW$T$8, DW_AT_name("short")
+     749                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+     750              
+     751              $C$DW$T$9       .dwtag  DW_TAG_base_type
+     752                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+     753                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+     754                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+     755              
+     756              $C$DW$T$10      .dwtag  DW_TAG_base_type
+     757                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+     758                      .dwattr $C$DW$T$10, DW_AT_name("int")
+     759                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+     760              
+     761              $C$DW$T$11      .dwtag  DW_TAG_base_type
+     762                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+     763                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+     764                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+     765              
+     766              $C$DW$T$19      .dwtag  DW_TAG_typedef
+     767                      .dwattr $C$DW$T$19, DW_AT_name("uint16_t")
+     768                      .dwattr $C$DW$T$19, DW_AT_type(*$C$DW$T$11)
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE   15
+
+     769                      .dwattr $C$DW$T$19, DW_AT_language(DW_LANG_C)
+     770              
+     771              $C$DW$T$20      .dwtag  DW_TAG_typedef
+     772                      .dwattr $C$DW$T$20, DW_AT_name("uint_least8_t")
+     773                      .dwattr $C$DW$T$20, DW_AT_type(*$C$DW$T$19)
+     774                      .dwattr $C$DW$T$20, DW_AT_language(DW_LANG_C)
+     775              
+     776              $C$DW$T$12      .dwtag  DW_TAG_base_type
+     777                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+     778                      .dwattr $C$DW$T$12, DW_AT_name("long")
+     779                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+     780              
+     781              $C$DW$T$13      .dwtag  DW_TAG_base_type
+     782                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+     783                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+     784                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+     785              
+     786              $C$DW$T$28      .dwtag  DW_TAG_typedef
+     787                      .dwattr $C$DW$T$28, DW_AT_name("size_t")
+     788                      .dwattr $C$DW$T$28, DW_AT_type(*$C$DW$T$13)
+     789                      .dwattr $C$DW$T$28, DW_AT_language(DW_LANG_C)
+     790              
+     791              $C$DW$56        .dwtag  DW_TAG_TI_far_type
+     792                      .dwattr $C$DW$56, DW_AT_type(*$C$DW$T$28)
+     793              
+     794              $C$DW$T$29      .dwtag  DW_TAG_const_type
+     795                      .dwattr $C$DW$T$29, DW_AT_type(*$C$DW$56)
+     796              
+     797              $C$DW$T$14      .dwtag  DW_TAG_base_type
+     798                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+     799                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+     800                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+     801              
+     802              $C$DW$T$15      .dwtag  DW_TAG_base_type
+     803                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+     804                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+     805                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+     806              
+     807              $C$DW$T$16      .dwtag  DW_TAG_base_type
+     808                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+     809                      .dwattr $C$DW$T$16, DW_AT_name("float")
+     810                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+     811              
+     812              $C$DW$T$17      .dwtag  DW_TAG_base_type
+     813                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+     814                      .dwattr $C$DW$T$17, DW_AT_name("double")
+     815                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+     816              
+     817              $C$DW$T$18      .dwtag  DW_TAG_base_type
+     818                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+     819                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+     820                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x04)
+     821              
+     822                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+     823              
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE   16
+
+     824              ;***************************************************************
+     825              ;* DWARF CIE ENTRIES                                           *
+     826              ;***************************************************************
+     827              
+     828              $C$DW$CIE       .dwcie 26
+     829                      .dwcfi  cfa_register, 20
+     830                      .dwcfi  cfa_offset, 0
+     831                      .dwcfi  undefined, 0
+     832                      .dwcfi  undefined, 1
+     833                      .dwcfi  undefined, 2
+     834                      .dwcfi  undefined, 3
+     835                      .dwcfi  undefined, 20
+     836                      .dwcfi  undefined, 21
+     837                      .dwcfi  undefined, 22
+     838                      .dwcfi  undefined, 23
+     839                      .dwcfi  undefined, 24
+     840                      .dwcfi  undefined, 25
+     841                      .dwcfi  undefined, 26
+     842                      .dwcfi  same_value, 28
+     843                      .dwcfi  undefined, 29
+     844                      .dwcfi  undefined, 30
+     845                      .dwcfi  undefined, 31
+     846                      .dwcfi  undefined, 32
+     847                      .dwcfi  undefined, 33
+     848                      .dwcfi  undefined, 34
+     849                      .dwcfi  undefined, 35
+     850                      .dwcfi  undefined, 36
+     851                      .dwcfi  undefined, 37
+     852                      .dwcfi  undefined, 38
+     853                      .dwcfi  undefined, 75
+     854                      .dwcfi  undefined, 76
+     855                      .dwcfi  undefined, 77
+     856                      .dwcfi  undefined, 4
+     857                      .dwcfi  undefined, 5
+     858                      .dwcfi  same_value, 6
+     859                      .dwcfi  same_value, 7
+     860                      .dwcfi  same_value, 8
+     861                      .dwcfi  same_value, 9
+     862                      .dwcfi  same_value, 10
+     863                      .dwcfi  same_value, 11
+     864                      .dwcfi  undefined, 12
+     865                      .dwcfi  undefined, 13
+     866                      .dwcfi  undefined, 14
+     867                      .dwcfi  undefined, 15
+     868                      .dwcfi  undefined, 16
+     869                      .dwcfi  undefined, 17
+     870                      .dwcfi  undefined, 18
+     871                      .dwcfi  undefined, 19
+     872                      .dwendentry
+     873              
+     874              ;***************************************************************
+     875              ;* DWARF REGISTER MAP                                          *
+     876              ;***************************************************************
+     877              
+     878              $C$DW$57        .dwtag  DW_TAG_TI_assign_register
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE   17
+
+     879                      .dwattr $C$DW$57, DW_AT_name("AL")
+     880                      .dwattr $C$DW$57, DW_AT_location[DW_OP_reg0]
+     881              
+     882              $C$DW$58        .dwtag  DW_TAG_TI_assign_register
+     883                      .dwattr $C$DW$58, DW_AT_name("AH")
+     884                      .dwattr $C$DW$58, DW_AT_location[DW_OP_reg1]
+     885              
+     886              $C$DW$59        .dwtag  DW_TAG_TI_assign_register
+     887                      .dwattr $C$DW$59, DW_AT_name("PL")
+     888                      .dwattr $C$DW$59, DW_AT_location[DW_OP_reg2]
+     889              
+     890              $C$DW$60        .dwtag  DW_TAG_TI_assign_register
+     891                      .dwattr $C$DW$60, DW_AT_name("PH")
+     892                      .dwattr $C$DW$60, DW_AT_location[DW_OP_reg3]
+     893              
+     894              $C$DW$61        .dwtag  DW_TAG_TI_assign_register
+     895                      .dwattr $C$DW$61, DW_AT_name("SP")
+     896                      .dwattr $C$DW$61, DW_AT_location[DW_OP_reg20]
+     897              
+     898              $C$DW$62        .dwtag  DW_TAG_TI_assign_register
+     899                      .dwattr $C$DW$62, DW_AT_name("XT")
+     900                      .dwattr $C$DW$62, DW_AT_location[DW_OP_reg21]
+     901              
+     902              $C$DW$63        .dwtag  DW_TAG_TI_assign_register
+     903                      .dwattr $C$DW$63, DW_AT_name("T")
+     904                      .dwattr $C$DW$63, DW_AT_location[DW_OP_reg22]
+     905              
+     906              $C$DW$64        .dwtag  DW_TAG_TI_assign_register
+     907                      .dwattr $C$DW$64, DW_AT_name("ST0")
+     908                      .dwattr $C$DW$64, DW_AT_location[DW_OP_reg23]
+     909              
+     910              $C$DW$65        .dwtag  DW_TAG_TI_assign_register
+     911                      .dwattr $C$DW$65, DW_AT_name("ST1")
+     912                      .dwattr $C$DW$65, DW_AT_location[DW_OP_reg24]
+     913              
+     914              $C$DW$66        .dwtag  DW_TAG_TI_assign_register
+     915                      .dwattr $C$DW$66, DW_AT_name("PC")
+     916                      .dwattr $C$DW$66, DW_AT_location[DW_OP_reg25]
+     917              
+     918              $C$DW$67        .dwtag  DW_TAG_TI_assign_register
+     919                      .dwattr $C$DW$67, DW_AT_name("RPC")
+     920                      .dwattr $C$DW$67, DW_AT_location[DW_OP_reg26]
+     921              
+     922              $C$DW$68        .dwtag  DW_TAG_TI_assign_register
+     923                      .dwattr $C$DW$68, DW_AT_name("FP")
+     924                      .dwattr $C$DW$68, DW_AT_location[DW_OP_reg28]
+     925              
+     926              $C$DW$69        .dwtag  DW_TAG_TI_assign_register
+     927                      .dwattr $C$DW$69, DW_AT_name("DP")
+     928                      .dwattr $C$DW$69, DW_AT_location[DW_OP_reg29]
+     929              
+     930              $C$DW$70        .dwtag  DW_TAG_TI_assign_register
+     931                      .dwattr $C$DW$70, DW_AT_name("SXM")
+     932                      .dwattr $C$DW$70, DW_AT_location[DW_OP_reg30]
+     933              
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE   18
+
+     934              $C$DW$71        .dwtag  DW_TAG_TI_assign_register
+     935                      .dwattr $C$DW$71, DW_AT_name("PM")
+     936                      .dwattr $C$DW$71, DW_AT_location[DW_OP_reg31]
+     937              
+     938              $C$DW$72        .dwtag  DW_TAG_TI_assign_register
+     939                      .dwattr $C$DW$72, DW_AT_name("OVM")
+     940                      .dwattr $C$DW$72, DW_AT_location[DW_OP_regx 0x20]
+     941              
+     942              $C$DW$73        .dwtag  DW_TAG_TI_assign_register
+     943                      .dwattr $C$DW$73, DW_AT_name("PAGE0")
+     944                      .dwattr $C$DW$73, DW_AT_location[DW_OP_regx 0x21]
+     945              
+     946              $C$DW$74        .dwtag  DW_TAG_TI_assign_register
+     947                      .dwattr $C$DW$74, DW_AT_name("AMODE")
+     948                      .dwattr $C$DW$74, DW_AT_location[DW_OP_regx 0x22]
+     949              
+     950              $C$DW$75        .dwtag  DW_TAG_TI_assign_register
+     951                      .dwattr $C$DW$75, DW_AT_name("INTM")
+     952                      .dwattr $C$DW$75, DW_AT_location[DW_OP_regx 0x23]
+     953              
+     954              $C$DW$76        .dwtag  DW_TAG_TI_assign_register
+     955                      .dwattr $C$DW$76, DW_AT_name("IFR")
+     956                      .dwattr $C$DW$76, DW_AT_location[DW_OP_regx 0x24]
+     957              
+     958              $C$DW$77        .dwtag  DW_TAG_TI_assign_register
+     959                      .dwattr $C$DW$77, DW_AT_name("IER")
+     960                      .dwattr $C$DW$77, DW_AT_location[DW_OP_regx 0x25]
+     961              
+     962              $C$DW$78        .dwtag  DW_TAG_TI_assign_register
+     963                      .dwattr $C$DW$78, DW_AT_name("V")
+     964                      .dwattr $C$DW$78, DW_AT_location[DW_OP_regx 0x26]
+     965              
+     966              $C$DW$79        .dwtag  DW_TAG_TI_assign_register
+     967                      .dwattr $C$DW$79, DW_AT_name("PSEUDOH")
+     968                      .dwattr $C$DW$79, DW_AT_location[DW_OP_regx 0x4c]
+     969              
+     970              $C$DW$80        .dwtag  DW_TAG_TI_assign_register
+     971                      .dwattr $C$DW$80, DW_AT_name("VOL")
+     972                      .dwattr $C$DW$80, DW_AT_location[DW_OP_regx 0x4d]
+     973              
+     974              $C$DW$81        .dwtag  DW_TAG_TI_assign_register
+     975                      .dwattr $C$DW$81, DW_AT_name("AR0")
+     976                      .dwattr $C$DW$81, DW_AT_location[DW_OP_reg4]
+     977              
+     978              $C$DW$82        .dwtag  DW_TAG_TI_assign_register
+     979                      .dwattr $C$DW$82, DW_AT_name("XAR0")
+     980                      .dwattr $C$DW$82, DW_AT_location[DW_OP_reg5]
+     981              
+     982              $C$DW$83        .dwtag  DW_TAG_TI_assign_register
+     983                      .dwattr $C$DW$83, DW_AT_name("AR1")
+     984                      .dwattr $C$DW$83, DW_AT_location[DW_OP_reg6]
+     985              
+     986              $C$DW$84        .dwtag  DW_TAG_TI_assign_register
+     987                      .dwattr $C$DW$84, DW_AT_name("XAR1")
+     988                      .dwattr $C$DW$84, DW_AT_location[DW_OP_reg7]
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:57 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\0203210                          PAGE   19
+
+     989              
+     990              $C$DW$85        .dwtag  DW_TAG_TI_assign_register
+     991                      .dwattr $C$DW$85, DW_AT_name("AR2")
+     992                      .dwattr $C$DW$85, DW_AT_location[DW_OP_reg8]
+     993              
+     994              $C$DW$86        .dwtag  DW_TAG_TI_assign_register
+     995                      .dwattr $C$DW$86, DW_AT_name("XAR2")
+     996                      .dwattr $C$DW$86, DW_AT_location[DW_OP_reg9]
+     997              
+     998              $C$DW$87        .dwtag  DW_TAG_TI_assign_register
+     999                      .dwattr $C$DW$87, DW_AT_name("AR3")
+    1000                      .dwattr $C$DW$87, DW_AT_location[DW_OP_reg10]
+    1001              
+    1002              $C$DW$88        .dwtag  DW_TAG_TI_assign_register
+    1003                      .dwattr $C$DW$88, DW_AT_name("XAR3")
+    1004                      .dwattr $C$DW$88, DW_AT_location[DW_OP_reg11]
+    1005              
+    1006              $C$DW$89        .dwtag  DW_TAG_TI_assign_register
+    1007                      .dwattr $C$DW$89, DW_AT_name("AR4")
+    1008                      .dwattr $C$DW$89, DW_AT_location[DW_OP_reg12]
+    1009              
+    1010              $C$DW$90        .dwtag  DW_TAG_TI_assign_register
+    1011                      .dwattr $C$DW$90, DW_AT_name("XAR4")
+    1012                      .dwattr $C$DW$90, DW_AT_location[DW_OP_reg13]
+    1013              
+    1014              $C$DW$91        .dwtag  DW_TAG_TI_assign_register
+    1015                      .dwattr $C$DW$91, DW_AT_name("AR5")
+    1016                      .dwattr $C$DW$91, DW_AT_location[DW_OP_reg14]
+    1017              
+    1018              $C$DW$92        .dwtag  DW_TAG_TI_assign_register
+    1019                      .dwattr $C$DW$92, DW_AT_name("XAR5")
+    1020                      .dwattr $C$DW$92, DW_AT_location[DW_OP_reg15]
+    1021              
+    1022              $C$DW$93        .dwtag  DW_TAG_TI_assign_register
+    1023                      .dwattr $C$DW$93, DW_AT_name("AR6")
+    1024                      .dwattr $C$DW$93, DW_AT_location[DW_OP_reg16]
+    1025              
+    1026              $C$DW$94        .dwtag  DW_TAG_TI_assign_register
+    1027                      .dwattr $C$DW$94, DW_AT_name("XAR6")
+    1028                      .dwattr $C$DW$94, DW_AT_location[DW_OP_reg17]
+    1029              
+    1030              $C$DW$95        .dwtag  DW_TAG_TI_assign_register
+    1031                      .dwattr $C$DW$95, DW_AT_name("AR7")
+    1032                      .dwattr $C$DW$95, DW_AT_location[DW_OP_reg18]
+    1033              
+    1034              $C$DW$96        .dwtag  DW_TAG_TI_assign_register
+    1035                      .dwattr $C$DW$96, DW_AT_name("XAR7")
+    1036                      .dwattr $C$DW$96, DW_AT_location[DW_OP_reg19]
+    1037              
+    1038                      .dwendtag $C$DW$CU
+    1039              
+
+No Assembly Errors, No Assembly Warnings

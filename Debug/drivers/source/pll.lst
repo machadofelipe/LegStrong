@@ -1,0 +1,1809 @@
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                   PC v15.12.3.LTS *
+       3              ;* Date/Time created: Tue Sep 20 20:30:05 2016                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --abi=coffabi --float_support=softlib --hll_source=on --mem_model:code=flat --mem_mode
+       6        0002  FP      .set    XAR2
+       7              
+       8              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+       9                      .dwattr $C$DW$CU, DW_AT_name("../drivers/source/pll.c")
+      10                      .dwattr $C$DW$CU, DW_AT_producer("TI TMS320C2000 C/C++ Codegen PC v15.12.3.LTS Copyright (c) 1996-201
+      11                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      12                      .dwattr $C$DW$CU, DW_AT_comp_dir("D:\Users\MaCHaDo\Dropbox\Legstrong\drv8301\legstrong\LegStrong\Debu
+      13              ;       C:\ti\ccsv6\tools\compiler\c2000_15.12.3.LTS\bin\opt2000.exe C:\\Users\\MaCHaDo\\AppData\\Local\\Temp
+      14              ;       C:\ti\ccsv6\tools\compiler\c2000_15.12.3.LTS\bin\ac2000.exe -@C:\\Users\\MaCHaDo\\AppData\\Local\\Tem
+      15 00000000               .sect   ".text"
+      16                      .clink
+      17                      .global _PLL_setLockPeriod
+      18              
+      19              $C$DW$1 .dwtag  DW_TAG_subprogram
+      20                      .dwattr $C$DW$1, DW_AT_name("PLL_setLockPeriod")
+      21                      .dwattr $C$DW$1, DW_AT_low_pc(_PLL_setLockPeriod)
+      22                      .dwattr $C$DW$1, DW_AT_high_pc(0x00)
+      23                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_PLL_setLockPeriod")
+      24                      .dwattr $C$DW$1, DW_AT_external
+      25                      .dwattr $C$DW$1, DW_AT_TI_begin_file("../drivers/source/pll.c")
+      26                      .dwattr $C$DW$1, DW_AT_TI_begin_line(0x129)
+      27                      .dwattr $C$DW$1, DW_AT_TI_begin_column(0x06)
+      28                      .dwattr $C$DW$1, DW_AT_TI_max_frame_size(-2)
+      29                      .dwpsn  file "../drivers/source/pll.c",line 298,column 1,is_stmt,address _PLL_setLockPeriod,isa 0
+      30              
+      31                      .dwfde $C$DW$CIE, _PLL_setLockPeriod
+      32              $C$DW$2 .dwtag  DW_TAG_formal_parameter
+      33                      .dwattr $C$DW$2, DW_AT_name("pllHandle")
+      34                      .dwattr $C$DW$2, DW_AT_TI_symbol_name("_pllHandle")
+      35                      .dwattr $C$DW$2, DW_AT_type(*$C$DW$T$27)
+      36                      .dwattr $C$DW$2, DW_AT_location[DW_OP_reg12]
+      37              
+      38              $C$DW$3 .dwtag  DW_TAG_formal_parameter
+      39                      .dwattr $C$DW$3, DW_AT_name("lockPeriod")
+      40                      .dwattr $C$DW$3, DW_AT_TI_symbol_name("_lockPeriod")
+      41                      .dwattr $C$DW$3, DW_AT_type(*$C$DW$T$55)
+      42                      .dwattr $C$DW$3, DW_AT_location[DW_OP_reg0]
+      43              
+      44              
+      45              ;***************************************************************
+      46              ;* FNAME: _PLL_setLockPeriod            FR SIZE:   0           *
+      47              ;*                                                             *
+      48              ;* FUNCTION ENVIRONMENT                                        *
+      49              ;*                                                             *
+      50              ;* FUNCTION PROPERTIES                                         *
+      51              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+      52              ;***************************************************************
+      53              
+      54              _PLL_setLockPeriod:
+      55              ;* AR4   assigned to _pllHandle
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE    2
+
+      56              $C$DW$4 .dwtag  DW_TAG_variable
+      57                      .dwattr $C$DW$4, DW_AT_name("pllHandle")
+      58                      .dwattr $C$DW$4, DW_AT_TI_symbol_name("_pllHandle")
+      59                      .dwattr $C$DW$4, DW_AT_type(*$C$DW$T$45)
+      60                      .dwattr $C$DW$4, DW_AT_location[DW_OP_reg12]
+      61              
+      62              ;* AL    assigned to _lockPeriod
+      63              $C$DW$5 .dwtag  DW_TAG_variable
+      64                      .dwattr $C$DW$5, DW_AT_name("lockPeriod")
+      65                      .dwattr $C$DW$5, DW_AT_TI_symbol_name("_lockPeriod")
+      66                      .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$55)
+      67                      .dwattr $C$DW$5, DW_AT_location[DW_OP_reg0]
+      68              
+      69                      .dwcfi  cfa_offset, -2
+      70                      .dwcfi  save_reg_to_mem, 26, 0
+      71 00000000 7622   EALLOW
+      72                      .dwpsn  file "../drivers/source/pll.c",line 305,column 5,is_stmt,isa 0
+      73 00000001 96D4          MOV       *+XAR4[2],AL          ; [CPU_] |305| 
+      74 00000002 761A   EDIS
+      75 00000003 FF69          SPM       #0                    ; [CPU_] 
+      76              $C$DW$6 .dwtag  DW_TAG_TI_branch
+      77                      .dwattr $C$DW$6, DW_AT_low_pc(0x00)
+      78                      .dwattr $C$DW$6, DW_AT_TI_return
+      79              
+      80 00000004 0006          LRETR     ; [CPU_] 
+      81                      ; return occurs ; [] 
+      82                      .dwattr $C$DW$1, DW_AT_TI_end_file("../drivers/source/pll.c")
+      83                      .dwattr $C$DW$1, DW_AT_TI_end_line(0x136)
+      84                      .dwattr $C$DW$1, DW_AT_TI_end_column(0x01)
+      85                      .dwendentry
+      86                      .dwendtag $C$DW$1
+      87              
+      88 00000005               .sect   ".text"
+      89                      .clink
+      90                      .global _PLL_setDivideSelect
+      91              
+      92              $C$DW$7 .dwtag  DW_TAG_subprogram
+      93                      .dwattr $C$DW$7, DW_AT_name("PLL_setDivideSelect")
+      94                      .dwattr $C$DW$7, DW_AT_low_pc(_PLL_setDivideSelect)
+      95                      .dwattr $C$DW$7, DW_AT_high_pc(0x00)
+      96                      .dwattr $C$DW$7, DW_AT_TI_symbol_name("_PLL_setDivideSelect")
+      97                      .dwattr $C$DW$7, DW_AT_external
+      98                      .dwattr $C$DW$7, DW_AT_TI_begin_file("../drivers/source/pll.c")
+      99                      .dwattr $C$DW$7, DW_AT_TI_begin_line(0x116)
+     100                      .dwattr $C$DW$7, DW_AT_TI_begin_column(0x06)
+     101                      .dwattr $C$DW$7, DW_AT_TI_max_frame_size(-2)
+     102                      .dwpsn  file "../drivers/source/pll.c",line 279,column 1,is_stmt,address _PLL_setDivideSelect,isa 0
+     103              
+     104                      .dwfde $C$DW$CIE, _PLL_setDivideSelect
+     105              $C$DW$8 .dwtag  DW_TAG_formal_parameter
+     106                      .dwattr $C$DW$8, DW_AT_name("pllHandle")
+     107                      .dwattr $C$DW$8, DW_AT_TI_symbol_name("_pllHandle")
+     108                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$27)
+     109                      .dwattr $C$DW$8, DW_AT_location[DW_OP_reg12]
+     110              
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE    3
+
+     111              $C$DW$9 .dwtag  DW_TAG_formal_parameter
+     112                      .dwattr $C$DW$9, DW_AT_name("divSelect")
+     113                      .dwattr $C$DW$9, DW_AT_TI_symbol_name("_divSelect")
+     114                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$36)
+     115                      .dwattr $C$DW$9, DW_AT_location[DW_OP_reg0]
+     116              
+     117              
+     118              ;***************************************************************
+     119              ;* FNAME: _PLL_setDivideSelect          FR SIZE:   0           *
+     120              ;*                                                             *
+     121              ;* FUNCTION ENVIRONMENT                                        *
+     122              ;*                                                             *
+     123              ;* FUNCTION PROPERTIES                                         *
+     124              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     125              ;***************************************************************
+     126              
+     127              _PLL_setDivideSelect:
+     128              ;* AR4   assigned to _pllHandle
+     129              $C$DW$10        .dwtag  DW_TAG_variable
+     130                      .dwattr $C$DW$10, DW_AT_name("pllHandle")
+     131                      .dwattr $C$DW$10, DW_AT_TI_symbol_name("_pllHandle")
+     132                      .dwattr $C$DW$10, DW_AT_type(*$C$DW$T$45)
+     133                      .dwattr $C$DW$10, DW_AT_location[DW_OP_reg12]
+     134              
+     135              ;* AL    assigned to _divSelect
+     136              $C$DW$11        .dwtag  DW_TAG_variable
+     137                      .dwattr $C$DW$11, DW_AT_name("divSelect")
+     138                      .dwattr $C$DW$11, DW_AT_TI_symbol_name("_divSelect")
+     139                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$36)
+     140                      .dwattr $C$DW$11, DW_AT_location[DW_OP_reg0]
+     141              
+     142                      .dwcfi  cfa_offset, -2
+     143                      .dwcfi  save_reg_to_mem, 26, 0
+     144 00000005 7622   EALLOW
+     145                      .dwpsn  file "../drivers/source/pll.c",line 286,column 5,is_stmt,isa 0
+     146 00000006 18C4          AND       *+XAR4[0],#0xfe7f     ; [CPU_] |286| 
+         00000007 FE7F 
+     147                      .dwpsn  file "../drivers/source/pll.c",line 289,column 5,is_stmt,isa 0
+     148 00000008 98C4          OR        *+XAR4[0],AL          ; [CPU_] |289| 
+     149 00000009 761A   EDIS
+     150 0000000a FF69          SPM       #0                    ; [CPU_] 
+     151              $C$DW$12        .dwtag  DW_TAG_TI_branch
+     152                      .dwattr $C$DW$12, DW_AT_low_pc(0x00)
+     153                      .dwattr $C$DW$12, DW_AT_TI_return
+     154              
+     155 0000000b 0006          LRETR     ; [CPU_] 
+     156                      ; return occurs ; [] 
+     157                      .dwattr $C$DW$7, DW_AT_TI_end_file("../drivers/source/pll.c")
+     158                      .dwattr $C$DW$7, DW_AT_TI_end_line(0x126)
+     159                      .dwattr $C$DW$7, DW_AT_TI_end_column(0x01)
+     160                      .dwendentry
+     161                      .dwendtag $C$DW$7
+     162              
+     163 0000000c               .sect   ".text"
+     164                      .clink
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE    4
+
+     165                      .global _PLL_setClkFreq
+     166              
+     167              $C$DW$13        .dwtag  DW_TAG_subprogram
+     168                      .dwattr $C$DW$13, DW_AT_name("PLL_setClkFreq")
+     169                      .dwattr $C$DW$13, DW_AT_low_pc(_PLL_setClkFreq)
+     170                      .dwattr $C$DW$13, DW_AT_high_pc(0x00)
+     171                      .dwattr $C$DW$13, DW_AT_TI_symbol_name("_PLL_setClkFreq")
+     172                      .dwattr $C$DW$13, DW_AT_external
+     173                      .dwattr $C$DW$13, DW_AT_TI_begin_file("../drivers/source/pll.c")
+     174                      .dwattr $C$DW$13, DW_AT_TI_begin_line(0x106)
+     175                      .dwattr $C$DW$13, DW_AT_TI_begin_column(0x06)
+     176                      .dwattr $C$DW$13, DW_AT_TI_max_frame_size(-2)
+     177                      .dwpsn  file "../drivers/source/pll.c",line 263,column 1,is_stmt,address _PLL_setClkFreq,isa 0
+     178              
+     179                      .dwfde $C$DW$CIE, _PLL_setClkFreq
+     180              $C$DW$14        .dwtag  DW_TAG_formal_parameter
+     181                      .dwattr $C$DW$14, DW_AT_name("pllHandle")
+     182                      .dwattr $C$DW$14, DW_AT_TI_symbol_name("_pllHandle")
+     183                      .dwattr $C$DW$14, DW_AT_type(*$C$DW$T$27)
+     184                      .dwattr $C$DW$14, DW_AT_location[DW_OP_reg12]
+     185              
+     186              $C$DW$15        .dwtag  DW_TAG_formal_parameter
+     187                      .dwattr $C$DW$15, DW_AT_name("clkFreq")
+     188                      .dwattr $C$DW$15, DW_AT_TI_symbol_name("_clkFreq")
+     189                      .dwattr $C$DW$15, DW_AT_type(*$C$DW$T$25)
+     190                      .dwattr $C$DW$15, DW_AT_location[DW_OP_reg0]
+     191              
+     192              
+     193              ;***************************************************************
+     194              ;* FNAME: _PLL_setClkFreq               FR SIZE:   0           *
+     195              ;*                                                             *
+     196              ;* FUNCTION ENVIRONMENT                                        *
+     197              ;*                                                             *
+     198              ;* FUNCTION PROPERTIES                                         *
+     199              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     200              ;***************************************************************
+     201              
+     202              _PLL_setClkFreq:
+     203              ;* AR4   assigned to _pllHandle
+     204              $C$DW$16        .dwtag  DW_TAG_variable
+     205                      .dwattr $C$DW$16, DW_AT_name("pllHandle")
+     206                      .dwattr $C$DW$16, DW_AT_TI_symbol_name("_pllHandle")
+     207                      .dwattr $C$DW$16, DW_AT_type(*$C$DW$T$45)
+     208                      .dwattr $C$DW$16, DW_AT_location[DW_OP_reg12]
+     209              
+     210              ;* AL    assigned to _clkFreq
+     211              $C$DW$17        .dwtag  DW_TAG_variable
+     212                      .dwattr $C$DW$17, DW_AT_name("clkFreq")
+     213                      .dwattr $C$DW$17, DW_AT_TI_symbol_name("_clkFreq")
+     214                      .dwattr $C$DW$17, DW_AT_type(*$C$DW$T$25)
+     215                      .dwattr $C$DW$17, DW_AT_location[DW_OP_reg0]
+     216              
+     217                      .dwcfi  cfa_offset, -2
+     218                      .dwcfi  save_reg_to_mem, 26, 0
+     219 0000000c 7622   EALLOW
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE    5
+
+     220                      .dwpsn  file "../drivers/source/pll.c",line 270,column 3,is_stmt,isa 0
+     221 0000000d D010          MOVB      XAR0,#16              ; [CPU_] |270| 
+     222 0000000e 9694          MOV       *+XAR4[AR0],AL        ; [CPU_] |270| 
+     223 0000000f 761A   EDIS
+     224 00000010 FF69          SPM       #0                    ; [CPU_] 
+     225              $C$DW$18        .dwtag  DW_TAG_TI_branch
+     226                      .dwattr $C$DW$18, DW_AT_low_pc(0x00)
+     227                      .dwattr $C$DW$18, DW_AT_TI_return
+     228              
+     229 00000011 0006          LRETR     ; [CPU_] 
+     230                      ; return occurs ; [] 
+     231                      .dwattr $C$DW$13, DW_AT_TI_end_file("../drivers/source/pll.c")
+     232                      .dwattr $C$DW$13, DW_AT_TI_end_line(0x113)
+     233                      .dwattr $C$DW$13, DW_AT_TI_end_column(0x01)
+     234                      .dwendentry
+     235                      .dwendtag $C$DW$13
+     236              
+     237 00000012               .sect   ".text"
+     238                      .clink
+     239                      .global _PLL_resetClkDetect
+     240              
+     241              $C$DW$19        .dwtag  DW_TAG_subprogram
+     242                      .dwattr $C$DW$19, DW_AT_name("PLL_resetClkDetect")
+     243                      .dwattr $C$DW$19, DW_AT_low_pc(_PLL_resetClkDetect)
+     244                      .dwattr $C$DW$19, DW_AT_high_pc(0x00)
+     245                      .dwattr $C$DW$19, DW_AT_TI_symbol_name("_PLL_resetClkDetect")
+     246                      .dwattr $C$DW$19, DW_AT_external
+     247                      .dwattr $C$DW$19, DW_AT_TI_begin_file("../drivers/source/pll.c")
+     248                      .dwattr $C$DW$19, DW_AT_TI_begin_line(0xf6)
+     249                      .dwattr $C$DW$19, DW_AT_TI_begin_column(0x06)
+     250                      .dwattr $C$DW$19, DW_AT_TI_max_frame_size(-2)
+     251                      .dwpsn  file "../drivers/source/pll.c",line 247,column 1,is_stmt,address _PLL_resetClkDetect,isa 0
+     252              
+     253                      .dwfde $C$DW$CIE, _PLL_resetClkDetect
+     254              $C$DW$20        .dwtag  DW_TAG_formal_parameter
+     255                      .dwattr $C$DW$20, DW_AT_name("pllHandle")
+     256                      .dwattr $C$DW$20, DW_AT_TI_symbol_name("_pllHandle")
+     257                      .dwattr $C$DW$20, DW_AT_type(*$C$DW$T$27)
+     258                      .dwattr $C$DW$20, DW_AT_location[DW_OP_reg12]
+     259              
+     260              
+     261              ;***************************************************************
+     262              ;* FNAME: _PLL_resetClkDetect           FR SIZE:   0           *
+     263              ;*                                                             *
+     264              ;* FUNCTION ENVIRONMENT                                        *
+     265              ;*                                                             *
+     266              ;* FUNCTION PROPERTIES                                         *
+     267              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     268              ;***************************************************************
+     269              
+     270              _PLL_resetClkDetect:
+     271              ;* AR4   assigned to _pllHandle
+     272              $C$DW$21        .dwtag  DW_TAG_variable
+     273                      .dwattr $C$DW$21, DW_AT_name("pllHandle")
+     274                      .dwattr $C$DW$21, DW_AT_TI_symbol_name("_pllHandle")
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE    6
+
+     275                      .dwattr $C$DW$21, DW_AT_type(*$C$DW$T$45)
+     276                      .dwattr $C$DW$21, DW_AT_location[DW_OP_reg12]
+     277              
+     278                      .dwcfi  cfa_offset, -2
+     279                      .dwcfi  save_reg_to_mem, 26, 0
+     280 00000012 7622   EALLOW
+     281                      .dwpsn  file "../drivers/source/pll.c",line 254,column 5,is_stmt,isa 0
+     282 00000013 1AC4          OR        *+XAR4[0],#0x0010     ; [CPU_] |254| 
+         00000014 0010 
+     283 00000015 761A   EDIS
+     284 00000016 FF69          SPM       #0                    ; [CPU_] 
+     285              $C$DW$22        .dwtag  DW_TAG_TI_branch
+     286                      .dwattr $C$DW$22, DW_AT_low_pc(0x00)
+     287                      .dwattr $C$DW$22, DW_AT_TI_return
+     288              
+     289 00000017 0006          LRETR     ; [CPU_] 
+     290                      ; return occurs ; [] 
+     291                      .dwattr $C$DW$19, DW_AT_TI_end_file("../drivers/source/pll.c")
+     292                      .dwattr $C$DW$19, DW_AT_TI_end_line(0x103)
+     293                      .dwattr $C$DW$19, DW_AT_TI_end_column(0x01)
+     294                      .dwendentry
+     295                      .dwendtag $C$DW$19
+     296              
+     297 00000018               .sect   ".text"
+     298                      .clink
+     299                      .global _PLL_init
+     300              
+     301              $C$DW$23        .dwtag  DW_TAG_subprogram
+     302                      .dwattr $C$DW$23, DW_AT_name("PLL_init")
+     303                      .dwattr $C$DW$23, DW_AT_low_pc(_PLL_init)
+     304                      .dwattr $C$DW$23, DW_AT_high_pc(0x00)
+     305                      .dwattr $C$DW$23, DW_AT_TI_symbol_name("_PLL_init")
+     306                      .dwattr $C$DW$23, DW_AT_external
+     307                      .dwattr $C$DW$23, DW_AT_type(*$C$DW$T$27)
+     308                      .dwattr $C$DW$23, DW_AT_TI_begin_file("../drivers/source/pll.c")
+     309                      .dwattr $C$DW$23, DW_AT_TI_begin_line(0xe7)
+     310                      .dwattr $C$DW$23, DW_AT_TI_begin_column(0x0c)
+     311                      .dwattr $C$DW$23, DW_AT_TI_max_frame_size(-2)
+     312                      .dwpsn  file "../drivers/source/pll.c",line 232,column 1,is_stmt,address _PLL_init,isa 0
+     313              
+     314                      .dwfde $C$DW$CIE, _PLL_init
+     315              $C$DW$24        .dwtag  DW_TAG_formal_parameter
+     316                      .dwattr $C$DW$24, DW_AT_name("pMemory")
+     317                      .dwattr $C$DW$24, DW_AT_TI_symbol_name("_pMemory")
+     318                      .dwattr $C$DW$24, DW_AT_type(*$C$DW$T$3)
+     319                      .dwattr $C$DW$24, DW_AT_location[DW_OP_reg12]
+     320              
+     321              $C$DW$25        .dwtag  DW_TAG_formal_parameter
+     322                      .dwattr $C$DW$25, DW_AT_name("numBytes")
+     323                      .dwattr $C$DW$25, DW_AT_TI_symbol_name("_numBytes")
+     324                      .dwattr $C$DW$25, DW_AT_type(*$C$DW$T$47)
+     325                      .dwattr $C$DW$25, DW_AT_location[DW_OP_reg0]
+     326              
+     327              
+     328              ;***************************************************************
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE    7
+
+     329              ;* FNAME: _PLL_init                     FR SIZE:   0           *
+     330              ;*                                                             *
+     331              ;* FUNCTION ENVIRONMENT                                        *
+     332              ;*                                                             *
+     333              ;* FUNCTION PROPERTIES                                         *
+     334              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     335              ;***************************************************************
+     336              
+     337              _PLL_init:
+     338              ;* AR6   assigned to _numBytes
+     339              $C$DW$26        .dwtag  DW_TAG_variable
+     340                      .dwattr $C$DW$26, DW_AT_name("numBytes")
+     341                      .dwattr $C$DW$26, DW_AT_TI_symbol_name("_numBytes")
+     342                      .dwattr $C$DW$26, DW_AT_type(*$C$DW$T$47)
+     343                      .dwattr $C$DW$26, DW_AT_location[DW_OP_reg16]
+     344              
+     345                      .dwcfi  cfa_offset, -2
+     346                      .dwcfi  save_reg_to_mem, 26, 0
+     347 00000018 1EA6          MOVL      XAR6,ACC              ; [CPU_] |232| 
+     348                      .dwpsn  file "../drivers/source/pll.c",line 237,column 5,is_stmt,isa 0
+     349 00000019 0211          MOVB      ACC,#17               ; [CPU_] |237| 
+     350 0000001a 0FA6          CMPL      ACC,XAR6              ; [CPU_] |237| 
+     351 0000001b 6902          B         $C$L1,LOS             ; [CPU_] |237| 
+     352                      ; branchcc occurs ; [] |237| 
+     353 0000001c D400          MOVB      XAR4,#0               ; [CPU_] |237| 
+     354              $C$L1:    
+     355              $C$DW$27        .dwtag  DW_TAG_TI_branch
+     356                      .dwattr $C$DW$27, DW_AT_low_pc(0x00)
+     357                      .dwattr $C$DW$27, DW_AT_TI_return
+     358              
+     359 0000001d 0006          LRETR     ; [CPU_] 
+     360                      ; return occurs ; [] 
+     361                      .dwattr $C$DW$23, DW_AT_TI_end_file("../drivers/source/pll.c")
+     362                      .dwattr $C$DW$23, DW_AT_TI_end_line(0xf3)
+     363                      .dwattr $C$DW$23, DW_AT_TI_end_column(0x01)
+     364                      .dwendentry
+     365                      .dwendtag $C$DW$23
+     366              
+     367 0000001e               .sect   ".text"
+     368                      .clink
+     369                      .global _PLL_getLockStatus
+     370              
+     371              $C$DW$28        .dwtag  DW_TAG_subprogram
+     372                      .dwattr $C$DW$28, DW_AT_name("PLL_getLockStatus")
+     373                      .dwattr $C$DW$28, DW_AT_low_pc(_PLL_getLockStatus)
+     374                      .dwattr $C$DW$28, DW_AT_high_pc(0x00)
+     375                      .dwattr $C$DW$28, DW_AT_TI_symbol_name("_PLL_getLockStatus")
+     376                      .dwattr $C$DW$28, DW_AT_external
+     377                      .dwattr $C$DW$28, DW_AT_type(*$C$DW$T$40)
+     378                      .dwattr $C$DW$28, DW_AT_TI_begin_file("../drivers/source/pll.c")
+     379                      .dwattr $C$DW$28, DW_AT_TI_begin_line(0xdb)
+     380                      .dwattr $C$DW$28, DW_AT_TI_begin_column(0x12)
+     381                      .dwattr $C$DW$28, DW_AT_TI_max_frame_size(-2)
+     382                      .dwpsn  file "../drivers/source/pll.c",line 220,column 1,is_stmt,address _PLL_getLockStatus,isa 0
+     383              
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE    8
+
+     384                      .dwfde $C$DW$CIE, _PLL_getLockStatus
+     385              $C$DW$29        .dwtag  DW_TAG_formal_parameter
+     386                      .dwattr $C$DW$29, DW_AT_name("pllHandle")
+     387                      .dwattr $C$DW$29, DW_AT_TI_symbol_name("_pllHandle")
+     388                      .dwattr $C$DW$29, DW_AT_type(*$C$DW$T$27)
+     389                      .dwattr $C$DW$29, DW_AT_location[DW_OP_reg12]
+     390              
+     391              
+     392              ;***************************************************************
+     393              ;* FNAME: _PLL_getLockStatus            FR SIZE:   0           *
+     394              ;*                                                             *
+     395              ;* FUNCTION ENVIRONMENT                                        *
+     396              ;*                                                             *
+     397              ;* FUNCTION PROPERTIES                                         *
+     398              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     399              ;***************************************************************
+     400              
+     401              _PLL_getLockStatus:
+     402              ;* AR4   assigned to _pllHandle
+     403              $C$DW$30        .dwtag  DW_TAG_variable
+     404                      .dwattr $C$DW$30, DW_AT_name("pllHandle")
+     405                      .dwattr $C$DW$30, DW_AT_TI_symbol_name("_pllHandle")
+     406                      .dwattr $C$DW$30, DW_AT_type(*$C$DW$T$45)
+     407                      .dwattr $C$DW$30, DW_AT_location[DW_OP_reg12]
+     408              
+     409              ;* AL    assigned to _status
+     410              $C$DW$31        .dwtag  DW_TAG_variable
+     411                      .dwattr $C$DW$31, DW_AT_name("status")
+     412                      .dwattr $C$DW$31, DW_AT_TI_symbol_name("_status")
+     413                      .dwattr $C$DW$31, DW_AT_type(*$C$DW$T$40)
+     414                      .dwattr $C$DW$31, DW_AT_location[DW_OP_reg0]
+     415              
+     416                      .dwcfi  cfa_offset, -2
+     417                      .dwcfi  save_reg_to_mem, 26, 0
+     418                      .dwpsn  file "../drivers/source/pll.c",line 225,column 29,is_stmt,isa 0
+     419 0000001e CCC4          AND       AL,*+XAR4[0],#0x0001  ; [CPU_] |225| 
+         0000001f 0001 
+     420              $C$DW$32        .dwtag  DW_TAG_TI_branch
+     421                      .dwattr $C$DW$32, DW_AT_low_pc(0x00)
+     422                      .dwattr $C$DW$32, DW_AT_TI_return
+     423              
+     424 00000020 0006          LRETR     ; [CPU_] 
+     425                      ; return occurs ; [] 
+     426                      .dwattr $C$DW$28, DW_AT_TI_end_file("../drivers/source/pll.c")
+     427                      .dwattr $C$DW$28, DW_AT_TI_end_line(0xe4)
+     428                      .dwattr $C$DW$28, DW_AT_TI_end_column(0x01)
+     429                      .dwendentry
+     430                      .dwendtag $C$DW$28
+     431              
+     432 00000021               .sect   ".text"
+     433                      .clink
+     434                      .global _PLL_getDivideSelect
+     435              
+     436              $C$DW$33        .dwtag  DW_TAG_subprogram
+     437                      .dwattr $C$DW$33, DW_AT_name("PLL_getDivideSelect")
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE    9
+
+     438                      .dwattr $C$DW$33, DW_AT_low_pc(_PLL_getDivideSelect)
+     439                      .dwattr $C$DW$33, DW_AT_high_pc(0x00)
+     440                      .dwattr $C$DW$33, DW_AT_TI_symbol_name("_PLL_getDivideSelect")
+     441                      .dwattr $C$DW$33, DW_AT_external
+     442                      .dwattr $C$DW$33, DW_AT_type(*$C$DW$T$35)
+     443                      .dwattr $C$DW$33, DW_AT_TI_begin_file("../drivers/source/pll.c")
+     444                      .dwattr $C$DW$33, DW_AT_TI_begin_line(0xd0)
+     445                      .dwattr $C$DW$33, DW_AT_TI_begin_column(0x14)
+     446                      .dwattr $C$DW$33, DW_AT_TI_max_frame_size(-2)
+     447                      .dwpsn  file "../drivers/source/pll.c",line 209,column 1,is_stmt,address _PLL_getDivideSelect,isa 0
+     448              
+     449                      .dwfde $C$DW$CIE, _PLL_getDivideSelect
+     450              $C$DW$34        .dwtag  DW_TAG_formal_parameter
+     451                      .dwattr $C$DW$34, DW_AT_name("pllHandle")
+     452                      .dwattr $C$DW$34, DW_AT_TI_symbol_name("_pllHandle")
+     453                      .dwattr $C$DW$34, DW_AT_type(*$C$DW$T$27)
+     454                      .dwattr $C$DW$34, DW_AT_location[DW_OP_reg12]
+     455              
+     456              
+     457              ;***************************************************************
+     458              ;* FNAME: _PLL_getDivideSelect          FR SIZE:   0           *
+     459              ;*                                                             *
+     460              ;* FUNCTION ENVIRONMENT                                        *
+     461              ;*                                                             *
+     462              ;* FUNCTION PROPERTIES                                         *
+     463              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     464              ;***************************************************************
+     465              
+     466              _PLL_getDivideSelect:
+     467              ;* AR4   assigned to _pllHandle
+     468              $C$DW$35        .dwtag  DW_TAG_variable
+     469                      .dwattr $C$DW$35, DW_AT_name("pllHandle")
+     470                      .dwattr $C$DW$35, DW_AT_TI_symbol_name("_pllHandle")
+     471                      .dwattr $C$DW$35, DW_AT_type(*$C$DW$T$45)
+     472                      .dwattr $C$DW$35, DW_AT_location[DW_OP_reg12]
+     473              
+     474              ;* AL    assigned to _divSelect
+     475              $C$DW$36        .dwtag  DW_TAG_variable
+     476                      .dwattr $C$DW$36, DW_AT_name("divSelect")
+     477                      .dwattr $C$DW$36, DW_AT_TI_symbol_name("_divSelect")
+     478                      .dwattr $C$DW$36, DW_AT_type(*$C$DW$T$35)
+     479                      .dwattr $C$DW$36, DW_AT_location[DW_OP_reg0]
+     480              
+     481                      .dwcfi  cfa_offset, -2
+     482                      .dwcfi  save_reg_to_mem, 26, 0
+     483                      .dwpsn  file "../drivers/source/pll.c",line 213,column 34,is_stmt,isa 0
+     484 00000021 CCC4          AND       AL,*+XAR4[0],#0x0180  ; [CPU_] |213| 
+         00000022 0180 
+     485              $C$DW$37        .dwtag  DW_TAG_TI_branch
+     486                      .dwattr $C$DW$37, DW_AT_low_pc(0x00)
+     487                      .dwattr $C$DW$37, DW_AT_TI_return
+     488              
+     489 00000023 0006          LRETR     ; [CPU_] 
+     490                      ; return occurs ; [] 
+     491                      .dwattr $C$DW$33, DW_AT_TI_end_file("../drivers/source/pll.c")
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   10
+
+     492                      .dwattr $C$DW$33, DW_AT_TI_end_line(0xd8)
+     493                      .dwattr $C$DW$33, DW_AT_TI_end_column(0x01)
+     494                      .dwendentry
+     495                      .dwendtag $C$DW$33
+     496              
+     497 00000024               .sect   ".text"
+     498                      .clink
+     499                      .global _PLL_getClkStatus
+     500              
+     501              $C$DW$38        .dwtag  DW_TAG_subprogram
+     502                      .dwattr $C$DW$38, DW_AT_name("PLL_getClkStatus")
+     503                      .dwattr $C$DW$38, DW_AT_low_pc(_PLL_getClkStatus)
+     504                      .dwattr $C$DW$38, DW_AT_high_pc(0x00)
+     505                      .dwattr $C$DW$38, DW_AT_TI_symbol_name("_PLL_getClkStatus")
+     506                      .dwattr $C$DW$38, DW_AT_external
+     507                      .dwattr $C$DW$38, DW_AT_type(*$C$DW$T$31)
+     508                      .dwattr $C$DW$38, DW_AT_TI_begin_file("../drivers/source/pll.c")
+     509                      .dwattr $C$DW$38, DW_AT_TI_begin_line(0xc5)
+     510                      .dwattr $C$DW$38, DW_AT_TI_begin_column(0x11)
+     511                      .dwattr $C$DW$38, DW_AT_TI_max_frame_size(-2)
+     512                      .dwpsn  file "../drivers/source/pll.c",line 198,column 1,is_stmt,address _PLL_getClkStatus,isa 0
+     513              
+     514                      .dwfde $C$DW$CIE, _PLL_getClkStatus
+     515              $C$DW$39        .dwtag  DW_TAG_formal_parameter
+     516                      .dwattr $C$DW$39, DW_AT_name("pllHandle")
+     517                      .dwattr $C$DW$39, DW_AT_TI_symbol_name("_pllHandle")
+     518                      .dwattr $C$DW$39, DW_AT_type(*$C$DW$T$27)
+     519                      .dwattr $C$DW$39, DW_AT_location[DW_OP_reg12]
+     520              
+     521              
+     522              ;***************************************************************
+     523              ;* FNAME: _PLL_getClkStatus             FR SIZE:   0           *
+     524              ;*                                                             *
+     525              ;* FUNCTION ENVIRONMENT                                        *
+     526              ;*                                                             *
+     527              ;* FUNCTION PROPERTIES                                         *
+     528              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     529              ;***************************************************************
+     530              
+     531              _PLL_getClkStatus:
+     532              ;* AR4   assigned to _pllHandle
+     533              $C$DW$40        .dwtag  DW_TAG_variable
+     534                      .dwattr $C$DW$40, DW_AT_name("pllHandle")
+     535                      .dwattr $C$DW$40, DW_AT_TI_symbol_name("_pllHandle")
+     536                      .dwattr $C$DW$40, DW_AT_type(*$C$DW$T$45)
+     537                      .dwattr $C$DW$40, DW_AT_location[DW_OP_reg12]
+     538              
+     539              ;* AL    assigned to _status
+     540              $C$DW$41        .dwtag  DW_TAG_variable
+     541                      .dwattr $C$DW$41, DW_AT_name("status")
+     542                      .dwattr $C$DW$41, DW_AT_TI_symbol_name("_status")
+     543                      .dwattr $C$DW$41, DW_AT_type(*$C$DW$T$31)
+     544                      .dwattr $C$DW$41, DW_AT_location[DW_OP_reg0]
+     545              
+     546                      .dwcfi  cfa_offset, -2
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   11
+
+     547                      .dwcfi  save_reg_to_mem, 26, 0
+     548                      .dwpsn  file "../drivers/source/pll.c",line 202,column 28,is_stmt,isa 0
+     549 00000024 CCC4          AND       AL,*+XAR4[0],#0x0008  ; [CPU_] |202| 
+         00000025 0008 
+     550              $C$DW$42        .dwtag  DW_TAG_TI_branch
+     551                      .dwattr $C$DW$42, DW_AT_low_pc(0x00)
+     552                      .dwattr $C$DW$42, DW_AT_TI_return
+     553              
+     554 00000026 0006          LRETR     ; [CPU_] 
+     555                      ; return occurs ; [] 
+     556                      .dwattr $C$DW$38, DW_AT_TI_end_file("../drivers/source/pll.c")
+     557                      .dwattr $C$DW$38, DW_AT_TI_end_line(0xcd)
+     558                      .dwattr $C$DW$38, DW_AT_TI_end_column(0x01)
+     559                      .dwendentry
+     560                      .dwendtag $C$DW$38
+     561              
+     562 00000027               .sect   ".text"
+     563                      .clink
+     564                      .global _PLL_getClkFreq
+     565              
+     566              $C$DW$43        .dwtag  DW_TAG_subprogram
+     567                      .dwattr $C$DW$43, DW_AT_name("PLL_getClkFreq")
+     568                      .dwattr $C$DW$43, DW_AT_low_pc(_PLL_getClkFreq)
+     569                      .dwattr $C$DW$43, DW_AT_high_pc(0x00)
+     570                      .dwattr $C$DW$43, DW_AT_TI_symbol_name("_PLL_getClkFreq")
+     571                      .dwattr $C$DW$43, DW_AT_external
+     572                      .dwattr $C$DW$43, DW_AT_type(*$C$DW$T$24)
+     573                      .dwattr $C$DW$43, DW_AT_TI_begin_file("../drivers/source/pll.c")
+     574                      .dwattr $C$DW$43, DW_AT_TI_begin_line(0xb9)
+     575                      .dwattr $C$DW$43, DW_AT_TI_begin_column(0x0f)
+     576                      .dwattr $C$DW$43, DW_AT_TI_max_frame_size(-2)
+     577                      .dwpsn  file "../drivers/source/pll.c",line 186,column 1,is_stmt,address _PLL_getClkFreq,isa 0
+     578              
+     579                      .dwfde $C$DW$CIE, _PLL_getClkFreq
+     580              $C$DW$44        .dwtag  DW_TAG_formal_parameter
+     581                      .dwattr $C$DW$44, DW_AT_name("pllHandle")
+     582                      .dwattr $C$DW$44, DW_AT_TI_symbol_name("_pllHandle")
+     583                      .dwattr $C$DW$44, DW_AT_type(*$C$DW$T$27)
+     584                      .dwattr $C$DW$44, DW_AT_location[DW_OP_reg12]
+     585              
+     586              
+     587              ;***************************************************************
+     588              ;* FNAME: _PLL_getClkFreq               FR SIZE:   0           *
+     589              ;*                                                             *
+     590              ;* FUNCTION ENVIRONMENT                                        *
+     591              ;*                                                             *
+     592              ;* FUNCTION PROPERTIES                                         *
+     593              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     594              ;***************************************************************
+     595              
+     596              _PLL_getClkFreq:
+     597              ;* AR4   assigned to _pllHandle
+     598              $C$DW$45        .dwtag  DW_TAG_variable
+     599                      .dwattr $C$DW$45, DW_AT_name("pllHandle")
+     600                      .dwattr $C$DW$45, DW_AT_TI_symbol_name("_pllHandle")
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   12
+
+     601                      .dwattr $C$DW$45, DW_AT_type(*$C$DW$T$45)
+     602                      .dwattr $C$DW$45, DW_AT_location[DW_OP_reg12]
+     603              
+     604              ;* AL    assigned to _clkFreq
+     605              $C$DW$46        .dwtag  DW_TAG_variable
+     606                      .dwattr $C$DW$46, DW_AT_name("clkFreq")
+     607                      .dwattr $C$DW$46, DW_AT_TI_symbol_name("_clkFreq")
+     608                      .dwattr $C$DW$46, DW_AT_type(*$C$DW$T$24)
+     609                      .dwattr $C$DW$46, DW_AT_location[DW_OP_reg0]
+     610              
+     611                      .dwcfi  cfa_offset, -2
+     612                      .dwcfi  save_reg_to_mem, 26, 0
+     613                      .dwpsn  file "../drivers/source/pll.c",line 191,column 25,is_stmt,isa 0
+     614 00000027 D010          MOVB      XAR0,#16              ; [CPU_] |191| 
+     615 00000028 CC94          AND       AL,*+XAR4[AR0],#0x000f ; [CPU_] |191| 
+         00000029 000F 
+     616              $C$DW$47        .dwtag  DW_TAG_TI_branch
+     617                      .dwattr $C$DW$47, DW_AT_low_pc(0x00)
+     618                      .dwattr $C$DW$47, DW_AT_TI_return
+     619              
+     620 0000002a 0006          LRETR     ; [CPU_] 
+     621                      ; return occurs ; [] 
+     622                      .dwattr $C$DW$43, DW_AT_TI_end_file("../drivers/source/pll.c")
+     623                      .dwattr $C$DW$43, DW_AT_TI_end_line(0xc2)
+     624                      .dwattr $C$DW$43, DW_AT_TI_end_column(0x01)
+     625                      .dwendentry
+     626                      .dwendtag $C$DW$43
+     627              
+     628 0000002b               .sect   ".text"
+     629                      .clink
+     630                      .global _PLL_enableOsc
+     631              
+     632              $C$DW$48        .dwtag  DW_TAG_subprogram
+     633                      .dwattr $C$DW$48, DW_AT_name("PLL_enableOsc")
+     634                      .dwattr $C$DW$48, DW_AT_low_pc(_PLL_enableOsc)
+     635                      .dwattr $C$DW$48, DW_AT_high_pc(0x00)
+     636                      .dwattr $C$DW$48, DW_AT_TI_symbol_name("_PLL_enableOsc")
+     637                      .dwattr $C$DW$48, DW_AT_external
+     638                      .dwattr $C$DW$48, DW_AT_TI_begin_file("../drivers/source/pll.c")
+     639                      .dwattr $C$DW$48, DW_AT_TI_begin_line(0xa9)
+     640                      .dwattr $C$DW$48, DW_AT_TI_begin_column(0x06)
+     641                      .dwattr $C$DW$48, DW_AT_TI_max_frame_size(-2)
+     642                      .dwpsn  file "../drivers/source/pll.c",line 170,column 1,is_stmt,address _PLL_enableOsc,isa 0
+     643              
+     644                      .dwfde $C$DW$CIE, _PLL_enableOsc
+     645              $C$DW$49        .dwtag  DW_TAG_formal_parameter
+     646                      .dwattr $C$DW$49, DW_AT_name("pllHandle")
+     647                      .dwattr $C$DW$49, DW_AT_TI_symbol_name("_pllHandle")
+     648                      .dwattr $C$DW$49, DW_AT_type(*$C$DW$T$27)
+     649                      .dwattr $C$DW$49, DW_AT_location[DW_OP_reg12]
+     650              
+     651              
+     652              ;***************************************************************
+     653              ;* FNAME: _PLL_enableOsc                FR SIZE:   0           *
+     654              ;*                                                             *
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   13
+
+     655              ;* FUNCTION ENVIRONMENT                                        *
+     656              ;*                                                             *
+     657              ;* FUNCTION PROPERTIES                                         *
+     658              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     659              ;***************************************************************
+     660              
+     661              _PLL_enableOsc:
+     662              ;* AR4   assigned to _pllHandle
+     663              $C$DW$50        .dwtag  DW_TAG_variable
+     664                      .dwattr $C$DW$50, DW_AT_name("pllHandle")
+     665                      .dwattr $C$DW$50, DW_AT_TI_symbol_name("_pllHandle")
+     666                      .dwattr $C$DW$50, DW_AT_type(*$C$DW$T$45)
+     667                      .dwattr $C$DW$50, DW_AT_location[DW_OP_reg12]
+     668              
+     669                      .dwcfi  cfa_offset, -2
+     670                      .dwcfi  save_reg_to_mem, 26, 0
+     671 0000002b 7622   EALLOW
+     672                      .dwpsn  file "../drivers/source/pll.c",line 177,column 5,is_stmt,isa 0
+     673 0000002c 18C4          AND       *+XAR4[0],#0xffdf     ; [CPU_] |177| 
+         0000002d FFDF 
+     674 0000002e 761A   EDIS
+     675 0000002f FF69          SPM       #0                    ; [CPU_] 
+     676              $C$DW$51        .dwtag  DW_TAG_TI_branch
+     677                      .dwattr $C$DW$51, DW_AT_low_pc(0x00)
+     678                      .dwattr $C$DW$51, DW_AT_TI_return
+     679              
+     680 00000030 0006          LRETR     ; [CPU_] 
+     681                      ; return occurs ; [] 
+     682                      .dwattr $C$DW$48, DW_AT_TI_end_file("../drivers/source/pll.c")
+     683                      .dwattr $C$DW$48, DW_AT_TI_end_line(0xb6)
+     684                      .dwattr $C$DW$48, DW_AT_TI_end_column(0x01)
+     685                      .dwendentry
+     686                      .dwendtag $C$DW$48
+     687              
+     688 00000031               .sect   ".text"
+     689                      .clink
+     690                      .global _PLL_enableNormRdy
+     691              
+     692              $C$DW$52        .dwtag  DW_TAG_subprogram
+     693                      .dwattr $C$DW$52, DW_AT_name("PLL_enableNormRdy")
+     694                      .dwattr $C$DW$52, DW_AT_low_pc(_PLL_enableNormRdy)
+     695                      .dwattr $C$DW$52, DW_AT_high_pc(0x00)
+     696                      .dwattr $C$DW$52, DW_AT_TI_symbol_name("_PLL_enableNormRdy")
+     697                      .dwattr $C$DW$52, DW_AT_external
+     698                      .dwattr $C$DW$52, DW_AT_TI_begin_file("../drivers/source/pll.c")
+     699                      .dwattr $C$DW$52, DW_AT_TI_begin_line(0x99)
+     700                      .dwattr $C$DW$52, DW_AT_TI_begin_column(0x06)
+     701                      .dwattr $C$DW$52, DW_AT_TI_max_frame_size(-2)
+     702                      .dwpsn  file "../drivers/source/pll.c",line 154,column 1,is_stmt,address _PLL_enableNormRdy,isa 0
+     703              
+     704                      .dwfde $C$DW$CIE, _PLL_enableNormRdy
+     705              $C$DW$53        .dwtag  DW_TAG_formal_parameter
+     706                      .dwattr $C$DW$53, DW_AT_name("pllHandle")
+     707                      .dwattr $C$DW$53, DW_AT_TI_symbol_name("_pllHandle")
+     708                      .dwattr $C$DW$53, DW_AT_type(*$C$DW$T$27)
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   14
+
+     709                      .dwattr $C$DW$53, DW_AT_location[DW_OP_reg12]
+     710              
+     711              
+     712              ;***************************************************************
+     713              ;* FNAME: _PLL_enableNormRdy            FR SIZE:   0           *
+     714              ;*                                                             *
+     715              ;* FUNCTION ENVIRONMENT                                        *
+     716              ;*                                                             *
+     717              ;* FUNCTION PROPERTIES                                         *
+     718              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     719              ;***************************************************************
+     720              
+     721              _PLL_enableNormRdy:
+     722              ;* AR4   assigned to _pllHandle
+     723              $C$DW$54        .dwtag  DW_TAG_variable
+     724                      .dwattr $C$DW$54, DW_AT_name("pllHandle")
+     725                      .dwattr $C$DW$54, DW_AT_TI_symbol_name("_pllHandle")
+     726                      .dwattr $C$DW$54, DW_AT_type(*$C$DW$T$45)
+     727                      .dwattr $C$DW$54, DW_AT_location[DW_OP_reg12]
+     728              
+     729                      .dwcfi  cfa_offset, -2
+     730                      .dwcfi  save_reg_to_mem, 26, 0
+     731 00000031 7622   EALLOW
+     732                      .dwpsn  file "../drivers/source/pll.c",line 161,column 5,is_stmt,isa 0
+     733 00000032 1AC4          OR        *+XAR4[0],#0x8000     ; [CPU_] |161| 
+         00000033 8000 
+     734 00000034 761A   EDIS
+     735 00000035 FF69          SPM       #0                    ; [CPU_] 
+     736              $C$DW$55        .dwtag  DW_TAG_TI_branch
+     737                      .dwattr $C$DW$55, DW_AT_low_pc(0x00)
+     738                      .dwattr $C$DW$55, DW_AT_TI_return
+     739              
+     740 00000036 0006          LRETR     ; [CPU_] 
+     741                      ; return occurs ; [] 
+     742                      .dwattr $C$DW$52, DW_AT_TI_end_file("../drivers/source/pll.c")
+     743                      .dwattr $C$DW$52, DW_AT_TI_end_line(0xa6)
+     744                      .dwattr $C$DW$52, DW_AT_TI_end_column(0x01)
+     745                      .dwendentry
+     746                      .dwendtag $C$DW$52
+     747              
+     748 00000037               .sect   ".text"
+     749                      .clink
+     750                      .global _PLL_enableClkDetect
+     751              
+     752              $C$DW$56        .dwtag  DW_TAG_subprogram
+     753                      .dwattr $C$DW$56, DW_AT_name("PLL_enableClkDetect")
+     754                      .dwattr $C$DW$56, DW_AT_low_pc(_PLL_enableClkDetect)
+     755                      .dwattr $C$DW$56, DW_AT_high_pc(0x00)
+     756                      .dwattr $C$DW$56, DW_AT_TI_symbol_name("_PLL_enableClkDetect")
+     757                      .dwattr $C$DW$56, DW_AT_external
+     758                      .dwattr $C$DW$56, DW_AT_TI_begin_file("../drivers/source/pll.c")
+     759                      .dwattr $C$DW$56, DW_AT_TI_begin_line(0x89)
+     760                      .dwattr $C$DW$56, DW_AT_TI_begin_column(0x06)
+     761                      .dwattr $C$DW$56, DW_AT_TI_max_frame_size(-2)
+     762                      .dwpsn  file "../drivers/source/pll.c",line 138,column 1,is_stmt,address _PLL_enableClkDetect,isa 0
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   15
+
+     763              
+     764                      .dwfde $C$DW$CIE, _PLL_enableClkDetect
+     765              $C$DW$57        .dwtag  DW_TAG_formal_parameter
+     766                      .dwattr $C$DW$57, DW_AT_name("pllHandle")
+     767                      .dwattr $C$DW$57, DW_AT_TI_symbol_name("_pllHandle")
+     768                      .dwattr $C$DW$57, DW_AT_type(*$C$DW$T$27)
+     769                      .dwattr $C$DW$57, DW_AT_location[DW_OP_reg12]
+     770              
+     771              
+     772              ;***************************************************************
+     773              ;* FNAME: _PLL_enableClkDetect          FR SIZE:   0           *
+     774              ;*                                                             *
+     775              ;* FUNCTION ENVIRONMENT                                        *
+     776              ;*                                                             *
+     777              ;* FUNCTION PROPERTIES                                         *
+     778              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     779              ;***************************************************************
+     780              
+     781              _PLL_enableClkDetect:
+     782              ;* AR4   assigned to _pllHandle
+     783              $C$DW$58        .dwtag  DW_TAG_variable
+     784                      .dwattr $C$DW$58, DW_AT_name("pllHandle")
+     785                      .dwattr $C$DW$58, DW_AT_TI_symbol_name("_pllHandle")
+     786                      .dwattr $C$DW$58, DW_AT_type(*$C$DW$T$45)
+     787                      .dwattr $C$DW$58, DW_AT_location[DW_OP_reg12]
+     788              
+     789                      .dwcfi  cfa_offset, -2
+     790                      .dwcfi  save_reg_to_mem, 26, 0
+     791 00000037 7622   EALLOW
+     792                      .dwpsn  file "../drivers/source/pll.c",line 145,column 5,is_stmt,isa 0
+     793 00000038 18C4          AND       *+XAR4[0],#0xffbf     ; [CPU_] |145| 
+         00000039 FFBF 
+     794 0000003a 761A   EDIS
+     795 0000003b FF69          SPM       #0                    ; [CPU_] 
+     796              $C$DW$59        .dwtag  DW_TAG_TI_branch
+     797                      .dwattr $C$DW$59, DW_AT_low_pc(0x00)
+     798                      .dwattr $C$DW$59, DW_AT_TI_return
+     799              
+     800 0000003c 0006          LRETR     ; [CPU_] 
+     801                      ; return occurs ; [] 
+     802                      .dwattr $C$DW$56, DW_AT_TI_end_file("../drivers/source/pll.c")
+     803                      .dwattr $C$DW$56, DW_AT_TI_end_line(0x96)
+     804                      .dwattr $C$DW$56, DW_AT_TI_end_column(0x01)
+     805                      .dwendentry
+     806                      .dwendtag $C$DW$56
+     807              
+     808 0000003d               .sect   ".text"
+     809                      .clink
+     810                      .global _PLL_enable
+     811              
+     812              $C$DW$60        .dwtag  DW_TAG_subprogram
+     813                      .dwattr $C$DW$60, DW_AT_name("PLL_enable")
+     814                      .dwattr $C$DW$60, DW_AT_low_pc(_PLL_enable)
+     815                      .dwattr $C$DW$60, DW_AT_high_pc(0x00)
+     816                      .dwattr $C$DW$60, DW_AT_TI_symbol_name("_PLL_enable")
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   16
+
+     817                      .dwattr $C$DW$60, DW_AT_external
+     818                      .dwattr $C$DW$60, DW_AT_TI_begin_file("../drivers/source/pll.c")
+     819                      .dwattr $C$DW$60, DW_AT_TI_begin_line(0x79)
+     820                      .dwattr $C$DW$60, DW_AT_TI_begin_column(0x06)
+     821                      .dwattr $C$DW$60, DW_AT_TI_max_frame_size(-2)
+     822                      .dwpsn  file "../drivers/source/pll.c",line 122,column 1,is_stmt,address _PLL_enable,isa 0
+     823              
+     824                      .dwfde $C$DW$CIE, _PLL_enable
+     825              $C$DW$61        .dwtag  DW_TAG_formal_parameter
+     826                      .dwattr $C$DW$61, DW_AT_name("pllHandle")
+     827                      .dwattr $C$DW$61, DW_AT_TI_symbol_name("_pllHandle")
+     828                      .dwattr $C$DW$61, DW_AT_type(*$C$DW$T$27)
+     829                      .dwattr $C$DW$61, DW_AT_location[DW_OP_reg12]
+     830              
+     831              
+     832              ;***************************************************************
+     833              ;* FNAME: _PLL_enable                   FR SIZE:   0           *
+     834              ;*                                                             *
+     835              ;* FUNCTION ENVIRONMENT                                        *
+     836              ;*                                                             *
+     837              ;* FUNCTION PROPERTIES                                         *
+     838              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     839              ;***************************************************************
+     840              
+     841              _PLL_enable:
+     842              ;* AR4   assigned to _pllHandle
+     843              $C$DW$62        .dwtag  DW_TAG_variable
+     844                      .dwattr $C$DW$62, DW_AT_name("pllHandle")
+     845                      .dwattr $C$DW$62, DW_AT_TI_symbol_name("_pllHandle")
+     846                      .dwattr $C$DW$62, DW_AT_type(*$C$DW$T$45)
+     847                      .dwattr $C$DW$62, DW_AT_location[DW_OP_reg12]
+     848              
+     849                      .dwcfi  cfa_offset, -2
+     850                      .dwcfi  save_reg_to_mem, 26, 0
+     851 0000003d 7622   EALLOW
+     852                      .dwpsn  file "../drivers/source/pll.c",line 129,column 5,is_stmt,isa 0
+     853 0000003e 18C4          AND       *+XAR4[0],#0xfffb     ; [CPU_] |129| 
+         0000003f FFFB 
+     854 00000040 761A   EDIS
+     855 00000041 FF69          SPM       #0                    ; [CPU_] 
+     856              $C$DW$63        .dwtag  DW_TAG_TI_branch
+     857                      .dwattr $C$DW$63, DW_AT_low_pc(0x00)
+     858                      .dwattr $C$DW$63, DW_AT_TI_return
+     859              
+     860 00000042 0006          LRETR     ; [CPU_] 
+     861                      ; return occurs ; [] 
+     862                      .dwattr $C$DW$60, DW_AT_TI_end_file("../drivers/source/pll.c")
+     863                      .dwattr $C$DW$60, DW_AT_TI_end_line(0x86)
+     864                      .dwattr $C$DW$60, DW_AT_TI_end_column(0x01)
+     865                      .dwendentry
+     866                      .dwendtag $C$DW$60
+     867              
+     868 00000043               .sect   ".text"
+     869                      .clink
+     870                      .global _PLL_disableOsc
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   17
+
+     871              
+     872              $C$DW$64        .dwtag  DW_TAG_subprogram
+     873                      .dwattr $C$DW$64, DW_AT_name("PLL_disableOsc")
+     874                      .dwattr $C$DW$64, DW_AT_low_pc(_PLL_disableOsc)
+     875                      .dwattr $C$DW$64, DW_AT_high_pc(0x00)
+     876                      .dwattr $C$DW$64, DW_AT_TI_symbol_name("_PLL_disableOsc")
+     877                      .dwattr $C$DW$64, DW_AT_external
+     878                      .dwattr $C$DW$64, DW_AT_TI_begin_file("../drivers/source/pll.c")
+     879                      .dwattr $C$DW$64, DW_AT_TI_begin_line(0x69)
+     880                      .dwattr $C$DW$64, DW_AT_TI_begin_column(0x06)
+     881                      .dwattr $C$DW$64, DW_AT_TI_max_frame_size(-2)
+     882                      .dwpsn  file "../drivers/source/pll.c",line 106,column 1,is_stmt,address _PLL_disableOsc,isa 0
+     883              
+     884                      .dwfde $C$DW$CIE, _PLL_disableOsc
+     885              $C$DW$65        .dwtag  DW_TAG_formal_parameter
+     886                      .dwattr $C$DW$65, DW_AT_name("pllHandle")
+     887                      .dwattr $C$DW$65, DW_AT_TI_symbol_name("_pllHandle")
+     888                      .dwattr $C$DW$65, DW_AT_type(*$C$DW$T$27)
+     889                      .dwattr $C$DW$65, DW_AT_location[DW_OP_reg12]
+     890              
+     891              
+     892              ;***************************************************************
+     893              ;* FNAME: _PLL_disableOsc               FR SIZE:   0           *
+     894              ;*                                                             *
+     895              ;* FUNCTION ENVIRONMENT                                        *
+     896              ;*                                                             *
+     897              ;* FUNCTION PROPERTIES                                         *
+     898              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     899              ;***************************************************************
+     900              
+     901              _PLL_disableOsc:
+     902              ;* AR4   assigned to _pllHandle
+     903              $C$DW$66        .dwtag  DW_TAG_variable
+     904                      .dwattr $C$DW$66, DW_AT_name("pllHandle")
+     905                      .dwattr $C$DW$66, DW_AT_TI_symbol_name("_pllHandle")
+     906                      .dwattr $C$DW$66, DW_AT_type(*$C$DW$T$45)
+     907                      .dwattr $C$DW$66, DW_AT_location[DW_OP_reg12]
+     908              
+     909                      .dwcfi  cfa_offset, -2
+     910                      .dwcfi  save_reg_to_mem, 26, 0
+     911 00000043 7622   EALLOW
+     912                      .dwpsn  file "../drivers/source/pll.c",line 113,column 5,is_stmt,isa 0
+     913 00000044 1AC4          OR        *+XAR4[0],#0x0020     ; [CPU_] |113| 
+         00000045 0020 
+     914 00000046 761A   EDIS
+     915 00000047 FF69          SPM       #0                    ; [CPU_] 
+     916              $C$DW$67        .dwtag  DW_TAG_TI_branch
+     917                      .dwattr $C$DW$67, DW_AT_low_pc(0x00)
+     918                      .dwattr $C$DW$67, DW_AT_TI_return
+     919              
+     920 00000048 0006          LRETR     ; [CPU_] 
+     921                      ; return occurs ; [] 
+     922                      .dwattr $C$DW$64, DW_AT_TI_end_file("../drivers/source/pll.c")
+     923                      .dwattr $C$DW$64, DW_AT_TI_end_line(0x76)
+     924                      .dwattr $C$DW$64, DW_AT_TI_end_column(0x01)
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   18
+
+     925                      .dwendentry
+     926                      .dwendtag $C$DW$64
+     927              
+     928 00000049               .sect   ".text"
+     929                      .clink
+     930                      .global _PLL_disableNormRdy
+     931              
+     932              $C$DW$68        .dwtag  DW_TAG_subprogram
+     933                      .dwattr $C$DW$68, DW_AT_name("PLL_disableNormRdy")
+     934                      .dwattr $C$DW$68, DW_AT_low_pc(_PLL_disableNormRdy)
+     935                      .dwattr $C$DW$68, DW_AT_high_pc(0x00)
+     936                      .dwattr $C$DW$68, DW_AT_TI_symbol_name("_PLL_disableNormRdy")
+     937                      .dwattr $C$DW$68, DW_AT_external
+     938                      .dwattr $C$DW$68, DW_AT_TI_begin_file("../drivers/source/pll.c")
+     939                      .dwattr $C$DW$68, DW_AT_TI_begin_line(0x59)
+     940                      .dwattr $C$DW$68, DW_AT_TI_begin_column(0x06)
+     941                      .dwattr $C$DW$68, DW_AT_TI_max_frame_size(-2)
+     942                      .dwpsn  file "../drivers/source/pll.c",line 90,column 1,is_stmt,address _PLL_disableNormRdy,isa 0
+     943              
+     944                      .dwfde $C$DW$CIE, _PLL_disableNormRdy
+     945              $C$DW$69        .dwtag  DW_TAG_formal_parameter
+     946                      .dwattr $C$DW$69, DW_AT_name("pllHandle")
+     947                      .dwattr $C$DW$69, DW_AT_TI_symbol_name("_pllHandle")
+     948                      .dwattr $C$DW$69, DW_AT_type(*$C$DW$T$27)
+     949                      .dwattr $C$DW$69, DW_AT_location[DW_OP_reg12]
+     950              
+     951              
+     952              ;***************************************************************
+     953              ;* FNAME: _PLL_disableNormRdy           FR SIZE:   0           *
+     954              ;*                                                             *
+     955              ;* FUNCTION ENVIRONMENT                                        *
+     956              ;*                                                             *
+     957              ;* FUNCTION PROPERTIES                                         *
+     958              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     959              ;***************************************************************
+     960              
+     961              _PLL_disableNormRdy:
+     962              ;* AR4   assigned to _pllHandle
+     963              $C$DW$70        .dwtag  DW_TAG_variable
+     964                      .dwattr $C$DW$70, DW_AT_name("pllHandle")
+     965                      .dwattr $C$DW$70, DW_AT_TI_symbol_name("_pllHandle")
+     966                      .dwattr $C$DW$70, DW_AT_type(*$C$DW$T$45)
+     967                      .dwattr $C$DW$70, DW_AT_location[DW_OP_reg12]
+     968              
+     969                      .dwcfi  cfa_offset, -2
+     970                      .dwcfi  save_reg_to_mem, 26, 0
+     971 00000049 7622   EALLOW
+     972                      .dwpsn  file "../drivers/source/pll.c",line 97,column 5,is_stmt,isa 0
+     973 0000004a 18C4          AND       *+XAR4[0],#0x7fff     ; [CPU_] |97| 
+         0000004b 7FFF 
+     974 0000004c 761A   EDIS
+     975 0000004d FF69          SPM       #0                    ; [CPU_] 
+     976              $C$DW$71        .dwtag  DW_TAG_TI_branch
+     977                      .dwattr $C$DW$71, DW_AT_low_pc(0x00)
+     978                      .dwattr $C$DW$71, DW_AT_TI_return
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   19
+
+     979              
+     980 0000004e 0006          LRETR     ; [CPU_] 
+     981                      ; return occurs ; [] 
+     982                      .dwattr $C$DW$68, DW_AT_TI_end_file("../drivers/source/pll.c")
+     983                      .dwattr $C$DW$68, DW_AT_TI_end_line(0x66)
+     984                      .dwattr $C$DW$68, DW_AT_TI_end_column(0x01)
+     985                      .dwendentry
+     986                      .dwendtag $C$DW$68
+     987              
+     988 0000004f               .sect   ".text"
+     989                      .clink
+     990                      .global _PLL_disableClkDetect
+     991              
+     992              $C$DW$72        .dwtag  DW_TAG_subprogram
+     993                      .dwattr $C$DW$72, DW_AT_name("PLL_disableClkDetect")
+     994                      .dwattr $C$DW$72, DW_AT_low_pc(_PLL_disableClkDetect)
+     995                      .dwattr $C$DW$72, DW_AT_high_pc(0x00)
+     996                      .dwattr $C$DW$72, DW_AT_TI_symbol_name("_PLL_disableClkDetect")
+     997                      .dwattr $C$DW$72, DW_AT_external
+     998                      .dwattr $C$DW$72, DW_AT_TI_begin_file("../drivers/source/pll.c")
+     999                      .dwattr $C$DW$72, DW_AT_TI_begin_line(0x49)
+    1000                      .dwattr $C$DW$72, DW_AT_TI_begin_column(0x06)
+    1001                      .dwattr $C$DW$72, DW_AT_TI_max_frame_size(-2)
+    1002                      .dwpsn  file "../drivers/source/pll.c",line 74,column 1,is_stmt,address _PLL_disableClkDetect,isa 0
+    1003              
+    1004                      .dwfde $C$DW$CIE, _PLL_disableClkDetect
+    1005              $C$DW$73        .dwtag  DW_TAG_formal_parameter
+    1006                      .dwattr $C$DW$73, DW_AT_name("pllHandle")
+    1007                      .dwattr $C$DW$73, DW_AT_TI_symbol_name("_pllHandle")
+    1008                      .dwattr $C$DW$73, DW_AT_type(*$C$DW$T$27)
+    1009                      .dwattr $C$DW$73, DW_AT_location[DW_OP_reg12]
+    1010              
+    1011              
+    1012              ;***************************************************************
+    1013              ;* FNAME: _PLL_disableClkDetect         FR SIZE:   0           *
+    1014              ;*                                                             *
+    1015              ;* FUNCTION ENVIRONMENT                                        *
+    1016              ;*                                                             *
+    1017              ;* FUNCTION PROPERTIES                                         *
+    1018              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+    1019              ;***************************************************************
+    1020              
+    1021              _PLL_disableClkDetect:
+    1022              ;* AR4   assigned to _pllHandle
+    1023              $C$DW$74        .dwtag  DW_TAG_variable
+    1024                      .dwattr $C$DW$74, DW_AT_name("pllHandle")
+    1025                      .dwattr $C$DW$74, DW_AT_TI_symbol_name("_pllHandle")
+    1026                      .dwattr $C$DW$74, DW_AT_type(*$C$DW$T$45)
+    1027                      .dwattr $C$DW$74, DW_AT_location[DW_OP_reg12]
+    1028              
+    1029                      .dwcfi  cfa_offset, -2
+    1030                      .dwcfi  save_reg_to_mem, 26, 0
+    1031 0000004f 7622   EALLOW
+    1032                      .dwpsn  file "../drivers/source/pll.c",line 81,column 5,is_stmt,isa 0
+    1033 00000050 1AC4          OR        *+XAR4[0],#0x0040     ; [CPU_] |81| 
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   20
+
+         00000051 0040 
+    1034 00000052 761A   EDIS
+    1035 00000053 FF69          SPM       #0                    ; [CPU_] 
+    1036              $C$DW$75        .dwtag  DW_TAG_TI_branch
+    1037                      .dwattr $C$DW$75, DW_AT_low_pc(0x00)
+    1038                      .dwattr $C$DW$75, DW_AT_TI_return
+    1039              
+    1040 00000054 0006          LRETR     ; [CPU_] 
+    1041                      ; return occurs ; [] 
+    1042                      .dwattr $C$DW$72, DW_AT_TI_end_file("../drivers/source/pll.c")
+    1043                      .dwattr $C$DW$72, DW_AT_TI_end_line(0x56)
+    1044                      .dwattr $C$DW$72, DW_AT_TI_end_column(0x01)
+    1045                      .dwendentry
+    1046                      .dwendtag $C$DW$72
+    1047              
+    1048 00000055               .sect   ".text"
+    1049                      .clink
+    1050                      .global _PLL_disable
+    1051              
+    1052              $C$DW$76        .dwtag  DW_TAG_subprogram
+    1053                      .dwattr $C$DW$76, DW_AT_name("PLL_disable")
+    1054                      .dwattr $C$DW$76, DW_AT_low_pc(_PLL_disable)
+    1055                      .dwattr $C$DW$76, DW_AT_high_pc(0x00)
+    1056                      .dwattr $C$DW$76, DW_AT_TI_symbol_name("_PLL_disable")
+    1057                      .dwattr $C$DW$76, DW_AT_external
+    1058                      .dwattr $C$DW$76, DW_AT_TI_begin_file("../drivers/source/pll.c")
+    1059                      .dwattr $C$DW$76, DW_AT_TI_begin_line(0x39)
+    1060                      .dwattr $C$DW$76, DW_AT_TI_begin_column(0x06)
+    1061                      .dwattr $C$DW$76, DW_AT_TI_max_frame_size(-2)
+    1062                      .dwpsn  file "../drivers/source/pll.c",line 58,column 1,is_stmt,address _PLL_disable,isa 0
+    1063              
+    1064                      .dwfde $C$DW$CIE, _PLL_disable
+    1065              $C$DW$77        .dwtag  DW_TAG_formal_parameter
+    1066                      .dwattr $C$DW$77, DW_AT_name("pllHandle")
+    1067                      .dwattr $C$DW$77, DW_AT_TI_symbol_name("_pllHandle")
+    1068                      .dwattr $C$DW$77, DW_AT_type(*$C$DW$T$27)
+    1069                      .dwattr $C$DW$77, DW_AT_location[DW_OP_reg12]
+    1070              
+    1071              
+    1072              ;***************************************************************
+    1073              ;* FNAME: _PLL_disable                  FR SIZE:   0           *
+    1074              ;*                                                             *
+    1075              ;* FUNCTION ENVIRONMENT                                        *
+    1076              ;*                                                             *
+    1077              ;* FUNCTION PROPERTIES                                         *
+    1078              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+    1079              ;***************************************************************
+    1080              
+    1081              _PLL_disable:
+    1082              ;* AR4   assigned to _pllHandle
+    1083              $C$DW$78        .dwtag  DW_TAG_variable
+    1084                      .dwattr $C$DW$78, DW_AT_name("pllHandle")
+    1085                      .dwattr $C$DW$78, DW_AT_TI_symbol_name("_pllHandle")
+    1086                      .dwattr $C$DW$78, DW_AT_type(*$C$DW$T$45)
+    1087                      .dwattr $C$DW$78, DW_AT_location[DW_OP_reg12]
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   21
+
+    1088              
+    1089                      .dwcfi  cfa_offset, -2
+    1090                      .dwcfi  save_reg_to_mem, 26, 0
+    1091 00000055 7622   EALLOW
+    1092                      .dwpsn  file "../drivers/source/pll.c",line 65,column 5,is_stmt,isa 0
+    1093 00000056 1AC4          OR        *+XAR4[0],#0x0004     ; [CPU_] |65| 
+         00000057 0004 
+    1094 00000058 761A   EDIS
+    1095 00000059 FF69          SPM       #0                    ; [CPU_] 
+    1096              $C$DW$79        .dwtag  DW_TAG_TI_branch
+    1097                      .dwattr $C$DW$79, DW_AT_low_pc(0x00)
+    1098                      .dwattr $C$DW$79, DW_AT_TI_return
+    1099              
+    1100 0000005a 0006          LRETR     ; [CPU_] 
+    1101                      ; return occurs ; [] 
+    1102                      .dwattr $C$DW$76, DW_AT_TI_end_file("../drivers/source/pll.c")
+    1103                      .dwattr $C$DW$76, DW_AT_TI_end_line(0x46)
+    1104                      .dwattr $C$DW$76, DW_AT_TI_end_column(0x01)
+    1105                      .dwendentry
+    1106                      .dwendtag $C$DW$76
+    1107              
+    1108              
+    1109              ;***************************************************************
+    1110              ;* TYPE INFORMATION                                            *
+    1111              ;***************************************************************
+    1112              
+    1113              $C$DW$T$23      .dwtag  DW_TAG_enumeration_type
+    1114                      .dwattr $C$DW$T$23, DW_AT_byte_size(0x01)
+    1115              $C$DW$80        .dwtag  DW_TAG_enumerator
+    1116                      .dwattr $C$DW$80, DW_AT_name("PLL_ClkFreq_5_MHz")
+    1117                      .dwattr $C$DW$80, DW_AT_const_value(0x01)
+    1118              
+    1119              $C$DW$81        .dwtag  DW_TAG_enumerator
+    1120                      .dwattr $C$DW$81, DW_AT_name("PLL_ClkFreq_10_MHz")
+    1121                      .dwattr $C$DW$81, DW_AT_const_value(0x02)
+    1122              
+    1123              $C$DW$82        .dwtag  DW_TAG_enumerator
+    1124                      .dwattr $C$DW$82, DW_AT_name("PLL_ClkFreq_15_MHz")
+    1125                      .dwattr $C$DW$82, DW_AT_const_value(0x03)
+    1126              
+    1127              $C$DW$83        .dwtag  DW_TAG_enumerator
+    1128                      .dwattr $C$DW$83, DW_AT_name("PLL_ClkFreq_20_MHz")
+    1129                      .dwattr $C$DW$83, DW_AT_const_value(0x04)
+    1130              
+    1131              $C$DW$84        .dwtag  DW_TAG_enumerator
+    1132                      .dwattr $C$DW$84, DW_AT_name("PLL_ClkFreq_25_MHz")
+    1133                      .dwattr $C$DW$84, DW_AT_const_value(0x05)
+    1134              
+    1135              $C$DW$85        .dwtag  DW_TAG_enumerator
+    1136                      .dwattr $C$DW$85, DW_AT_name("PLL_ClkFreq_30_MHz")
+    1137                      .dwattr $C$DW$85, DW_AT_const_value(0x06)
+    1138              
+    1139              $C$DW$86        .dwtag  DW_TAG_enumerator
+    1140                      .dwattr $C$DW$86, DW_AT_name("PLL_ClkFreq_35_MHz")
+    1141                      .dwattr $C$DW$86, DW_AT_const_value(0x07)
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   22
+
+    1142              
+    1143              $C$DW$87        .dwtag  DW_TAG_enumerator
+    1144                      .dwattr $C$DW$87, DW_AT_name("PLL_ClkFreq_40_MHz")
+    1145                      .dwattr $C$DW$87, DW_AT_const_value(0x08)
+    1146              
+    1147              $C$DW$88        .dwtag  DW_TAG_enumerator
+    1148                      .dwattr $C$DW$88, DW_AT_name("PLL_ClkFreq_45_MHz")
+    1149                      .dwattr $C$DW$88, DW_AT_const_value(0x09)
+    1150              
+    1151              $C$DW$89        .dwtag  DW_TAG_enumerator
+    1152                      .dwattr $C$DW$89, DW_AT_name("PLL_ClkFreq_50_MHz")
+    1153                      .dwattr $C$DW$89, DW_AT_const_value(0x0a)
+    1154              
+    1155              $C$DW$90        .dwtag  DW_TAG_enumerator
+    1156                      .dwattr $C$DW$90, DW_AT_name("PLL_ClkFreq_55_MHz")
+    1157                      .dwattr $C$DW$90, DW_AT_const_value(0x0b)
+    1158              
+    1159              $C$DW$91        .dwtag  DW_TAG_enumerator
+    1160                      .dwattr $C$DW$91, DW_AT_name("PLL_ClkFreq_60_MHz")
+    1161                      .dwattr $C$DW$91, DW_AT_const_value(0x0c)
+    1162              
+    1163                      .dwendtag $C$DW$T$23
+    1164              
+    1165              $C$DW$T$24      .dwtag  DW_TAG_typedef
+    1166                      .dwattr $C$DW$T$24, DW_AT_name("PLL_ClkFreq_e")
+    1167                      .dwattr $C$DW$T$24, DW_AT_type(*$C$DW$T$23)
+    1168                      .dwattr $C$DW$T$24, DW_AT_language(DW_LANG_C)
+    1169              
+    1170              $C$DW$92        .dwtag  DW_TAG_TI_far_type
+    1171                      .dwattr $C$DW$92, DW_AT_type(*$C$DW$T$24)
+    1172              
+    1173              $C$DW$T$25      .dwtag  DW_TAG_const_type
+    1174                      .dwattr $C$DW$T$25, DW_AT_type(*$C$DW$92)
+    1175              
+    1176              
+    1177              $C$DW$T$30      .dwtag  DW_TAG_enumeration_type
+    1178                      .dwattr $C$DW$T$30, DW_AT_byte_size(0x01)
+    1179              $C$DW$93        .dwtag  DW_TAG_enumerator
+    1180                      .dwattr $C$DW$93, DW_AT_name("PLL_ClkStatus_Normal")
+    1181                      .dwattr $C$DW$93, DW_AT_const_value(0x00)
+    1182              
+    1183              $C$DW$94        .dwtag  DW_TAG_enumerator
+    1184                      .dwattr $C$DW$94, DW_AT_name("PLL_ClkStatus_Missing")
+    1185                      .dwattr $C$DW$94, DW_AT_const_value(0x08)
+    1186              
+    1187                      .dwendtag $C$DW$T$30
+    1188              
+    1189              $C$DW$T$31      .dwtag  DW_TAG_typedef
+    1190                      .dwattr $C$DW$T$31, DW_AT_name("PLL_ClkStatus_e")
+    1191                      .dwattr $C$DW$T$31, DW_AT_type(*$C$DW$T$30)
+    1192                      .dwattr $C$DW$T$31, DW_AT_language(DW_LANG_C)
+    1193              
+    1194              
+    1195              $C$DW$T$34      .dwtag  DW_TAG_enumeration_type
+    1196                      .dwattr $C$DW$T$34, DW_AT_byte_size(0x01)
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   23
+
+    1197              $C$DW$95        .dwtag  DW_TAG_enumerator
+    1198                      .dwattr $C$DW$95, DW_AT_name("PLL_DivideSelect_ClkIn_by_4")
+    1199                      .dwattr $C$DW$95, DW_AT_const_value(0x00)
+    1200              
+    1201              $C$DW$96        .dwtag  DW_TAG_enumerator
+    1202                      .dwattr $C$DW$96, DW_AT_name("PLL_DivideSelect_ClkIn_by_2")
+    1203                      .dwattr $C$DW$96, DW_AT_const_value(0x100)
+    1204              
+    1205              $C$DW$97        .dwtag  DW_TAG_enumerator
+    1206                      .dwattr $C$DW$97, DW_AT_name("PLL_DivideSelect_ClkIn_by_1")
+    1207                      .dwattr $C$DW$97, DW_AT_const_value(0x180)
+    1208              
+    1209                      .dwendtag $C$DW$T$34
+    1210              
+    1211              $C$DW$T$35      .dwtag  DW_TAG_typedef
+    1212                      .dwattr $C$DW$T$35, DW_AT_name("PLL_DivideSelect_e")
+    1213                      .dwattr $C$DW$T$35, DW_AT_type(*$C$DW$T$34)
+    1214                      .dwattr $C$DW$T$35, DW_AT_language(DW_LANG_C)
+    1215              
+    1216              $C$DW$98        .dwtag  DW_TAG_TI_far_type
+    1217                      .dwattr $C$DW$98, DW_AT_type(*$C$DW$T$35)
+    1218              
+    1219              $C$DW$T$36      .dwtag  DW_TAG_const_type
+    1220                      .dwattr $C$DW$T$36, DW_AT_type(*$C$DW$98)
+    1221              
+    1222              
+    1223              $C$DW$T$39      .dwtag  DW_TAG_enumeration_type
+    1224                      .dwattr $C$DW$T$39, DW_AT_byte_size(0x01)
+    1225              $C$DW$99        .dwtag  DW_TAG_enumerator
+    1226                      .dwattr $C$DW$99, DW_AT_name("PLL_LockStatus_Locking")
+    1227                      .dwattr $C$DW$99, DW_AT_const_value(0x00)
+    1228              
+    1229              $C$DW$100       .dwtag  DW_TAG_enumerator
+    1230                      .dwattr $C$DW$100, DW_AT_name("PLL_LockStatus_Done")
+    1231                      .dwattr $C$DW$100, DW_AT_const_value(0x01)
+    1232              
+    1233                      .dwendtag $C$DW$T$39
+    1234              
+    1235              $C$DW$T$40      .dwtag  DW_TAG_typedef
+    1236                      .dwattr $C$DW$T$40, DW_AT_name("PLL_LockStatus_e")
+    1237                      .dwattr $C$DW$T$40, DW_AT_type(*$C$DW$T$39)
+    1238                      .dwattr $C$DW$T$40, DW_AT_language(DW_LANG_C)
+    1239              
+    1240              
+    1241              $C$DW$T$22      .dwtag  DW_TAG_structure_type
+    1242                      .dwattr $C$DW$T$22, DW_AT_name("_PLL_Obj_")
+    1243                      .dwattr $C$DW$T$22, DW_AT_byte_size(0x11)
+    1244              $C$DW$101       .dwtag  DW_TAG_member
+    1245                      .dwattr $C$DW$101, DW_AT_type(*$C$DW$T$20)
+    1246                      .dwattr $C$DW$101, DW_AT_name("PLLSTS")
+    1247                      .dwattr $C$DW$101, DW_AT_TI_symbol_name("_PLLSTS")
+    1248                      .dwattr $C$DW$101, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
+    1249                      .dwattr $C$DW$101, DW_AT_accessibility(DW_ACCESS_public)
+    1250              
+    1251              $C$DW$102       .dwtag  DW_TAG_member
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   24
+
+    1252                      .dwattr $C$DW$102, DW_AT_type(*$C$DW$T$20)
+    1253                      .dwattr $C$DW$102, DW_AT_name("rsvd_1")
+    1254                      .dwattr $C$DW$102, DW_AT_TI_symbol_name("_rsvd_1")
+    1255                      .dwattr $C$DW$102, DW_AT_data_member_location[DW_OP_plus_uconst 0x1]
+    1256                      .dwattr $C$DW$102, DW_AT_accessibility(DW_ACCESS_public)
+    1257              
+    1258              $C$DW$103       .dwtag  DW_TAG_member
+    1259                      .dwattr $C$DW$103, DW_AT_type(*$C$DW$T$20)
+    1260                      .dwattr $C$DW$103, DW_AT_name("PLLLOCKPRD")
+    1261                      .dwattr $C$DW$103, DW_AT_TI_symbol_name("_PLLLOCKPRD")
+    1262                      .dwattr $C$DW$103, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
+    1263                      .dwattr $C$DW$103, DW_AT_accessibility(DW_ACCESS_public)
+    1264              
+    1265              $C$DW$104       .dwtag  DW_TAG_member
+    1266                      .dwattr $C$DW$104, DW_AT_type(*$C$DW$T$21)
+    1267                      .dwattr $C$DW$104, DW_AT_name("rsvd_2")
+    1268                      .dwattr $C$DW$104, DW_AT_TI_symbol_name("_rsvd_2")
+    1269                      .dwattr $C$DW$104, DW_AT_data_member_location[DW_OP_plus_uconst 0x3]
+    1270                      .dwattr $C$DW$104, DW_AT_accessibility(DW_ACCESS_public)
+    1271              
+    1272              $C$DW$105       .dwtag  DW_TAG_member
+    1273                      .dwattr $C$DW$105, DW_AT_type(*$C$DW$T$20)
+    1274                      .dwattr $C$DW$105, DW_AT_name("PLLCR")
+    1275                      .dwattr $C$DW$105, DW_AT_TI_symbol_name("_PLLCR")
+    1276                      .dwattr $C$DW$105, DW_AT_data_member_location[DW_OP_plus_uconst 0x10]
+    1277                      .dwattr $C$DW$105, DW_AT_accessibility(DW_ACCESS_public)
+    1278              
+    1279                      .dwendtag $C$DW$T$22
+    1280              
+    1281              $C$DW$T$43      .dwtag  DW_TAG_typedef
+    1282                      .dwattr $C$DW$T$43, DW_AT_name("PLL_Obj")
+    1283                      .dwattr $C$DW$T$43, DW_AT_type(*$C$DW$T$22)
+    1284                      .dwattr $C$DW$T$43, DW_AT_language(DW_LANG_C)
+    1285              
+    1286              $C$DW$T$26      .dwtag  DW_TAG_pointer_type
+    1287                      .dwattr $C$DW$T$26, DW_AT_type(*$C$DW$T$22)
+    1288                      .dwattr $C$DW$T$26, DW_AT_address_class(0x20)
+    1289              
+    1290              $C$DW$T$27      .dwtag  DW_TAG_typedef
+    1291                      .dwattr $C$DW$T$27, DW_AT_name("PLL_Handle")
+    1292                      .dwattr $C$DW$T$27, DW_AT_type(*$C$DW$T$26)
+    1293                      .dwattr $C$DW$T$27, DW_AT_language(DW_LANG_C)
+    1294              
+    1295              $C$DW$106       .dwtag  DW_TAG_TI_far_type
+    1296                      .dwattr $C$DW$106, DW_AT_type(*$C$DW$T$27)
+    1297              
+    1298              $C$DW$T$45      .dwtag  DW_TAG_const_type
+    1299                      .dwattr $C$DW$T$45, DW_AT_type(*$C$DW$106)
+    1300              
+    1301              $C$DW$T$2       .dwtag  DW_TAG_unspecified_type
+    1302                      .dwattr $C$DW$T$2, DW_AT_name("void")
+    1303              
+    1304              $C$DW$T$3       .dwtag  DW_TAG_pointer_type
+    1305                      .dwattr $C$DW$T$3, DW_AT_type(*$C$DW$T$2)
+    1306                      .dwattr $C$DW$T$3, DW_AT_address_class(0x20)
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   25
+
+    1307              
+    1308              $C$DW$T$4       .dwtag  DW_TAG_base_type
+    1309                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+    1310                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+    1311                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+    1312              
+    1313              $C$DW$T$5       .dwtag  DW_TAG_base_type
+    1314                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+    1315                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+    1316                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+    1317              
+    1318              $C$DW$T$6       .dwtag  DW_TAG_base_type
+    1319                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+    1320                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+    1321                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+    1322              
+    1323              $C$DW$T$7       .dwtag  DW_TAG_base_type
+    1324                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+    1325                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+    1326                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+    1327              
+    1328              $C$DW$T$8       .dwtag  DW_TAG_base_type
+    1329                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+    1330                      .dwattr $C$DW$T$8, DW_AT_name("short")
+    1331                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+    1332              
+    1333              $C$DW$T$9       .dwtag  DW_TAG_base_type
+    1334                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+    1335                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+    1336                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+    1337              
+    1338              $C$DW$T$10      .dwtag  DW_TAG_base_type
+    1339                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+    1340                      .dwattr $C$DW$T$10, DW_AT_name("int")
+    1341                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+    1342              
+    1343              $C$DW$T$11      .dwtag  DW_TAG_base_type
+    1344                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+    1345                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+    1346                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+    1347              
+    1348              $C$DW$T$19      .dwtag  DW_TAG_typedef
+    1349                      .dwattr $C$DW$T$19, DW_AT_name("uint16_t")
+    1350                      .dwattr $C$DW$T$19, DW_AT_type(*$C$DW$T$11)
+    1351                      .dwattr $C$DW$T$19, DW_AT_language(DW_LANG_C)
+    1352              
+    1353              $C$DW$107       .dwtag  DW_TAG_TI_far_type
+    1354                      .dwattr $C$DW$107, DW_AT_type(*$C$DW$T$19)
+    1355              
+    1356              $C$DW$T$20      .dwtag  DW_TAG_volatile_type
+    1357                      .dwattr $C$DW$T$20, DW_AT_type(*$C$DW$107)
+    1358              
+    1359              
+    1360              $C$DW$T$21      .dwtag  DW_TAG_array_type
+    1361                      .dwattr $C$DW$T$21, DW_AT_type(*$C$DW$T$20)
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   26
+
+    1362                      .dwattr $C$DW$T$21, DW_AT_language(DW_LANG_C)
+    1363                      .dwattr $C$DW$T$21, DW_AT_byte_size(0x0d)
+    1364              $C$DW$108       .dwtag  DW_TAG_subrange_type
+    1365                      .dwattr $C$DW$108, DW_AT_upper_bound(0x0c)
+    1366              
+    1367                      .dwendtag $C$DW$T$21
+    1368              
+    1369              $C$DW$109       .dwtag  DW_TAG_TI_far_type
+    1370                      .dwattr $C$DW$109, DW_AT_type(*$C$DW$T$19)
+    1371              
+    1372              $C$DW$T$55      .dwtag  DW_TAG_const_type
+    1373                      .dwattr $C$DW$T$55, DW_AT_type(*$C$DW$109)
+    1374              
+    1375              $C$DW$T$12      .dwtag  DW_TAG_base_type
+    1376                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+    1377                      .dwattr $C$DW$T$12, DW_AT_name("long")
+    1378                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+    1379              
+    1380              $C$DW$T$13      .dwtag  DW_TAG_base_type
+    1381                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+    1382                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+    1383                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+    1384              
+    1385              $C$DW$T$46      .dwtag  DW_TAG_typedef
+    1386                      .dwattr $C$DW$T$46, DW_AT_name("size_t")
+    1387                      .dwattr $C$DW$T$46, DW_AT_type(*$C$DW$T$13)
+    1388                      .dwattr $C$DW$T$46, DW_AT_language(DW_LANG_C)
+    1389              
+    1390              $C$DW$110       .dwtag  DW_TAG_TI_far_type
+    1391                      .dwattr $C$DW$110, DW_AT_type(*$C$DW$T$46)
+    1392              
+    1393              $C$DW$T$47      .dwtag  DW_TAG_const_type
+    1394                      .dwattr $C$DW$T$47, DW_AT_type(*$C$DW$110)
+    1395              
+    1396              $C$DW$T$14      .dwtag  DW_TAG_base_type
+    1397                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+    1398                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+    1399                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+    1400              
+    1401              $C$DW$T$15      .dwtag  DW_TAG_base_type
+    1402                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+    1403                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+    1404                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+    1405              
+    1406              $C$DW$T$16      .dwtag  DW_TAG_base_type
+    1407                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+    1408                      .dwattr $C$DW$T$16, DW_AT_name("float")
+    1409                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+    1410              
+    1411              $C$DW$T$17      .dwtag  DW_TAG_base_type
+    1412                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+    1413                      .dwattr $C$DW$T$17, DW_AT_name("double")
+    1414                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+    1415              
+    1416              $C$DW$T$18      .dwtag  DW_TAG_base_type
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   27
+
+    1417                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+    1418                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+    1419                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x04)
+    1420              
+    1421                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+    1422              
+    1423              ;***************************************************************
+    1424              ;* DWARF CIE ENTRIES                                           *
+    1425              ;***************************************************************
+    1426              
+    1427              $C$DW$CIE       .dwcie 26
+    1428                      .dwcfi  cfa_register, 20
+    1429                      .dwcfi  cfa_offset, 0
+    1430                      .dwcfi  undefined, 0
+    1431                      .dwcfi  undefined, 1
+    1432                      .dwcfi  undefined, 2
+    1433                      .dwcfi  undefined, 3
+    1434                      .dwcfi  undefined, 20
+    1435                      .dwcfi  undefined, 21
+    1436                      .dwcfi  undefined, 22
+    1437                      .dwcfi  undefined, 23
+    1438                      .dwcfi  undefined, 24
+    1439                      .dwcfi  undefined, 25
+    1440                      .dwcfi  undefined, 26
+    1441                      .dwcfi  same_value, 28
+    1442                      .dwcfi  undefined, 29
+    1443                      .dwcfi  undefined, 30
+    1444                      .dwcfi  undefined, 31
+    1445                      .dwcfi  undefined, 32
+    1446                      .dwcfi  undefined, 33
+    1447                      .dwcfi  undefined, 34
+    1448                      .dwcfi  undefined, 35
+    1449                      .dwcfi  undefined, 36
+    1450                      .dwcfi  undefined, 37
+    1451                      .dwcfi  undefined, 38
+    1452                      .dwcfi  undefined, 75
+    1453                      .dwcfi  undefined, 76
+    1454                      .dwcfi  undefined, 77
+    1455                      .dwcfi  undefined, 4
+    1456                      .dwcfi  undefined, 5
+    1457                      .dwcfi  same_value, 6
+    1458                      .dwcfi  same_value, 7
+    1459                      .dwcfi  same_value, 8
+    1460                      .dwcfi  same_value, 9
+    1461                      .dwcfi  same_value, 10
+    1462                      .dwcfi  same_value, 11
+    1463                      .dwcfi  undefined, 12
+    1464                      .dwcfi  undefined, 13
+    1465                      .dwcfi  undefined, 14
+    1466                      .dwcfi  undefined, 15
+    1467                      .dwcfi  undefined, 16
+    1468                      .dwcfi  undefined, 17
+    1469                      .dwcfi  undefined, 18
+    1470                      .dwcfi  undefined, 19
+    1471                      .dwendentry
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   28
+
+    1472              
+    1473              ;***************************************************************
+    1474              ;* DWARF REGISTER MAP                                          *
+    1475              ;***************************************************************
+    1476              
+    1477              $C$DW$111       .dwtag  DW_TAG_TI_assign_register
+    1478                      .dwattr $C$DW$111, DW_AT_name("AL")
+    1479                      .dwattr $C$DW$111, DW_AT_location[DW_OP_reg0]
+    1480              
+    1481              $C$DW$112       .dwtag  DW_TAG_TI_assign_register
+    1482                      .dwattr $C$DW$112, DW_AT_name("AH")
+    1483                      .dwattr $C$DW$112, DW_AT_location[DW_OP_reg1]
+    1484              
+    1485              $C$DW$113       .dwtag  DW_TAG_TI_assign_register
+    1486                      .dwattr $C$DW$113, DW_AT_name("PL")
+    1487                      .dwattr $C$DW$113, DW_AT_location[DW_OP_reg2]
+    1488              
+    1489              $C$DW$114       .dwtag  DW_TAG_TI_assign_register
+    1490                      .dwattr $C$DW$114, DW_AT_name("PH")
+    1491                      .dwattr $C$DW$114, DW_AT_location[DW_OP_reg3]
+    1492              
+    1493              $C$DW$115       .dwtag  DW_TAG_TI_assign_register
+    1494                      .dwattr $C$DW$115, DW_AT_name("SP")
+    1495                      .dwattr $C$DW$115, DW_AT_location[DW_OP_reg20]
+    1496              
+    1497              $C$DW$116       .dwtag  DW_TAG_TI_assign_register
+    1498                      .dwattr $C$DW$116, DW_AT_name("XT")
+    1499                      .dwattr $C$DW$116, DW_AT_location[DW_OP_reg21]
+    1500              
+    1501              $C$DW$117       .dwtag  DW_TAG_TI_assign_register
+    1502                      .dwattr $C$DW$117, DW_AT_name("T")
+    1503                      .dwattr $C$DW$117, DW_AT_location[DW_OP_reg22]
+    1504              
+    1505              $C$DW$118       .dwtag  DW_TAG_TI_assign_register
+    1506                      .dwattr $C$DW$118, DW_AT_name("ST0")
+    1507                      .dwattr $C$DW$118, DW_AT_location[DW_OP_reg23]
+    1508              
+    1509              $C$DW$119       .dwtag  DW_TAG_TI_assign_register
+    1510                      .dwattr $C$DW$119, DW_AT_name("ST1")
+    1511                      .dwattr $C$DW$119, DW_AT_location[DW_OP_reg24]
+    1512              
+    1513              $C$DW$120       .dwtag  DW_TAG_TI_assign_register
+    1514                      .dwattr $C$DW$120, DW_AT_name("PC")
+    1515                      .dwattr $C$DW$120, DW_AT_location[DW_OP_reg25]
+    1516              
+    1517              $C$DW$121       .dwtag  DW_TAG_TI_assign_register
+    1518                      .dwattr $C$DW$121, DW_AT_name("RPC")
+    1519                      .dwattr $C$DW$121, DW_AT_location[DW_OP_reg26]
+    1520              
+    1521              $C$DW$122       .dwtag  DW_TAG_TI_assign_register
+    1522                      .dwattr $C$DW$122, DW_AT_name("FP")
+    1523                      .dwattr $C$DW$122, DW_AT_location[DW_OP_reg28]
+    1524              
+    1525              $C$DW$123       .dwtag  DW_TAG_TI_assign_register
+    1526                      .dwattr $C$DW$123, DW_AT_name("DP")
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   29
+
+    1527                      .dwattr $C$DW$123, DW_AT_location[DW_OP_reg29]
+    1528              
+    1529              $C$DW$124       .dwtag  DW_TAG_TI_assign_register
+    1530                      .dwattr $C$DW$124, DW_AT_name("SXM")
+    1531                      .dwattr $C$DW$124, DW_AT_location[DW_OP_reg30]
+    1532              
+    1533              $C$DW$125       .dwtag  DW_TAG_TI_assign_register
+    1534                      .dwattr $C$DW$125, DW_AT_name("PM")
+    1535                      .dwattr $C$DW$125, DW_AT_location[DW_OP_reg31]
+    1536              
+    1537              $C$DW$126       .dwtag  DW_TAG_TI_assign_register
+    1538                      .dwattr $C$DW$126, DW_AT_name("OVM")
+    1539                      .dwattr $C$DW$126, DW_AT_location[DW_OP_regx 0x20]
+    1540              
+    1541              $C$DW$127       .dwtag  DW_TAG_TI_assign_register
+    1542                      .dwattr $C$DW$127, DW_AT_name("PAGE0")
+    1543                      .dwattr $C$DW$127, DW_AT_location[DW_OP_regx 0x21]
+    1544              
+    1545              $C$DW$128       .dwtag  DW_TAG_TI_assign_register
+    1546                      .dwattr $C$DW$128, DW_AT_name("AMODE")
+    1547                      .dwattr $C$DW$128, DW_AT_location[DW_OP_regx 0x22]
+    1548              
+    1549              $C$DW$129       .dwtag  DW_TAG_TI_assign_register
+    1550                      .dwattr $C$DW$129, DW_AT_name("INTM")
+    1551                      .dwattr $C$DW$129, DW_AT_location[DW_OP_regx 0x23]
+    1552              
+    1553              $C$DW$130       .dwtag  DW_TAG_TI_assign_register
+    1554                      .dwattr $C$DW$130, DW_AT_name("IFR")
+    1555                      .dwattr $C$DW$130, DW_AT_location[DW_OP_regx 0x24]
+    1556              
+    1557              $C$DW$131       .dwtag  DW_TAG_TI_assign_register
+    1558                      .dwattr $C$DW$131, DW_AT_name("IER")
+    1559                      .dwattr $C$DW$131, DW_AT_location[DW_OP_regx 0x25]
+    1560              
+    1561              $C$DW$132       .dwtag  DW_TAG_TI_assign_register
+    1562                      .dwattr $C$DW$132, DW_AT_name("V")
+    1563                      .dwattr $C$DW$132, DW_AT_location[DW_OP_regx 0x26]
+    1564              
+    1565              $C$DW$133       .dwtag  DW_TAG_TI_assign_register
+    1566                      .dwattr $C$DW$133, DW_AT_name("PSEUDOH")
+    1567                      .dwattr $C$DW$133, DW_AT_location[DW_OP_regx 0x4c]
+    1568              
+    1569              $C$DW$134       .dwtag  DW_TAG_TI_assign_register
+    1570                      .dwattr $C$DW$134, DW_AT_name("VOL")
+    1571                      .dwattr $C$DW$134, DW_AT_location[DW_OP_regx 0x4d]
+    1572              
+    1573              $C$DW$135       .dwtag  DW_TAG_TI_assign_register
+    1574                      .dwattr $C$DW$135, DW_AT_name("AR0")
+    1575                      .dwattr $C$DW$135, DW_AT_location[DW_OP_reg4]
+    1576              
+    1577              $C$DW$136       .dwtag  DW_TAG_TI_assign_register
+    1578                      .dwattr $C$DW$136, DW_AT_name("XAR0")
+    1579                      .dwattr $C$DW$136, DW_AT_location[DW_OP_reg5]
+    1580              
+    1581              $C$DW$137       .dwtag  DW_TAG_TI_assign_register
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   30
+
+    1582                      .dwattr $C$DW$137, DW_AT_name("AR1")
+    1583                      .dwattr $C$DW$137, DW_AT_location[DW_OP_reg6]
+    1584              
+    1585              $C$DW$138       .dwtag  DW_TAG_TI_assign_register
+    1586                      .dwattr $C$DW$138, DW_AT_name("XAR1")
+    1587                      .dwattr $C$DW$138, DW_AT_location[DW_OP_reg7]
+    1588              
+    1589              $C$DW$139       .dwtag  DW_TAG_TI_assign_register
+    1590                      .dwattr $C$DW$139, DW_AT_name("AR2")
+    1591                      .dwattr $C$DW$139, DW_AT_location[DW_OP_reg8]
+    1592              
+    1593              $C$DW$140       .dwtag  DW_TAG_TI_assign_register
+    1594                      .dwattr $C$DW$140, DW_AT_name("XAR2")
+    1595                      .dwattr $C$DW$140, DW_AT_location[DW_OP_reg9]
+    1596              
+    1597              $C$DW$141       .dwtag  DW_TAG_TI_assign_register
+    1598                      .dwattr $C$DW$141, DW_AT_name("AR3")
+    1599                      .dwattr $C$DW$141, DW_AT_location[DW_OP_reg10]
+    1600              
+    1601              $C$DW$142       .dwtag  DW_TAG_TI_assign_register
+    1602                      .dwattr $C$DW$142, DW_AT_name("XAR3")
+    1603                      .dwattr $C$DW$142, DW_AT_location[DW_OP_reg11]
+    1604              
+    1605              $C$DW$143       .dwtag  DW_TAG_TI_assign_register
+    1606                      .dwattr $C$DW$143, DW_AT_name("AR4")
+    1607                      .dwattr $C$DW$143, DW_AT_location[DW_OP_reg12]
+    1608              
+    1609              $C$DW$144       .dwtag  DW_TAG_TI_assign_register
+    1610                      .dwattr $C$DW$144, DW_AT_name("XAR4")
+    1611                      .dwattr $C$DW$144, DW_AT_location[DW_OP_reg13]
+    1612              
+    1613              $C$DW$145       .dwtag  DW_TAG_TI_assign_register
+    1614                      .dwattr $C$DW$145, DW_AT_name("AR5")
+    1615                      .dwattr $C$DW$145, DW_AT_location[DW_OP_reg14]
+    1616              
+    1617              $C$DW$146       .dwtag  DW_TAG_TI_assign_register
+    1618                      .dwattr $C$DW$146, DW_AT_name("XAR5")
+    1619                      .dwattr $C$DW$146, DW_AT_location[DW_OP_reg15]
+    1620              
+    1621              $C$DW$147       .dwtag  DW_TAG_TI_assign_register
+    1622                      .dwattr $C$DW$147, DW_AT_name("AR6")
+    1623                      .dwattr $C$DW$147, DW_AT_location[DW_OP_reg16]
+    1624              
+    1625              $C$DW$148       .dwtag  DW_TAG_TI_assign_register
+    1626                      .dwattr $C$DW$148, DW_AT_name("XAR6")
+    1627                      .dwattr $C$DW$148, DW_AT_location[DW_OP_reg17]
+    1628              
+    1629              $C$DW$149       .dwtag  DW_TAG_TI_assign_register
+    1630                      .dwattr $C$DW$149, DW_AT_name("AR7")
+    1631                      .dwattr $C$DW$149, DW_AT_location[DW_OP_reg18]
+    1632              
+    1633              $C$DW$150       .dwtag  DW_TAG_TI_assign_register
+    1634                      .dwattr $C$DW$150, DW_AT_name("XAR7")
+    1635                      .dwattr $C$DW$150, DW_AT_location[DW_OP_reg19]
+    1636              
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:05 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+C:\Users\MaCHaDo\AppData\Local\Temp\1847210                          PAGE   31
+
+    1637                      .dwendtag $C$DW$CU
+    1638              
+
+No Assembly Errors, No Assembly Warnings

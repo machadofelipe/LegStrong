@@ -1,0 +1,47 @@
+\form#0:$ \alpha,\beta $
+\form#1:\[ x_{\alpha} = \frac{2}{3}x_{a} - \frac{1}{3}(x_{b}+x_{c}) \]
+\form#2:\[ x_{\beta} = \frac{1}{\sqrt{3}}(x_{b} - x_{c}) \]
+\form#3:$ x_{\alpha} $
+\form#4:$ X_{\alpha} $
+\form#5:$ x_{\beta} $
+\form#6:$ X_{\beta} $
+\form#7:$ x_{a} $
+\form#8:$ X_{a} $
+\form#9:$ x_{b} $
+\form#10:$ X_{b} $
+\form#11:$ x_{c} $
+\form#12:$ X_{c} $
+\form#13:\[F_{slip}=F_{electrical}-F_{mechanical}\]
+\form#14:$\Omega$
+\form#15:\[ x_{\alpha} = x_{d}cos(\theta) - x_{q}sin(\theta) \]
+\form#16:\[ x_{\beta} = x_{d}sin(\theta) + x_{q}cos(\theta) \]
+\form#17:$ \theta $
+\form#18:$ x_{d} $
+\form#19:$ X_{d} $
+\form#20:$ x_{q} $
+\form#21:$ X_{q} $
+\form#22:$ sin() $
+\form#23:$ cos() $
+\form#24:\[ x_{\alpha} = x_{d}cos(\theta) + x_{q}sin(\theta) \]
+\form#25:\[ x_{\beta} = -x_{d}sin(\theta) + x_{q}cos(\theta) \]
+\form#26:\[ U_p(k) = e(k)\cdot K_p \]
+\form#27:\[ U_i(k) = Sat\Big(U_i(k-1)+e(k)\cdot K_p\cdot K_i\Big) \]
+\form#28:\[ U(k) = Sat\Big(U_p(k)+U_i(k)\Big) \]
+\form#29:\[ U_i(k) = Sat\Big(U_i(k-1)+e(k)\cdot K_i\Big) \]
+\form#30:$\bullet$
+\form#31:$StepAngleMax$
+\form#32:$ period = \frac{1}{Freq} $
+\form#33:\[ Angle = Angle + StepAngleMax\cdot Freq \]
+\form#34:$Angle$
+\form#35:\[ f = \frac{StepAngle\cdot f_s}{2^m} \]
+\form#36:$ f_s $
+\form#37:$ m $
+\form#38:$StepAngle$
+\form#39:$f = 0.3052 Hz$
+\form#40:$m = 16$
+\form#41:$ f_s = 20 kHz $
+\form#42:$f_b$
+\form#43:$GLOBAL\_Q$
+\form#44:\[ StepAngleMax = f_b\cdot T_s\cdot 2^{GLOBAL\_Q} \]
+\form#45:\[ StepAngleMax = \_IQ(f_b\cdot T_s) \]
+\form#46:$T_s$

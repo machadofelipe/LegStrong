@@ -1,0 +1,100 @@
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:30 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+../modules/source/usDelay.asm                                        PAGE    1
+
+       1              ; --COPYRIGHT--,BSD
+       2              ;  Copyright (c) 2012, Texas Instruments Incorporated
+       3              ;  All rights reserved.
+       4              ; 
+       5              ;  Redistribution and use in source and binary forms, with or without
+       6              ;  modification, are permitted provided that the following conditions
+       7              ;  are met:
+       8              ; 
+       9              ;  *  Redistributions of source code must retain the above copyright
+      10              ;     notice, this list of conditions and the following disclaimer.
+      11              ; 
+      12              ;  *  Redistributions in binary form must reproduce the above copyright
+      13              ;     notice, this list of conditions and the following disclaimer in the
+      14              ;     documentation and/or other materials provided with the distribution.
+      15              ; 
+      16              ;  *  Neither the name of Texas Instruments Incorporated nor the names of
+      17              ;     its contributors may be used to endorse or promote products derived
+      18              ;     from this software without specific prior written permission.
+      19              ; 
+      20              ;  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+      21              ;  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+      22              ;  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+      23              ;  PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+      24              ;  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+      25              ;  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+      26              ;  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+      27              ;  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+      28              ;  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+      29              ;  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+      30              ;  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+      31              ; --/COPYRIGHT--
+      32              ;// TI File $Revision: /main/1 $
+      33              ;// Checkin $Date: December 5, 2008   18:01:17 $
+      34              ;//###########################################################################
+      35              ;//
+      36              ;// FILE:  usDelay.asm
+      37              ;//
+      38              ;// TITLE: Simple delay function
+      39              ;//
+      40              ;// DESCRIPTION:
+      41              ;//  
+      42              ;// This is a simple delay function that can be used to insert a specified
+      43              ;// delay into code.  
+      44              ;// 
+      45              ;// This function is only accurate if executed from internal zero-waitstate
+      46              ;// SARAM. If it is executed from waitstate memory then the delay will be
+      47              ;// longer then specified. 
+      48              ;//
+      49              ;//  The C assembly call from the DELAY_US(time) macro will
+      50              ;//  look as follows: 
+      51              ;//
+      52              ;//  extern void usDelay(long LoopCount);                
+      53              ;//
+      54              ;//        MOV   AL,#LowLoopCount
+      55              ;//        MOV   AH,#HighLoopCount
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:30 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+../modules/source/usDelay.asm                                        PAGE    2
+
+      56              ;//        LCR   _Delay
+      57              ;//
+      58              ;//  Or as follows (if count is less then 16-bits):
+      59              ;//
+      60              ;//        MOV   ACC,#LoopCount
+      61              ;//        LCR   _Delay
+      62              ;//
+      63              ;//
+      64              ;//###########################################################################
+      65              ;// $TI Release: 28x $
+      66              ;// $Release Date: April 30, 2009 $
+      67              ;//###########################################################################  
+      68              
+      69                     .def _usDelay
+      70 00000000              .sect "ramfuncs"
+      71              
+      72                      .global  __usDelay
+      73 00000000       _usDelay:
+      74 00000000 1901          SUB    ACC,#1
+      75 00000001 56C3          BF     _usDelay,GEQ    ;; Loop if ACC >= 0
+         00000002 FFFF 
+      76 00000003 0006          LRETR 
+      77              
+      78              ;There is a 9/10 cycle overhead and each loop
+      79              ;takes five cycles. The LoopCount is given by
+      80              ;the following formula:
+      81              ;  DELAY_CPU_CYCLES = 9 + 5*LoopCount
+      82              ; LoopCount = (DELAY_CPU_CYCLES - 9) / 5
+      83              ; The macro DELAY_US(A) performs this calculation for you
+      84              ;
+      85              ;//===========================================================================
+      86              ;// End of file.
+      87              ;//===========================================================================
+
+No Assembly Errors, No Assembly Warnings

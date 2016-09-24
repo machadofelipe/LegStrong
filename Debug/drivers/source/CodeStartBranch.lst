@@ -1,0 +1,121 @@
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:51 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+../drivers/source/CodeStartBranch.asm                                PAGE    1
+
+       1              ; --COPYRIGHT--,BSD
+       2              ;  Copyright (c) 2015, Texas Instruments Incorporated
+       3              ;  All rights reserved.
+       4              ;
+       5              ;  Redistribution and use in source and binary forms, with or without
+       6              ;  modification, are permitted provided that the following conditions
+       7              ;  are met:
+       8              ;
+       9              ;  *  Redistributions of source code must retain the above copyright
+      10              ;     notice, this list of conditions and the following disclaimer.
+      11              ;
+      12              ;  *  Redistributions in binary form must reproduce the above copyright
+      13              ;     notice, this list of conditions and the following disclaimer in the
+      14              ;     documentation and/or other materials provided with the distribution.
+      15              ;
+      16              ;  *  Neither the name of Texas Instruments Incorporated nor the names of
+      17              ;     its contributors may be used to endorse or promote products derived
+      18              ;     from this software without specific prior written permission.
+      19              ;
+      20              ;  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+      21              ;  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+      22              ;  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+      23              ;  PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+      24              ;  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+      25              ;  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+      26              ;  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+      27              ;  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+      28              ;  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+      29              ;  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+      30              ;  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+      31              ; --/COPYRIGHT--
+      32              ;// TI File $Revision: /main/1 $
+      33              ;// Checkin $Date: December 5, 2008   18:00:42 $
+      34              ;//###########################################################################
+      35              ;//
+      36              ;// FILE:  CodeStartBranch.asm
+      37              ;//
+      38              ;// TITLE: Branch for redirecting code execution after boot.
+      39              ;//
+      40              ;// For these examples, code_start is the first code that is executed after
+      41              ;// exiting the boot ROM code.
+      42              ;//
+      43              ;// The codestart section in the linker cmd file is used to physically place
+      44              ;// this code at the correct memory location.  This section should be placed
+      45              ;// at the location the BOOT ROM will re-direct the code to.  For example,
+      46              ;// for boot to FLASH this code will be located at 0x3f7ff6.
+      47              ;//
+      48              ;// In addition, the example DSP28x projects are setup such that the codegen
+      49              ;// entry point is also set to the code_start label.  This is done by linker
+      50              ;// option -e in the project build options.  When the debugger loads the code,
+      51              ;// it will automatically set the PC to the "entry point" address indicated by
+      52              ;// the -e linker option.  In this case the debugger is simply assigning the
+      53              ;// PC, it is not the same as a full reset of the device.
+      54              ;//
+      55              ;// The compiler may warn that the entry point for the project is other then
+TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:51 2016
+
+Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
+../drivers/source/CodeStartBranch.asm                                PAGE    2
+
+      56              ;//  _c_init00.  _c_init00 is the C environment setup and is run before
+      57              ;// main() is entered. The code_start code will re-direct the execution
+      58              ;// to _c_init00 and thus there is no worry and this warning can be ignored.
+      59              ;//
+      60              ;//###########################################################################
+      61              
+      62              ***********************************************************************
+      63              
+      64        0001  WD_DISABLE  .set    1       ;set to 1 to disable WD, else set to 0
+      65              
+      66                  .ref _c_int00
+      67                  .global code_start
+      68              
+      69              ***********************************************************************
+      70              * Function: codestart section
+      71              *
+      72              * Description: Branch to code starting point
+      73              ***********************************************************************
+      74              
+      75 00000000           .sect "codestart"
+      76              
+      77              code_start:
+      78                  .if WD_DISABLE == 1
+      79 00000000 0040'         LB wd_disable       ;Branch to watchdog disable code
+         00000001 0000 
+      80                  .else
+      81                      LB _c_int00         ;Branch to start of boot.asm in RTS library
+      82                  .endif
+      83              
+      84              ;end codestart section
+      85              
+      86              ***********************************************************************
+      87              * Function: wd_disable
+      88              *
+      89              * Description: Disables the watchdog timer
+      90              ***********************************************************************
+      91                  .if WD_DISABLE == 1
+      92              
+      93 00000000           .text
+      94 00000000       wd_disable:
+      95 00000000 561F      SETC OBJMODE        ;Set OBJMODE for 28x object code
+      96 00000001 7622      EALLOW              ;Enable EALLOW protected register access
+      97 00000002 B9C0      MOVZ DP, #7029h>>6  ;Set data page for WDCR register
+      98 00000003 2829      MOV @7029h, #0068h  ;Set WDDIS bit in WDCR to disable WD
+         00000004 0068 
+      99 00000005 761A      EDIS                ;Disable EALLOW protected register access
+     100 00000006 0040!     LB _c_int00         ;Branch to start of boot.asm in RTS library
+         00000007 0000 
+     101              
+     102                  .endif
+     103              
+     104              ;end wd_disable
+     105              
+     106                  .end
+
+No Assembly Errors, No Assembly Warnings
