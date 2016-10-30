@@ -528,7 +528,7 @@ uint16_t PWM_getSocBCount(PWM_Handle pwmHandle)
 PWM_ShadowStatus_e PWM_getShadowStatus_CmpA(PWM_Handle pwmHandle)
 {
     PWM_Obj *pwm = (PWM_Obj *)pwmHandle;
-    PWM_ShadowStatus_e status;
+    uint16_t status;
 
 
     // clear the bits
@@ -536,14 +536,14 @@ PWM_ShadowStatus_e PWM_getShadowStatus_CmpA(PWM_Handle pwmHandle)
 
     status >>= 8;
     
-    return(status);
+    return((PWM_ShadowStatus_e)status);
 } // end of PWM_getShadowStatus_CmpA() function
 
 
 PWM_ShadowStatus_e PWM_getShadowStatus_CmpB(PWM_Handle pwmHandle)
 {
     PWM_Obj *pwm = (PWM_Obj *)pwmHandle;
-    PWM_ShadowStatus_e status;
+    uint16_t status;
 
 
     // clear the bits
@@ -551,7 +551,7 @@ PWM_ShadowStatus_e PWM_getShadowStatus_CmpB(PWM_Handle pwmHandle)
 
     status >>= 9;
     
-    return(status);
+    return((PWM_ShadowStatus_e)status);
 } // end of PWM_getShadowStatus_CmpB() function
 
 

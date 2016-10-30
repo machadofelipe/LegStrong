@@ -49,9 +49,6 @@
 #include <math.h>
 #include "main.h"
 
-#ifdef FLASH
-#pragma CODE_SECTION(mainISR,"ramfuncs");
-#endif
 
 // Include header files used in the main function
 
@@ -72,12 +69,20 @@ bool Flag_Latch_softwareUpdate = true;
 CTRL_Handle ctrlHandle;
 
 #ifdef F2802xF
+#ifdef __cplusplus
+#pragma DATA_SECTION("rom_accessed_data");
+#else
 #pragma DATA_SECTION(halHandle,"rom_accessed_data");
+#endif
 #endif
 HAL_Handle halHandle;
 
 #ifdef F2802xF
+#ifdef __cplusplus
+#pragma DATA_SECTION("rom_accessed_data");
+#else
 #pragma DATA_SECTION(gUserParams,"rom_accessed_data");
+#endif
 #endif
 USER_Params gUserParams;
 
@@ -91,7 +96,11 @@ _iq gMaxCurrentSlope = _IQ(0.0);
 CTRL_Obj *controller_obj;
 #else
 #ifdef F2802xF
+#ifdef __cplusplus
+#pragma DATA_SECTION("rom_accessed_data");
+#else
 #pragma DATA_SECTION(ctrl,"rom_accessed_data");
+#endif
 #endif
 CTRL_Obj ctrl;				//v1p7 format
 #endif
@@ -209,12 +218,15 @@ void main(void)
 
 
   {
-    CTRL_Version version;
+	CTRL_Version version;
 
     // get the version number
     CTRL_getVersion(ctrlHandle,&version);
 
-    gMotorVars.CtrlVersion = version;
+    gMotorVars.CtrlVersion.targetProc = version.targetProc;
+    gMotorVars.CtrlVersion.rsvd = version.rsvd;
+    gMotorVars.CtrlVersion.major = version.major;
+    gMotorVars.CtrlVersion.minor = version.minor;
   }
 
 
@@ -470,6 +482,13 @@ void main(void)
 } // end of main() function
 
 
+#ifdef FLASH
+#ifdef __cplusplus
+#pragma CODE_SECTION("ramfuncs");
+#else
+#pragma CODE_SECTION(mainISR,"ramfuncs");
+#endif
+#endif
 interrupt void mainISR(void)
 {
 //  // toggle status LED

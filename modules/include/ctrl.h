@@ -901,7 +901,7 @@ void CTRL_getVdq_out_pu(CTRL_Handle handle,MATH_vec2 *pVdq_out_pu);
 //! \brief     Gets the controller version number
 //! \param[in] handle     The controller (CTRL) handle
 //! \param[in] pVersion   A pointer to the version 
-void CTRL_getVersion(CTRL_Handle handle,CTRL_Version *pVersion);
+void CTRL_getVersion(CTRL_Handle handle,volatile CTRL_Version *pVersion);
 
 
 //! \brief     Gets the quadrature voltage output value memory address from the controller

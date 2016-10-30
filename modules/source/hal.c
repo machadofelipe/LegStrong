@@ -47,10 +47,6 @@
 #include "user.h"
 #include "hal_obj.h"
 
-#ifdef FLASH
-#pragma CODE_SECTION(HAL_setupFlash,"ramfuncs");
-#endif
-
 // **************************************************************************
 // the defines
 
@@ -58,8 +54,13 @@
 // **************************************************************************
 // the globals
 
+
 #ifdef F2802xF
+#ifdef __cplusplus
+#pragma DATA_SECTION("rom_accessed_data");
+#else
 #pragma DATA_SECTION(hal,"rom_accessed_data");
+#endif
 #endif
 HAL_Obj hal;
 
@@ -761,6 +762,10 @@ void HAL_setParams(HAL_Handle handle,const USER_Params *pUserParams)
   HAL_setupSpiA(handle);
 
 
+  // setup the SCI
+  HAL_setupSciA(handle);
+  HAL_initSciAFifo(handle);
+
   // setup the timers
   HAL_setupTimers(handle,
                   (float_t)pUserParams->systemFreq_MHz);
@@ -934,7 +939,7 @@ void HAL_setupClks(HAL_Handle handle)
   CLK_disableOsc2(obj->clkHandle);
 
   // set the low speed clock prescaler
-  CLK_setLowSpdPreScaler(obj->clkHandle,CLK_LowSpdPreScaler_SysClkOut_by_1);
+  CLK_setLowSpdPreScaler(obj->clkHandle,CLK_LowSpdPreScaler_SysClkOut_by_4);
 
   // set the clock out prescaler
   CLK_setClkOutPreScaler(obj->clkHandle,CLK_ClkOutPreScaler_SysClkOut_by_1);
@@ -943,6 +948,13 @@ void HAL_setupClks(HAL_Handle handle)
 } // end of HAL_setupClks() function
 
 
+#ifdef FLASH
+#ifdef __cplusplus
+#pragma CODE_SECTION("ramfuncs");
+#else
+#pragma CODE_SECTION(HAL_setupFlash,"ramfuncs");
+#endif
+#endif
 void HAL_setupFlash(HAL_Handle handle)
 {
   HAL_Obj *obj = (HAL_Obj *)handle;
@@ -997,24 +1009,19 @@ void HAL_setupGpios(HAL_Handle handle)
   // PWM6
   GPIO_setMode(obj->gpioHandle,GPIO_Number_5,GPIO_5_Mode_EPWM3B);
 
-  // EN_GATE
-  GPIO_setMode(obj->gpioHandle,GPIO_Number_33,GPIO_33_Mode_GeneralPurpose);
-  GPIO_setLow(obj->gpioHandle,GPIO_Number_33);
-  GPIO_setDirection(obj->gpioHandle,GPIO_Number_33,GPIO_Direction_Output);
-  
-  // DC_CAL
-  GPIO_setMode(obj->gpioHandle,GPIO_Number_32,GPIO_32_Mode_GeneralPurpose);
-
-  // RX_BTH
-  GPIO_setPullUp(obj->gpioHandle, GPIO_Number_12, GPIO_PullUp_Disable);
-  GPIO_setMode(obj->gpioHandle,GPIO_Number_12,GPIO_12_Mode_SCITXDA);
-  //GPIO_setDirection(obj->gpioHandle,GPIO_Number_12,GPIO_Direction_Output);
+  // CAD_PULSE
+  GPIO_setMode(obj->gpioHandle,GPIO_Number_6,GPIO_6_Mode_GeneralPurpose);
 
   // TX_BTH
   GPIO_setPullUp(obj->gpioHandle, GPIO_Number_7, GPIO_PullUp_Enable);
   GPIO_setQualification(obj->gpioHandle, GPIO_Number_7, GPIO_Qual_ASync);
   GPIO_setMode(obj->gpioHandle,GPIO_Number_7,GPIO_7_Mode_SCIRXDA);
   //GPIO_setDirection(obj->gpioHandle,GPIO_Number_7,GPIO_Direction_Input);
+
+  // RX_BTH
+  GPIO_setPullUp(obj->gpioHandle, GPIO_Number_12, GPIO_PullUp_Disable);
+  GPIO_setMode(obj->gpioHandle,GPIO_Number_12,GPIO_12_Mode_SCITXDA);
+  //GPIO_setDirection(obj->gpioHandle,GPIO_Number_12,GPIO_Direction_Output);
 
   // SPI_SDI
   GPIO_setMode(obj->gpioHandle,GPIO_Number_16,GPIO_16_Mode_SPISIMOA);
@@ -1034,8 +1041,13 @@ void HAL_setupGpios(HAL_Handle handle)
   // OCTWn
   GPIO_setMode(obj->gpioHandle,GPIO_Number_29,GPIO_29_Mode_TZ3_NOT);
 
-  // CAD_PULSE
-  GPIO_setMode(obj->gpioHandle,GPIO_Number_6,GPIO_6_Mode_GeneralPurpose);
+  // DC_CAL
+  GPIO_setMode(obj->gpioHandle,GPIO_Number_32,GPIO_32_Mode_GeneralPurpose);
+
+  // EN_GATE
+  GPIO_setMode(obj->gpioHandle,GPIO_Number_33,GPIO_33_Mode_GeneralPurpose);
+  GPIO_setLow(obj->gpioHandle,GPIO_Number_33);
+  GPIO_setDirection(obj->gpioHandle,GPIO_Number_33,GPIO_Direction_Output);
 
   // SPD_PULSE
   GPIO_setMode(obj->gpioHandle,GPIO_Number_34,GPIO_34_Mode_GeneralPurpose);
@@ -1163,14 +1175,13 @@ void HAL_setupPll(HAL_Handle handle,const PLL_ClkFreq_e clkFreq)
   // wait until locked
   while(PLL_getLockStatus(obj->pllHandle) != PLL_LockStatus_Done) {}
 
-
   // enable the clock detect
   PLL_enableClkDetect(obj->pllHandle);
-
 
   // set divide select to ClkIn/2 to get desired clock rate
   // NOTE: clock must be locked before setting this register
   PLL_setDivideSelect(obj->pllHandle,PLL_DivideSelect_ClkIn_by_2);
+
 
   return;
 } // end of HAL_setupPll() function
@@ -1366,7 +1377,7 @@ void HAL_setupSciA(HAL_Handle handle)
 {
 	HAL_Obj *obj = (HAL_Obj *)handle;
 
-    CLK_enableSciaClock(obj->clkHandle);
+    //CLK_enableSciaClock(obj->clkHandle);
 
     // 1 stop bit,  No loopback
     // No parity,8 char bits,
@@ -1380,6 +1391,7 @@ void HAL_setupSciA(HAL_Handle handle)
     SCI_enableRxInt(obj->sciAHandle);
 
     // SCI BRR = LSPCLK/(SCI BAUDx8) - 1
+    //SCI_setBaudRate(obj->sciAHandle, SCI_BaudRate_9_6_kBaud);
     SCI_setBaudRate(obj->sciAHandle, SCI_BaudRate_9_6_kBaud);
 
     SCI_enable(obj->sciAHandle);
@@ -1396,13 +1408,34 @@ void HAL_initSciAFifo(HAL_Handle handle)
 	SCI_resetTxFifo(obj->sciAHandle);
 	SCI_clearTxFifoInt(obj->sciAHandle);
     SCI_resetChannels(obj->sciAHandle);
-    SCI_setTxFifoIntLevel(obj->sciAHandle, SCI_FifoLevel_Empty);
+    //SCI_setTxFifoIntLevel(obj->sciAHandle, SCI_FifoLevel_Empty);
 
     SCI_resetRxFifo(obj->sciAHandle);
     SCI_clearRxFifoInt(obj->sciAHandle);
-    SCI_setRxFifoIntLevel(obj->sciAHandle, SCI_FifoLevel_4_Words);
+    SCI_setRxFifoIntLevel(obj->sciAHandle, SCI_FifoLevel_1_Word);
+    //SCI_enableRxFifoInt(obj->sciAHandle);
 
     return;
+}
+
+// Send a message using SCI A
+void HAL_SciASendMessage(HAL_Handle handle, const char* pBuf)
+{
+	HAL_Obj   *obj = (HAL_Obj *)handle;
+	int i;
+//	if (strlen(pBuf) > 0)
+	{
+		for(i=0;
+//		    i< strlen(pBuf);
+		    pBuf[i] == '\0';
+		    i++)
+		{
+			// Send data
+			SCI_putDataBlocking(obj->sciAHandle, pBuf[i]);
+		}
+	}
+	SCI_putDataBlocking(obj->sciAHandle, '\r');
+	SCI_putDataBlocking(obj->sciAHandle, '>');
 }
 
 // end of file

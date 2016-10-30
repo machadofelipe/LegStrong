@@ -58,10 +58,11 @@
 #include "user.h"
 
 
-#ifdef FLASH
-#pragma CODE_SECTION(CTRL_run,"ramfuncs");
-#pragma CODE_SECTION(CTRL_setup,"ramfuncs");
-#endif
+//#ifdef FLASH
+//#pragma CODE_SECTION(CTRL_run,"ramfuncs");
+//#pragma CODE_SECTION(CTRL_setup,"ramfuncs");
+//#endif
+
 
 
 // **************************************************************************
@@ -191,7 +192,13 @@ void CTRL_getWaitTimes(CTRL_Handle handle,uint_least32_t *pWaitTimes)
   return;
 } // end of CTRL_getWaitTimes() function
 
-
+#ifdef FLASH
+#ifdef __cplusplus
+#pragma CODE_SECTION("ramfuncs");
+#else
+#pragma CODE_SECTION(CTRL_run,"ramfuncs");
+#endif
+#endif
 void CTRL_run(CTRL_Handle handle,HAL_Handle halHandle,
               const HAL_AdcData_t *pAdcData,
               HAL_PwmData_t *pPwmData)
@@ -485,7 +492,13 @@ void CTRL_setSpd_ref_krpm(CTRL_Handle handle,const _iq spd_ref_krpm)
   return;
 } // end of CTRL_setSpd_ref_krpm() function
 
-
+#ifdef FLASH
+#ifdef __cplusplus
+#pragma CODE_SECTION("ramfuncs");
+#else
+#pragma CODE_SECTION(CTRL_setup,"ramfuncs");
+#endif
+#endif
 void CTRL_setup(CTRL_Handle handle)
 {
   CTRL_Obj *obj = (CTRL_Obj *)handle;
