@@ -64,8 +64,8 @@
 // **************************************************************************
 // the globals
 
-char msgBuf[40] = "";
-int msgBufPos = 0;
+std::string msgBuf;
+bool newMessage = false;
 
 uint_least16_t gCounter_updateGlobals = 0;
 
@@ -450,6 +450,16 @@ void main(void)
         HAL_readDrvData(halHandle,&gDrvSpi8305Vars);
 #endif
 
+        if(newMessage)
+        {
+            // Check received data
+            Message msgObj = Message(msgBuf);
+            msgObj.HandleMessage(msgBuf);
+            HAL_SciASendMessage( halHandle, msgBuf.c_str() );
+            msgBuf = "";
+            newMessage = false;
+        }
+
       } // end of while(gFlag_enableSys) loop
 
 
@@ -591,21 +601,11 @@ char rdataA;    // Received data for SCI-A
 
         if(rdataA == '\r')
         {
-            // Check received data
-            Message msgObj = Message(msgBuf);
-            string msg;
-            msgObj.HandleMessage(msg);
-            HAL_SciASendMessage(halHandle, msg.c_str());
-//            delete msgObj;
-            msgBufPos = 0;
-            msgBuf[msgBufPos] = '\0';
-            //sprintf(msgBuf,"");
+            newMessage = true;
         }
-        else if (rdataA > 47)
+        else if (rdataA > 47 && !newMessage)
         {
-//            int i = strlen(msgBuf);
-            msgBuf[msgBufPos] = toupper(rdataA);
-            msgBuf[++msgBufPos] = '\0';
+            msgBuf.push_back( toupper(rdataA) );
         }
 
     }

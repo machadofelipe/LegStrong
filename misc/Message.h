@@ -20,7 +20,7 @@ public:
 
     ~Message();
 
-	string UnpackHeader(const string &pBuf);
+	//string UnpackHeader(const string &pBuf);
 
 	void HandleMessage(string &responseMsg);
 
@@ -34,7 +34,7 @@ private:
 
 	// Message specific pack method, to be defined according to the message's
 	// fields. The base class functions pack and unpack the common header
-	int Pack(const string &pBuf);
+	//int Pack(const string &pBuf);
 
 	// Corresponding unpack method.
 	int Unpack(const string &pBuf);
@@ -45,7 +45,7 @@ private:
 
 	// PackString packs a specified number of chars at the next char index. The method increments
 	// the char index
-	void PackString(const string &pBuf, const string &value);
+	//void PackString(const string &pBuf, const string &value);
 
 	// UnpackString packs a specified number of chars at the next char index.The method increments the char index
 //	void UnpackString(const string &pBuf, const int &numChars);

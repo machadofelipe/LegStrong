@@ -106,6 +106,7 @@ void Message::HandleMessage(string &responseMsg)
 {
 	//TODO: maybe better to put as a member
 //	string responseMsg = (char*) malloc(40);
+    responseMsg = "?";
 
     if (m_type == "01")
 	{
@@ -114,10 +115,6 @@ void Message::HandleMessage(string &responseMsg)
 	else if (m_type == "AT")
 	{
 		ELM327::Instance().ProcessCommand(m_command, responseMsg);
-	}
-	else
-	{
-	    responseMsg = "?";
 	}
 
 	return;
