@@ -1,11 +1,11 @@
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    1
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE    1
 
        1              ;***************************************************************
        2              ;* TMS320C2000 C/C++ Codegen                   PC v15.12.3.LTS *
-       3              ;* Date/Time created: Tue Sep 20 20:29:58 2016                 *
+       3              ;* Date/Time created: Sun Oct 30 14:01:46 2016                 *
        4              ;***************************************************************
        5                      .compiler_opts --abi=coffabi --float_support=softlib --hll_source=on --mem_model:code=flat --mem_mode
        6        0002  FP      .set    XAR2
@@ -14,7 +14,7 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    1
        9                      .dwattr $C$DW$CU, DW_AT_name("../drivers/source/drv8301.c")
       10                      .dwattr $C$DW$CU, DW_AT_producer("TI TMS320C2000 C/C++ Codegen PC v15.12.3.LTS Copyright (c) 1996-201
       11                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-      12                      .dwattr $C$DW$CU, DW_AT_comp_dir("D:\Users\MaCHaDo\Dropbox\Legstrong\drv8301\legstrong\LegStrong\Debu
+      12                      .dwattr $C$DW$CU, DW_AT_comp_dir("D:\Users\MaCHaDo\Documents\GitHub\LegStrong\Debug")
       13              ;**************************************************************
       14              ;* CINIT RECORDS                                              *
       15              ;**************************************************************
@@ -58,10 +58,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    1
       52                      .dwattr $C$DW$6, DW_AT_external
       53              $C$DW$7 .dwtag  DW_TAG_formal_parameter
       54                      .dwattr $C$DW$7, DW_AT_type(*$C$DW$T$20)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    2
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE    2
 
       55              
       56                      .dwendtag $C$DW$6
@@ -118,10 +118,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    2
      107                      .dwattr $C$DW$13, DW_AT_location[DW_OP_reg1]
      108              
      109              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    3
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE    3
 
      110              ;***************************************************************
      111              ;* FNAME: _DRV8301_writeSpi             FR SIZE:   6           *
@@ -178,10 +178,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    3
      162 00000007 7640!         LCR       #_SPI_resetRxFifo     ; [CPU_] |599| 
          00000008 0000 
      163                      ; call occurs [#_SPI_resetRxFifo] ; [] |599| 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    4
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE    4
 
      164                      .dwpsn  file "../drivers/source/drv8301.c",line 600,column 3,is_stmt,isa 0
      165 00000009 8AC3          MOVL      XAR4,*+XAR3[0]        ; [CPU_] |600| 
@@ -193,7 +193,7 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    4
      171 0000000a 7640!         LCR       #_SPI_enableRxFifo    ; [CPU_] |600| 
          0000000b 0000 
      172                      ; call occurs [#_SPI_enableRxFifo] ; [] |600| 
-     173                      .dwpsn  file "D:\Users\MaCHaDo\Dropbox\Legstrong\drv8301\legstrong\LegStrong\drivers\include\spi.h",l
+     173                      .dwpsn  file "D:\Users\MaCHaDo\Documents\GitHub\LegStrong\drivers\include\spi.h",line 642,column 3,is
      174 0000000c 0208          MOVB      ACC,#8                ; [CPU_] |642| 
      175 0000000d 07C3          ADDL      ACC,*+XAR3[0]         ; [CPU_] |642| 
      176 0000000e 8AA9          MOVL      XAR4,ACC              ; [CPU_] |642| 
@@ -238,10 +238,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    4
      214                      .dwattr $C$DW$20, DW_AT_TI_max_frame_size(-8)
      215                      .dwpsn  file "../drivers/source/drv8301.c",line 611,column 1,is_stmt,address _DRV8301_writeData,isa 0
      216              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    5
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE    5
 
      217                      .dwfde $C$DW$CIE, _DRV8301_writeData
      218              $C$DW$21        .dwtag  DW_TAG_formal_parameter
@@ -298,10 +298,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    5
      269                      .dwpsn  file "../drivers/source/drv8301.c",line 611,column 1,is_stmt,isa 0
      270 0000001c 82A4          MOVL      XAR3,XAR4             ; [CPU_] |611| 
      271                      .dwpsn  file "../drivers/source/drv8301.c",line 616,column 3,is_stmt,isa 0
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    6
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE    6
 
      272 0000001d 9292          MOV       AL,*+XAR2[AR0]        ; [CPU_] |616| 
      273 0000001e 611E          B         $C$L1,EQ              ; [CPU_] |616| 
@@ -358,10 +358,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    6
      320                      .dwcfi  cfa_offset, -4
      321                      .dwcfi  restore_reg, 9
      322 0000003e 8BBE          MOVL      XAR1,*--SP            ; [CPU_] 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    7
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE    7
 
      323                      .dwcfi  cfa_offset, -2
      324                      .dwcfi  restore_reg, 7
@@ -418,10 +418,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    7
      375              ;* FNAME: _DRV8301_readSpi              FR SIZE:   6           *
      376              ;*                                                             *
      377              ;* FUNCTION ENVIRONMENT                                        *
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    8
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE    8
 
      378              ;*                                                             *
      379              ;* FUNCTION PROPERTIES                                         *
@@ -478,10 +478,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    8
      430 00000044 59A9          MOVZ      AR1,AL                ; [CPU_] |354| 
      431                      .dwpsn  file "../drivers/source/drv8301.c",line 360,column 39,is_stmt,isa 0
      432 00000045 2B42          MOV       *-SP[2],#0            ; [CPU_] |360| 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    9
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE    9
 
      433                      .dwpsn  file "../drivers/source/drv8301.c",line 367,column 3,is_stmt,isa 0
      434 00000046 8AC2          MOVL      XAR4,*+XAR2[0]        ; [CPU_] |367| 
@@ -503,7 +503,7 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    9
      449 0000004a 7640!         LCR       #_SPI_enableRxFifo    ; [CPU_] |368| 
          0000004b 0000 
      450                      ; call occurs [#_SPI_enableRxFifo] ; [] |368| 
-     451                      .dwpsn  file "D:\Users\MaCHaDo\Dropbox\Legstrong\drv8301\legstrong\LegStrong\drivers\include\spi.h",l
+     451                      .dwpsn  file "D:\Users\MaCHaDo\Documents\GitHub\LegStrong\drivers\include\spi.h",line 642,column 3,is
      452 0000004c 1AA1          OR        AR1,#0x8000           ; [CPU_] |642| 
          0000004d 8000 
      453 0000004e 0208          MOVB      ACC,#8                ; [CPU_] |642| 
@@ -538,10 +538,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE    9
      479 0000005f 56B6          MOVB      *+XAR2[5],#1,HI       ; [CPU_] |383| 
          00000060 01EA 
      480 00000061       $C$L3:    
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   10
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   10
 
      481                      .dwpsn  file "../drivers/source/drv8301.c",line 377,column 9,is_stmt,isa 0
      482 00000061 9A00          MOVB      AL,#0                 ; [CPU_] |377| 
@@ -560,11 +560,11 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   10
      491 0000006d 68EA          B         $C$L2,LO              ; [CPU_] |377| 
      492                      ; branchcc occurs ; [] |377| 
      493 0000006e       $C$L4:    
-     494                      .dwpsn  file "D:\Users\MaCHaDo\Dropbox\Legstrong\drv8301\legstrong\LegStrong\drivers\include\spi.h",l
+     494                      .dwpsn  file "D:\Users\MaCHaDo\Documents\GitHub\LegStrong\drivers\include\spi.h",line 535,column 17,i
      495 0000006e 92F4          MOV       AL,*+XAR4[6]          ; [CPU_] |535| 
      496                      .dwpsn  file "../drivers/source/drv8301.c",line 388,column 3,is_stmt,isa 0
      497 0000006f 9641          MOV       *-SP[1],AL            ; [CPU_] |388| 
-     498                      .dwpsn  file "D:\Users\MaCHaDo\Dropbox\Legstrong\drv8301\legstrong\LegStrong\drivers\include\spi.h",l
+     498                      .dwpsn  file "D:\Users\MaCHaDo\Documents\GitHub\LegStrong\drivers\include\spi.h",line 535,column 17,i
      499 00000070 92F4          MOV       AL,*+XAR4[6]          ; [CPU_] |535| 
      500                      .dwpsn  file "../drivers/source/drv8301.c",line 389,column 3,is_stmt,isa 0
      501 00000071 9641          MOV       *-SP[1],AL            ; [CPU_] |389| 
@@ -598,10 +598,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   10
      528              $C$DW$41        .dwtag  DW_TAG_subprogram
      529                      .dwattr $C$DW$41, DW_AT_name("DRV8301_setupSpi")
      530                      .dwattr $C$DW$41, DW_AT_low_pc(_DRV8301_setupSpi)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   11
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   11
 
      531                      .dwattr $C$DW$41, DW_AT_high_pc(0x00)
      532                      .dwattr $C$DW$41, DW_AT_TI_symbol_name("_DRV8301_setupSpi")
@@ -658,10 +658,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   11
      583                      .dwattr $C$DW$46, DW_AT_location[DW_OP_reg0]
      584              
      585              ;* AL    assigned to _drvDataNew
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   12
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   12
 
      586              $C$DW$47        .dwtag  DW_TAG_variable
      587                      .dwattr $C$DW$47, DW_AT_name("drvDataNew")
@@ -718,10 +718,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   12
      634                      .dwattr $C$DW$51, DW_AT_name("_DRV8301_writeSpi")
      635                      .dwattr $C$DW$51, DW_AT_TI_call
      636              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   13
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   13
 
      637 00000086 7640'         LCR       #_DRV8301_writeSpi    ; [CPU_] |718| 
          00000087 0000 
@@ -778,10 +778,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   13
      686 000000a5 9101          ANDB      AH,#0x01              ; [CPU_] |736| 
      687 000000a6 97D9          MOV       *+XAR1[3],AH          ; [CPU_] |736| 
      688                      .dwpsn  file "../drivers/source/drv8301.c",line 737,column 3,is_stmt,isa 0
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   14
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   14
 
      689 000000a7 93A9          MOV       AH,AL                 ; [CPU_] |737| 
      690 000000a8 FFD5          LSR       AH,6                  ; [CPU_] |737| 
@@ -838,10 +838,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   14
      739 000000ca 8AA2          MOVL      XAR4,XAR2             ; [CPU_] |753| 
      740                      .dwpsn  file "../drivers/source/drv8301.c",line 749,column 3,is_stmt,isa 0
      741 000000cb 900F          ANDB      AL,#15                ; [CPU_] |749| 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   15
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   15
 
      742                      .dwpsn  file "../drivers/source/drv8301.c",line 748,column 3,is_stmt,isa 0
      743 000000cc 9101          ANDB      AH,#0x01              ; [CPU_] |748| 
@@ -898,10 +898,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   15
      786                      .dwattr $C$DW$55, DW_AT_name("_DRV8301_readSpi")
      787                      .dwattr $C$DW$55, DW_AT_TI_call
      788              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   16
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   16
 
      789 000000eb 7640'         LCR       #_DRV8301_readSpi     ; [CPU_] |762| 
          000000ec 0040 
@@ -958,10 +958,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   16
      837                      .dwattr $C$DW$57, DW_AT_TI_begin_file("../drivers/source/drv8301.c")
      838                      .dwattr $C$DW$57, DW_AT_TI_begin_line(0x132)
      839                      .dwattr $C$DW$57, DW_AT_TI_begin_column(0x06)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   17
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   17
 
      840                      .dwattr $C$DW$57, DW_AT_TI_max_frame_size(-2)
      841                      .dwpsn  file "../drivers/source/drv8301.c",line 307,column 1,is_stmt,address _DRV8301_setSpiHandle,is
@@ -1018,10 +1018,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   17
      892                      .dwattr $C$DW$57, DW_AT_TI_end_line(0x13a)
      893                      .dwattr $C$DW$57, DW_AT_TI_end_column(0x01)
      894                      .dwendentry
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   18
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   18
 
      895                      .dwendtag $C$DW$57
      896              
@@ -1078,10 +1078,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   18
      947                      .dwattr $C$DW$67, DW_AT_TI_symbol_name("_gain")
      948                      .dwattr $C$DW$67, DW_AT_type(*$C$DW$T$85)
      949                      .dwattr $C$DW$67, DW_AT_location[DW_OP_reg6]
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   19
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   19
 
      950              
      951              ;* AH    assigned to _data
@@ -1138,10 +1138,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   19
      997                      .dwcfi  restore_reg, 9
      998 00000113 8BBE          MOVL      XAR1,*--SP            ; [CPU_] 
      999                      .dwcfi  cfa_offset, -2
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   20
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   20
 
     1000                      .dwcfi  restore_reg, 7
     1001              $C$DW$71        .dwtag  DW_TAG_TI_branch
@@ -1198,10 +1198,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   20
     1052              _DRV8301_setPwmMode:
     1053              ;* AR2   assigned to _handle
     1054              $C$DW$75        .dwtag  DW_TAG_variable
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   21
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   21
 
     1055                      .dwattr $C$DW$75, DW_AT_name("handle")
     1056                      .dwattr $C$DW$75, DW_AT_TI_symbol_name("_handle")
@@ -1258,10 +1258,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   21
     1103                      .dwpsn  file "../drivers/source/drv8301.c",line 562,column 3,is_stmt,isa 0
     1104              $C$DW$79        .dwtag  DW_TAG_TI_branch
     1105                      .dwattr $C$DW$79, DW_AT_low_pc(0x00)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   22
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   22
 
     1106                      .dwattr $C$DW$79, DW_AT_name("_DRV8301_writeSpi")
     1107                      .dwattr $C$DW$79, DW_AT_TI_call
@@ -1318,10 +1318,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   22
     1157              
     1158              
     1159              ;***************************************************************
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   23
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   23
 
     1160              ;* FNAME: _DRV8301_setPeakCurrent       FR SIZE:   4           *
     1161              ;*                                                             *
@@ -1378,10 +1378,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   23
     1210                      ; call occurs [#_DRV8301_readSpi] ; [] |532| 
     1211 00000131 93A9          MOV       AH,AL                 ; [CPU_] |532| 
     1212                      .dwpsn  file "../drivers/source/drv8301.c",line 535,column 3,is_stmt,isa 0
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   24
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   24
 
     1213 00000132 18A8          AND       AH,#0xfffc            ; [CPU_] |535| 
          00000133 FFFC 
@@ -1438,10 +1438,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   24
     1262              $C$DW$91        .dwtag  DW_TAG_formal_parameter
     1263                      .dwattr $C$DW$91, DW_AT_name("handle")
     1264                      .dwattr $C$DW$91, DW_AT_TI_symbol_name("_handle")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   25
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   25
 
     1265                      .dwattr $C$DW$91, DW_AT_type(*$C$DW$T$70)
     1266                      .dwattr $C$DW$91, DW_AT_location[DW_OP_reg12]
@@ -1498,10 +1498,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   25
     1316                      .dwcfi  cfa_offset, -6
     1317                      .dwpsn  file "../drivers/source/drv8301.c",line 506,column 1,is_stmt,isa 0
     1318 00000142 86A4          MOVL      XAR2,XAR4             ; [CPU_] |506| 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   26
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   26
 
     1319                      .dwpsn  file "../drivers/source/drv8301.c",line 511,column 3,is_stmt,isa 0
     1320              $C$DW$96        .dwtag  DW_TAG_TI_branch
@@ -1558,10 +1558,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   26
     1367                      .dwattr $C$DW$99, DW_AT_low_pc(_DRV8301_setOcOffTimeMode)
     1368                      .dwattr $C$DW$99, DW_AT_high_pc(0x00)
     1369                      .dwattr $C$DW$99, DW_AT_TI_symbol_name("_DRV8301_setOcOffTimeMode")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   27
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   27
 
     1370                      .dwattr $C$DW$99, DW_AT_external
     1371                      .dwattr $C$DW$99, DW_AT_TI_begin_file("../drivers/source/drv8301.c")
@@ -1618,10 +1618,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   27
     1422                      .dwcfi  cfa_offset, -2
     1423                      .dwcfi  save_reg_to_mem, 26, 0
     1424 00000151 B2BD          MOVL      *SP++,XAR1            ; [CPU_] 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   28
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   28
 
     1425                      .dwcfi  save_reg_to_mem, 7, 2
     1426                      .dwcfi  cfa_offset, -4
@@ -1678,10 +1678,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   28
     1472                      .dwattr $C$DW$99, DW_AT_TI_end_line(0x1f6)
     1473                      .dwattr $C$DW$99, DW_AT_TI_end_column(0x01)
     1474                      .dwendentry
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   29
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   29
 
     1475                      .dwendtag $C$DW$99
     1476              
@@ -1738,10 +1738,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   29
     1527                      .dwattr $C$DW$112, DW_AT_TI_symbol_name("_mode")
     1528                      .dwattr $C$DW$112, DW_AT_type(*$C$DW$T$76)
     1529                      .dwattr $C$DW$112, DW_AT_location[DW_OP_reg6]
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   30
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   30
 
     1530              
     1531              ;* AH    assigned to _data
@@ -1798,10 +1798,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   30
     1577                      .dwcfi  restore_reg, 9
     1578 00000177 8BBE          MOVL      XAR1,*--SP            ; [CPU_] 
     1579                      .dwcfi  cfa_offset, -2
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   31
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   31
 
     1580                      .dwcfi  restore_reg, 7
     1581              $C$DW$116       .dwtag  DW_TAG_TI_branch
@@ -1858,10 +1858,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   31
     1632              _DRV8301_setOcLevel:
     1633              ;* AR2   assigned to _handle
     1634              $C$DW$120       .dwtag  DW_TAG_variable
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   32
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   32
 
     1635                      .dwattr $C$DW$120, DW_AT_name("handle")
     1636                      .dwattr $C$DW$120, DW_AT_TI_symbol_name("_handle")
@@ -1918,10 +1918,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   32
     1683                      .dwpsn  file "../drivers/source/drv8301.c",line 457,column 3,is_stmt,isa 0
     1684              $C$DW$124       .dwtag  DW_TAG_TI_branch
     1685                      .dwattr $C$DW$124, DW_AT_low_pc(0x00)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   33
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   33
 
     1686                      .dwattr $C$DW$124, DW_AT_name("_DRV8301_writeSpi")
     1687                      .dwattr $C$DW$124, DW_AT_TI_call
@@ -1978,10 +1978,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   33
     1737              
     1738              
     1739              ;***************************************************************
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   34
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   34
 
     1740              ;* FNAME: _DRV8301_setGpioNumber        FR SIZE:   0           *
     1741              ;*                                                             *
@@ -2038,10 +2038,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   34
     1792                      .dwattr $C$DW$132, DW_AT_TI_max_frame_size(-2)
     1793                      .dwpsn  file "../drivers/source/drv8301.c",line 285,column 1,is_stmt,address _DRV8301_setGpioHandle,i
     1794              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   35
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   35
 
     1795                      .dwfde $C$DW$CIE, _DRV8301_setGpioHandle
     1796              $C$DW$133       .dwtag  DW_TAG_formal_parameter
@@ -2098,10 +2098,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   35
     1847                      .dwendtag $C$DW$132
     1848              
     1849 00000191               .sect   ".text"
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   36
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   36
 
     1850                      .clink
     1851                      .global _DRV8301_setDcCalMode
@@ -2158,10 +2158,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   36
     1902              ;* AR2   assigned to _mode
     1903              $C$DW$143       .dwtag  DW_TAG_variable
     1904                      .dwattr $C$DW$143, DW_AT_name("mode")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   37
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   37
 
     1905                      .dwattr $C$DW$143, DW_AT_TI_symbol_name("_mode")
     1906                      .dwattr $C$DW$143, DW_AT_type(*$C$DW$T$88)
@@ -2218,10 +2218,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   37
     1955 0000019f 5202          CMPB      AL,#2                 ; [CPU_] |427| 
     1956 000001a0 6006          B         $C$L7,NEQ             ; [CPU_] |427| 
     1957                      ; branchcc occurs ; [] |427| 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   38
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   38
 
     1958                      .dwpsn  file "../drivers/source/drv8301.c",line 429,column 7,is_stmt,isa 0
     1959 000001a1 18A8          AND       AH,#0xffdf            ; [CPU_] |429| 
@@ -2278,10 +2278,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   38
     2006                      .dwattr $C$DW$149, DW_AT_high_pc(0x00)
     2007                      .dwattr $C$DW$149, DW_AT_TI_symbol_name("_DRV8301_reset")
     2008                      .dwattr $C$DW$149, DW_AT_external
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   39
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   39
 
     2009                      .dwattr $C$DW$149, DW_AT_TI_begin_file("../drivers/source/drv8301.c")
     2010                      .dwattr $C$DW$149, DW_AT_TI_begin_line(0x18b)
@@ -2338,10 +2338,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   39
     2060                      .dwattr $C$DW$153, DW_AT_TI_call
     2061              
     2062 000001b4 7640'         LCR       #_DRV8301_readSpi     ; [CPU_] |401| 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   40
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   40
 
          000001b5 0040 
     2063                      ; call occurs [#_DRV8301_readSpi] ; [] |401| 
@@ -2398,10 +2398,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   40
     2112                      .dwattr $C$DW$157, DW_AT_location[DW_OP_reg12]
     2113              
     2114              $C$DW$158       .dwtag  DW_TAG_formal_parameter
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   41
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   41
 
     2115                      .dwattr $C$DW$158, DW_AT_name("Spi_8301_Vars")
     2116                      .dwattr $C$DW$158, DW_AT_TI_symbol_name("_Spi_8301_Vars")
@@ -2458,10 +2458,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   41
     2167              $C$DW$164       .dwtag  DW_TAG_variable
     2168                      .dwattr $C$DW$164, DW_AT_name("drvDataNew")
     2169                      .dwattr $C$DW$164, DW_AT_TI_symbol_name("_drvDataNew")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   42
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   42
 
     2170                      .dwattr $C$DW$164, DW_AT_type(*$C$DW$T$48)
     2171                      .dwattr $C$DW$164, DW_AT_location[DW_OP_reg0]
@@ -2518,10 +2518,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   42
     2221 000001d7 93A9          MOV       AH,AL                 ; [CPU_] |656| 
     2222 000001d8 FFD6          LSR       AH,7                  ; [CPU_] |656| 
     2223 000001d9 9101          ANDB      AH,#0x01              ; [CPU_] |656| 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   43
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   43
 
     2224 000001da 97D9          MOV       *+XAR1[3],AH          ; [CPU_] |656| 
     2225                      .dwpsn  file "../drivers/source/drv8301.c",line 657,column 5,is_stmt,isa 0
@@ -2578,10 +2578,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   43
     2274 000001fd FFD6          LSR       AH,7                  ; [CPU_] |668| 
     2275                      .dwpsn  file "../drivers/source/drv8301.c",line 673,column 5,is_stmt,isa 0
     2276 000001fe 8AA2          MOVL      XAR4,XAR2             ; [CPU_] |673| 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   44
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   44
 
     2277                      .dwpsn  file "../drivers/source/drv8301.c",line 669,column 5,is_stmt,isa 0
     2278 000001ff 900F          ANDB      AL,#15                ; [CPU_] |669| 
@@ -2638,10 +2638,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   44
     2321              $C$DW$168       .dwtag  DW_TAG_TI_branch
     2322                      .dwattr $C$DW$168, DW_AT_low_pc(0x00)
     2323                      .dwattr $C$DW$168, DW_AT_name("_DRV8301_readSpi")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   45
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   45
 
     2324                      .dwattr $C$DW$168, DW_AT_TI_call
     2325              
@@ -2698,10 +2698,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   45
     2372              $C$DW$170       .dwtag  DW_TAG_subprogram
     2373                      .dwattr $C$DW$170, DW_AT_name("DRV8301_isReset")
     2374                      .dwattr $C$DW$170, DW_AT_low_pc(_DRV8301_isReset)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   46
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   46
 
     2375                      .dwattr $C$DW$170, DW_AT_high_pc(0x00)
     2376                      .dwattr $C$DW$170, DW_AT_TI_symbol_name("_DRV8301_isReset")
@@ -2758,10 +2758,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   46
     2425                      .dwattr $C$DW$170, DW_AT_TI_end_column(0x01)
     2426                      .dwendentry
     2427                      .dwendtag $C$DW$170
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   47
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   47
 
     2428              
     2429 0000023c               .sect   ".text"
@@ -2818,10 +2818,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   47
     2479                      .dwattr $C$DW$177, DW_AT_low_pc(0x00)
     2480                      .dwattr $C$DW$177, DW_AT_TI_return
     2481              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   48
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   48
 
     2482 00000241 0006          LRETR     ; [CPU_] 
     2483                      ; return occurs ; [] 
@@ -2878,10 +2878,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   48
     2534                      .dwattr $C$DW$181, DW_AT_TI_symbol_name("_numBytes")
     2535                      .dwattr $C$DW$181, DW_AT_type(*$C$DW$T$116)
     2536                      .dwattr $C$DW$181, DW_AT_location[DW_OP_reg16]
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   49
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   49
 
     2537              
     2538              ;* AR4   assigned to _pMemory
@@ -2910,9 +2910,9 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   49
     2561                      ; return occurs ; [] 
     2562                      .dwcfi  restore_state
     2563 00000248       $C$L9:    
-    2564                      .dwpsn  file "D:/Users/MaCHaDo/Dropbox/Legstrong/drv8301/legstrong/LegStrong/drivers/include/drv8301.
+    2564                      .dwpsn  file "D:/Users/MaCHaDo/Documents/GitHub/LegStrong/drivers/include/drv8301.h",line 590,column 
     2565 00000248 2BEC          MOV       *+XAR4[5],#0          ; [CPU_] |590| 
-    2566                      .dwpsn  file "D:/Users/MaCHaDo/Dropbox/Legstrong/drv8301/legstrong/LegStrong/drivers/include/drv8301.
+    2566                      .dwpsn  file "D:/Users/MaCHaDo/Documents/GitHub/LegStrong/drivers/include/drv8301.h",line 578,column 
     2567 00000249 2BF4          MOV       *+XAR4[6],#0          ; [CPU_] |578| 
     2568              $C$DW$184       .dwtag  DW_TAG_TI_branch
     2569                      .dwattr $C$DW$184, DW_AT_low_pc(0x00)
@@ -2938,10 +2938,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   49
     2589                      .dwattr $C$DW$185, DW_AT_external
     2590                      .dwattr $C$DW$185, DW_AT_type(*$C$DW$T$41)
     2591                      .dwattr $C$DW$185, DW_AT_TI_begin_file("../drivers/source/drv8301.c")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   50
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   50
 
     2592                      .dwattr $C$DW$185, DW_AT_TI_begin_line(0xf9)
     2593                      .dwattr $C$DW$185, DW_AT_TI_begin_column(0x18)
@@ -2998,10 +2998,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   50
     2641                      .dwattr $C$DW$185, DW_AT_TI_end_file("../drivers/source/drv8301.c")
     2642                      .dwattr $C$DW$185, DW_AT_TI_end_line(0x105)
     2643                      .dwattr $C$DW$185, DW_AT_TI_end_column(0x01)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   51
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   51
 
     2644                      .dwendentry
     2645                      .dwendtag $C$DW$185
@@ -3058,10 +3058,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   51
     2695                      .dwattr $C$DW$193, DW_AT_name("_DRV8301_readSpi")
     2696                      .dwattr $C$DW$193, DW_AT_TI_call
     2697              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   52
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   52
 
     2698 00000254 7640'         LCR       #_DRV8301_readSpi     ; [CPU_] |240| 
          00000255 0040 
@@ -3118,10 +3118,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   52
     2748              _DRV8301_getPeakCurrent:
     2749              ;* AL    assigned to _data
     2750              $C$DW$197       .dwtag  DW_TAG_variable
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   53
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   53
 
     2751                      .dwattr $C$DW$197, DW_AT_name("data")
     2752                      .dwattr $C$DW$197, DW_AT_TI_symbol_name("_data")
@@ -3178,10 +3178,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   53
     2800                      .dwattr $C$DW$201, DW_AT_name("handle")
     2801                      .dwattr $C$DW$201, DW_AT_TI_symbol_name("_handle")
     2802                      .dwattr $C$DW$201, DW_AT_type(*$C$DW$T$70)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   54
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   54
 
     2803                      .dwattr $C$DW$201, DW_AT_location[DW_OP_reg12]
     2804              
@@ -3238,10 +3238,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   54
     2852              $C$DW$205       .dwtag  DW_TAG_subprogram
     2853                      .dwattr $C$DW$205, DW_AT_name("DRV8301_getOcOffTimeMode")
     2854                      .dwattr $C$DW$205, DW_AT_low_pc(_DRV8301_getOcOffTimeMode)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   55
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   55
 
     2855                      .dwattr $C$DW$205, DW_AT_high_pc(0x00)
     2856                      .dwattr $C$DW$205, DW_AT_TI_symbol_name("_DRV8301_getOcOffTimeMode")
@@ -3298,10 +3298,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   55
     2904                      .dwattr $C$DW$209, DW_AT_low_pc(0x00)
     2905                      .dwattr $C$DW$209, DW_AT_TI_return
     2906              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   56
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   56
 
     2907 0000026d 0006          LRETR     ; [CPU_] 
     2908                      ; return occurs ; [] 
@@ -3358,10 +3358,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   56
     2959                      .dwpsn  file "../drivers/source/drv8301.c",line 180,column 3,is_stmt,isa 0
     2960 0000026e 28A9          MOV       AL,#4096              ; [CPU_] |180| 
          0000026f 1000 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   57
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   57
 
     2961              $C$DW$213       .dwtag  DW_TAG_TI_branch
     2962                      .dwattr $C$DW$213, DW_AT_low_pc(0x00)
@@ -3418,10 +3418,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   57
     3011              ;*                                                             *
     3012              ;* FUNCTION PROPERTIES                                         *
     3013              ;*                            0 Parameter,  0 Auto,  0 SOE     *
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   58
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   58
 
     3014              ;***************************************************************
     3015              
@@ -3478,10 +3478,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   58
     3063                      .dwattr $C$DW$220, DW_AT_TI_max_frame_size(-2)
     3064                      .dwpsn  file "../drivers/source/drv8301.c",line 146,column 1,is_stmt,address _DRV8301_getId,isa 0
     3065              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   59
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   59
 
     3066                      .dwfde $C$DW$CIE, _DRV8301_getId
     3067              $C$DW$221       .dwtag  DW_TAG_formal_parameter
@@ -3538,10 +3538,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   59
     3116 00000282               .sect   ".text"
     3117                      .clink
     3118                      .global _DRV8301_getFaultType
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   60
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   60
 
     3119              
     3120              $C$DW$225       .dwtag  DW_TAG_subprogram
@@ -3598,10 +3598,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   60
     3171              
     3172              ;* AR1   assigned to _faultType
     3173              $C$DW$230       .dwtag  DW_TAG_variable
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   61
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   61
 
     3174                      .dwattr $C$DW$230, DW_AT_name("faultType")
     3175                      .dwattr $C$DW$230, DW_AT_TI_symbol_name("_faultType")
@@ -3658,10 +3658,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   61
     3222                      ; call occurs [#_DRV8301_readSpi] ; [] |132| 
     3223                      .dwpsn  file "../drivers/source/drv8301.c",line 134,column 11,is_stmt,isa 0
     3224 00000295 47A9          TBIT      AL,#7                 ; [CPU_] |134| 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   62
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   62
 
     3225 00000296 6C03          B         $C$L11,NTC            ; [CPU_] |134| 
     3226                      ; branchcc occurs ; [] |134| 
@@ -3718,10 +3718,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   62
     3276                      .dwattr $C$DW$236, DW_AT_TI_symbol_name("_ampNumber")
     3277                      .dwattr $C$DW$236, DW_AT_type(*$C$DW$T$91)
     3278                      .dwattr $C$DW$236, DW_AT_location[DW_OP_reg0]
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   63
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   63
 
     3279              
     3280              
@@ -3778,10 +3778,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   63
     3329                      .dwpsn  file "../drivers/source/drv8301.c",line 112,column 3,is_stmt,isa 0
     3330 000002a8 18A9          AND       AL,#0xffdf            ; [CPU_] |112| 
          000002a9 FFDF 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   64
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   64
 
     3331 000002aa 6F03          B         $C$L14,UNC            ; [CPU_] |112| 
     3332                      ; branch occurs ; [] |112| 
@@ -3838,10 +3838,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   64
     3382              ;***************************************************************
     3383              ;* FNAME: _DRV8301_enable               FR SIZE:   2           *
     3384              ;*                                                             *
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   65
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   65
 
     3385              ;* FUNCTION ENVIRONMENT                                        *
     3386              ;*                                                             *
@@ -3898,10 +3898,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   65
     3433                      .dwattr $C$DW$246, DW_AT_low_pc(0x00)
     3434                      .dwattr $C$DW$246, DW_AT_name("_DRV8301_readSpi")
     3435                      .dwattr $C$DW$246, DW_AT_TI_call
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   66
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   66
 
     3436              
     3437 000002c0 7640'         LCR       #_DRV8301_readSpi     ; [CPU_] |78| 
@@ -3958,10 +3958,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   66
     3483              $C$DW$248       .dwtag  DW_TAG_enumerator
     3484                      .dwattr $C$DW$248, DW_AT_name("GPIO_Number_0")
     3485                      .dwattr $C$DW$248, DW_AT_const_value(0x00)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   67
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   67
 
     3486              
     3487              $C$DW$249       .dwtag  DW_TAG_enumerator
@@ -4018,10 +4018,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   67
     3538              
     3539              $C$DW$262       .dwtag  DW_TAG_enumerator
     3540                      .dwattr $C$DW$262, DW_AT_name("GPIO_Rsvd_14")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   68
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   68
 
     3541                      .dwattr $C$DW$262, DW_AT_const_value(0x0e)
     3542              
@@ -4078,10 +4078,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   68
     3593                      .dwattr $C$DW$275, DW_AT_const_value(0x1b)
     3594              
     3595              $C$DW$276       .dwtag  DW_TAG_enumerator
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   69
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   69
 
     3596                      .dwattr $C$DW$276, DW_AT_name("GPIO_Number_28")
     3597                      .dwattr $C$DW$276, DW_AT_const_value(0x1c)
@@ -4138,10 +4138,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   69
     3648                      .dwattr $C$DW$T$24, DW_AT_language(DW_LANG_C)
     3649              
     3650              $C$DW$288       .dwtag  DW_TAG_TI_far_type
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   70
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   70
 
     3651                      .dwattr $C$DW$288, DW_AT_type(*$C$DW$T$24)
     3652              
@@ -4198,10 +4198,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   70
     3703              $C$DW$T$30      .dwtag  DW_TAG_typedef
     3704                      .dwattr $C$DW$T$30, DW_AT_name("DRV8301_Reset_e")
     3705                      .dwattr $C$DW$T$30, DW_AT_type(*$C$DW$T$29)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   71
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   71
 
     3706                      .dwattr $C$DW$T$30, DW_AT_language(DW_LANG_C)
     3707              
@@ -4258,10 +4258,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   71
     3758              $C$DW$303       .dwtag  DW_TAG_TI_far_type
     3759                      .dwattr $C$DW$303, DW_AT_type(*$C$DW$T$34)
     3760              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   72
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   72
 
     3761              $C$DW$T$76      .dwtag  DW_TAG_const_type
     3762                      .dwattr $C$DW$T$76, DW_AT_type(*$C$DW$303)
@@ -4318,10 +4318,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   72
     3813                      .dwattr $C$DW$315, DW_AT_const_value(0x2c0)
     3814              
     3815              $C$DW$316       .dwtag  DW_TAG_enumerator
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   73
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   73
 
     3816                      .dwattr $C$DW$316, DW_AT_name("DRV8301_VdsLevel_0p250_V")
     3817                      .dwattr $C$DW$316, DW_AT_const_value(0x300)
@@ -4378,10 +4378,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   73
     3868                      .dwattr $C$DW$329, DW_AT_name("DRV8301_VdsLevel_1p175_V")
     3869                      .dwattr $C$DW$329, DW_AT_const_value(0x640)
     3870              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   74
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   74
 
     3871              $C$DW$330       .dwtag  DW_TAG_enumerator
     3872                      .dwattr $C$DW$330, DW_AT_name("DRV8301_VdsLevel_1p324_V")
@@ -4438,10 +4438,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   74
     3923                      .dwendtag $C$DW$T$38
     3924              
     3925              $C$DW$T$39      .dwtag  DW_TAG_typedef
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   75
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   75
 
     3926                      .dwattr $C$DW$T$39, DW_AT_name("DRV8301_OcTwMode_e")
     3927                      .dwattr $C$DW$T$39, DW_AT_type(*$C$DW$T$38)
@@ -4498,10 +4498,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   75
     3978              
     3979              $C$DW$348       .dwtag  DW_TAG_enumerator
     3980                      .dwattr $C$DW$348, DW_AT_name("DRV8301_DcCalMode_Ch2_Load")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   76
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   76
 
     3981                      .dwattr $C$DW$348, DW_AT_const_value(0x00)
     3982              
@@ -4558,10 +4558,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   76
     4033                      .dwattr $C$DW$355, DW_AT_const_value(0x02)
     4034              
     4035                      .dwendtag $C$DW$T$89
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   77
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   77
 
     4036              
     4037              $C$DW$T$90      .dwtag  DW_TAG_typedef
@@ -4618,10 +4618,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   77
     4088                      .dwattr $C$DW$363, DW_AT_name("DRV8301_CtrlMode_Read")
     4089                      .dwattr $C$DW$363, DW_AT_const_value(-32768)
     4090              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   78
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   78
 
     4091              $C$DW$364       .dwtag  DW_TAG_enumerator
     4092                      .dwattr $C$DW$364, DW_AT_name("DRV8301_CtrlMode_Write")
@@ -4678,10 +4678,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   78
     4143                      .dwattr $C$DW$371, DW_AT_const_value(0x01)
     4144              
     4145              $C$DW$372       .dwtag  DW_TAG_enumerator
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   79
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   79
 
     4146                      .dwattr $C$DW$372, DW_AT_name("DRV8301_FaultType_FETHC_OC")
     4147                      .dwattr $C$DW$372, DW_AT_const_value(0x02)
@@ -4738,10 +4738,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   79
     4198                      .dwattr $C$DW$382, DW_AT_name("spiHandle")
     4199                      .dwattr $C$DW$382, DW_AT_TI_symbol_name("_spiHandle")
     4200                      .dwattr $C$DW$382, DW_AT_data_member_location[DW_OP_plus_uconst 0x0]
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   80
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   80
 
     4201                      .dwattr $C$DW$382, DW_AT_accessibility(DW_ACCESS_public)
     4202              
@@ -4798,10 +4798,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   80
     4253              
     4254              $C$DW$T$37      .dwtag  DW_TAG_structure_type
     4255                      .dwattr $C$DW$T$37, DW_AT_name("_DRV_SPI_8301_CTRL1_t_")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   81
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   81
 
     4256                      .dwattr $C$DW$T$37, DW_AT_byte_size(0x05)
     4257              $C$DW$388       .dwtag  DW_TAG_member
@@ -4858,10 +4858,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   81
     4308                      .dwattr $C$DW$393, DW_AT_accessibility(DW_ACCESS_public)
     4309              
     4310              $C$DW$394       .dwtag  DW_TAG_member
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   82
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   82
 
     4311                      .dwattr $C$DW$394, DW_AT_type(*$C$DW$T$41)
     4312                      .dwattr $C$DW$394, DW_AT_name("GAIN")
@@ -4918,10 +4918,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   82
     4363              $C$DW$400       .dwtag  DW_TAG_member
     4364                      .dwattr $C$DW$400, DW_AT_type(*$C$DW$T$25)
     4365                      .dwattr $C$DW$400, DW_AT_name("OTSD")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   83
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   83
 
     4366                      .dwattr $C$DW$400, DW_AT_TI_symbol_name("_OTSD")
     4367                      .dwattr $C$DW$400, DW_AT_data_member_location[DW_OP_plus_uconst 0x3]
@@ -4978,10 +4978,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   83
     4418              
     4419                      .dwendtag $C$DW$T$47
     4420              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   84
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   84
 
     4421              $C$DW$T$50      .dwtag  DW_TAG_typedef
     4422                      .dwattr $C$DW$T$50, DW_AT_name("DRV_SPI_8301_Stat1_t_")
@@ -5038,10 +5038,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   84
     4473                      .dwattr $C$DW$412, DW_AT_data_member_location[DW_OP_plus_uconst 0xd]
     4474                      .dwattr $C$DW$412, DW_AT_accessibility(DW_ACCESS_public)
     4475              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   85
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   85
 
     4476              $C$DW$413       .dwtag  DW_TAG_member
     4477                      .dwattr $C$DW$413, DW_AT_type(*$C$DW$T$53)
@@ -5098,10 +5098,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   85
     4528                      .dwattr $C$DW$418, DW_AT_TI_symbol_name("_GPAQSEL1")
     4529                      .dwattr $C$DW$418, DW_AT_data_member_location[DW_OP_plus_uconst 0x2]
     4530                      .dwattr $C$DW$418, DW_AT_accessibility(DW_ACCESS_public)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   86
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   86
 
     4531              
     4532              $C$DW$419       .dwtag  DW_TAG_member
@@ -5158,10 +5158,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   86
     4583                      .dwattr $C$DW$426, DW_AT_name("GPBQSEL1")
     4584                      .dwattr $C$DW$426, DW_AT_TI_symbol_name("_GPBQSEL1")
     4585                      .dwattr $C$DW$426, DW_AT_data_member_location[DW_OP_plus_uconst 0x12]
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   87
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   87
 
     4586                      .dwattr $C$DW$426, DW_AT_accessibility(DW_ACCESS_public)
     4587              
@@ -5218,10 +5218,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   87
     4638                      .dwattr $C$DW$434, DW_AT_type(*$C$DW$T$58)
     4639                      .dwattr $C$DW$434, DW_AT_name("rsvd_5")
     4640                      .dwattr $C$DW$434, DW_AT_TI_symbol_name("_rsvd_5")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   88
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   88
 
     4641                      .dwattr $C$DW$434, DW_AT_data_member_location[DW_OP_plus_uconst 0x38]
     4642                      .dwattr $C$DW$434, DW_AT_accessibility(DW_ACCESS_public)
@@ -5278,10 +5278,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   88
     4693              $C$DW$442       .dwtag  DW_TAG_member
     4694                      .dwattr $C$DW$442, DW_AT_type(*$C$DW$T$56)
     4695                      .dwattr $C$DW$442, DW_AT_name("GPBSET")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   89
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   89
 
     4696                      .dwattr $C$DW$442, DW_AT_TI_symbol_name("_GPBSET")
     4697                      .dwattr $C$DW$442, DW_AT_data_member_location[DW_OP_plus_uconst 0x4a]
@@ -5338,10 +5338,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   89
     4748              
     4749              $C$DW$450       .dwtag  DW_TAG_member
     4750                      .dwattr $C$DW$450, DW_AT_type(*$C$DW$T$62)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   90
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   90
 
     4751                      .dwattr $C$DW$450, DW_AT_name("GPIOXINTnSEL")
     4752                      .dwattr $C$DW$450, DW_AT_TI_symbol_name("_GPIOXINTnSEL")
@@ -5398,10 +5398,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   90
     4803                      .dwattr $C$DW$455, DW_AT_accessibility(DW_ACCESS_public)
     4804              
     4805              $C$DW$456       .dwtag  DW_TAG_member
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   91
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   91
 
     4806                      .dwattr $C$DW$456, DW_AT_type(*$C$DW$T$57)
     4807                      .dwattr $C$DW$456, DW_AT_name("SPIST")
@@ -5458,10 +5458,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   91
     4858                      .dwattr $C$DW$463, DW_AT_data_member_location[DW_OP_plus_uconst 0x9]
     4859                      .dwattr $C$DW$463, DW_AT_accessibility(DW_ACCESS_public)
     4860              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   92
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   92
 
     4861              $C$DW$464       .dwtag  DW_TAG_member
     4862                      .dwattr $C$DW$464, DW_AT_type(*$C$DW$T$57)
@@ -5518,10 +5518,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   92
     4913                      .dwattr $C$DW$469, DW_AT_type(*$C$DW$T$20)
     4914              
     4915              $C$DW$T$128     .dwtag  DW_TAG_const_type
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   93
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   93
 
     4916                      .dwattr $C$DW$T$128, DW_AT_type(*$C$DW$469)
     4917              
@@ -5578,10 +5578,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   93
     4968                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
     4969                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
     4970              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   94
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   94
 
     4971              $C$DW$T$48      .dwtag  DW_TAG_typedef
     4972                      .dwattr $C$DW$T$48, DW_AT_name("uint16_t")
@@ -5638,10 +5638,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   94
     5023                      .dwattr $C$DW$475, DW_AT_upper_bound(0x07)
     5024              
     5025                      .dwendtag $C$DW$T$61
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   95
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   95
 
     5026              
     5027              
@@ -5698,10 +5698,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   95
     5078              
     5079              $C$DW$480       .dwtag  DW_TAG_TI_far_type
     5080                      .dwattr $C$DW$480, DW_AT_type(*$C$DW$T$55)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   96
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   96
 
     5081              
     5082              $C$DW$T$56      .dwtag  DW_TAG_volatile_type
@@ -5758,10 +5758,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   96
     5133                      .dwcfi  undefined, 25
     5134                      .dwcfi  undefined, 26
     5135                      .dwcfi  same_value, 28
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   97
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   97
 
     5136                      .dwcfi  undefined, 29
     5137                      .dwcfi  undefined, 30
@@ -5818,10 +5818,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   97
     5188                      .dwattr $C$DW$485, DW_AT_name("SP")
     5189                      .dwattr $C$DW$485, DW_AT_location[DW_OP_reg20]
     5190              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   98
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   98
 
     5191              $C$DW$486       .dwtag  DW_TAG_TI_assign_register
     5192                      .dwattr $C$DW$486, DW_AT_name("XT")
@@ -5878,10 +5878,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   98
     5243              $C$DW$499       .dwtag  DW_TAG_TI_assign_register
     5244                      .dwattr $C$DW$499, DW_AT_name("INTM")
     5245                      .dwattr $C$DW$499, DW_AT_location[DW_OP_regx 0x23]
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   99
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE   99
 
     5246              
     5247              $C$DW$500       .dwtag  DW_TAG_TI_assign_register
@@ -5938,10 +5938,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE   99
     5298              
     5299              $C$DW$513       .dwtag  DW_TAG_TI_assign_register
     5300                      .dwattr $C$DW$513, DW_AT_name("AR4")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:59 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:46 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\2190410                          PAGE  100
+C:\Users\MaCHaDo\AppData\Local\Temp\4599610                          PAGE  100
 
     5301                      .dwattr $C$DW$513, DW_AT_location[DW_OP_reg12]
     5302              

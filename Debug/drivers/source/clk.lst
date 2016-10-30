@@ -1,11 +1,11 @@
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    1
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE    1
 
        1              ;***************************************************************
        2              ;* TMS320C2000 C/C++ Codegen                   PC v15.12.3.LTS *
-       3              ;* Date/Time created: Tue Sep 20 20:29:55 2016                 *
+       3              ;* Date/Time created: Sun Oct 30 14:01:42 2016                 *
        4              ;***************************************************************
        5                      .compiler_opts --abi=coffabi --float_support=softlib --hll_source=on --mem_model:code=flat --mem_mode
        6        0002  FP      .set    XAR2
@@ -14,7 +14,7 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    1
        9                      .dwattr $C$DW$CU, DW_AT_name("../drivers/source/clk.c")
       10                      .dwattr $C$DW$CU, DW_AT_producer("TI TMS320C2000 C/C++ Codegen PC v15.12.3.LTS Copyright (c) 1996-201
       11                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-      12                      .dwattr $C$DW$CU, DW_AT_comp_dir("D:\Users\MaCHaDo\Dropbox\Legstrong\drv8301\legstrong\LegStrong\Debu
+      12                      .dwattr $C$DW$CU, DW_AT_comp_dir("D:\Users\MaCHaDo\Documents\GitHub\LegStrong\Debug")
       13              ;       C:\ti\ccsv6\tools\compiler\c2000_15.12.3.LTS\bin\opt2000.exe C:\\Users\\MaCHaDo\\AppData\\Local\\Temp
       14              ;       C:\ti\ccsv6\tools\compiler\c2000_15.12.3.LTS\bin\ac2000.exe -@C:\\Users\\MaCHaDo\\AppData\\Local\\Tem
       15 00000000               .sect   ".text"
@@ -58,10 +58,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    1
       53              
       54              _CLK_setXClkInSrc:
       55              ;* AR4   assigned to _clkHandle
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    2
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE    2
 
       56              $C$DW$4 .dwtag  DW_TAG_variable
       57                      .dwattr $C$DW$4, DW_AT_name("clkHandle")
@@ -118,10 +118,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    2
      107              $C$DW$8 .dwtag  DW_TAG_formal_parameter
      108                      .dwattr $C$DW$8, DW_AT_name("clkHandle")
      109                      .dwattr $C$DW$8, DW_AT_TI_symbol_name("_clkHandle")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    3
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE    3
 
      110                      .dwattr $C$DW$8, DW_AT_type(*$C$DW$T$59)
      111                      .dwattr $C$DW$8, DW_AT_location[DW_OP_reg12]
@@ -178,10 +178,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    3
      161                      .dwattr $C$DW$7, DW_AT_TI_end_column(0x01)
      162                      .dwendentry
      163                      .dwendtag $C$DW$7
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    4
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE    4
 
      164              
      165 0000000e               .sect   ".text"
@@ -238,10 +238,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    4
      216                      .dwattr $C$DW$17, DW_AT_type(*$C$DW$T$53)
      217                      .dwattr $C$DW$17, DW_AT_location[DW_OP_reg0]
      218              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    5
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE    5
 
      219                      .dwcfi  cfa_offset, -2
      220                      .dwcfi  save_reg_to_mem, 26, 0
@@ -298,10 +298,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    5
      270              ;***************************************************************
      271              ;* FNAME: _CLK_setTimer2PreScale        FR SIZE:   0           *
      272              ;*                                                             *
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    6
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE    6
 
      273              ;* FUNCTION ENVIRONMENT                                        *
      274              ;*                                                             *
@@ -358,10 +358,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    6
      324                      .dwattr $C$DW$25, DW_AT_external
      325                      .dwattr $C$DW$25, DW_AT_TI_begin_file("../drivers/source/clk.c")
      326                      .dwattr $C$DW$25, DW_AT_TI_begin_line(0x2a9)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    7
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE    7
 
      327                      .dwattr $C$DW$25, DW_AT_TI_begin_column(0x06)
      328                      .dwattr $C$DW$25, DW_AT_TI_max_frame_size(-2)
@@ -418,10 +418,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    7
      378              $C$DW$30        .dwtag  DW_TAG_TI_branch
      379                      .dwattr $C$DW$30, DW_AT_low_pc(0x00)
      380                      .dwattr $C$DW$30, DW_AT_TI_return
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    8
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE    8
 
      381              
      382 00000022 0006          LRETR     ; [CPU_] 
@@ -478,10 +478,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    8
      433                      .dwattr $C$DW$34, DW_AT_TI_symbol_name("_clkHandle")
      434                      .dwattr $C$DW$34, DW_AT_type(*$C$DW$T$60)
      435                      .dwattr $C$DW$34, DW_AT_location[DW_OP_reg12]
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    9
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE    9
 
      436              
      437              ;* AL    assigned to _src
@@ -538,10 +538,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE    9
      487              
      488              $C$DW$39        .dwtag  DW_TAG_formal_parameter
      489                      .dwattr $C$DW$39, DW_AT_name("preScaler")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   10
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   10
 
      490                      .dwattr $C$DW$39, DW_AT_TI_symbol_name("_preScaler")
      491                      .dwattr $C$DW$39, DW_AT_type(*$C$DW$T$38)
@@ -598,10 +598,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   10
      542              
      543              $C$DW$43        .dwtag  DW_TAG_subprogram
      544                      .dwattr $C$DW$43, DW_AT_name("CLK_setClkOutPreScaler")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   11
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   11
 
      545                      .dwattr $C$DW$43, DW_AT_low_pc(_CLK_setClkOutPreScaler)
      546                      .dwattr $C$DW$43, DW_AT_high_pc(0x00)
@@ -658,10 +658,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   11
      597 00000031 18C4          AND       *+XAR4[0],#0xfffc     ; [CPU_] |653| 
          00000032 FFFC 
      598                      .dwpsn  file "../drivers/source/clk.c",line 656,column 3,is_stmt,isa 0
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   12
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   12
 
      599 00000033 98C4          OR        *+XAR4[0],AL          ; [CPU_] |656| 
      600 00000034 761A   EDIS
@@ -718,10 +718,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   12
      651              ;*                            0 Parameter,  0 Auto,  0 SOE     *
      652              ;***************************************************************
      653              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   13
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   13
 
      654              _CLK_init:
      655              ;* AR6   assigned to _numBytes
@@ -778,10 +778,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   13
      706              
      707              
      708              ;***************************************************************
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   14
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   14
 
      709              ;* FNAME: _CLK_enableWatchDogHaltMode   FR SIZE:   0           *
      710              ;*                                                             *
@@ -838,10 +838,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   14
      760                      .dwfde $C$DW$CIE, _CLK_enableTbClockSync
      761              $C$DW$59        .dwtag  DW_TAG_formal_parameter
      762                      .dwattr $C$DW$59, DW_AT_name("clkHandle")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   15
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   15
 
      763                      .dwattr $C$DW$59, DW_AT_TI_symbol_name("_clkHandle")
      764                      .dwattr $C$DW$59, DW_AT_type(*$C$DW$T$59)
@@ -898,10 +898,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   15
      814                      .dwfde $C$DW$CIE, _CLK_enableSpiaClock
      815              $C$DW$62        .dwtag  DW_TAG_formal_parameter
      816                      .dwattr $C$DW$62, DW_AT_name("clkHandle")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   16
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   16
 
      817                      .dwattr $C$DW$62, DW_AT_TI_symbol_name("_clkHandle")
      818                      .dwattr $C$DW$62, DW_AT_type(*$C$DW$T$59)
@@ -958,10 +958,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   16
      868                      .dwfde $C$DW$CIE, _CLK_enableSciaClock
      869              $C$DW$65        .dwtag  DW_TAG_formal_parameter
      870                      .dwattr $C$DW$65, DW_AT_name("clkHandle")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   17
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   17
 
      871                      .dwattr $C$DW$65, DW_AT_TI_symbol_name("_clkHandle")
      872                      .dwattr $C$DW$65, DW_AT_type(*$C$DW$T$59)
@@ -1018,10 +1018,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   17
      922                      .dwfde $C$DW$CIE, _CLK_enablePwmClock
      923              $C$DW$68        .dwtag  DW_TAG_formal_parameter
      924                      .dwattr $C$DW$68, DW_AT_name("clkHandle")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   18
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   18
 
      925                      .dwattr $C$DW$68, DW_AT_TI_symbol_name("_clkHandle")
      926                      .dwattr $C$DW$68, DW_AT_type(*$C$DW$T$59)
@@ -1078,10 +1078,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   18
      977                      .clink
      978                      .global _CLK_enableOsc2HaltMode
      979              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   19
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   19
 
      980              $C$DW$72        .dwtag  DW_TAG_subprogram
      981                      .dwattr $C$DW$72, DW_AT_name("CLK_enableOsc2HaltMode")
@@ -1138,10 +1138,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   19
     1031                      .dwattr $C$DW$72, DW_AT_TI_end_line(0x222)
     1032                      .dwattr $C$DW$72, DW_AT_TI_end_column(0x01)
     1033                      .dwendentry
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   20
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   20
 
     1034                      .dwendtag $C$DW$72
     1035              
@@ -1198,10 +1198,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   20
     1085                      .dwattr $C$DW$79, DW_AT_low_pc(0x00)
     1086                      .dwattr $C$DW$79, DW_AT_TI_return
     1087              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   21
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   21
 
     1088 0000006c 0006          LRETR     ; [CPU_] 
     1089                      ; return occurs ; [] 
@@ -1258,10 +1258,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   21
     1140                      .dwpsn  file "../drivers/source/clk.c",line 509,column 3,is_stmt,isa 0
     1141 0000006e 18D4          AND       *+XAR4[2],#0xfdff     ; [CPU_] |509| 
          0000006f FDFF 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   22
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   22
 
     1142 00000070 761A   EDIS
     1143 00000071 FF69          SPM       #0                    ; [CPU_] 
@@ -1318,10 +1318,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   22
     1194                      .dwattr $C$DW$86, DW_AT_type(*$C$DW$T$60)
     1195                      .dwattr $C$DW$86, DW_AT_location[DW_OP_reg12]
     1196              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   23
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   23
 
     1197                      .dwcfi  cfa_offset, -2
     1198                      .dwcfi  save_reg_to_mem, 26, 0
@@ -1378,10 +1378,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   23
     1248              
     1249 00000079       _CLK_enableI2cClock:
     1250                      .dwcfi  cfa_offset, -2
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   24
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   24
 
     1251                      .dwcfi  save_reg_to_mem, 26, 0
     1252 00000079 7622   EALLOW
@@ -1438,10 +1438,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   24
     1302              
     1303 00000080       _CLK_enableHrPwmClock:
     1304                      .dwcfi  cfa_offset, -2
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   25
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   25
 
     1305                      .dwcfi  save_reg_to_mem, 26, 0
     1306 00000080 7622   EALLOW
@@ -1498,10 +1498,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   25
     1356              
     1357 00000087       _CLK_enableGpioInputClock:
     1358                      .dwcfi  cfa_offset, -2
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   26
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   26
 
     1359                      .dwcfi  save_reg_to_mem, 26, 0
     1360 00000087 7622   EALLOW
@@ -1558,10 +1558,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   26
     1410              
     1411 0000008e       _CLK_enableEcap1Clock:
     1412                      .dwcfi  cfa_offset, -2
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   27
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   27
 
     1413                      .dwcfi  save_reg_to_mem, 26, 0
     1414 0000008e 7622   EALLOW
@@ -1618,10 +1618,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   27
     1464              
     1465              _CLK_enableCrystalOsc:
     1466              ;* AR4   assigned to _clkHandle
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   28
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   28
 
     1467              $C$DW$102       .dwtag  DW_TAG_variable
     1468                      .dwattr $C$DW$102, DW_AT_name("clkHandle")
@@ -1678,10 +1678,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   28
     1518                      .dwattr $C$DW$106, DW_AT_type(*$C$DW$T$29)
     1519                      .dwattr $C$DW$106, DW_AT_location[DW_OP_reg0]
     1520              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   29
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   29
 
     1521              
     1522              ;***************************************************************
@@ -1738,10 +1738,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   29
     1573                      .dwpsn  file "../drivers/source/clk.c",line 358,column 1,is_stmt,address _CLK_enableCompClock,isa 0
     1574              
     1575                      .dwfde $C$DW$CIE, _CLK_enableCompClock
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   30
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   30
 
     1576              $C$DW$110       .dwtag  DW_TAG_formal_parameter
     1577                      .dwattr $C$DW$110, DW_AT_name("clkHandle")
@@ -1798,10 +1798,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   30
     1628                      .global _CLK_enableClkIn
     1629              
     1630              $C$DW$114       .dwtag  DW_TAG_subprogram
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   31
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   31
 
     1631                      .dwattr $C$DW$114, DW_AT_name("CLK_enableClkIn")
     1632                      .dwattr $C$DW$114, DW_AT_low_pc(_CLK_enableClkIn)
@@ -1858,10 +1858,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   31
     1682                      .dwattr $C$DW$114, DW_AT_TI_end_column(0x01)
     1683                      .dwendentry
     1684                      .dwendtag $C$DW$114
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   32
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   32
 
     1685              
     1686 000000ad               .sect   ".text"
@@ -1918,10 +1918,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   32
     1736                      .dwattr $C$DW$118, DW_AT_TI_end_column(0x01)
     1737                      .dwendentry
     1738                      .dwendtag $C$DW$118
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   33
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   33
 
     1739              
     1740 000000b4               .sect   ".text"
@@ -1978,10 +1978,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   33
     1790                      .dwattr $C$DW$124, DW_AT_TI_return
     1791              
     1792 000000b9 0006          LRETR     ; [CPU_] 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   34
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   34
 
     1793                      ; return occurs ; [] 
     1794                      .dwattr $C$DW$121, DW_AT_TI_end_file("../drivers/source/clk.c")
@@ -2038,10 +2038,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   34
     1844                      .dwattr $C$DW$127, DW_AT_TI_return
     1845              
     1846 000000c0 0006          LRETR     ; [CPU_] 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   35
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   35
 
     1847                      ; return occurs ; [] 
     1848                      .dwattr $C$DW$125, DW_AT_TI_end_file("../drivers/source/clk.c")
@@ -2098,10 +2098,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   35
     1898                      .dwattr $C$DW$130, DW_AT_TI_return
     1899              
     1900 000000c7 0006          LRETR     ; [CPU_] 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   36
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   36
 
     1901                      ; return occurs ; [] 
     1902                      .dwattr $C$DW$128, DW_AT_TI_end_file("../drivers/source/clk.c")
@@ -2158,10 +2158,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   36
     1952                      .dwattr $C$DW$133, DW_AT_TI_return
     1953              
     1954 000000ce 0006          LRETR     ; [CPU_] 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   37
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   37
 
     1955                      ; return occurs ; [] 
     1956                      .dwattr $C$DW$131, DW_AT_TI_end_file("../drivers/source/clk.c")
@@ -2218,10 +2218,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   37
     2007                      .dwattr $C$DW$137, DW_AT_location[DW_OP_reg22]
     2008              
     2009                      .dwcfi  cfa_offset, -2
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   38
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   38
 
     2010                      .dwcfi  save_reg_to_mem, 26, 0
     2011 000000cf 2DA9          MOV       T,AL                  ; [CPU_] |262| 
@@ -2278,10 +2278,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   38
     2062              ;* FUNCTION PROPERTIES                                         *
     2063              ;*                            0 Parameter,  0 Auto,  0 SOE     *
     2064              ;***************************************************************
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   39
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   39
 
     2065              
     2066              _CLK_disableOsc2HaltMode:
@@ -2338,10 +2338,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   39
     2116              
     2117              ;***************************************************************
     2118              ;* FNAME: _CLK_disableOsc2              FR SIZE:   0           *
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   40
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   40
 
     2119              ;*                                                             *
     2120              ;* FUNCTION ENVIRONMENT                                        *
@@ -2398,10 +2398,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   40
     2170              $C$DW$148       .dwtag  DW_TAG_formal_parameter
     2171                      .dwattr $C$DW$148, DW_AT_name("clkHandle")
     2172                      .dwattr $C$DW$148, DW_AT_TI_symbol_name("_clkHandle")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   41
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   41
 
     2173                      .dwattr $C$DW$148, DW_AT_type(*$C$DW$T$59)
     2174                      .dwattr $C$DW$148, DW_AT_location[DW_OP_reg12]
@@ -2458,10 +2458,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   41
     2224                      .dwattr $C$DW$151, DW_AT_TI_begin_line(0xc5)
     2225                      .dwattr $C$DW$151, DW_AT_TI_begin_column(0x06)
     2226                      .dwattr $C$DW$151, DW_AT_TI_max_frame_size(-2)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   42
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   42
 
     2227                      .dwpsn  file "../drivers/source/clk.c",line 198,column 1,is_stmt,address _CLK_disableOsc1,isa 0
     2228              
@@ -2518,10 +2518,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   42
     2278                      .dwattr $C$DW$155, DW_AT_name("CLK_disableI2cClock")
     2279                      .dwattr $C$DW$155, DW_AT_low_pc(_CLK_disableI2cClock)
     2280                      .dwattr $C$DW$155, DW_AT_high_pc(0x00)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   43
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   43
 
     2281                      .dwattr $C$DW$155, DW_AT_TI_symbol_name("_CLK_disableI2cClock")
     2282                      .dwattr $C$DW$155, DW_AT_external
@@ -2578,10 +2578,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   43
     2332                      .dwattr $C$DW$158, DW_AT_name("CLK_disableHrPwmClock")
     2333                      .dwattr $C$DW$158, DW_AT_low_pc(_CLK_disableHrPwmClock)
     2334                      .dwattr $C$DW$158, DW_AT_high_pc(0x00)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   44
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   44
 
     2335                      .dwattr $C$DW$158, DW_AT_TI_symbol_name("_CLK_disableHrPwmClock")
     2336                      .dwattr $C$DW$158, DW_AT_external
@@ -2638,10 +2638,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   44
     2386                      .dwattr $C$DW$161, DW_AT_name("CLK_disableGpioInputClock")
     2387                      .dwattr $C$DW$161, DW_AT_low_pc(_CLK_disableGpioInputClock)
     2388                      .dwattr $C$DW$161, DW_AT_high_pc(0x00)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   45
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   45
 
     2389                      .dwattr $C$DW$161, DW_AT_TI_symbol_name("_CLK_disableGpioInputClock")
     2390                      .dwattr $C$DW$161, DW_AT_external
@@ -2698,10 +2698,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   45
     2440                      .dwattr $C$DW$164, DW_AT_name("CLK_disableEcap1Clock")
     2441                      .dwattr $C$DW$164, DW_AT_low_pc(_CLK_disableEcap1Clock)
     2442                      .dwattr $C$DW$164, DW_AT_high_pc(0x00)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   46
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   46
 
     2443                      .dwattr $C$DW$164, DW_AT_TI_symbol_name("_CLK_disableEcap1Clock")
     2444                      .dwattr $C$DW$164, DW_AT_external
@@ -2758,10 +2758,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   46
     2494                      .dwattr $C$DW$167, DW_AT_name("CLK_disableCrystalOsc")
     2495                      .dwattr $C$DW$167, DW_AT_low_pc(_CLK_disableCrystalOsc)
     2496                      .dwattr $C$DW$167, DW_AT_high_pc(0x00)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   47
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   47
 
     2497                      .dwattr $C$DW$167, DW_AT_TI_symbol_name("_CLK_disableCrystalOsc")
     2498                      .dwattr $C$DW$167, DW_AT_external
@@ -2818,10 +2818,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   47
     2548              
     2549 00000113               .sect   ".text"
     2550                      .clink
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   48
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   48
 
     2551                      .global _CLK_disableCpuTimerClock
     2552              
@@ -2878,10 +2878,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   48
     2603                      ; return occurs ; [] 
     2604                      .dwattr $C$DW$171, DW_AT_TI_end_file("../drivers/source/clk.c")
     2605                      .dwattr $C$DW$171, DW_AT_TI_end_line(0x72)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   49
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   49
 
     2606                      .dwattr $C$DW$171, DW_AT_TI_end_column(0x01)
     2607                      .dwendentry
@@ -2938,10 +2938,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   49
     2658                      .dwattr $C$DW$178, DW_AT_TI_return
     2659              
     2660 0000011d 0006          LRETR     ; [CPU_] 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   50
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   50
 
     2661                      ; return occurs ; [] 
     2662                      .dwattr $C$DW$175, DW_AT_TI_end_file("../drivers/source/clk.c")
@@ -2998,10 +2998,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   50
     2713 0000011f 1AD4          OR        *+XAR4[2],#0x2000     ; [CPU_] |81| 
          00000120 2000 
     2714 00000121 761A   EDIS
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   51
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   51
 
     2715 00000122 FF69          SPM       #0                    ; [CPU_] 
     2716              $C$DW$182       .dwtag  DW_TAG_TI_branch
@@ -3058,10 +3058,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   51
     2767 00000126 18C4          AND       *+XAR4[0],#0xfff7     ; [CPU_] |65| 
          00000127 FFF7 
     2768 00000128 761A   EDIS
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   52
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   52
 
     2769 00000129 FF69          SPM       #0                    ; [CPU_] 
     2770              $C$DW$185       .dwtag  DW_TAG_TI_branch
@@ -3118,10 +3118,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   52
     2821              $C$DW$191       .dwtag  DW_TAG_enumerator
     2822                      .dwattr $C$DW$191, DW_AT_name("CLK_CpuTimerNumber_1")
     2823                      .dwattr $C$DW$191, DW_AT_const_value(0x200)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   53
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   53
 
     2824              
     2825              $C$DW$192       .dwtag  DW_TAG_enumerator
@@ -3178,10 +3178,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   53
     2876                      .dwattr $C$DW$T$33, DW_AT_byte_size(0x01)
     2877              $C$DW$199       .dwtag  DW_TAG_enumerator
     2878                      .dwattr $C$DW$199, DW_AT_name("CLK_ClkOutPreScaler_SysClkOut_by_4")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   54
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   54
 
     2879                      .dwattr $C$DW$199, DW_AT_const_value(0x00)
     2880              
@@ -3238,10 +3238,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   54
     2931                      .dwattr $C$DW$209, DW_AT_const_value(0x05)
     2932              
     2933              $C$DW$210       .dwtag  DW_TAG_enumerator
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   55
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   55
 
     2934                      .dwattr $C$DW$210, DW_AT_name("CLK_LowSpdPreScaler_SysClkOut_by_12")
     2935                      .dwattr $C$DW$210, DW_AT_const_value(0x06)
@@ -3298,10 +3298,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   55
     2986                      .dwattr $C$DW$217, DW_AT_name("CLK_Osc2Src_External")
     2987                      .dwattr $C$DW$217, DW_AT_const_value(0x00)
     2988              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   56
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   56
 
     2989                      .dwendtag $C$DW$T$42
     2990              
@@ -3358,10 +3358,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   56
     3041              $C$DW$225       .dwtag  DW_TAG_enumerator
     3042                      .dwattr $C$DW$225, DW_AT_name("CLK_Timer2PreScaler_by_8")
     3043                      .dwattr $C$DW$225, DW_AT_const_value(0x60)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   57
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   57
 
     3044              
     3045              $C$DW$226       .dwtag  DW_TAG_enumerator
@@ -3418,10 +3418,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   57
     3096                      .dwattr $C$DW$T$54, DW_AT_byte_size(0x01)
     3097              $C$DW$233       .dwtag  DW_TAG_enumerator
     3098                      .dwattr $C$DW$233, DW_AT_name("CLK_WdClkSrc_IntOsc1")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   58
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   58
 
     3099                      .dwattr $C$DW$233, DW_AT_const_value(0x00)
     3100              
@@ -3478,10 +3478,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   58
     3151                      .dwattr $C$DW$240, DW_AT_type(*$C$DW$T$20)
     3152                      .dwattr $C$DW$240, DW_AT_name("LOSPCP")
     3153                      .dwattr $C$DW$240, DW_AT_TI_symbol_name("_LOSPCP")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   59
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   59
 
     3154                      .dwattr $C$DW$240, DW_AT_data_member_location[DW_OP_plus_uconst 0xb]
     3155                      .dwattr $C$DW$240, DW_AT_accessibility(DW_ACCESS_public)
@@ -3538,10 +3538,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   59
     3206              
     3207              $C$DW$T$2       .dwtag  DW_TAG_unspecified_type
     3208                      .dwattr $C$DW$T$2, DW_AT_name("void")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   60
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   60
 
     3209              
     3210              $C$DW$T$3       .dwtag  DW_TAG_pointer_type
@@ -3598,10 +3598,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   60
     3261              
     3262              $C$DW$T$20      .dwtag  DW_TAG_volatile_type
     3263                      .dwattr $C$DW$T$20, DW_AT_type(*$C$DW$246)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   61
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   61
 
     3264              
     3265              
@@ -3658,10 +3658,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   61
     3316              $C$DW$T$16      .dwtag  DW_TAG_base_type
     3317                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
     3318                      .dwattr $C$DW$T$16, DW_AT_name("float")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   62
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   62
 
     3319                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
     3320              
@@ -3718,10 +3718,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   62
     3371                      .dwcfi  same_value, 10
     3372                      .dwcfi  same_value, 11
     3373                      .dwcfi  undefined, 12
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   63
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   63
 
     3374                      .dwcfi  undefined, 13
     3375                      .dwcfi  undefined, 14
@@ -3778,10 +3778,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   63
     3426              
     3427              $C$DW$260       .dwtag  DW_TAG_TI_assign_register
     3428                      .dwattr $C$DW$260, DW_AT_name("RPC")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   64
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   64
 
     3429                      .dwattr $C$DW$260, DW_AT_location[DW_OP_reg26]
     3430              
@@ -3838,10 +3838,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   64
     3481                      .dwattr $C$DW$273, DW_AT_location[DW_OP_regx 0x4d]
     3482              
     3483              $C$DW$274       .dwtag  DW_TAG_TI_assign_register
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   65
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   65
 
     3484                      .dwattr $C$DW$274, DW_AT_name("AR0")
     3485                      .dwattr $C$DW$274, DW_AT_location[DW_OP_reg4]
@@ -3898,10 +3898,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   65
     3536                      .dwattr $C$DW$287, DW_AT_name("XAR6")
     3537                      .dwattr $C$DW$287, DW_AT_location[DW_OP_reg17]
     3538              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:55 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:42 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0428010                          PAGE   66
+C:\Users\MaCHaDo\AppData\Local\Temp\4588011                          PAGE   66
 
     3539              $C$DW$288       .dwtag  DW_TAG_TI_assign_register
     3540                      .dwattr $C$DW$288, DW_AT_name("AR7")

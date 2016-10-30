@@ -1,4 +1,4 @@
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:30 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:19 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
 ../modules/source/usDelay.asm                                        PAGE    1
@@ -58,7 +58,7 @@ Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
       53              ;//
       54              ;//        MOV   AL,#LowLoopCount
       55              ;//        MOV   AH,#HighLoopCount
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:30 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:19 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
 ../modules/source/usDelay.asm                                        PAGE    2

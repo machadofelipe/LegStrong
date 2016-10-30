@@ -1,4 +1,4 @@
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:51 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:38 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
 ../drivers/source/CodeStartBranch.asm                                PAGE    1
@@ -58,7 +58,7 @@ Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
       53              ;// PC, it is not the same as a full reset of the device.
       54              ;//
       55              ;// The compiler may warn that the entry point for the project is other then
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:29:51 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:01:38 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
 ../drivers/source/CodeStartBranch.asm                                PAGE    2

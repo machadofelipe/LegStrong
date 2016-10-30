@@ -1,11 +1,11 @@
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    1
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE    1
 
        1              ;***************************************************************
        2              ;* TMS320C2000 C/C++ Codegen                   PC v15.12.3.LTS *
-       3              ;* Date/Time created: Tue Sep 20 20:30:13 2016                 *
+       3              ;* Date/Time created: Sun Oct 30 14:02:02 2016                 *
        4              ;***************************************************************
        5                      .compiler_opts --abi=coffabi --float_support=softlib --hll_source=on --mem_model:code=flat --mem_mode
        6        0002  FP      .set    XAR2
@@ -14,7 +14,7 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    1
        9                      .dwattr $C$DW$CU, DW_AT_name("../drivers/source/wdog.c")
       10                      .dwattr $C$DW$CU, DW_AT_producer("TI TMS320C2000 C/C++ Codegen PC v15.12.3.LTS Copyright (c) 1996-201
       11                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
-      12                      .dwattr $C$DW$CU, DW_AT_comp_dir("D:\Users\MaCHaDo\Dropbox\Legstrong\drv8301\legstrong\LegStrong\Debu
+      12                      .dwattr $C$DW$CU, DW_AT_comp_dir("D:\Users\MaCHaDo\Documents\GitHub\LegStrong\Debug")
       13              ;       C:\ti\ccsv6\tools\compiler\c2000_15.12.3.LTS\bin\opt2000.exe C:\\Users\\MaCHaDo\\AppData\\Local\\Temp
       14              ;       C:\ti\ccsv6\tools\compiler\c2000_15.12.3.LTS\bin\ac2000.exe -@C:\\Users\\MaCHaDo\\AppData\\Local\\Tem
       15 00000000               .sect   ".text"
@@ -58,10 +58,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    1
       53              
       54              _WDOG_setPreScaler:
       55              ;* AR4   assigned to _wdogHandle
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    2
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE    2
 
       56              $C$DW$4 .dwtag  DW_TAG_variable
       57                      .dwattr $C$DW$4, DW_AT_name("wdogHandle")
@@ -118,10 +118,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    2
      107                      .dwattr $C$DW$8, DW_AT_low_pc(_WDOG_setCount)
      108                      .dwattr $C$DW$8, DW_AT_high_pc(0x00)
      109                      .dwattr $C$DW$8, DW_AT_TI_symbol_name("_WDOG_setCount")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    3
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE    3
 
      110                      .dwattr $C$DW$8, DW_AT_external
      111                      .dwattr $C$DW$8, DW_AT_TI_begin_file("../drivers/source/wdog.c")
@@ -178,10 +178,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    3
      162              
      163 0000000b 0006          LRETR     ; [CPU_] 
      164                      ; return occurs ; [] 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    4
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE    4
 
      165                      .dwattr $C$DW$8, DW_AT_TI_end_file("../drivers/source/wdog.c")
      166                      .dwattr $C$DW$8, DW_AT_TI_end_line(0xd8)
@@ -238,10 +238,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    4
      217                      .dwattr $C$DW$17, DW_AT_location[DW_OP_reg16]
      218              
      219                      .dwcfi  cfa_offset, -2
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    5
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE    5
 
      220                      .dwcfi  save_reg_to_mem, 26, 0
      221 0000000c 1EA6          MOVL      XAR6,ACC              ; [CPU_] |193| 
@@ -298,10 +298,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    5
      272              ;*                            0 Parameter,  0 Auto,  0 SOE     *
      273              ;***************************************************************
      274              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    6
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE    6
 
      275              _WDOG_getIntStatus:
      276              ;* AR4   assigned to _wdogHandle
@@ -358,10 +358,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    6
      326                      .dwattr $C$DW$25, DW_AT_type(*$C$DW$T$26)
      327                      .dwattr $C$DW$25, DW_AT_location[DW_OP_reg12]
      328              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    7
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE    7
 
      329              
      330              ;***************************************************************
@@ -418,10 +418,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    7
      380                      .dwpsn  file "../drivers/source/wdog.c",line 149,column 1,is_stmt,address _WDOG_enableInt,isa 0
      381              
      382                      .dwfde $C$DW$CIE, _WDOG_enableInt
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    8
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE    8
 
      383              $C$DW$29        .dwtag  DW_TAG_formal_parameter
      384                      .dwattr $C$DW$29, DW_AT_name("wdogHandle")
@@ -478,10 +478,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    8
      434                      .dwattr $C$DW$32, DW_AT_TI_symbol_name("_WDOG_enable")
      435                      .dwattr $C$DW$32, DW_AT_external
      436                      .dwattr $C$DW$32, DW_AT_TI_begin_file("../drivers/source/wdog.c")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    9
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE    9
 
      437                      .dwattr $C$DW$32, DW_AT_TI_begin_line(0x80)
      438                      .dwattr $C$DW$32, DW_AT_TI_begin_column(0x06)
@@ -538,10 +538,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE    9
      488              
      489 00000029 0006          LRETR     ; [CPU_] 
      490                      ; return occurs ; [] 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   10
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE   10
 
      491                      .dwattr $C$DW$32, DW_AT_TI_end_file("../drivers/source/wdog.c")
      492                      .dwattr $C$DW$32, DW_AT_TI_end_line(0x91)
@@ -598,10 +598,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   10
          0000002c FFFE 
      543 0000002d 761A   EDIS
      544 0000002e FF69          SPM       #0                    ; [CPU_] 
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   11
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE   11
 
      545              $C$DW$40        .dwtag  DW_TAG_TI_branch
      546                      .dwattr $C$DW$40, DW_AT_low_pc(0x00)
@@ -658,10 +658,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   11
      597              
      598                      .dwcfi  cfa_offset, -2
      599                      .dwcfi  save_reg_to_mem, 26, 0
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   12
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE   12
 
      600 00000030 7622   EALLOW
      601                      .dwpsn  file "../drivers/source/wdog.c",line 104,column 5,is_stmt,isa 0
@@ -718,10 +718,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   12
      651              ;* AR4   assigned to _wdogHandle
      652              $C$DW$47        .dwtag  DW_TAG_variable
      653                      .dwattr $C$DW$47, DW_AT_name("wdogHandle")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   13
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE   13
 
      654                      .dwattr $C$DW$47, DW_AT_TI_symbol_name("_wdogHandle")
      655                      .dwattr $C$DW$47, DW_AT_type(*$C$DW$T$33)
@@ -778,10 +778,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   13
      706                      .dwattr $C$DW$51, DW_AT_name("wdogHandle")
      707                      .dwattr $C$DW$51, DW_AT_TI_symbol_name("_wdogHandle")
      708                      .dwattr $C$DW$51, DW_AT_type(*$C$DW$T$26)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   14
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE   14
 
      709                      .dwattr $C$DW$51, DW_AT_location[DW_OP_reg12]
      710              
@@ -838,10 +838,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   14
      759                      .dwattr $C$DW$54, DW_AT_const_value(0x00)
      760              
      761              $C$DW$55        .dwtag  DW_TAG_enumerator
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   15
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE   15
 
      762                      .dwattr $C$DW$55, DW_AT_name("WDOG_IntStatus_InActive")
      763                      .dwattr $C$DW$55, DW_AT_const_value(0x04)
@@ -898,10 +898,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   15
      814                      .dwattr $C$DW$T$31, DW_AT_type(*$C$DW$63)
      815              
      816              
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   16
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE   16
 
      817              $C$DW$T$22      .dwtag  DW_TAG_structure_type
      818                      .dwattr $C$DW$T$22, DW_AT_name("_WDOG_Obj_")
@@ -958,10 +958,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   16
      869              $C$DW$T$25      .dwtag  DW_TAG_pointer_type
      870                      .dwattr $C$DW$T$25, DW_AT_type(*$C$DW$T$22)
      871                      .dwattr $C$DW$T$25, DW_AT_address_class(0x20)
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   17
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE   17
 
      872              
      873              $C$DW$T$26      .dwtag  DW_TAG_typedef
@@ -1018,10 +1018,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   17
      924                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
      925              
      926              $C$DW$T$11      .dwtag  DW_TAG_base_type
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   18
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE   18
 
      927                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
      928                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
@@ -1078,10 +1078,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   18
      979                      .dwattr $C$DW$74, DW_AT_type(*$C$DW$T$34)
      980              
      981              $C$DW$T$35      .dwtag  DW_TAG_const_type
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   19
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE   19
 
      982                      .dwattr $C$DW$T$35, DW_AT_type(*$C$DW$74)
      983              
@@ -1138,10 +1138,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   19
     1034                      .dwcfi  undefined, 33
     1035                      .dwcfi  undefined, 34
     1036                      .dwcfi  undefined, 35
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   20
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE   20
 
     1037                      .dwcfi  undefined, 36
     1038                      .dwcfi  undefined, 37
@@ -1198,10 +1198,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   20
     1089              $C$DW$81        .dwtag  DW_TAG_TI_assign_register
     1090                      .dwattr $C$DW$81, DW_AT_name("T")
     1091                      .dwattr $C$DW$81, DW_AT_location[DW_OP_reg22]
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   21
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE   21
 
     1092              
     1093              $C$DW$82        .dwtag  DW_TAG_TI_assign_register
@@ -1258,10 +1258,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   21
     1144              
     1145              $C$DW$95        .dwtag  DW_TAG_TI_assign_register
     1146                      .dwattr $C$DW$95, DW_AT_name("IER")
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   22
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE   22
 
     1147                      .dwattr $C$DW$95, DW_AT_location[DW_OP_regx 0x25]
     1148              
@@ -1318,10 +1318,10 @@ C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   22
     1199                      .dwattr $C$DW$108, DW_AT_location[DW_OP_reg13]
     1200              
     1201              $C$DW$109       .dwtag  DW_TAG_TI_assign_register
-TMS320C2000 Assembler PC v15.12.3 Tue Sep 20 20:30:13 2016
+TMS320C2000 Assembler PC v15.12.3 Sun Oct 30 14:02:02 2016
 
 Tools Copyright (c) 1996-2015 Texas Instruments Incorporated
-C:\Users\MaCHaDo\AppData\Local\Temp\0541210                          PAGE   23
+C:\Users\MaCHaDo\AppData\Local\Temp\0435610                          PAGE   23
 
     1202                      .dwattr $C$DW$109, DW_AT_name("AR5")
     1203                      .dwattr $C$DW$109, DW_AT_location[DW_OP_reg14]
