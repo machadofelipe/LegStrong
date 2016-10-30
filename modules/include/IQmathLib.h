@@ -130,7 +130,9 @@
 
 // **************************************************************************
 // the includes
-
+#ifdef __cplusplus
+#include <stdlib.h>     /* labs */
+#endif
 //!
 //!
 //! \defgroup IQMATHLIB IQMATHLIB
@@ -3561,6 +3563,7 @@ extern    int  _IQ1toa(char *A, const char *B, long C);
 #define   _IQ3abs(A)   labs(A)
 #define   _IQ2abs(A)   labs(A)
 #define   _IQ1abs(A)   labs(A)
+
 //###########################################################################
 #else   // MATH_TYPE == FLOAT_MATH
 //###########################################################################

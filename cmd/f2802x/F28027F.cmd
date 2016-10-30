@@ -73,32 +73,28 @@ MEMORY
 PAGE 0:    /* Program Memory */
            /* Memory (RAM/FLASH/OTP) blocks can be moved to PAGE1 for data allocation */
 
-   /*OTP         : origin = 0x3D7800, length = 0x000400     /* on-chip OTP */
-   /*CSM_RSVD    : origin = 0x3F7F80, length = 0x000076     /* Part of FLASHA.  Program with all 0x0000 when CSM is in use. */
+   OTP         : origin = 0x3D7800, length = 0x000400     /* on-chip OTP */
+   CSM_RSVD    : origin = 0x3F7F80, length = 0x000076     /* Part of FLASHA.  Program with all 0x0000 when CSM is in use. */
    BEGIN       : origin = 0x3F7FF6, length = 0x000002     /* Part of FLASHA.  Used for "boot to Flash" bootloader mode. */
    CSM_PWL_P0  : origin = 0x3F7FF8, length = 0x000008     /* Part of FLASHA.  CSM password locations in FLASHA */
 
    IQTABLES    : origin = 0x3FE000, length = 0x000B50     /* IQ Math Tables in Boot ROM */
-   /*IQTABLES2   : origin = 0x3FEB50, length = 0x00008C     /* IQ Math Tables in Boot ROM */
-   /*IQTABLES3   : origin = 0x3FEBDC, length = 0x0000AA     /* IQ Math Tables in Boot ROM */
-
-   FLASHE      : origin = 0x3FEB50, length = 0x000136     /* on-chip FLASH B, C and D */
+   IQTABLES2   : origin = 0x3FEB50, length = 0x00008C     /* IQ Math Tables in Boot ROM */
+   IQTABLES3   : origin = 0x3FEBDC, length = 0x0000AA     /* IQ Math Tables in Boot ROM */
 
    ROM         : origin = 0x3FF27C, length = 0x000D44     /* Boot ROM */
    RESET       : origin = 0x3FFFC0, length = 0x000002     /* part of boot ROM  */
    VECTORS     : origin = 0x3FFFC2, length = 0x00003E     /* part of boot ROM  */
-   /*FLASHB_D    : origin = 0x3F0000, length = 0x006000     /* on-chip FLASH B, C and D */
-   FLASHB_D    : origin = 0x3F0000, length = 0x007FF6     /* on-chip FLASH B, C and D */
-   P_RAML0     : origin = 0x008000, length = 0x000200     /* on-chip PRAM block L0 */
+   FLASHB_D    : origin = 0x3F0000, length = 0x006000     /* on-chip FLASH B, C and D */
+   P_RAML0     : origin = 0x008000, length = 0x000800     /* on-chip PRAM block L0 */
 
 PAGE 1 :   /* Data Memory */
            /* Memory (RAM/FLASH/OTP) blocks can be moved to PAGE0 for program allocation */
            /* Registers remain on PAGE1                                                  */
 
    RAMM0_M1    : origin = 0x000000, length = 0x000600     /* on-chip RAM block M0 + M1. 0x600 to 0x800 reserved for InstaSPIN */
-   D_RAML0     : origin = 0x008200, length = 0x000E00     /* on-chip DRAM block L0 */
-   /*D_FLASHA    : origin = 0x3F6000, length = 0x001F80     /* on-chip FLASH A */
-   D_FLASHA    : origin = 0x3D7800, length = 0x000400     /* on-chip FLASH A */
+   D_RAML0     : origin = 0x008800, length = 0x000800     /* on-chip DRAM block L0 */
+   D_FLASHA    : origin = 0x3F6000, length = 0x001F80     /* on-chip FLASH A */
 }
 
 /* Allocate sections to memory blocks.
@@ -111,8 +107,7 @@ PAGE 1 :   /* Data Memory */
 SECTIONS
 {
    /* Allocate program areas: */
-   /*.cinit              : > FLASHB_D     PAGE = 0*/
-   .cinit              : > FLASHE     PAGE = 0
+   .cinit              : > FLASHB_D     PAGE = 0
    .pinit              : > FLASHB_D,    PAGE = 0
    .text               : > FLASHB_D     PAGE = 0
    codestart           : > BEGIN        PAGE = 0
@@ -124,23 +119,20 @@ SECTIONS
                          PAGE = 0
 
    csmpasswds          : > CSM_PWL_P0   PAGE = 0
-   /*csm_rsvd            : > CSM_RSVD     PAGE = 0*/
+   csm_rsvd            : > CSM_RSVD     PAGE = 0
 
    /* Allocate uninitalized data sections: */
    .stack              : > RAMM0_M1     PAGE = 1
    .ebss               : > D_RAML0      PAGE = 1
    ebss_extension      : > P_RAML0      PAGE = 0
    .esysmem            : > RAMM0_M1     PAGE = 1
-   .sysmem             : > D_RAML0       PAGE = 1
-   .cio                : >> RAMM0_M1 | D_RAML0       PAGE = 1
 
-   /*rom_accessed_data   : > RAMM0_M1     PAGE = 1*/
-   rom_accessed_data   : > D_FLASHA     PAGE = 1
+   rom_accessed_data   : > RAMM0_M1     PAGE = 1
 
    /* Initalized sections go in Flash */
    /* For SDFlash to program these, they must be allocated to page 0 */
-   .econst     : LOAD = D_RAML0,
-                 RUN = D_RAML0,
+   .econst     : LOAD = D_FLASHA,
+                 RUN = RAMM0_M1,
                  LOAD_START(_econst_start),
                  LOAD_END(_econst_end),
                  RUN_START(_econst_ram_load),

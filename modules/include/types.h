@@ -128,6 +128,9 @@ typedef long double     double_t;
 
 // C99 defines boolean type to be _Bool, but this doesn't match the format of
 // the other standard integer types.  bool_t has been defined to fill this gap.
+#ifdef __cplusplus
+typedef bool _Bool;
+#endif
 typedef _Bool bool_t;
 
 // Work around for code that might accidentally use uint8_t

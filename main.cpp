@@ -30,7 +30,7 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * --/COPYRIGHT--*/
 //! \file   solutions/instaspin_foc/src/proj_lab04.c
-//! \brief  Using InstaSPIN™-FOC only as a torque controller
+//! \brief  Using InstaSPINï¿½-FOC only as a torque controller
 //!
 //! (C) Copyright 2011, Texas Instruments, Inc.
 
@@ -39,7 +39,7 @@
 
 //! \defgroup PROJ_LAB04_OVERVIEW Project Overview
 //!
-//! Running InstaSPIN™-FOC only as a Torque controller
+//! Running InstaSPINï¿½-FOC only as a Torque controller
 //!
 
 // **************************************************************************
@@ -47,20 +47,25 @@
 
 // system includes
 #include <math.h>
+#include <ctype.h>
 #include "main.h"
+//#include "Message.h"
+
 
 
 // Include header files used in the main function
 
-
 // **************************************************************************
 // the defines
 
-#define LED_BLINK_FREQ_Hz   5
+//#define LED_BLINK_FREQ_Hz   5
 
 
 // **************************************************************************
 // the globals
+
+char msgBuf[40] = "";
+int msgBufPos = 0;
 
 uint_least16_t gCounter_updateGlobals = 0;
 
@@ -233,7 +238,6 @@ void main(void)
   // set the default controller parameters
   CTRL_setParams(ctrlHandle,&gUserParams);
 
-
   // setup faults
   HAL_setupFaults(halHandle);
 
@@ -241,14 +245,14 @@ void main(void)
   // initialize the interrupt vector table
   HAL_initIntVectorTable(halHandle);
 
-
   // enable the ADC interrupts
   HAL_enableAdcInts(halHandle);
 
+  // enable Sci interrupt
+  HAL_enableSciInt(halHandle);
 
   // enable global interrupts
   HAL_enableGlobalInts(halHandle);
-
 
   // enable debug interrupts
   HAL_enableDebugInt(halHandle);
@@ -273,9 +277,6 @@ void main(void)
 #endif
 
 
-//  // setup the SCI
-//  HAL_setupSciA(handle);
-//  HAL_initSciAFifo(halHandle);
 
   // enable DC bus compensation
   CTRL_setFlag_enableDcBusComp(ctrlHandle, true);
@@ -449,25 +450,7 @@ void main(void)
         HAL_readDrvData(halHandle,&gDrvSpi8305Vars);
 #endif
 
-//        msg = "  Test: \0";
-//        HAL_SciAMsg(halHandle, msg);
-//        ReceivedChar = SCI_getDataNonBlocking(halHandle->sciAHandle, &newMsg);
-//        // Wait for inc character
-//        //if(SCI_getRxFifoStatus(halHandle->sciAHandle) >= SCI_FifoStatus_1_Word)
-//        if(newMsg)
-//        {
-//			// Echo character back
-//			msg = "  You sent: \0";
-//			HAL_SciAMsg(halHandle, msg);
-//			HAL_SciAXmit(halHandle->sciAHandle, ReceivedChar);
-//
-//	        msg = "\r\nEnter a character: \0";
-//	        HAL_SciAMsg(halHandle, msg);
-//        }
-
-
       } // end of while(gFlag_enableSys) loop
-
 
 
     // disable the PWM
@@ -596,7 +579,7 @@ void updateIqRef(CTRL_Handle handle)
 } // end of updateIqRef() function
 
 
-interrupt void sciaRxFifoIsr(void)
+__interrupt void sciaRxFifoIsr(void)
 {
 char rdataA;    // Received data for SCI-A
 
@@ -604,8 +587,27 @@ char rdataA;    // Received data for SCI-A
     if(SCI_getRxFifoStatus(halHandle->sciAHandle) != SCI_FifoLevel_Empty)
     {
 		// Read data
-		rdataA = SCI_getDataBlocking(halHandle->sciAHandle);
-//		HAL_SciAReceiveChar(rdataA);
+		rdataA = SCI_read(halHandle->sciAHandle);
+
+        if(rdataA == '\r')
+        {
+            // Check received data
+//            Message msgObj = Message(msgBuf);
+//            string msg;
+//            msgObj.HandleMessage();
+//            HAL_SciASendMessage(halHandle, msg.c_str());
+//            delete msgObj;
+            msgBufPos = 0;
+            msgBuf[msgBufPos] = '\0';
+            //sprintf(msgBuf,"");
+        }
+        else if (rdataA > 47)
+        {
+//            int i = strlen(msgBuf);
+            msgBuf[msgBufPos] = toupper(rdataA);
+            msgBuf[++msgBufPos] = '\0';
+        }
+
     }
 
     // Clear Overflow flag
