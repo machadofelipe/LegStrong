@@ -1427,7 +1427,7 @@ void HAL_SciASendMessage(HAL_Handle handle, const char* pBuf)
 	{
 		for(i=0;
 //		    i< strlen(pBuf);
-		    pBuf[i] == '\0';
+		    pBuf[i] != '\0';
 		    i++)
 		{
 			// Send data

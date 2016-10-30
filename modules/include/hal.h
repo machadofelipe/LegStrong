@@ -165,7 +165,7 @@ typedef enum
 // the globals
 
 extern interrupt void mainISR(void);
-extern interrupt void sciaRxFifoIsr(void);
+extern __interrupt void sciaRxFifoIsr(void);
 
 
 // **************************************************************************
@@ -1395,14 +1395,15 @@ void HAL_setupSciA(HAL_Handle handle);
 //! \param[in] handle         The hardware abstraction layer (HAL) handle
 void HAL_initSciAFifo(HAL_Handle handle);
 
+//! \brief     Sends a SCI message
+//! \param[in] handle         The hardware abstraction layer (HAL) handle
+//! \param[in] pBuf  string to be sent
+void HAL_SciASendMessage(HAL_Handle handle, const char* pBuf);
+
 //! \brief      Enables the SCI interrupts
 //! \details    Enables the SCI interrupt in the PIE, and CPU.  Enables the
 //!             interrupt to be sent from the SCI peripheral.
 //! \param[in]  handle  The hardware abstraction layer (HAL) handle
-//extern void HAL_enableSciInt(HAL_Handle handle);
-
-
-// Initializes the interrupt vector table
 static inline void HAL_enableSciInt(HAL_Handle handle)
 {
   HAL_Obj *obj = (HAL_Obj *)handle;
@@ -1427,6 +1428,7 @@ static inline void HAL_enableSciInt(HAL_Handle handle)
 #ifdef __cplusplus
 }
 #endif // extern "C"
+
 
 //@} // ingroup
 #endif // end of _HAL_H_ definition

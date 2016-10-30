@@ -122,10 +122,12 @@ SECTIONS
    csm_rsvd            : > CSM_RSVD     PAGE = 0
 
    /* Allocate uninitalized data sections: */
-   .stack              : > RAMM0_M1     PAGE = 1
+   //.stack              : > RAMM0_M1     PAGE = 1
+   .stack              : > D_RAML0     PAGE = 1
    .ebss               : > D_RAML0      PAGE = 1
    ebss_extension      : > P_RAML0      PAGE = 0
-   .esysmem            : > RAMM0_M1     PAGE = 1
+   //.esysmem            : > RAMM0_M1     PAGE = 1
+   .esysmem            : > D_RAML0     PAGE = 1
 
    rom_accessed_data   : > RAMM0_M1     PAGE = 1
 

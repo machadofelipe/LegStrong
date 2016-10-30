@@ -49,7 +49,7 @@
 #include <math.h>
 #include <ctype.h>
 #include "main.h"
-//#include "Message.h"
+#include "Message.h"
 
 
 
@@ -592,10 +592,10 @@ char rdataA;    // Received data for SCI-A
         if(rdataA == '\r')
         {
             // Check received data
-//            Message msgObj = Message(msgBuf);
-//            string msg;
-//            msgObj.HandleMessage();
-//            HAL_SciASendMessage(halHandle, msg.c_str());
+            Message msgObj = Message(msgBuf);
+            string msg;
+            msgObj.HandleMessage(msg);
+            HAL_SciASendMessage(halHandle, msg.c_str());
 //            delete msgObj;
             msgBufPos = 0;
             msgBuf[msgBufPos] = '\0';
