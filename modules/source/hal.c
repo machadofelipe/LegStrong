@@ -1422,18 +1422,14 @@ void HAL_initSciAFifo(HAL_Handle handle)
 void HAL_SciASendMessage(HAL_Handle handle, const char* pBuf)
 {
 	HAL_Obj   *obj = (HAL_Obj *)handle;
+
 	int i;
-//	if (strlen(pBuf) > 0)
-	{
-		for(i=0;
-//		    i< strlen(pBuf);
-		    pBuf[i] != '\0';
-		    i++)
-		{
-			// Send data
-			SCI_putDataBlocking(obj->sciAHandle, pBuf[i]);
-		}
-	}
+    for( i = 0; pBuf[i] != '\0'; i++ )
+    {
+        // Send data
+        SCI_putDataBlocking(obj->sciAHandle, pBuf[i]);
+    }
+
 	SCI_putDataBlocking(obj->sciAHandle, '\r');
 	SCI_putDataBlocking(obj->sciAHandle, '>');
 }

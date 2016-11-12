@@ -118,11 +118,6 @@ volatile MOTOR_Vars_t gMotorVars = MOTOR_Vars_INIT;
 // Used for running BackGround in flash, and ISR in RAM
 extern uint16_t *RamfuncsLoadStart, *RamfuncsLoadEnd, *RamfuncsRunStart;
 
-#ifdef F2802xF
-extern uint16_t *econst_start, *econst_end, *econst_ram_load;
-extern uint16_t *switch_start, *switch_end, *switch_ram_load;
-#endif
-
 #endif
 
 
@@ -162,21 +157,6 @@ void main(void)
   // The RamfuncsLoadStart, RamfuncsLoadEnd, and RamfuncsRunStart
   // symbols are created by the linker. Refer to the linker files.
   memCopy((uint16_t *)&RamfuncsLoadStart,(uint16_t *)&RamfuncsLoadEnd,(uint16_t *)&RamfuncsRunStart);
-
-  #ifdef F2802xF
-    //copy .econst to unsecure RAM
-    if(*econst_end - *econst_start)
-      {
-        memCopy((uint16_t *)&econst_start,(uint16_t *)&econst_end,(uint16_t *)&econst_ram_load);
-      }
-
-    //copy .switch ot unsecure RAM
-    if(*switch_end - *switch_start)
-      {
-        memCopy((uint16_t *)&switch_start,(uint16_t *)&switch_end,(uint16_t *)&switch_ram_load);
-      }
-  #endif
-
   #endif
 
   // initialize the hardware abstraction layer

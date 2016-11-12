@@ -122,11 +122,9 @@ SECTIONS
    csm_rsvd            : > CSM_RSVD     PAGE = 0
 
    /* Allocate uninitalized data sections: */
-   //.stack              : > RAMM0_M1     PAGE = 1
-   .stack              : > D_RAML0      PAGE = 1
+   .stack              : > RAMM0_M1     PAGE = 1
    .ebss               : > D_RAML0      PAGE = 1
    ebss_extension      : > P_RAML0      PAGE = 0
-   //.esysmem            : > RAMM0_M1     PAGE = 1
    .esysmem            : > D_RAML0     PAGE = 1
    .cio                : > D_RAML0     PAGE = 1
 
@@ -134,21 +132,8 @@ SECTIONS
 
    /* Initalized sections go in Flash */
    /* For SDFlash to program these, they must be allocated to page 0 */
-   .econst     : LOAD = D_FLASHA,
-                 RUN = RAMM0_M1,
-                 LOAD_START(_econst_start),
-                 LOAD_END(_econst_end),
-                 RUN_START(_econst_ram_load),
-                 PAGE = 1
-   //.econst       : > D_FLASHA      PAGE = 1
-
-   .switch     : LOAD = D_FLASHA,
-                 RUN = RAMM0_M1,
-                 LOAD_START(_switch_start),
-                 LOAD_END(_switch_end),
-                 RUN_START(_switch_ram_load),
-                 PAGE = 1
-   //.switch       : > D_FLASHA      PAGE = 1
+   .econst       : > D_FLASHA      PAGE = 1
+   .switch       : > D_FLASHA      PAGE = 1
 
    /* Allocate IQ math areas: */
    IQmath              : > FLASHB_D     PAGE = 0            /* Math Code */

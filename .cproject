@@ -54,6 +54,7 @@
 									<listOptionValue builtIn="false" value="225"/>
 								</option>
 								<option id="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.ASM_LISTING.1238125091" name="Generate listing file (--asm_listing, -al)" superClass="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.ASM_LISTING" value="true" valueType="boolean"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.PRINTF_SUPPORT.841424277" name="Level of printf/scanf support required (--printf_support)" superClass="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.PRINTF_SUPPORT" value="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.PRINTF_SUPPORT.minimal" valueType="enumerated"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C2000_15.12.compiler.inputType__C_SRCS.910781438" name="C Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_15.12.compiler.inputType__C_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C2000_15.12.compiler.inputType__CPP_SRCS.1409478969" name="C++ Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_15.12.compiler.inputType__CPP_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C2000_15.12.compiler.inputType__ASM_SRCS.157174923" name="Assembly Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_15.12.compiler.inputType__ASM_SRCS"/>
@@ -109,7 +110,7 @@
 					</fileInfo>
 					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.1903852119" name="types.h" rcbsApplicability="disable" resourcePath="modules/include/types.h" toolsToInvoke=""/>
 					<sourceEntries>
-						<entry excluding="ELM327.cpp|modules/motor|28027_RAM_lnk.cmd|modules/source/svgen_current.c|modules/source/filter_so.c|modules/source/dlog4ch.c|modules/source/ctrl_eou.c|modules/source/ctrlQEP.c|drivers/gel|modules/vib_comp|modules/throttle|modules/spintac|modules/slip|modules/queue|modules/pi|modules/math|modules/ipd|modules/hallbldc|modules/fw|modules/fstart|modules/fem|modules/est|modules/enc|modules/docs|modules/cpu_usage|modules/angle_comp|modules/angle|modules/afsel|drivers/lib|cmd" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="modules/motor|28027_RAM_lnk.cmd|modules/source/svgen_current.c|modules/source/filter_so.c|modules/source/dlog4ch.c|modules/source/ctrl_eou.c|modules/source/ctrlQEP.c|drivers/gel|modules/vib_comp|modules/throttle|modules/spintac|modules/slip|modules/queue|modules/pi|modules/math|modules/ipd|modules/hallbldc|modules/fw|modules/fstart|modules/fem|modules/est|modules/enc|modules/docs|modules/cpu_usage|modules/angle_comp|modules/angle|modules/afsel|drivers/lib|cmd" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
