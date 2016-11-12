@@ -37,7 +37,7 @@ private:
 	//int Pack(const string &pBuf);
 
 	// Corresponding unpack method.
-	int Unpack(const string &pBuf);
+	void Unpack(const string &pBuf);
 
 
 	// String index is used to keep track of the current packing/unpacking char index.

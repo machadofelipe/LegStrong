@@ -257,7 +257,6 @@ void main(void)
   // enable debug interrupts
   HAL_enableDebugInt(halHandle);
 
-
   // disable the PWM
   HAL_disablePwm(halHandle);
 

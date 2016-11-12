@@ -1,7 +1,7 @@
 
 #include "Message.h"
 //#include "Mode01.h"
-#include "ELM327.h"
+#include "ELM327_test.h"
 
 //#include <stdlib.h>     /* malloc, free, rand */
 
@@ -15,7 +15,7 @@ Message::~Message()
 //    free(m_command);
 }
 
-int Message::Unpack(const string &pBuf)
+void Message::Unpack(const string &pBuf)
 {
 	m_stringIndex = 0;
 	UnpackType(pBuf);
@@ -23,7 +23,7 @@ int Message::Unpack(const string &pBuf)
 	int charsToEnd = pBuf.size() - m_stringIndex;
 	UnpackCommand(pBuf, charsToEnd);
 
-	return m_stringIndex;
+	return;
 }
 
 void Message::UnpackType(const string &pBuf)
@@ -114,7 +114,7 @@ void Message::HandleMessage(string &responseMsg)
 	}
 	else if (m_type == "AT")
 	{
-		ELM327::Instance().ProcessCommand(m_command, responseMsg);
+		ELM327_processCommand(m_command, responseMsg);
 	}
 
 	return;

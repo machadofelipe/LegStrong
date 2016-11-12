@@ -86,16 +86,14 @@ PAGE 0:    /* Program Memory */
    RESET       : origin = 0x3FFFC0, length = 0x000002     /* part of boot ROM  */
    VECTORS     : origin = 0x3FFFC2, length = 0x00003E     /* part of boot ROM  */
    FLASHB_D    : origin = 0x3F0000, length = 0x006000     /* on-chip FLASH B, C and D */
-   //P_RAML0     : origin = 0x008000, length = 0x000800     /* on-chip PRAM block L0 */
-   P_RAML0     : origin = 0x008000, length = 0x000700     /* on-chip PRAM block L0 */
+   P_RAML0     : origin = 0x008000, length = 0x000630     /* on-chip PRAM block L0 */
 
 PAGE 1 :   /* Data Memory */
            /* Memory (RAM/FLASH/OTP) blocks can be moved to PAGE0 for program allocation */
            /* Registers remain on PAGE1                                                  */
 
    RAMM0_M1    : origin = 0x000000, length = 0x000600     /* on-chip RAM block M0 + M1. 0x600 to 0x800 reserved for InstaSPIN */
-   //D_RAML0     : origin = 0x008800, length = 0x000800     /* on-chip DRAM block L0 */
-   D_RAML0     : origin = 0x008700, length = 0x000900     /* on-chip DRAM block L0 */
+   D_RAML0     : origin = 0x008630, length = 0x000970     /* on-chip DRAM block L0 */
    D_FLASHA    : origin = 0x3F6000, length = 0x001F80     /* on-chip FLASH A */
 }
 
@@ -125,12 +123,12 @@ SECTIONS
 
    /* Allocate uninitalized data sections: */
    //.stack              : > RAMM0_M1     PAGE = 1
-   .stack              : > D_RAML0     PAGE = 1
+   .stack              : > D_RAML0      PAGE = 1
    .ebss               : > D_RAML0      PAGE = 1
    ebss_extension      : > P_RAML0      PAGE = 0
    //.esysmem            : > RAMM0_M1     PAGE = 1
    .esysmem            : > D_RAML0     PAGE = 1
-   .cio                : > RAMM0_M1     PAGE = 1
+   .cio                : > D_RAML0     PAGE = 1
 
    rom_accessed_data   : > RAMM0_M1     PAGE = 1
 
@@ -142,6 +140,7 @@ SECTIONS
                  LOAD_END(_econst_end),
                  RUN_START(_econst_ram_load),
                  PAGE = 1
+   //.econst       : > D_FLASHA      PAGE = 1
 
    .switch     : LOAD = D_FLASHA,
                  RUN = RAMM0_M1,
@@ -149,6 +148,7 @@ SECTIONS
                  LOAD_END(_switch_end),
                  RUN_START(_switch_ram_load),
                  PAGE = 1
+   //.switch       : > D_FLASHA      PAGE = 1
 
    /* Allocate IQ math areas: */
    IQmath              : > FLASHB_D     PAGE = 0            /* Math Code */
