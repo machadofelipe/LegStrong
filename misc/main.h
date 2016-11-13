@@ -56,7 +56,6 @@
 // platforms
 #include "ctrl.h"
 #include "hal.h"
-//#include "hal_cpp.h"
 #include "user.h"
 
 

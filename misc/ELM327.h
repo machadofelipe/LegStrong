@@ -1,16 +1,8 @@
 #ifndef ELM327_H_
 #define ELM327_H_
-/*
- * ELM327.h
- *
- *  Created on: 06/11/2016
- *      Author: Felipe Machado
- */
-
 //! \file   ELM327.h
 //! \brief
 //!
-
 
 // **************************************************************************
 // the includes
@@ -21,24 +13,51 @@
 // **************************************************************************
 // the defines
 
-#define COMMANDS_SIZE   8
-
 
 // **************************************************************************
 // the typedefs
 
-//using namespace std;
+typedef void (*ELM327_HANDLER)(std::string &);
 
-typedef void (*HANDLER)(std::string &);
+//! \brief      ELM327_Pairs_t
+//! \details
+//!
+typedef struct _ELM327_Pair_t_
+{
+    const char* const       commandString;      //!< the command string
 
-//! \brief Enumeration for response messages
+    const ELM327_HANDLER    functionPtr;        //!< the function pointer
+
+} ELM327_Pair_t;
+
+//! \brief Enumeration for ELM327 commands
 //!
 typedef enum
 {
-  ELM327_DeviceDescription=0,      //!< The DeviceDescription
-  ELM327_VersionId,                //!< The VersionId
-  ELM327_OK,                       //!< The OK message
-  ELM327_ResponseMsg_size   //!< Size used for the array
+  ELM327_CMD_reset=0,                   //!< Reset
+  ELM327_CMD_deviceDescription,         //!< DeviceDescription
+  ELM327_CMD_versionId,                 //!< VersionId
+  ELM327_CMD_readVoltage,               //!< ReadVoltage
+  ELM327_CMD_describeProtocolNumber,    //!< DescribeProtocolNumber
+  ELM327_CMD_memoryOffOn,               //!< MemoryOffOn
+  ELM327_CMD_linefeedsOffOn,            //!< LinefeedsOffOn
+  ELM327_CMD_echoOffOn,                 //!< EchoOffOn
+  ELM327_CMD_setTimeout,                //!< SetTimeout
+  ELM327_CMD_spacesOffOn,               //!< SpacesOffOn
+  ELM327_CMD_headersOffOn,              //!< HeadersOffOn
+  ELM327_CMD_adaptiveTiming,            //!< AdaptiveTiming
+  ELM327_CMD_setProtocol,               //!< SetProtocol
+  ELM327_Commands_size                  //!< Size used for the array
+} ELM327_Commands_e;
+
+//! \brief Enumeration for ELM327 response messages
+//!
+typedef enum
+{
+  ELM327_Msg_DeviceDescription=0,       //!< The DeviceDescription
+  ELM327_Msg_VersionId,                 //!< The VersionId
+  ELM327_Msg_OK,                        //!< The OK message
+  ELM327_Msg_ResponseMsg_size           //!< Size used for the array
 } ELM327_ResponseMsg_e;
 
 
@@ -53,36 +72,33 @@ extern void ELM327_describeProtocolNumber(std::string &responseMsg);
 extern void ELM327_memoryOffOn(std::string &responseMsg);
 extern void ELM327_linefeedsOffOn(std::string &responseMsg);
 extern void ELM327_echoOffOn(std::string &responseMsg);
+extern void ELM327_setTimeout(std::string &responseMsg);
+extern void ELM327_spacesOffOn(std::string &responseMsg);
+extern void ELM327_headersOffOn(std::string &responseMsg);
+extern void ELM327_adaptiveTiming(std::string &responseMsg);
+extern void ELM327_setProtocol(std::string &responseMsg);
 
-//! \brief Array for Functions pointers
+//! \brief Array for Array for string commands that points to each function pointer
 //!
-static const HANDLER ELM327_Functions[COMMANDS_SIZE] = {
-        &ELM327_reset,                     // Reset
-        &ELM327_deviceDescription,         // DeviceDescription
-        &ELM327_versionId,                 // VersionId
-        &ELM327_readVoltage,               // ReadVoltage
-        &ELM327_describeProtocolNumber,    // DescribeProtocolNumber
-        &ELM327_memoryOffOn,               // MemoryOffOn
-        &ELM327_linefeedsOffOn,            // LinefeedsOffOn
-        &ELM327_echoOffOn,                 // EchoOffOn
-};
-
-//! \brief Array for Commands that points to each function pointer
-//!
-static const char* const ELM327_Commands[COMMANDS_SIZE] = {
-        "Z",    // Reset
-        "@1",   // DeviceDescription
-        "I",    // VersionId
-        "RV",   // ReadVoltage
-        "DPN",  // DescribeProtocolNumber
-        "M",    // MemoryOffOn
-        "SP",   // LinefeedsOffOn
-        "E",    // EchoOffOn
+static ELM327_Pair_t ELM327_Pairs[ELM327_Commands_size] = {
+        {"Z",   &ELM327_reset},                     // Reset
+        {"@1",  &ELM327_deviceDescription},         // DeviceDescription
+        {"I",   &ELM327_versionId},                 // VersionId
+        {"RV",  &ELM327_readVoltage},               // ReadVoltage
+        {"DPN", &ELM327_describeProtocolNumber},    // DescribeProtocolNumber
+        {"M",   &ELM327_memoryOffOn},               // MemoryOffOn
+        {"L",   &ELM327_linefeedsOffOn},            // LinefeedsOffOn
+        {"E",   &ELM327_echoOffOn},                 // EchoOffOn
+        {"ST",  &ELM327_setTimeout},                // SetTimeout
+        {"S",   &ELM327_spacesOffOn},               // SpacesOffOn
+        {"H",   &ELM327_headersOffOn},              // HeadersOffOn //TODO
+        {"AT",  &ELM327_adaptiveTiming},            // AdaptiveTiming
+        {"SP",  &ELM327_setProtocol}                // SetProtocol
 };
 
 //! \brief Array for response messages
 //!
-static const char* const ELM327_ResponseMsg[ELM327_ResponseMsg_size] = {
+static const char* const ELM327_ResponseMsg[ELM327_Msg_ResponseMsg_size] = {
         "Legstrong revA",   // DeviceDescription
         "ELM327 v2.1",      // VersionId
         "OK",               // OK
@@ -91,43 +107,61 @@ static const char* const ELM327_ResponseMsg[ELM327_ResponseMsg_size] = {
 // **************************************************************************
 // the function prototypes
 
+//! \brief      ProcessCommand
+//! \param[in]  command
+//! \param[in]  responseMsg
+void ELM327_processCommand(const std::string &command, std::string &responseMsg);
 
-//! \brief  ProcessCommand
-//! \param[in] command
-//! \param[in] responseMsg
-void ELM327_processCommand(const std::string command, std::string &responseMsg);
-
-//! \brief  Reset
-//! \param[in] responseMsg
+//! \brief      Reset
+//! \param[in]  responseMsg
 void ELM327_reset(std::string &responseMsg);
 
-//! \brief  DeviceDescription
-//! \param[in] responseMsg
+//! \brief      DeviceDescription
+//! \param[in]  responseMsg
 void ELM327_deviceDescription(std::string &responseMsg);
 
-//! \brief  VersionId
-//! \param[in] responseMsg
+//! \brief      VersionId
+//! \param[in]  responseMsg
 void ELM327_versionId(std::string &responseMsg);
 
-//! \brief  ReadVoltage
-//! \param[in] responseMsg
+//! \brief      ReadVoltage
+//! \param[in]  responseMsg
 void ELM327_readVoltage(std::string &responseMsg);
 
-//! \brief  DescribeProtocolNumber
-//! \param[in] responseMsg
+//! \brief      DescribeProtocolNumber
+//! \param[in]  responseMsg
 void ELM327_describeProtocolNumber(std::string &responseMsg);
 
-//! \brief  MemoryOffOn
-//! \param[in] responseMsg
+//! \brief      MemoryOffOn
+//! \param[in]  responseMsg
 void ELM327_memoryOffOn(std::string &responseMsg);
 
-//! \brief  LinefeedsOffOn
-//! \param[in] responseMsg
+//! \brief      LinefeedsOffOn
+//! \param[in]  responseMsg
 void ELM327_linefeedsOffOn(std::string &responseMsg);
 
-//! \brief  EchoOffOn
-//! \param[in] responseMsg
+//! \brief      EchoOffOn
+//! \param[in]  responseMsg
 void ELM327_echoOffOn(std::string &responseMsg);
 
+//! \brief      SetTimeout
+//! \param[in]  responseMsg
+void ELM327_setTimeout(std::string &responseMsg);
+
+//! \brief      SpacesOffOn
+//! \param[in]  responseMsg
+void ELM327_spacesOffOn(std::string &responseMsg);
+
+//! \brief      HeadersOffOn
+//! \param[in]  responseMsg
+void ELM327_headersOffOn(std::string &responseMsg);
+
+//! \brief      AdaptiveTiming
+//! \param[in]  responseMsg
+void ELM327_adaptiveTiming(std::string &responseMsg);
+
+//! \brief      SetProtocol
+//! \param[in]  responseMsg
+void ELM327_setProtocol(std::string &responseMsg);
 
 #endif /* ELM327_H_ */

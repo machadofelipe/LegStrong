@@ -1,121 +1,71 @@
+//! \file   Message.cpp
+//! \brief
+//!
+
+// **************************************************************************
+// the includes
 
 #include "Message.h"
 #include "ELM327.h"
-//#include "Mode01.h"
+#include "Mode01.h"
 
-//#include <stdlib.h>     /* malloc, free, rand */
 
-Message::Message(const string &pBuf)
+// **************************************************************************
+// the defines
+
+
+// **************************************************************************
+// the typedefs
+
+
+// **************************************************************************
+// the globals
+
+
+// **************************************************************************
+// the methods
+
+Message::Message(const std::string &pBuf)
 {
-    Unpack(pBuf);
+    UnpackMsg(pBuf);
 }
 
-Message::~Message()
+Message::~Message() { }
+
+void Message::UnpackMsg(const std::string &pBuf)
 {
-//    free(m_command);
-}
 
-void Message::Unpack(const string &pBuf)
-{
-	m_stringIndex = 0;
-	UnpackType(pBuf);
-
-	int charsToEnd = pBuf.size() - m_stringIndex;
-	UnpackCommand(pBuf, charsToEnd);
-
-	return;
-}
-
-void Message::UnpackType(const string &pBuf)
-{
-//    if (strlen(pBuf) >= (HEADER_SIZE + m_stringIndex))
-//    {
-//        int j = 0;
-//        for (int i = m_stringIndex; i < HEADER_SIZE; i++)
-//        {
-//            m_type[j] = pBuf[i];
-//            j++;
-//        }
-//        m_type[j] = '\0';   /* null character manually added */
-//        m_stringIndex += HEADER_SIZE;
-//    }
-    if (pBuf.size() >= (HEADER_SIZE + m_stringIndex))
+    if (pBuf.size() > HEADER_SIZE)
     {
-        m_type = pBuf.substr(m_stringIndex, HEADER_SIZE);
-        m_stringIndex += HEADER_SIZE;
-    }
-
-
-    return;
-}
-
-
-void Message::UnpackCommand(const string &pBuf, const int &numBytes)
-{
-//    m_command = (char*) malloc(numBytes+1);
-//
-//    if (strlen(pBuf) >= (numBytes + m_stringIndex))
-//    {
-//        int j = 0;
-//        for (int i = m_stringIndex;
-//                i < numBytes + m_stringIndex && j < CMD_SIZE;
-//                i++)
-//        {
-//            m_command[j] = pBuf[i];
-//            j++;
-//        }
-//        m_command[j] = '\0';   /* null character manually added */
-//        m_stringIndex += numBytes;
-//    }
-//    else
-//    {
-//        sprintf(m_command, "");
-//    }
-    if (pBuf.size() >= (numBytes + m_stringIndex))
-    {
-        m_command = pBuf.substr(m_stringIndex, numBytes);
-        m_stringIndex += numBytes;
+        m_type = pBuf.substr(0, HEADER_SIZE);
+        m_command = pBuf.substr(HEADER_SIZE);
     }
 
     return;
 }
 
-//string Message::UnpackString(const string &pBuf, const int &numBytes)
-//{
-//	//TODO: maybe better to put as a member
-//	 result = (char*) malloc(numBytes+1);
-//	result = "";
-//
-//    if (strlen(pBuf) >= (numBytes + m_stringIndex))
-//	{
-//		//result = pBuf.substr(m_stringIndex, numBytes);
-//		int j = 0;
-//		for (int i = m_stringIndex; i < numBytes; i++)
-//		{
-//			result[j] = pBuf[i];
-//			j++;
-//		}
-//		result[j] = '\0';   /* null character manually added */
-//		m_stringIndex += numBytes;
-//	}
-//
-//	return result;
-//}
-
-void Message::HandleMessage(string &responseMsg)
+void Message::HandleMessage(std::string &responseMsg)
 {
-	//TODO: maybe better to put as a member
-//	string responseMsg = (char*) malloc(40);
     responseMsg = "?";
 
     if (m_type == "01")
-	{
-//		Mode01::Instance().ProcessPid(m_command, responseMsg);
-	}
+    {
+        MOD01_processPid(m_command, responseMsg);
+    }
+    if (m_type == "09")
+    {
+        //MOD09_processPid(m_command, responseMsg);
+    }
 	else if (m_type == "AT")
 	{
 		ELM327_processCommand(m_command, responseMsg);
 	}
+
+    // DEBUG
+//    if (responseMsg == "?")
+//    {
+    puts((m_type+m_command+"\t"+responseMsg).c_str());
+//    }
 
 	return;
 }

@@ -48,8 +48,10 @@
 // system includes
 #include <math.h>
 #include <ctype.h>
+#include <stdio.h>
 #include "main.h"
 #include "Message.h"
+#include "Mode01.h"
 
 
 
@@ -144,6 +146,7 @@ _iq gTorque_Flux_Iq_pu_to_Nm_sf;
 
 void main(void)
 {
+
   uint_least8_t estNumber = 0;
 
 #ifdef FAST_ROM_V1p6
@@ -220,7 +223,6 @@ void main(void)
 
   // setup faults
   HAL_setupFaults(halHandle);
-
 
   // initialize the interrupt vector table
   HAL_initIntVectorTable(halHandle);
@@ -429,6 +431,12 @@ void main(void)
         HAL_readDrvData(halHandle,&gDrvSpi8305Vars);
 #endif
 
+
+//        Speed_rpm = (uint16_t) (_IQtoIQ10(gMotorVars.Speed_krpm));
+//        Torque_Nm = _IQtoIQ10(gMotorVars.Torque_Nm);
+//        VdcBus = (uint16_t) (_IQtoIQ20(gMotorVars.VdcBus_kV));
+//        IdcBus = _IQtoIQ21(gMotorVars.IdcBus);
+
         if(newMessage)
         {
             // Check received data
@@ -585,6 +593,10 @@ char rdataA;    // Received data for SCI-A
         else if (rdataA > 47 && !newMessage)
         {
             msgBuf.push_back( toupper(rdataA) );
+        }
+        else
+        {
+            puts("!");
         }
 
     }

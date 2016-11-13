@@ -1,56 +1,60 @@
-
 #ifndef _MESSAGE_H_
 #define _MESSAGE_H_
+//! \file   Message.h
+//! \brief
+//!
+
+// **************************************************************************
+// the includes
 
 #include <string>
-//#include <stdio.h>
-//#include <string.h>
 
-//typedef std::string string;
-using namespace std;
 
+// **************************************************************************
+// the defines
 
 #define HEADER_SIZE 2
-//#define CMD_SIZE 5
+
+
+// **************************************************************************
+// the typedefs
+
+
+// **************************************************************************
+// the globals
+
+
+// **************************************************************************
+// the class
 
 class Message
 {
-public:
-    Message(const string &pBuf);
 
+public:
+
+    //! \brief              Constructor
+    //! \param[in] pBuf     Message to be handled
+    Message(const std::string &pBuf);
+
+    //! \brief              Destructor
     ~Message();
 
-	//string UnpackHeader(const string &pBuf);
+    //! \brief                  HandleMessage
+    //! \param[in] responseMsg  Response from HandleMessage
+	void HandleMessage(std::string &responseMsg);
 
-	void HandleMessage(string &responseMsg);
 
 private:
 
+    //! \brief              HandleMessage
+    //! \param[in] pBuf     Message to be unpack
+    void UnpackMsg(const std::string &pBuf);
+
 	// Message header
-	string m_type;
-	string m_command;
+	std::string m_type;
 
-	//string responseMsg;
-
-	// Message specific pack method, to be defined according to the message's
-	// fields. The base class functions pack and unpack the common header
-	//int Pack(const string &pBuf);
-
-	// Corresponding unpack method.
-	void Unpack(const string &pBuf);
-
-
-	// String index is used to keep track of the current packing/unpacking char index.
-	int m_stringIndex;
-
-	// PackString packs a specified number of chars at the next char index. The method increments
-	// the char index
-	//void PackString(const string &pBuf, const string &value);
-
-	// UnpackString packs a specified number of chars at the next char index.The method increments the char index
-//	void UnpackString(const string &pBuf, const int &numChars);
-	void UnpackCommand(const string &pBuf, const int &numBytes);
-	void UnpackType(const string &pBuf);
+    // Message command or pid
+	std::string m_command;
 
 
 };

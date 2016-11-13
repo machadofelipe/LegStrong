@@ -1,14 +1,6 @@
-/*
- * ELM327.cpp
- *
- *  Created on: 06/11/2016
- *      Author: Felipe Machado
- */
-
 //! \file   ELM327.cpp
 //! \brief
 //!
-
 
 // **************************************************************************
 // the includes
@@ -29,16 +21,18 @@
 // **************************************************************************
 // the functions
 
-void ELM327_processCommand(const std::string commandAndValue, std::string &responseMsg)
+void ELM327_processCommand(const std::string &commandAndValue, std::string &responseMsg)
 {
 
     bool flagContinue = true;
-    for (int i=0; (i < COMMANDS_SIZE && flagContinue); i++)
+    for (int i=0; (flagContinue && i < ELM327_Commands_size); i++)
     {
-        if ( !strcmp( commandAndValue.substr(0, strlen(ELM327_Commands[i])).c_str(),
-                        ELM327_Commands[i] ) )
+        int commandSize = strlen(ELM327_Pairs[i].commandString);
+
+        if ( !strcmp( commandAndValue.substr(0, commandSize).c_str(),
+                        ELM327_Pairs[i].commandString ) )
         {
-            ELM327_Functions[i](responseMsg);
+            ELM327_Pairs[i].functionPtr(responseMsg);
             flagContinue = false;
         }
     }
@@ -55,14 +49,14 @@ void ELM327_reset(std::string &responseMsg)
 
 void ELM327_deviceDescription(std::string &responseMsg)
 {
-    responseMsg = ELM327_ResponseMsg[ELM327_DeviceDescription];
+    responseMsg = ELM327_ResponseMsg[ELM327_Msg_DeviceDescription];
 
     return;
 }
 
 void ELM327_versionId(std::string &responseMsg)
 {
-    responseMsg = ELM327_ResponseMsg[ELM327_VersionId];
+    responseMsg = ELM327_ResponseMsg[ELM327_Msg_VersionId];
 
     return;
 }
@@ -91,21 +85,61 @@ void ELM327_describeProtocolNumber(std::string &responseMsg)
 
 void ELM327_memoryOffOn(std::string &responseMsg)
 {
-    responseMsg = ELM327_ResponseMsg[ELM327_OK];
+    responseMsg = ELM327_ResponseMsg[ELM327_Msg_OK];
 
     return;
 }
 
 void ELM327_linefeedsOffOn(std::string &responseMsg)
 {
-    responseMsg = ELM327_ResponseMsg[ELM327_OK];
+    responseMsg = ELM327_ResponseMsg[ELM327_Msg_OK];
 
     return;
 }
 
 void ELM327_echoOffOn(std::string &responseMsg)
 {
-    responseMsg = ELM327_ResponseMsg[ELM327_OK];
+    responseMsg = ELM327_ResponseMsg[ELM327_Msg_OK];
+
+    return;
+}
+
+
+void ELM327_setTimeout(std::string &responseMsg)
+{
+    responseMsg = ELM327_ResponseMsg[ELM327_Msg_OK];
+
+    return;
+}
+
+
+void ELM327_spacesOffOn(std::string &responseMsg)
+{
+    responseMsg = ELM327_ResponseMsg[ELM327_Msg_OK];
+
+    return;
+}
+
+
+void ELM327_headersOffOn(std::string &responseMsg)
+{
+    responseMsg = ELM327_ResponseMsg[ELM327_Msg_OK];
+
+    return;
+}
+
+
+void ELM327_adaptiveTiming(std::string &responseMsg)
+{
+    responseMsg = ELM327_ResponseMsg[ELM327_Msg_OK];
+
+    return;
+}
+
+
+void ELM327_setProtocol(std::string &responseMsg)
+{
+    responseMsg = ELM327_ResponseMsg[ELM327_Msg_OK];
 
     return;
 }
