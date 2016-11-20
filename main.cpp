@@ -46,12 +46,8 @@
 // the includes
 
 // system includes
-#include <math.h>
 #include <ctype.h>
-#include <stdio.h>
 #include "main.h"
-#include "Message.h"
-#include "Mode01.h"
 
 
 
@@ -116,6 +112,8 @@ uint16_t gLEDcnt = 0;
 
 volatile MOTOR_Vars_t gMotorVars = MOTOR_Vars_INIT;
 
+Mode01_Vars_t gMod01Vars = MOD01_Vars_INIT;
+
 #ifdef FLASH
 // Used for running BackGround in flash, and ISR in RAM
 extern uint16_t *RamfuncsLoadStart, *RamfuncsLoadEnd, *RamfuncsRunStart;
@@ -165,6 +163,9 @@ void main(void)
   // initialize the hardware abstraction layer
   halHandle = HAL_init(&hal,sizeof(hal));
 
+  MOD01_init(gMod01Vars);
+
+  MOD09_init();
 
 
   // check for errors in user parameters
@@ -432,16 +433,11 @@ void main(void)
 #endif
 
 
-//        Speed_rpm = (uint16_t) (_IQtoIQ10(gMotorVars.Speed_krpm));
-//        Torque_Nm = _IQtoIQ10(gMotorVars.Torque_Nm);
-//        VdcBus = (uint16_t) (_IQtoIQ20(gMotorVars.VdcBus_kV));
-//        IdcBus = _IQtoIQ21(gMotorVars.IdcBus);
-
         if(newMessage)
         {
             // Check received data
             Message msgObj = Message(msgBuf);
-            msgObj.HandleMessage(msgBuf);
+            msgObj.HandleMessage(msgBuf, gMod01Vars);
             HAL_SciASendMessage( halHandle, msgBuf.c_str() );
             msgBuf = "";
             newMessage = false;
@@ -509,9 +505,16 @@ void updateGlobalVariables_motor(CTRL_Handle handle)
 
   // get the speed estimate
   gMotorVars.Speed_krpm = EST_getSpeed_krpm(obj->estHandle);
+//  gMod01Vars.Engine_RPM = gMotorVars.Speed_krpm > _IQ(0.02) ?
+//                              (uint16_t) _IQtoIQ12(gMotorVars.Speed_krpm) : 0;
+  gMod01Vars.Engine_RPM = (uint16_t) ( _IQtoF(gMotorVars.Speed_krpm) * 4000.0 );
 
   // get the torque estimate
   gMotorVars.Torque_Nm = USER_computeTorque_Nm(handle, gTorque_Flux_Iq_pu_to_Nm_sf, gTorque_Ls_Id_Iq_pu_to_Nm_sf);
+//  gMod01Vars.Engine_reference_torque = gMotorVars.Torque_Nm > _IQ(0.02) ?
+//                                          (uint16_t) _IQtoIQ10(gMotorVars.Torque_Nm) : 0;
+  gMod01Vars.Engine_reference_torque = (uint16_t) ( _IQtoF(gMotorVars.Torque_Nm) * 1000.0 );
+  gMod01Vars.Actual_engine_torque = (uint8_t) ( 125.0 + ( _IQtoF( _IQmpy( gMotorVars.Torque_Nm, (100.0/USER_MOTOR_MAX_TORQUE) ) ) ) );
 
   // get the magnetizing current
   gMotorVars.MagnCurr_A = EST_getIdRated(obj->estHandle);
@@ -542,10 +545,15 @@ void updateGlobalVariables_motor(CTRL_Handle handle)
 
   // Get the DC buss voltage
   gMotorVars.VdcBus_kV = _IQmpy(gAdcData.dcBus,_IQ(USER_IQ_FULL_SCALE_VOLTAGE_V/1000.0));
+//  gMod01Vars.Control_module_voltage = (uint16_t) (_IQtoIQ20(gMotorVars.VdcBus_kV));
+  gMod01Vars.Control_module_voltage = (uint16_t) ( _IQtoF(gMotorVars.VdcBus_kV) * 1000000.0 );
 
   // Get the DC buss current
-  //gMotorVars.IdcBus = _IQ(USER_ADC_MAX_POSITIVE_BUS_CURRENT_A*I_BUS_offset) - _IQmpy(gAdcData.iBus,_IQ(USER_ADC_FULL_SCALE_BUS_CURRENT_A));
   gMotorVars.IdcBus = _IQmpy(gAdcData.iBus,_IQ(USER_ADC_MAX_POSITIVE_BUS_CURRENT_A));
+
+  gMod01Vars.Driver_demand_engine_torque = (uint8_t) ( 125.0 + ( _IQtoF( _IQmpy( gMotorVars.IqRef_A, _IQ(100.0/USER_IQ_FULL_SCALE_CURRENT_A) ) ) ) );
+
+  gMod01Vars.Calculated_engine_load = (uint8_t) ( _IQtoF(gMotorVars.IdcBus) * _IQtoF(gMotorVars.VdcBus_kV) * (100000.0/USER_MOTOR_MAX_POWER) );
 
 
   return;
@@ -593,10 +601,6 @@ char rdataA;    // Received data for SCI-A
         else if (rdataA > 47 && !newMessage)
         {
             msgBuf.push_back( toupper(rdataA) );
-        }
-        else
-        {
-            puts("!");
         }
 
     }

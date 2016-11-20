@@ -85,7 +85,7 @@ PAGE 0:    /* Program Memory */
    ROM         : origin = 0x3FF27C, length = 0x000D44     /* Boot ROM */
    RESET       : origin = 0x3FFFC0, length = 0x000002     /* part of boot ROM  */
    VECTORS     : origin = 0x3FFFC2, length = 0x00003E     /* part of boot ROM  */
-   FLASHB_D    : origin = 0x3F0000, length = 0x007000     /* on-chip FLASH B, C and D */
+   FLASHB_D    : origin = 0x3F0000, length = 0x007600     /* on-chip FLASH B, C and D */
    P_RAML0     : origin = 0x008000, length = 0x000630     /* on-chip PRAM block L0 */
 
 PAGE 1 :   /* Data Memory */
@@ -93,8 +93,8 @@ PAGE 1 :   /* Data Memory */
            /* Registers remain on PAGE1                                                  */
 
    RAMM0_M1    : origin = 0x000000, length = 0x000600     /* on-chip RAM block M0 + M1. 0x600 to 0x800 reserved for InstaSPIN */
-   D_RAML0     : origin = 0x008630, length = 0x000970     /* on-chip DRAM block L0 */
-   D_FLASHA    : origin = 0x3F7000, length = 0x000F80     /* on-chip FLASH A */
+   D_RAML0     : origin = 0x008630, length = 0x0009D0     /* on-chip DRAM block L0 */
+   D_FLASHA    : origin = 0x3F7600, length = 0x000980     /* on-chip FLASH A */
 }
 
 /* Allocate sections to memory blocks.

@@ -8,7 +8,7 @@
 // the includes
 
 #include <string>
-
+#include "Mode01_obj.h"
 
 // **************************************************************************
 // the defines
@@ -41,7 +41,7 @@ public:
 
     //! \brief                  HandleMessage
     //! \param[in] responseMsg  Response from HandleMessage
-	void HandleMessage(std::string &responseMsg);
+	void HandleMessage(std::string &responseMsg, Mode01_Vars_t &gMod01Vars);
 
 
 private:

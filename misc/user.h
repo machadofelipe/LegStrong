@@ -584,6 +584,7 @@ extern "C" {
 #define USER_MOTOR_FLUX_EST_FREQ_Hz     (20.0)
 
 #elif (USER_MOTOR == Bafang_SWX02)
+// http://www.szbaf.com/en/components/component/motor/rm-g05250dc.html
 #define USER_MOTOR_TYPE                 MOTOR_Type_Pm
 #define USER_MOTOR_NUM_POLE_PAIRS       (10)
 #define USER_MOTOR_Rr                   (NULL)
@@ -596,6 +597,8 @@ extern "C" {
 #define USER_MOTOR_IND_EST_CURRENT      (-1.0)
 #define USER_MOTOR_MAX_CURRENT          (6.0)
 #define USER_MOTOR_FLUX_EST_FREQ_Hz     (20.0)
+#define USER_MOTOR_MAX_POWER            (350.0)
+#define USER_MOTOR_MAX_TORQUE           (45.0)
 
 #elif (USER_MOTOR == Belt_Drive_Washer_IPM)
 #define USER_MOTOR_TYPE                 MOTOR_Type_Pm

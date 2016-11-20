@@ -7,7 +7,7 @@
 
 #include "ELM327.h"
 #include <string.h>
-#include <stdio.h>
+//#include <stdio.h>
 
 
 // **************************************************************************
@@ -63,22 +63,22 @@ void ELM327_versionId(std::string &responseMsg)
 
 void ELM327_readVoltage(std::string &responseMsg)
 {
-    float vdcBus = 51.8;
-    char buf[5] = "";
-    snprintf( buf, 5, "%d.%d", (int)vdcBus, (int)( ( vdcBus - (int)vdcBus ) * 10 ) );
+//    float vdcBus = 51.8;
+//    char buf[5] = "";
+//    snprintf( buf, 5, "%d.%d", (int)vdcBus, (int)( ( vdcBus - (int)vdcBus ) * 10 ) );
 
-    responseMsg = std::string(buf);
+    responseMsg = "51.8";
 
     return;
 }
 
 void ELM327_describeProtocolNumber(std::string &responseMsg)
 {
-    int protocolNumber = 1;
-    char buf[2] = "";
-    snprintf(buf, 2, "%d", protocolNumber);
+//    int protocolNumber = 1;
+//    char buf[2] = "";
+//    snprintf(buf, 2, "%d", protocolNumber);
 
-    responseMsg = std::string(buf);
+    responseMsg = "1";
 
     return;
 }

@@ -100,7 +100,7 @@ static ELM327_Pair_t ELM327_Pairs[ELM327_Commands_size] = {
 //!
 static const char* const ELM327_ResponseMsg[ELM327_Msg_ResponseMsg_size] = {
         "Legstrong revA",   // DeviceDescription
-        "ELM327 v2.1",      // VersionId
+        "ELM327 v1.0",      // VersionId
         "OK",               // OK
 };
 
@@ -163,5 +163,35 @@ void ELM327_adaptiveTiming(std::string &responseMsg);
 //! \brief      SetProtocol
 //! \param[in]  responseMsg
 void ELM327_setProtocol(std::string &responseMsg);
+
+
+
+// **************************************************************************
+// AT Commands from version 1.0
+// More in https://www.elmelectronics.com/wp-content/uploads/2016/07/AT_Command_Table.pdf
+// Refer to document ELM327_AT_Commands.xlsx
+//        {"AL",   &ELM327_}        // Allow Long (>7 byte) messages        (OBD)
+//        {"BD",   &ELM327_}        // perform a Buffer Dump                (OBD)
+//        {"BI",   &ELM327_}        // Bypass the Initialization sequence   (OBD)
+//        {"CAF",  &ELM327_}        // CAN Automatic Formatting             (CAN)
+//        {"CF",   &ELM327_}
+//        {"CFC",  &ELM327_}
+//        {"CM",   &ELM327_}
+//        {"CP",   &ELM327_}
+//        {"CS",   &ELM327_}
+//        {"CV",   &ELM327_}
+//        {"D",    &ELM327_}
+//        {"DP",   &ELM327_}
+//        {"IB",   &ELM327_}
+//        {"MR",   &ELM327_}
+//        {"MT",   &ELM327_}
+//        {"NL",   &ELM327_}
+//        {"PC",   &ELM327_}
+//        {"R",    &ELM327_}
+//        {"SH",   &ELM327_}
+//        {"SW",   &ELM327_}
+//        {"TP",   &ELM327_}
+//        {"WM",   &ELM327_}
+//        {"WS",   &ELM327_}
 
 #endif /* ELM327_H_ */

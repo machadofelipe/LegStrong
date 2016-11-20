@@ -1,90 +1,82 @@
-#ifndef _MODE01_H_
-#define _MODE01_H_
-//! \file   Mode01.h
+#ifndef _MODE01_OBJ_H_
+#define _MODE01_OBJ_H_
+//! \file   Mode01_obj.h
 //! \brief  Show current data
 //!
 
 // **************************************************************************
 // the includes
 
-#include "Mode01_obj.h"
-
-#include <string>
-//#include <map>
+#include "types.h"     // Device Headerfile and Examples Include File
 
 
 // **************************************************************************
 // the defines
-
+#define MOD01_Vars_INIT { 0, 0, 0, 0, 0, 0, 0,      \
+                          0,                        \
+                          0, 0, 0,                  \
+                          0, 0, 0, 0,               }
 
 // **************************************************************************
 // the typedefs
 
-typedef void (*MOD01_HANDLER)(Mode01_Vars_t &gMod01Vars);
+//! \brief      Enumeration Mode 01 - Show current data.
+//! \details    Standard OBD-II PIDs as defined by SAE J197.
+typedef enum
+{
+    Mode01_PIDs_01__20 = 0x00,
+    Calculated_engine_load = 0x04,
+    Engine_coolant_temperature = 0x05,
+    Engine_RPM = 0x0C,
+    Vehicle_speed = 0x0D,
+    Throttle_position = 0x11,
+    OBD_standards_this_vehicle_conforms_to = 0x1C,
+//    Run_time_since_engine_start = 0x1F,
+
+    Mode01_PIDs_21__40 = 0x20,
+//    Fuel_Tank_Level_Input = 0x2F,
+
+    Mode01_PIDs_41__60 = 0x40,
+    Control_module_voltage = 0x42,
+    Fuel_Type = 0x51,
+//    Engine_fuel_rate = 0x5E,
+
+    Mode01_PIDs_61__80 = 0x60,
+    Driver_demand_engine_torque = 0x61,
+    Actual_engine_torque = 0x62,
+    Engine_reference_torque = 0x63,
+} Mode01_PIDs_e;
+
+typedef struct _Mode01_Vars_t_
+{
+    uint32_t    Mode01_PIDs_01__20;
+    uint8_t     Calculated_engine_load;
+    uint8_t     Engine_coolant_temperature;
+    uint16_t    Engine_RPM;
+    uint8_t     Vehicle_speed;
+    uint8_t     Throttle_position;
+    uint8_t     OBD_standards_this_vehicle_conforms_to;
+//    uint16_t    Run_time_since_engine_start;
+
+    uint32_t    Mode01_PIDs_21__40;
+//    uint8_t     Fuel_Tank_Level_Input;
+
+    uint32_t    Mode01_PIDs_41__60;
+    uint16_t    Control_module_voltage;
+    uint8_t     Fuel_Type;
+//    uint16_t    Engine_fuel_rate;
+
+    uint32_t    Mode01_PIDs_61__80;
+    uint8_t     Driver_demand_engine_torque;
+    uint8_t     Actual_engine_torque;
+    uint16_t    Engine_reference_torque;
+
+}Mode01_Vars_t;
 
 
 // **************************************************************************
 // the globals
-extern void MOD01_PIDs_01__20(Mode01_Vars_t &gMod01Vars);
-extern void MOD01_Calculated_engine_load(Mode01_Vars_t &gMod01Vars);
-extern void MOD01_Engine_coolant_temperature(Mode01_Vars_t &gMod01Vars);
-extern void MOD01_Engine_RPM(Mode01_Vars_t &gMod01Vars);
-extern void MOD01_Vehicle_speed(Mode01_Vars_t &gMod01Vars);
-extern void MOD01_Throttle_position(Mode01_Vars_t &gMod01Vars);
-extern void MOD01_OBD_standards_this_vehicle_conforms_to(Mode01_Vars_t &gMod01Vars);
-extern void MOD01_PIDs_21__40(Mode01_Vars_t &gMod01Vars);
-extern void MOD01_PIDs_41__60(Mode01_Vars_t &gMod01Vars);
-extern void MOD01_Control_module_voltage(Mode01_Vars_t &gMod01Vars);
-extern void MOD01_Fuel_Type(Mode01_Vars_t &gMod01Vars);
-extern void MOD01_PIDs_61__80(Mode01_Vars_t &gMod01Vars);
-extern void MOD01_Driver_demand_engine_torque(Mode01_Vars_t &gMod01Vars);
-extern void MOD01_Actual_engine_torque(Mode01_Vars_t &gMod01Vars);
-extern void MOD01_Engine_reference_torque(Mode01_Vars_t &gMod01Vars);
 
-
-//! \brief Array for Array for string commands that points to each function pointer
-//!
-static char MOD01_hexToASCII[16] = { '0', '1', '2', '3', '4', '5', '6', '7',
-                                     '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
-
-
-// **************************************************************************
-// the function prototypes
-
-void MOD01_init(Mode01_Vars_t &gMod01Vars);
-
-//! \brief      MOD01_processPid
-//! \param[in]  pid
-//! \param[in]  responseMsg
-void MOD01_processPid(const std::string &pid, std::string &responseMsg, Mode01_Vars_t &gMod01Vars);
-
-void MOD01_printf(std::string &string, uint32_t &value);
-void MOD01_printf(std::string &string, uint16_t &value);
-void MOD01_printf(std::string &string, uint8_t &value);
-
-
-//! \brief      PIDs_01__20
-void MOD01_PIDs_01__20(Mode01_Vars_t &gMod01Vars);
-void MOD01_Calculated_engine_load(Mode01_Vars_t &gMod01Vars);
-void MOD01_Engine_coolant_temperature(Mode01_Vars_t &gMod01Vars);
-void MOD01_Engine_RPM(Mode01_Vars_t &gMod01Vars);
-void MOD01_Vehicle_speed(Mode01_Vars_t &gMod01Vars);
-void MOD01_Throttle_position(Mode01_Vars_t &gMod01Vars);
-void MOD01_OBD_standards_this_vehicle_conforms_to(Mode01_Vars_t &gMod01Vars);
-
-//! \brief      PIDs_21__40
-void MOD01_PIDs_21__40(Mode01_Vars_t &gMod01Vars);
-
-//! \brief      PIDs_41__60
-void MOD01_PIDs_41__60(Mode01_Vars_t &gMod01Vars);
-void MOD01_Control_module_voltage(Mode01_Vars_t &gMod01Vars);
-void MOD01_Fuel_Type(Mode01_Vars_t &gMod01Vars);
-
-//! \brief      PIDs_61__80
-void MOD01_PIDs_61__80(Mode01_Vars_t &gMod01Vars);
-void MOD01_Driver_demand_engine_torque(Mode01_Vars_t &gMod01Vars);
-void MOD01_Actual_engine_torque(Mode01_Vars_t &gMod01Vars);
-void MOD01_Engine_reference_torque(Mode01_Vars_t &gMod01Vars);
 
 // **************************************************************************
 // PID Codes that are not used
@@ -198,6 +190,7 @@ void MOD01_Engine_reference_torque(Mode01_Vars_t &gMod01Vars);
 //    NOx_NTE_control_area_status = 0x7D,
 //    PM_NTE_control_area_status = 0x7E,
 //    Engine_run_time = 0x7F,
+//    PIDs_81__A0,
 //    Engine_run_time_AECD_1 = 0x81,
 //    Engine_run_time_AECD_2 = 0x82,
 //    NOx_sensor = 0x83,
@@ -205,8 +198,9 @@ void MOD01_Engine_reference_torque(Mode01_Vars_t &gMod01Vars);
 //    NOx_reagent_system = 0x85,
 //    Particulate_matter_PM_sensor = 0x86,
 //    Intake_manifold_absolute_pressure = 0x87,
+//    PIDs_A1__C0,
+//    PIDs_C1__E0
 //    Numerous_data = 0xC3,
 //    Engine_requests = 0xC4
 
-
-#endif // !_MODE01_H_
+#endif // !_MODE01_OBJ_H_

@@ -58,6 +58,10 @@
 #include "hal.h"
 #include "user.h"
 
+#include "Message.h"
+#include "Mode01.h"
+#include "Mode09.h"
+
 
 // **************************************************************************
 // the defines
@@ -73,7 +77,7 @@
 
 //! \brief Initialization values of global variables
 //!
-#define MOTOR_Vars_INIT {false, \
+#define MOTOR_Vars_INIT {true, \
                          false, \
                          false, \
                          true, \
