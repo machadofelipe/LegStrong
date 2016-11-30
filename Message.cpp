@@ -7,7 +7,6 @@
 
 #include "Message.h"
 #include "ELM327.h"
-#include "Mode01.h"
 #include "Mode09.h"
 
 
@@ -45,14 +44,14 @@ void Message::UnpackMsg(const std::string &pBuf)
     return;
 }
 
-void Message::HandleMessage(std::string &responseMsg, Mode01_Vars_t &gMod01Vars)
+void Message::HandleMessage(std::string &responseMsg, elm327::mod01 &mod01)
 {
     responseMsg = "?";
 
     if (m_type == "01")
     {
         responseMsg = "41";
-        MOD01_processPid(m_command, responseMsg, gMod01Vars);
+        mod01.processPid(m_command, responseMsg);
     }
     if (m_type == "09")
     {
