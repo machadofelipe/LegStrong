@@ -39,6 +39,7 @@
 								<option id="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.INCLUDE_PATH.167460695" name="Add dir to #include search path (--include_path, -I)" superClass="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.INCLUDE_PATH" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${PROJECT_LOC}/drivers/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${PROJECT_LOC}/f2802x_headers/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${PROJECT_LOC}/misc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${PROJECT_LOC}/modules/include&quot;"/>
 								</option>
@@ -113,7 +114,7 @@
 					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.1608996653" name="math.h" rcbsApplicability="disable" resourcePath="modules/include/math.h" toolsToInvoke=""/>
 					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.1903852119" name="types.h" rcbsApplicability="disable" resourcePath="modules/include/types.h" toolsToInvoke=""/>
 					<sourceEntries>
-						<entry excluding="Mode01.cpp|modules/motor|28027_RAM_lnk.cmd|modules/source/svgen_current.c|modules/source/filter_so.c|modules/source/dlog4ch.c|modules/source/ctrl_eou.c|modules/source/ctrlQEP.c|drivers/gel|modules/vib_comp|modules/throttle|modules/spintac|modules/slip|modules/queue|modules/pi|modules/math|modules/ipd|modules/hallbldc|modules/fw|modules/fstart|modules/fem|modules/est|modules/enc|modules/docs|modules/cpu_usage|modules/angle_comp|modules/angle|modules/afsel|drivers/lib|cmd" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="f2802x_headers/cmd/F2802x_Headers_BIOS.cmd|Mode01.cpp|modules/motor|28027_RAM_lnk.cmd|modules/source/svgen_current.c|modules/source/filter_so.c|modules/source/dlog4ch.c|modules/source/ctrl_eou.c|modules/source/ctrlQEP.c|drivers/gel|modules/vib_comp|modules/throttle|modules/spintac|modules/slip|modules/queue|modules/pi|modules/math|modules/ipd|modules/hallbldc|modules/fw|modules/fstart|modules/fem|modules/est|modules/enc|modules/docs|modules/cpu_usage|modules/angle_comp|modules/angle|modules/afsel|drivers/lib|cmd" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

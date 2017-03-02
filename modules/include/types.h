@@ -50,7 +50,6 @@
 #endif
 #include "stdint.h"   // needed for C99 data types
 
-
 //!
 //!
 //! \defgroup TYPES TYPES

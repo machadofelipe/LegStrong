@@ -51,6 +51,8 @@
 
 
 // drivers
+#include "F2802x_Device.h"
+#include "f2802x_examples.h"
 
 
 // platforms
@@ -60,6 +62,7 @@
 
 #include "Message.h"
 #include "mod01.h"
+#include "mode08.h"
 #include "Mode09.h"
 
 
@@ -336,7 +339,6 @@ _iq EST_runPowerWarp(EST_Handle handle,const _iq Id_int_pu,const _iq Iq_pu);
 _iq getAbsElecAngle(const _iq angle_pu);
 
 _iq getAbsMechAngle(_iq *pAngle_mech_poles, _iq *pAngle_z1_pu, const _iq angle_pu);
-
 
 //@} //defgroup
 #endif // end of _MAIN_H_ definition
