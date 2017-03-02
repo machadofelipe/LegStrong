@@ -16,7 +16,7 @@
 
 // **************************************************************************
 // the defines
-#define MOD01_Vars_INIT { 0, 0, 0, 0, 0, 0, 0,      \
+#define MOD01_Vars_INIT { 0, 0, 0, 0, 0, 0, 0, 0,   \
                           0,                        \
                           0, 0, 0,                  \
                           0, 0, 0, 0,               }
@@ -32,13 +32,14 @@ namespace elm327 {
     typedef enum
     {
         Mode01_PIDs_01__20 = 0x00,
+        //TODO: add "Mode01_" Prefix
         Calculated_engine_load = 0x04,
-        Engine_coolant_temperature = 0x05,
+        //Engine_coolant_temperature = 0x05,
         Engine_RPM = 0x0C,
         Vehicle_speed = 0x0D,
         Throttle_position = 0x11,
         OBD_standards_this_vehicle_conforms_to = 0x1C,
-    //    Run_time_since_engine_start = 0x1F,
+        Run_time_since_engine_start = 0x1F,
 
         Mode01_PIDs_21__40 = 0x20,
     //    Fuel_Tank_Level_Input = 0x2F,
@@ -59,12 +60,12 @@ namespace elm327 {
     {
         uint32_t    Mode01_PIDs_01__20;
         uint8_t     Calculated_engine_load;
-        uint8_t     Engine_coolant_temperature;
+        //uint8_t     Engine_coolant_temperature;
         uint16_t    Engine_RPM;
         uint8_t     Vehicle_speed;
         uint8_t     Throttle_position;
         uint8_t     OBD_standards_this_vehicle_conforms_to;
-    //    uint16_t    Run_time_since_engine_start;
+        uint16_t    Run_time_since_engine_start;
 
         uint32_t    Mode01_PIDs_21__40;
     //    uint8_t     Fuel_Tank_Level_Input;
@@ -100,6 +101,7 @@ namespace elm327 {
             //! \param[in]  responseMsg
             void processPid(const std::string &pid, std::string &responseMsg);
 
+            // TODO: remove the "g" (global)
             Mode01_Vars_t m_gMod01Vars;
 
 
@@ -110,11 +112,12 @@ namespace elm327 {
             //! \brief      PIDs_01__20
             void PIDs_01__20();
             void Calculated_engine_load();
-            void Engine_coolant_temperature();
+            //void Engine_coolant_temperature();
             void Engine_RPM();
             void Vehicle_speed();
             void Throttle_position();
             void OBD_standards_this_vehicle_conforms_to();
+            void Run_time_since_engine_start();
 
             //! \brief      PIDs_21__40
             void PIDs_21__40();

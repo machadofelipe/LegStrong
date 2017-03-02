@@ -1011,6 +1011,9 @@ void HAL_setupGpios(HAL_Handle handle)
 
   // CAD_PULSE
   GPIO_setMode(obj->gpioHandle,GPIO_Number_6,GPIO_6_Mode_GeneralPurpose);
+  GPIO_setDirection(obj->gpioHandle, GPIO_Number_6, GPIO_Direction_Input);
+  GPIO_setQualification(obj->gpioHandle, GPIO_Number_6, GPIO_Qual_ASync);
+  GPIO_setExtInt(obj->gpioHandle, GPIO_Number_6, CPU_ExtIntNumber_1);
 
   // TX_BTH
   GPIO_setPullUp(obj->gpioHandle, GPIO_Number_7, GPIO_PullUp_Enable);
@@ -1038,8 +1041,11 @@ void HAL_setupGpios(HAL_Handle handle)
   // FAULTn
   GPIO_setMode(obj->gpioHandle,GPIO_Number_28,GPIO_28_Mode_TZ2_NOT);
 
-  // OCTWn
-  GPIO_setMode(obj->gpioHandle,GPIO_Number_29,GPIO_29_Mode_TZ3_NOT);
+  // SPD_PULSE
+  GPIO_setMode(obj->gpioHandle,GPIO_Number_29,GPIO_29_Mode_GeneralPurpose);
+  GPIO_setDirection(obj->gpioHandle, GPIO_Number_29, GPIO_Direction_Input);
+  GPIO_setQualification(obj->gpioHandle, GPIO_Number_29, GPIO_Qual_ASync);
+  GPIO_setExtInt(obj->gpioHandle, GPIO_Number_29, CPU_ExtIntNumber_3);
 
   // DC_CAL
   GPIO_setMode(obj->gpioHandle,GPIO_Number_32,GPIO_32_Mode_GeneralPurpose);
@@ -1049,12 +1055,14 @@ void HAL_setupGpios(HAL_Handle handle)
   GPIO_setLow(obj->gpioHandle,GPIO_Number_33);
   GPIO_setDirection(obj->gpioHandle,GPIO_Number_33,GPIO_Direction_Output);
 
-  // SPD_PULSE
+  // EMPTY
+  GPIO_setPullUp(obj->gpioHandle, GPIO_Number_34, GPIO_PullUp_Enable);
   GPIO_setMode(obj->gpioHandle,GPIO_Number_34,GPIO_34_Mode_GeneralPurpose);
 
   // JTAG
   GPIO_setMode(obj->gpioHandle,GPIO_Number_35,GPIO_35_Mode_JTAG_TDI);
   GPIO_setMode(obj->gpioHandle,GPIO_Number_36,GPIO_36_Mode_JTAG_TMS);
+  GPIO_setPullUp(obj->gpioHandle, GPIO_Number_37, GPIO_PullUp_Enable);
   GPIO_setMode(obj->gpioHandle,GPIO_Number_37,GPIO_37_Mode_JTAG_TDO);
   GPIO_setMode(obj->gpioHandle,GPIO_Number_38,GPIO_38_Mode_JTAG_TCK);
 
@@ -1335,9 +1343,9 @@ void HAL_setupTimers(HAL_Handle handle,const float_t systemFreq_MHz)
 
   // use timer 2 for general purpose
   TIMER_setDecimationFactor(obj->timerHandle[2],0);
-  TIMER_setEmulationMode(obj->timerHandle[2],TIMER_EmulationMode_StopAtZero);
-  TIMER_setPeriod(obj->timerHandle[2],timerPeriod_cnts);
-  TIMER_setPreScaler(obj->timerHandle[2],0);
+  TIMER_setEmulationMode(obj->timerHandle[2],TIMER_EmulationMode_RunFree);
+  TIMER_setPeriod(obj->timerHandle[2],INT32_MAX);
+  TIMER_setPreScaler(obj->timerHandle[2],59);
 
   return;
 }  // end of HAL_setupTimers() function
@@ -1433,5 +1441,19 @@ void HAL_SciASendMessage(HAL_Handle handle, const char* pBuf)
 	SCI_putDataBlocking(obj->sciAHandle, '\r');
 	SCI_putDataBlocking(obj->sciAHandle, '>');
 }
+
+void HAL_enableTimer0Int(HAL_Handle handle)
+{
+    HAL_Obj *obj = (HAL_Obj *)handle;
+
+    PIE_enableTimer0Int(obj->pieHandle);
+    // enable the interrupt
+    TIMER_enableInt(obj->timerHandle[0]);
+    // enable the cpu interrupt for TINT0
+    CPU_enableInt(obj->cpuHandle,CPU_IntNumber_1);
+
+    return;
+} // end of HAL_enablePwmInt() function
+
 
 // end of file

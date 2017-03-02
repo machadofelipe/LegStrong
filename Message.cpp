@@ -8,6 +8,7 @@
 #include "Message.h"
 #include "ELM327.h"
 #include "Mode09.h"
+#include "mode08.h"
 
 
 // **************************************************************************
@@ -53,9 +54,14 @@ void Message::HandleMessage(std::string &responseMsg, elm327::mod01 &mod01)
         responseMsg = "41";
         mod01.processPid(m_command, responseMsg);
     }
+    if (m_type == "08")
+    {
+        responseMsg = "48";
+        elm327::mode08::processPid(m_command, responseMsg);
+    }
     if (m_type == "09")
     {
-        responseMsg = "41";
+        responseMsg = "49";
         MOD09_processPid(m_command, responseMsg);
     }
 	else if (m_type == "AT")

@@ -18,6 +18,9 @@ using namespace utility;
 // the globals
 
 
+//! \brief      Print the hex value with zeros according each type
+//! \details
+//! \brief      printHex
 void utility::printHex(std::string &string, const uint32_t &value)
 {
     for (int i=7; i >= 0; i--)
@@ -38,7 +41,6 @@ void utility::printHex(std::string &string, const uint16_t &value)
     return;
 }
 
-
 void utility::printHex(std::string &string, const uint8_t &value)
 {
     for (int i=1; i >= 0; i--)
@@ -49,3 +51,9 @@ void utility::printHex(std::string &string, const uint8_t &value)
     return;
 }
 
+void utility::printHex(std::string &string, const bool &value)
+{
+    string += hexToASCII[value];
+
+    return;
+}

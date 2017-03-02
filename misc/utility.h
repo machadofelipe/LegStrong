@@ -39,5 +39,10 @@ namespace utility {
     //! \param[in]  value
     void printHex(std::string &string, const uint8_t &value);
 
+    //! \brief      printHex
+    //! \param[in]  string
+    //! \param[in]  value
+    void printHex(std::string &string, const bool &value);
+
 }
 #endif /* MISC_UTILITYH_ */

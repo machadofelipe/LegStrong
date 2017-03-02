@@ -165,7 +165,10 @@ typedef enum
 // the globals
 
 extern interrupt void mainISR(void);
-extern __interrupt void sciaRxFifoIsr(void);
+extern interrupt void sciaRxFifoISR(void);
+extern interrupt void timer0ISR(void);
+extern interrupt void cadencePulseISR(void);
+extern interrupt void speedPulseISR(void);
 
 
 // **************************************************************************
@@ -497,7 +500,7 @@ extern HAL_Handle HAL_init(void *pMemory,const size_t numBytes);
 
 
 //! \brief      Initializes the interrupt vector table
-//! \details    Points ADCINT1 to mainISR and SCIRXINTA to sciaRxFifoIsr
+//! \details    Points TINT0 to timer0ISR, ADCINT1 to mainISR and SCIRXINTA to sciaRxFifoISR
 //! \param[in]  handle  The hardware abstraction layer (HAL) handle
 static inline void HAL_initIntVectorTable(HAL_Handle handle)
  {
@@ -507,8 +510,9 @@ static inline void HAL_initIntVectorTable(HAL_Handle handle)
 
   ENABLE_PROTECTED_REGISTER_WRITE_MODE;
 
+  pie->TINT0 = &timer0ISR;
   pie->ADCINT1 = &mainISR;
-  pie->SCIRXINTA = &sciaRxFifoIsr;
+  pie->SCIRXINTA = &sciaRxFifoISR;
 
   DISABLE_PROTECTED_REGISTER_WRITE_MODE;
 
@@ -1411,7 +1415,7 @@ static inline void HAL_enableSciInt(HAL_Handle handle)
 
   // Register interrupt handlers in the PIE vector table
   PIE_registerPieIntHandler(obj->pieHandle, PIE_GroupNumber_9, PIE_SubGroupNumber_1,
-                                (PIE_IntVec_t)&sciaRxFifoIsr);
+                                (PIE_IntVec_t)&sciaRxFifoISR);
 
   SCI_enableRxFifoInt(obj->sciAHandle);
 
@@ -1419,11 +1423,119 @@ static inline void HAL_enableSciInt(HAL_Handle handle)
   PIE_enableInt(obj->pieHandle, PIE_GroupNumber_9, PIE_InterruptSource_SCIARX);
 
 
-  // enable the cpu interrupt for sciaRxFifoIsr ??
+  // enable the cpu interrupt for sciaRxFifoISR ??
   CPU_enableInt(obj->cpuHandle,CPU_IntNumber_9);
 
   return;
 } // end of HAL_enableSciInt() function
+
+//! \brief Enables the Timer 0 interrupt
+//! \param[in] handle The hardware abstraction layer (HAL) handle
+extern void HAL_enableTimer0Int(HAL_Handle handle);
+
+//! \brief Acknowledges an interrupt from Timer 0 so that another Timer 0 interrupt can
+//! happen again.
+//! \param[in] handle The hardware abstraction layer (HAL) handle
+static inline void HAL_acqTimer0Int(HAL_Handle handle)
+{
+    HAL_Obj *obj = (HAL_Obj *)handle;
+
+
+    // clear the Timer 0 interrupt flag
+    TIMER_clearFlag(obj->timerHandle[0]);
+
+
+    // Acknowledge interrupt from PIE group 1
+    PIE_clearInt(obj->pieHandle,PIE_GroupNumber_1);
+
+    return;
+} // end of HAL_acqTimer0Int() function
+
+//! \brief      Enables the SCI interrupts
+//! \details    Enables the SCI interrupt in the PIE, and CPU.  Enables the
+//!             interrupt to be sent from the SCI peripheral.
+//! \param[in]  handle  The hardware abstraction layer (HAL) handle
+static inline void HAL_enableCadencePulseInt(HAL_Handle handle)
+{
+  HAL_Obj *obj = (HAL_Obj *)handle;
+
+
+  // Register interrupt handlers in the PIE vector table
+  PIE_registerPieIntHandler(obj->pieHandle, PIE_GroupNumber_1, PIE_SubGroupNumber_4,
+                                (PIE_IntVec_t)&cadencePulseISR);
+
+  // enable the interrupt
+  PIE_enableInt(obj->pieHandle, PIE_GroupNumber_1, PIE_InterruptSource_XINT_1);
+
+
+  // enable the cpu interrupt for group 1 ??
+  CPU_enableInt(obj->cpuHandle,CPU_IntNumber_1);
+
+
+  // Configure XINT3
+  PIE_setExtIntPolarity(obj->pieHandle, CPU_ExtIntNumber_1, PIE_ExtIntPolarity_FallingEdge);
+
+  PIE_enableExtInt(obj->pieHandle, CPU_ExtIntNumber_1);
+
+  return;
+} // end of HAL_enableSciInt() function
+
+//! \brief Acknowledges an interrupt from cadencePulseISR so that another
+//! cadencePulseISR interrupt can happen again.
+//! \param[in] handle The hardware abstraction layer (HAL) handle
+static inline void HAL_acqCadencePulseInt(HAL_Handle handle)
+{
+    HAL_Obj *obj = (HAL_Obj *)handle;
+
+
+    // Acknowledge interrupt from PIE group 1
+    PIE_clearInt(obj->pieHandle,PIE_GroupNumber_1);
+
+    return;
+} // end of HAL_acqTimer0Int() function
+
+//! \brief      Enables the SCI interrupts
+//! \details    Enables the SCI interrupt in the PIE, and CPU.  Enables the
+//!             interrupt to be sent from the SCI peripheral.
+//! \param[in]  handle  The hardware abstraction layer (HAL) handle
+static inline void HAL_enableSpeedPulseInt(HAL_Handle handle)
+{
+  HAL_Obj *obj = (HAL_Obj *)handle;
+
+
+  // Register interrupt handlers in the PIE vector table
+  PIE_registerPieIntHandler(obj->pieHandle, PIE_GroupNumber_12, PIE_SubGroupNumber_1,
+                                (PIE_IntVec_t)&speedPulseISR);
+
+  // enable the interrupt
+  PIE_enableInt(obj->pieHandle, PIE_GroupNumber_12, PIE_InterruptSource_XINT_3);
+
+
+  // enable the cpu interrupt for group 12 ??
+  CPU_enableInt(obj->cpuHandle,CPU_IntNumber_12);
+
+
+  // Configure XINT3
+  PIE_setExtIntPolarity(obj->pieHandle, CPU_ExtIntNumber_3, PIE_ExtIntPolarity_RisingAndFallingEdge);
+
+  PIE_enableExtInt(obj->pieHandle, CPU_ExtIntNumber_3);
+
+  return;
+} // end of HAL_enableSciInt() function
+
+//! \brief Acknowledges an interrupt from cadencePulseISR so that another
+//! cadencePulseISR interrupt can happen again.
+//! \param[in] handle The hardware abstraction layer (HAL) handle
+static inline void HAL_acqSpeedPulseInt(HAL_Handle handle)
+{
+    HAL_Obj *obj = (HAL_Obj *)handle;
+
+
+    // Acknowledge interrupt from PIE group 1
+    PIE_clearInt(obj->pieHandle,PIE_GroupNumber_12);
+
+    return;
+} // end of HAL_acqTimer0Int() function
 
 #ifdef __cplusplus
 }

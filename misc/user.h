@@ -595,10 +595,10 @@ extern "C" {
 #define USER_MOTOR_MAGNETIZING_CURRENT  (NULL)
 #define USER_MOTOR_RES_EST_CURRENT      (1.5)
 #define USER_MOTOR_IND_EST_CURRENT      (-1.0)
-#define USER_MOTOR_MAX_CURRENT          (6.0)
+#define USER_MOTOR_MAX_CURRENT          (10.0)
 #define USER_MOTOR_FLUX_EST_FREQ_Hz     (20.0)
 #define USER_MOTOR_MAX_POWER            (350.0)
-#define USER_MOTOR_MAX_TORQUE           (45.0)
+#define USER_MOTOR_MAX_TORQUE           (9.0)
 
 #elif (USER_MOTOR == Belt_Drive_Washer_IPM)
 #define USER_MOTOR_TYPE                 MOTOR_Type_Pm

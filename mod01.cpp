@@ -30,11 +30,12 @@ mod01::mod01() :
 
     _pidMap[elm327::Mode01_PIDs_01__20] = &mod01::PIDs_01__20;
     _pidMap[elm327::Calculated_engine_load] = &mod01::Calculated_engine_load;
-    _pidMap[elm327::Engine_coolant_temperature] = &mod01::Engine_coolant_temperature;
+    //_pidMap[elm327::Engine_coolant_temperature] = &mod01::Engine_coolant_temperature;
     _pidMap[elm327::Engine_RPM] = &mod01::Engine_RPM;
     _pidMap[elm327::Vehicle_speed] = &mod01::Vehicle_speed;
     _pidMap[elm327::Throttle_position] = &mod01::Throttle_position;
     _pidMap[elm327::OBD_standards_this_vehicle_conforms_to] = &mod01::OBD_standards_this_vehicle_conforms_to;
+    _pidMap[elm327::Run_time_since_engine_start] = &mod01::Run_time_since_engine_start;
     _pidMap[elm327::Mode01_PIDs_21__40] = &mod01::PIDs_21__40;
     _pidMap[elm327::Mode01_PIDs_41__60] = &mod01::PIDs_41__60;
     _pidMap[elm327::Control_module_voltage] = &mod01::Control_module_voltage;
@@ -92,19 +93,18 @@ void mod01::processPid(const std::string &pidString, std::string &responseMsg)
     if (itPidMap != _pidMap.end())
     {
         (this->*itPidMap->second)();
+        responseMsg += _responseMsg;
     }
     else
     {
         // Response for pid not in the list
     }
 
-    responseMsg += _responseMsg;
-
 	return;
 }
 
 
-
+// !!!!!!!!!!!!!!!! Below code is still under optimization  !!!!!!!!!!!!!!!!!!!!!!!!
 
 
 //! \brief      Mode 1 PID 00
@@ -134,12 +134,12 @@ void mod01::Calculated_engine_load()
     return;
 }
 
-void mod01::Engine_coolant_temperature()
-{
-    utility::printHex(_responseMsg, m_gMod01Vars.Engine_coolant_temperature);
-
-    return;
-}
+//void mod01::Engine_coolant_temperature()
+//{
+//    utility::printHex(_responseMsg, m_gMod01Vars.Engine_coolant_temperature);
+//
+//    return;
+//}
 
 void mod01::Engine_RPM()
 {
@@ -165,6 +165,13 @@ void mod01::Throttle_position()
 void mod01::OBD_standards_this_vehicle_conforms_to()
 {
     utility::printHex(_responseMsg, m_gMod01Vars.OBD_standards_this_vehicle_conforms_to);
+
+    return;
+}
+
+void mod01::Run_time_since_engine_start()
+{
+    utility::printHex(_responseMsg, m_gMod01Vars.Run_time_since_engine_start);
 
     return;
 }
