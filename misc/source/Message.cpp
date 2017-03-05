@@ -7,8 +7,10 @@
 
 #include "Message.h"
 #include "ELM327.h"
-#include "Mode09.h"
+#include "mode01.h"
 #include "mode08.h"
+#include "mode09.h"
+#include "mode21.h"
 
 
 // **************************************************************************
@@ -45,24 +47,31 @@ void Message::UnpackMsg(const std::string &pBuf)
     return;
 }
 
-void Message::HandleMessage(std::string &responseMsg, elm327::mod01 &mod01)
+//TODO: Problems to sum 40h to the mode,
+// results in bad value in Torque when != "41"
+void Message::HandleMessage(std::string &responseMsg)
 {
     responseMsg = "?";
 
     if (m_type == "01")
     {
         responseMsg = "41";
-        mod01.processPid(m_command, responseMsg);
+        elm327::mode01::processPid(m_command, responseMsg);
     }
-    if (m_type == "08")
+    else if (m_type == "08")
     {
-        responseMsg = "48";
+        responseMsg = "41";
         elm327::mode08::processPid(m_command, responseMsg);
     }
-    if (m_type == "09")
+    else if (m_type == "09")
     {
-        responseMsg = "49";
-        MOD09_processPid(m_command, responseMsg);
+        responseMsg = "41";
+        elm327::mode09::processPid(m_command, responseMsg);
+    }
+    else if (m_type == "21")
+    {
+        responseMsg = "61";
+        elm327::mode21::processPid(m_command, responseMsg);
     }
 	else if (m_type == "AT")
 	{

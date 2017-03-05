@@ -8,7 +8,6 @@
 // the includes
 
 #include <string>
-#include "mod01.h"
 
 // **************************************************************************
 // the defines
@@ -41,7 +40,7 @@ public:
 
     //! \brief                  HandleMessage
     //! \param[in] responseMsg  Response from HandleMessage
-	void HandleMessage(std::string &responseMsg, elm327::mod01 &mod01);
+	void HandleMessage(std::string &responseMsg);
 
 
 private:

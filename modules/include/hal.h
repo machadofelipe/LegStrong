@@ -168,7 +168,7 @@ extern interrupt void mainISR(void);
 extern interrupt void sciaRxFifoISR(void);
 extern interrupt void timer0ISR(void);
 extern interrupt void cadencePulseISR(void);
-extern interrupt void speedPulseISR(void);
+extern interrupt void motorPulseISR(void);
 
 
 // **************************************************************************
@@ -1473,7 +1473,7 @@ static inline void HAL_enableCadencePulseInt(HAL_Handle handle)
 
 
   // Configure XINT3
-  PIE_setExtIntPolarity(obj->pieHandle, CPU_ExtIntNumber_1, PIE_ExtIntPolarity_FallingEdge);
+  PIE_setExtIntPolarity(obj->pieHandle, CPU_ExtIntNumber_1, PIE_ExtIntPolarity_RisingAndFallingEdge);
 
   PIE_enableExtInt(obj->pieHandle, CPU_ExtIntNumber_1);
 
@@ -1498,14 +1498,14 @@ static inline void HAL_acqCadencePulseInt(HAL_Handle handle)
 //! \details    Enables the SCI interrupt in the PIE, and CPU.  Enables the
 //!             interrupt to be sent from the SCI peripheral.
 //! \param[in]  handle  The hardware abstraction layer (HAL) handle
-static inline void HAL_enableSpeedPulseInt(HAL_Handle handle)
+static inline void HAL_enableMotorPulseInt(HAL_Handle handle)
 {
   HAL_Obj *obj = (HAL_Obj *)handle;
 
 
   // Register interrupt handlers in the PIE vector table
   PIE_registerPieIntHandler(obj->pieHandle, PIE_GroupNumber_12, PIE_SubGroupNumber_1,
-                                (PIE_IntVec_t)&speedPulseISR);
+                                (PIE_IntVec_t)&motorPulseISR);
 
   // enable the interrupt
   PIE_enableInt(obj->pieHandle, PIE_GroupNumber_12, PIE_InterruptSource_XINT_3);
@@ -1516,7 +1516,7 @@ static inline void HAL_enableSpeedPulseInt(HAL_Handle handle)
 
 
   // Configure XINT3
-  PIE_setExtIntPolarity(obj->pieHandle, CPU_ExtIntNumber_3, PIE_ExtIntPolarity_RisingAndFallingEdge);
+  PIE_setExtIntPolarity(obj->pieHandle, CPU_ExtIntNumber_3, PIE_ExtIntPolarity_FallingEdge);
 
   PIE_enableExtInt(obj->pieHandle, CPU_ExtIntNumber_3);
 
@@ -1526,7 +1526,7 @@ static inline void HAL_enableSpeedPulseInt(HAL_Handle handle)
 //! \brief Acknowledges an interrupt from cadencePulseISR so that another
 //! cadencePulseISR interrupt can happen again.
 //! \param[in] handle The hardware abstraction layer (HAL) handle
-static inline void HAL_acqSpeedPulseInt(HAL_Handle handle)
+static inline void HAL_acqMotorPulseInt(HAL_Handle handle)
 {
     HAL_Obj *obj = (HAL_Obj *)handle;
 

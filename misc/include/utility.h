@@ -15,6 +15,14 @@ namespace utility {
     // **************************************************************************
     // the defines
 
+    typedef enum
+    {
+        UINT8 = 8,
+        UINT16 = 16,
+        UINT32 = 32,
+        FN_PTR = 99,
+    } Types_t;
+
     //! \brief Array for conversion hex -> char
     //!
     static const char hexToASCII[16] = { '0', '1', '2', '3', '4', '5', '6', '7',

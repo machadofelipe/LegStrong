@@ -41,6 +41,7 @@
 // the includes
 
 // modules
+#include <mode09.h>
 #include "math.h"
 #include "memCopy.h"
 #include "est.h"
@@ -60,10 +61,13 @@
 #include "hal.h"
 #include "user.h"
 
+//misc
+#include "cadence.h"
+#include "speed.h"
 #include "Message.h"
-#include "mod01.h"
+#include "mode01.h"
 #include "mode08.h"
-#include "Mode09.h"
+#include "mode21.h"
 
 
 // **************************************************************************

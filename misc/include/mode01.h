@@ -1,6 +1,6 @@
-#ifndef _MOD01_H_
-#define _MOD01_H_
-//! \file   mod01.h
+#ifndef _MODE01_H_
+#define _MODE01_H_
+//! \file   mode01.h
 //! \brief  Show current data
 //!
 
@@ -8,15 +8,13 @@
 // the includes
 
 #include "types.h"
-#include "utility.h"
 
 #include <string>
-#include <map>
 
 
 // **************************************************************************
 // the defines
-#define MOD01_Vars_INIT { 0, 0, 0, 0, 0, 0, 0, 0,   \
+#define MODE01_Vars_INIT { 0, 0, 0, 0, 0, 0, 0, 0, 0,   \
                           0,                        \
                           0, 0, 0,                  \
                           0, 0, 0, 0,               }
@@ -24,128 +22,93 @@
 
 namespace elm327 {
 
-    // **************************************************************************
-    // the typedefs
+    namespace mode01 {
 
-    //! \brief      Enumeration Mode 01 - Show current data.
-    //! \details    Standard OBD-II PIDs as defined by SAE J197.
-    typedef enum
-    {
-        Mode01_PIDs_01__20 = 0x00,
-        //TODO: add "Mode01_" Prefix
-        Calculated_engine_load = 0x04,
-        //Engine_coolant_temperature = 0x05,
-        Engine_RPM = 0x0C,
-        Vehicle_speed = 0x0D,
-        Throttle_position = 0x11,
-        OBD_standards_this_vehicle_conforms_to = 0x1C,
-        Run_time_since_engine_start = 0x1F,
+        // **************************************************************************
+        // the typedefs
 
-        Mode01_PIDs_21__40 = 0x20,
-    //    Fuel_Tank_Level_Input = 0x2F,
+        //! \brief      Enumeration Mode 01 - Show current data.
+        //! \details    Standard OBD-II PIDs as defined by SAE J197.
+        typedef enum
+        {
+            PIDs_01__20 = 0x00,
+                Monitor_status = 0x01,
+                Calculated_engine_load = 0x04,
+                Engine_coolant_temperature = 0x05,
+                Engine_RPM = 0x0C,
+                Vehicle_speed = 0x0D,
+                Throttle_position = 0x11,
+                OBD_standards = 0x1C,
+                Run_time = 0x1F,
 
-        Mode01_PIDs_41__60 = 0x40,
-        Control_module_voltage = 0x42,
-        Fuel_Type = 0x51,
-    //    Engine_fuel_rate = 0x5E,
+            PIDs_21__40 = 0x20,
+                Fuel_tank_level_input = 0x2F,
 
-        Mode01_PIDs_61__80 = 0x60,
-        Driver_demand_engine_torque = 0x61,
-        Actual_engine_torque = 0x62,
-        Engine_reference_torque = 0x63,
-    } Mode01_PIDs_e;
+            PIDs_41__60 = 0x40,
+                Control_module_voltage = 0x42,
+                Fuel_Type = 0x51,
+                Engine_fuel_rate = 0x5E,
 
-
-    typedef struct _Mode01_Vars_t_
-    {
-        uint32_t    Mode01_PIDs_01__20;
-        uint8_t     Calculated_engine_load;
-        //uint8_t     Engine_coolant_temperature;
-        uint16_t    Engine_RPM;
-        uint8_t     Vehicle_speed;
-        uint8_t     Throttle_position;
-        uint8_t     OBD_standards_this_vehicle_conforms_to;
-        uint16_t    Run_time_since_engine_start;
-
-        uint32_t    Mode01_PIDs_21__40;
-    //    uint8_t     Fuel_Tank_Level_Input;
-
-        uint32_t    Mode01_PIDs_41__60;
-        uint16_t    Control_module_voltage;
-        uint8_t     Fuel_Type;
-    //    uint16_t    Engine_fuel_rate;
-
-        uint32_t    Mode01_PIDs_61__80;
-        uint8_t     Driver_demand_engine_torque;
-        uint8_t     Actual_engine_torque;
-        uint16_t    Engine_reference_torque;
-
-    }Mode01_Vars_t;
+            PIDs_61__80 = 0x60,
+                Driver_demand_engine_torque = 0x61,
+                Actual_engine_torque = 0x62,
+                Engine_reference_torque = 0x63,
+        } PIDs_e;
 
 
-    // **************************************************************************
-    // the class
+        typedef struct _Vars_t_
+        {
+            uint32_t    PIDs_01__20;
+                uint32_t    Monitor_status;
+                uint8_t     Calculated_engine_load;
+                //uint8_t     Engine_coolant_temperature;
+                uint16_t    Engine_RPM;
+                uint8_t     Vehicle_speed;
+                uint8_t     Throttle_position;
+                uint8_t     OBD_standards;
+                uint16_t    Run_time;
 
-    class mod01 {
+            uint32_t    PIDs_21__40;
+                uint8_t     Fuel_tank_level_input;
 
-        typedef void (elm327::mod01::*MOD01_HANDLER)();
+            uint32_t    PIDs_41__60;
+                uint16_t    Control_module_voltage;
+                uint8_t     Fuel_Type;
+                uint16_t    Engine_fuel_rate;
 
-        public:
+            uint32_t    PIDs_61__80;
+                uint8_t     Driver_demand_engine_torque;
+                uint8_t     Actual_engine_torque;
+                uint16_t    Engine_reference_torque;
 
-            mod01();
+        }Vars_t;
 
-            ~mod01() { };
-
-            //! \brief      processPid
-            //! \param[in]  pid
-            //! \param[in]  responseMsg
-            void processPid(const std::string &pid, std::string &responseMsg);
-
-            // TODO: remove the "g" (global)
-            Mode01_Vars_t m_gMod01Vars;
-
-
-        private:
-
-            void init();
-
-            //! \brief      PIDs_01__20
-            void PIDs_01__20();
-            void Calculated_engine_load();
-            //void Engine_coolant_temperature();
-            void Engine_RPM();
-            void Vehicle_speed();
-            void Throttle_position();
-            void OBD_standards_this_vehicle_conforms_to();
-            void Run_time_since_engine_start();
-
-            //! \brief      PIDs_21__40
-            void PIDs_21__40();
-
-            //! \brief      PIDs_41__60
-            void PIDs_41__60();
-            void Control_module_voltage();
-            void Fuel_Type();
-
-            //! \brief      PIDs_61__80
-            void PIDs_61__80();
-            void Driver_demand_engine_torque();
-            void Actual_engine_torque();
-            void Engine_reference_torque();
+//        typedef void (*MODE01_HANDLER)();
 
 
-            std::map< int, MOD01_HANDLER > _pidMap;
+        // **************************************************************************
+        // the globals
 
-            std::string _responseMsg;
+        extern Vars_t gVariables;
 
 
-    }; // mod01
+        // **************************************************************************
+        // the functions prototypes
+
+        void init();
+
+        //! \brief      processPid
+        //! \param[in]  pid
+        //! \param[in]  responseMsg
+        void processPid(const std::string &pid, std::string &responseMsg);
+
+
+    }; // mode01
 }; //ELM327
 
 // **************************************************************************
 // PID Codes that are not used
 
-//    Monitor_status = 0x01,
 //    Fuel_system_status = 0x03,
 //    Short_term_fuel_trim_Bank_1 = 0x06,
 //    Long_term_fuel_trim_Bank_1 = 0x07,
@@ -265,4 +228,4 @@ namespace elm327 {
 //    Engine_requests = 0xC4
 
 
-#endif // !_MOD01_H_
+#endif // !_MODE01_H_

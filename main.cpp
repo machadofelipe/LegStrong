@@ -29,17 +29,14 @@
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * --/COPYRIGHT--*/
-//! \file   solutions/instaspin_foc/src/proj_lab04.c
-//! \brief  Using InstaSPIN�-FOC only as a torque controller
+
+//! \file   main.cpp
+//! \brief  Using InstaSPIN-FOC only as a torque controller
 //!
 //! (C) Copyright 2011, Texas Instruments, Inc.
-
-//! \defgroup PROJ_LAB04 PROJ_LAB04
-//@{
-
 //! \defgroup PROJ_LAB04_OVERVIEW Project Overview
 //!
-//! Running InstaSPIN�-FOC only as a Torque controller
+//! Running InstaSPIN-FOC only as a Torque controller
 //!
 
 // **************************************************************************
@@ -50,13 +47,8 @@
 #include "main.h"
 
 
-
-// Include header files used in the main function
-
 // **************************************************************************
 // the defines
-
-//#define LED_BLINK_FREQ_Hz   5
 
 
 // **************************************************************************
@@ -68,19 +60,13 @@ bool newMessage = false;
 // Clock timer
 uint16_t gUpTimeSeconds = 0;
 
-// Counters for cadence
-// TODO: create a struct for cadence: "gCadenceVars"
-uint32_t gCadencePrevPulseTime, gCadenceRisingEdgeTime;
-static volatile uint32_t gCadencePulsePeriod;
-static volatile uint8_t gCadencePulseCounter;
-static volatile float gCadenceFrequency;
+volatile cadence::Vars_t cadence::gVars = CADENCE_Vars_INIT;
+volatile speed::Vars_t speed::gVars = SPEED_Vars_INIT;
 
-static volatile uint32_t gSpeedPulsePeriod;
-uint32_t gSpeedPrevPulseTime;
-static volatile uint8_t gSpeedPulseCounter;
-static volatile float gSpeedFrequency;
-
+elm327::mode01::Vars_t elm327::mode01::gVariables = MODE01_Vars_INIT;
 elm327::mode08::Vars_t elm327::mode08::gVariables = MODE08_Vars_INIT;
+elm327::mode09::Vars_t elm327::mode09::gVariables = MODE09_Vars_INIT;
+elm327::mode21::Vars_t elm327::mode21::gVariables = MODE21_Vars_INIT;
 
 uint_least16_t gCounter_updateGlobals = 0;
 
@@ -128,7 +114,6 @@ CTRL_Obj ctrl;				//v1p7 format
 uint16_t gLEDcnt = 0;
 
 volatile MOTOR_Vars_t gMotorVars = MOTOR_Vars_INIT;
-elm327::mod01::mod01 mod01;
 
 #ifdef FLASH
 // Used for running BackGround in flash, and ISR in RAM
@@ -155,6 +140,7 @@ _iq gTorque_Ls_Id_Iq_pu_to_Nm_sf;
 
 _iq gTorque_Flux_Iq_pu_to_Nm_sf;
 
+
 // **************************************************************************
 // the functions
 
@@ -180,10 +166,8 @@ void main(void)
   // initialize the hardware abstraction layer
   halHandle = HAL_init(&hal,sizeof(hal));
 
-//  MOD01_init(gMod01Vars);
-
-  mod01 = elm327::mod01::mod01();
-  MOD09_init();
+  elm327::mode01::init();
+  elm327::mode09::init();
 
 
   // check for errors in user parameters
@@ -268,7 +252,7 @@ void main(void)
   HAL_enableCadencePulseInt(halHandle);
 
   // enable the Cadence Pulse interrupts
-  HAL_enableSpeedPulseInt(halHandle);
+  HAL_enableMotorPulseInt(halHandle);
 
 
 #ifdef DRV8301_SPI
@@ -341,7 +325,7 @@ void main(void)
             bool flag_ctrlStateChanged = CTRL_updateState(ctrlHandle);
 
             // enable or disable the control
-            CTRL_setFlag_enableCtrl(ctrlHandle, gMotorVars.Flag_Run_Identify);
+            CTRL_setFlag_enableCtrl(ctrlHandle, elm327::mode08::gVariables.Switch_Run);
 
             if(flag_ctrlStateChanged)
               {
@@ -390,8 +374,8 @@ void main(void)
                   {
                     // disable the PWM
                     HAL_disablePwm(halHandle);
-                    gMotorVars.Flag_Run_Identify = false;
-                    elm327::mode08::gVariables.SW_Run = false;
+//                    gMotorVars.Flag_Run_Identify = false;
+                    elm327::mode08::gVariables.Switch_Run = false;
                   }
 
                 if((CTRL_getFlag_enableUserMotorParams(ctrlHandle) == true) &&
@@ -465,7 +449,7 @@ void main(void)
         {
             // Check received data
             Message msgObj = Message(msgBuf);
-            msgObj.HandleMessage(msgBuf, mod01);
+            msgObj.HandleMessage(msgBuf);
             HAL_SciASendMessage( halHandle, msgBuf.c_str() );
             msgBuf = "";
             newMessage = false;
@@ -479,8 +463,8 @@ void main(void)
 
     // set the default controller parameters (Reset the control to re-identify the motor)
     CTRL_setParams(ctrlHandle,&gUserParams);
-    gMotorVars.Flag_Run_Identify = false;
-    elm327::mode08::gVariables.SW_Run = false;
+//    gMotorVars.Flag_Run_Identify = false;
+    elm327::mode08::gVariables.Switch_Run = false;
 
   } // end of for(;;) loop
 
@@ -534,16 +518,12 @@ void updateGlobalVariables_motor(CTRL_Handle handle)
 
   // get the speed estimate
   gMotorVars.Speed_krpm = EST_getSpeed_krpm(obj->estHandle);
-//  gMod01Vars.Engine_RPM = gMotorVars.Speed_krpm > _IQ(0.02) ?
-//                              (uint16_t) _IQtoIQ12(gMotorVars.Speed_krpm) : 0;
-  mod01.m_gMod01Vars.Engine_RPM = (uint16_t) ( _IQtoF(gMotorVars.Speed_krpm) * 4000.0 );
+  elm327::mode01::gVariables.Engine_RPM = (uint16_t) ( _IQtoF(gMotorVars.Speed_krpm) * 4000.0 );
 
   // get the torque estimate
   gMotorVars.Torque_Nm = USER_computeTorque_Nm(handle, gTorque_Flux_Iq_pu_to_Nm_sf, gTorque_Ls_Id_Iq_pu_to_Nm_sf);
-//  gMod01Vars.Engine_reference_torque = gMotorVars.Torque_Nm > _IQ(0.02) ?
-//                                          (uint16_t) _IQtoIQ10(gMotorVars.Torque_Nm) : 0;
-  mod01.m_gMod01Vars.Engine_reference_torque = (uint16_t) ( _IQtoF(gMotorVars.Torque_Nm) * 1000.0 );
-  mod01.m_gMod01Vars.Actual_engine_torque = (uint8_t) ( 125.0 + ( _IQtoF( _IQmpy( gMotorVars.Torque_Nm, (100.0/USER_MOTOR_MAX_TORQUE) ) ) ) );
+  elm327::mode01::gVariables.Engine_reference_torque = (uint16_t) ( _IQtoF(gMotorVars.Torque_Nm) * 1000.0 );
+  elm327::mode01::gVariables.Actual_engine_torque = (uint8_t) ( 125.0 + ( _IQtoF( _IQmpy( gMotorVars.Torque_Nm, (100.0/USER_MOTOR_MAX_TORQUE) ) ) ) );
 
   // get the magnetizing current
   gMotorVars.MagnCurr_A = EST_getIdRated(obj->estHandle);
@@ -574,21 +554,24 @@ void updateGlobalVariables_motor(CTRL_Handle handle)
 
   // Get the DC buss voltage
   gMotorVars.VdcBus_kV = _IQmpy(gAdcData.dcBus,_IQ(USER_IQ_FULL_SCALE_VOLTAGE_V/1000.0));
-//  gMod01Vars.Control_module_voltage = (uint16_t) (_IQtoIQ20(gMotorVars.VdcBus_kV));
-  mod01.m_gMod01Vars.Control_module_voltage = (uint16_t) ( _IQtoF(gMotorVars.VdcBus_kV) * 1000000.0 );
+  elm327::mode01::gVariables.Control_module_voltage = (uint16_t) ( _IQtoF(gMotorVars.VdcBus_kV) * 1000000.0 );
 
   // Get the DC buss current
   gMotorVars.IdcBus = _IQmpy(gAdcData.iBus,_IQ(USER_ADC_MAX_POSITIVE_BUS_CURRENT_A));
 
-  mod01.m_gMod01Vars.Driver_demand_engine_torque = (uint8_t) ( 125.0 + ( _IQtoF( _IQmpy( gMotorVars.IqRef_A, _IQ(100.0/USER_IQ_FULL_SCALE_CURRENT_A) ) ) ) );
+  elm327::mode01::gVariables.Calculated_engine_load = (uint8_t) ( _IQtoF(gMotorVars.IdcBus) * _IQtoF(gMotorVars.VdcBus_kV) * (100000.0/USER_MOTOR_MAX_POWER) );
 
-  mod01.m_gMod01Vars.Calculated_engine_load = (uint8_t) ( _IQtoF(gMotorVars.IdcBus) * _IQtoF(gMotorVars.VdcBus_kV) * (100000.0/USER_MOTOR_MAX_POWER) );
+  elm327::mode01::gVariables.Run_time = gUpTimeSeconds;
 
-  mod01.m_gMod01Vars.Run_time_since_engine_start = gUpTimeSeconds;
+  elm327::mode01::gVariables.Vehicle_speed = speed::gVars.Kmh;
 
-  gMotorVars.Flag_Run_Identify = elm327::mode08::gVariables.SW_Run;
+  elm327::mode01::gVariables.Driver_demand_engine_torque = (uint8_t) ( 125.0 + ( _IQtoF( _IQmpy( gMotorVars.IqRef_A, _IQ(100.0/USER_IQ_FULL_SCALE_CURRENT_A) ) ) ) );
 
-  mod01.m_gMod01Vars.Vehicle_speed = gSpeedFrequency*(3.6*2.070/12.0);
+  //  gMotorVars.Flag_Run_Identify = elm327::mode08::gVariables.Switch_Run;
+  if (elm327::mode01::gVariables.Control_module_voltage < elm327::mode08::gVariables.Battery_cutout)
+  {
+      elm327::mode08::gVariables.Switch_Run = false;
+  }
 
 
   return;
@@ -597,6 +580,11 @@ void updateGlobalVariables_motor(CTRL_Handle handle)
 
 void updateIqRef(CTRL_Handle handle)
 {
+
+    // Check this formula to regulate the IqRef based on cadence:
+    //Setpoint = (-.0237*pow(((double)cad/300)-110, 2) + 100)*3.5;
+    // assumes cadence in rpm and output is power (convert to frequency/current)
+
   _iq iq_ref = _IQmpy(gMotorVars.IqRef_A,_IQ(1.0/USER_IQ_FULL_SCALE_CURRENT_A));
 
   // set the speed reference so that the forced angle rotates in the correct direction for startup
@@ -650,38 +638,12 @@ char rdataA;    // Received data for SCI-A
     return;
 }
 
-void inline readCadenceFreq() {
-
-    DISABLE_INTERRUPTS;
-    {
-        //TODO: make this math using IQ lib?
-        gCadenceFrequency = (1000000.0*gCadencePulseCounter)/gCadencePulsePeriod;
-        gCadencePulsePeriod = 0;
-        gCadencePulseCounter = 0;
-    }
-    ENABLE_INTERRUPTS;
-
-}
-
-void inline readSpeedFreq() {
-
-    DISABLE_INTERRUPTS;
-    {
-        //TODO: make this math using IQ lib?
-        gSpeedFrequency = (1000000.0*gSpeedPulseCounter)/gSpeedPulsePeriod;
-        gSpeedPulsePeriod = 0;
-        gSpeedPulseCounter = 0;
-    }
-    ENABLE_INTERRUPTS;
-
-}
-
 __interrupt void timer0ISR(void)
 {
 
-    readCadenceFreq();
+    cadence::readRPM();
 
-    readSpeedFreq();
+    speed::readKmh();
 
     // acknowledge the Timer 0 interrupt
     HAL_acqTimer0Int(halHandle);
@@ -692,6 +654,8 @@ __interrupt void timer0ISR(void)
     return;
 } // end of timer0ISR() function
 
+
+//TODO: define the halhandle as extern and have the interruption in cadence.cpp?
 __interrupt void cadencePulseISR(void)
 {
     if (!GPIO_getData(halHandle->gpioHandle, GPIO_Number_6))
@@ -700,34 +664,33 @@ __interrupt void cadencePulseISR(void)
         uint32_t timeCapture = HAL_readTimerCnt(halHandle, 2);
 
         // Read if it is in Normal Direction
-        if ( (timeCapture + gCadencePrevPulseTime) < (2 * gCadenceRisingEdgeTime) ) // off_period < on_period
+        if ( (timeCapture + cadence::gVars.PrevPulseTime) < (2 * cadence::gVars.RisingEdgeTime) ) // off_period < on_period
         {
-            gCadencePulsePeriod += (gCadencePrevPulseTime - timeCapture);
-            gCadencePulseCounter++;
+            cadence::gVars.PulsePeriod += (cadence::gVars.PrevPulseTime - timeCapture);
+            cadence::gVars.PulseCounter++;
         }
-        gCadencePrevPulseTime = timeCapture;
+        cadence::gVars.PrevPulseTime = timeCapture;
 
     }
     else
     {
-        gCadenceRisingEdgeTime = HAL_readTimerCnt(halHandle, 2);
+        cadence::gVars.RisingEdgeTime = HAL_readTimerCnt(halHandle, 2);
     }
 
     HAL_acqCadencePulseInt(halHandle);
 }
 
-
-__interrupt void speedPulseISR(void)
+__interrupt void motorPulseISR(void)
 {
     // compute the waveform period
     uint32_t timeCapture = HAL_readTimerCnt(halHandle, 2);
 
-    gSpeedPulsePeriod += (gSpeedPrevPulseTime - timeCapture);
-    gSpeedPulseCounter++;
+    speed::gVars.MotorPulsePeriod += (speed::gVars.MotorPrevPulseTime - timeCapture);
+    speed::gVars.MotorPulseCounter++;
 
-    gSpeedPrevPulseTime = timeCapture;
+    speed::gVars.MotorPrevPulseTime = timeCapture;
 
-    HAL_acqSpeedPulseInt(halHandle);
+    HAL_acqMotorPulseInt(halHandle);
 }
 
 //@} //defgroup

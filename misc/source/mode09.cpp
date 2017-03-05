@@ -1,73 +1,74 @@
-//! \file   Mode09.cpp
+//! \file   mode09.cpp
 //! \brief
 //!
 
 // **************************************************************************
 // the includes
 
-#include "Mode09.h"
-#include <map>
+#include "mode09.h"
 #include <stdlib.h>
+#include <map>
 
 
 // **************************************************************************
 // the defines
 
+using namespace elm327::mode09;
+
 
 // **************************************************************************
 // the globals
 
-std::string* MOD09_responseMsg;
 
-Mode09_Vars_t gMod09Vars = MOD09_Vars_INIT;
-
-
-struct MOD09{
-    static std::map< int, MOD09_HANDLER > MOD09_createMap()
+struct mode09Pids{
+    static std::map< int, MODE09_HANDLER > createMap()
     {
-        std::map< int, MOD09_HANDLER > m;
+        std::map< int, MODE09_HANDLER > m;
 
-        m[Mode09_PIDs_01__20] = &MOD09_PIDs_01__20;
-        m[Vehicle_Identification_Number] = &MOD09_Vehicle_Identification_Number;
-        m[Calibration_ID] = &MOD09_Calibration_ID;
-        m[ECU_name] = &MOD09_ECU_name;
+        m[PIDs_01__20] = &pids01_20;
+        m[Vehicle_Identification_Number] = &vehicleId;
+        m[Calibration_ID] = &calibrationId;
+        m[ECU_name] = &ecuName;
 
         return m;
     }
-    static std::map< int, MOD09_HANDLER > pidMap;
+    static std::map< int, MODE09_HANDLER > m_map;
 
 };
 
-std::map< int, MOD09_HANDLER > MOD09::pidMap = MOD09::MOD09_createMap();
+std::map< int, MODE09_HANDLER > mode09Pids::m_map = mode09Pids::createMap();
+
+std::string _mode09Msg;
 
 // **************************************************************************
 // the functions
 
-void MOD09_init()
+void ::elm327::mode09::init()
 {
 
-    for ( std::map< int, MOD09_HANDLER >::iterator itPidMap = MOD09::pidMap.begin();
-            itPidMap != MOD09::pidMap.end();
+    for ( std::map< int, MODE09_HANDLER >::iterator itPidMap = mode09Pids::m_map.begin();
+            itPidMap != mode09Pids::m_map.end();
             ++itPidMap )
     {
-        if (itPidMap->first > Mode09_PIDs_01__20)
+        if (itPidMap->first > PIDs_01__20)
         {
-            gMod09Vars.Mode09_PIDs_01__20 += ((unsigned long)1 << (32 - itPidMap->first));
+            gVariables.PIDs_01__20 += ((unsigned long)1 << (32 - itPidMap->first));
         }
     }
 }
 
-void MOD09_processPid(const std::string &pidString, std::string &responseMsg)
+void ::elm327::mode09::processPid(const std::string &pidString, std::string &responseMsg)
 {
 
-    responseMsg += pidString;
-    MOD09_responseMsg = &responseMsg;
+    _mode09Msg = "";
+    _mode09Msg += pidString;
 
     int pidNumber = (int) strtol(pidString.c_str(), NULL, 16);
-    std::map< int, MOD09_HANDLER >::iterator itPidMap = MOD09::pidMap.find(pidNumber);
-    if (itPidMap != MOD09::pidMap.end())
+    std::map< int, MODE09_HANDLER >::iterator itPidMap = mode09Pids::m_map.find(pidNumber);
+    if (itPidMap != mode09Pids::m_map.end())
     {
         (*itPidMap->second)();
+        responseMsg += _mode09Msg;
     }
     else
     {
@@ -76,17 +77,6 @@ void MOD09_processPid(const std::string &pidString, std::string &responseMsg)
 
     return;
 }
-
-void MOD09_printf(std::string &string, uint32_t &value)
-{
-    for (int i=7; i >= 0; i--)
-    {
-        string += (MOD09_hexToASCII[((value >> 4*i) & 0x0000000F)]);
-    }
-
-    return;
-}
-
 
 
 //! \brief      Mode 9 PID 00
@@ -102,30 +92,30 @@ void MOD09_printf(std::string &string, uint32_t &value)
 //!             So, supported PIDs are: 01, 03, 04, 05, 06, 07, 0C, 0D, 0E, 0F, 10, 11, 13, 15, 1C, 1F and 20
 
 //! \brief      PIDs_01__20
-void MOD09_PIDs_01__20()
+void ::elm327::mode09::pids01_20()
 {
-    MOD09_printf((*MOD09_responseMsg), gMod09Vars.Mode09_PIDs_01__20);
+    utility::printHex(_mode09Msg, gVariables.PIDs_01__20);
 
     return;
 }
 
-void MOD09_Vehicle_Identification_Number()
+void ::elm327::mode09::vehicleId()
 {
-    (*MOD09_responseMsg) += gMod09Vars.Vehicle_Identification_Number;
+    _mode09Msg += gVariables.Vehicle_Identification_Number;
 
     return;
 }
 
-void MOD09_Calibration_ID()
+void ::elm327::mode09::calibrationId()
 {
-    (*MOD09_responseMsg) += gMod09Vars.Calibration_ID;
+    _mode09Msg += gVariables.Calibration_ID;
 
     return;
 }
 
-void MOD09_ECU_name()
+void ::elm327::mode09::ecuName()
 {
-    (*MOD09_responseMsg) += gMod09Vars.ECU_name;
+    _mode09Msg += gVariables.ECU_name;
 
     return;
 }
