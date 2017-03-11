@@ -54,25 +54,20 @@
 // **************************************************************************
 // the globals
 
+//TODO: optimize:
 std::string msgBuf;
 bool newMessage = false;
+uint16_t gUpTimeSeconds = 0;  // set to runtime directly ?
+uint_least16_t gCounter_updateGlobals = 0;
+bool Flag_Latch_softwareUpdate = true;
+//END optimize
 
-// Clock timer
-uint16_t gUpTimeSeconds = 0;
-
-volatile cadence::Vars_t cadence::gVars = CADENCE_Vars_INIT;
-volatile speed::Vars_t speed::gVars = SPEED_Vars_INIT;
 
 elm327::mode01::Vars_t elm327::mode01::gVariables = MODE01_Vars_INIT;
 elm327::mode08::Vars_t elm327::mode08::gVariables = MODE08_Vars_INIT;
 elm327::mode09::Vars_t elm327::mode09::gVariables = MODE09_Vars_INIT;
 elm327::mode21::Vars_t elm327::mode21::gVariables = MODE21_Vars_INIT;
 
-uint_least16_t gCounter_updateGlobals = 0;
-
-bool Flag_Latch_softwareUpdate = true;
-
-CTRL_Handle ctrlHandle;
 
 #ifdef F2802xF
 #ifdef __cplusplus
@@ -81,7 +76,7 @@ CTRL_Handle ctrlHandle;
 #pragma DATA_SECTION(halHandle,"rom_accessed_data");
 #endif
 #endif
-HAL_Handle halHandle;
+HAL_Obj* halHandle;
 
 #ifdef F2802xF
 #ifdef __cplusplus
@@ -92,15 +87,6 @@ HAL_Handle halHandle;
 #endif
 USER_Params gUserParams;
 
-HAL_PwmData_t gPwmData = {_IQ(0.0), _IQ(0.0), _IQ(0.0)};
-
-HAL_AdcData_t gAdcData;
-
-_iq gMaxCurrentSlope = _IQ(0.0);
-
-#ifdef FAST_ROM_V1p6
-CTRL_Obj *controller_obj;
-#else
 #ifdef F2802xF
 #ifdef __cplusplus
 #pragma DATA_SECTION("rom_accessed_data");
@@ -109,28 +95,25 @@ CTRL_Obj *controller_obj;
 #endif
 #endif
 CTRL_Obj ctrl;				//v1p7 format
-#endif
 
-uint16_t gLEDcnt = 0;
+
+volatile cadence::Vars_t cadence::gVars = CADENCE_Vars_INIT;
+
+volatile speed::Vars_t speed::gVars = SPEED_Vars_INIT;
 
 volatile MOTOR_Vars_t gMotorVars = MOTOR_Vars_INIT;
 
-#ifdef FLASH
-// Used for running BackGround in flash, and ISR in RAM
-//extern uint16_t *RamfuncsLoadStart, *RamfuncsLoadEnd, *RamfuncsRunStart;
 
-#endif
-
-
-#ifdef DRV8301_SPI
 // Watch window interface to the 8301 SPI
 DRV_SPI_8301_Vars_t gDrvSpi8301Vars;
-#endif
 
-#ifdef DRV8305_SPI
-// Watch window interface to the 8305 SPI
-DRV_SPI_8305_Vars_t gDrvSpi8305Vars;
-#endif
+CTRL_Handle ctrlHandle;
+
+HAL_PwmData_t gPwmData = {_IQ(0.0), _IQ(0.0), _IQ(0.0)};
+
+HAL_AdcData_t gAdcData;
+
+_iq gMaxCurrentSlope = _IQ(0.0);
 
 _iq gFlux_pu_to_Wb_sf;
 
@@ -147,38 +130,23 @@ _iq gTorque_Flux_Iq_pu_to_Nm_sf;
 void main(void)
 {
 
-  uint_least8_t estNumber = 0;
-
-#ifdef FAST_ROM_V1p6
-  uint_least8_t ctrlNumber = 0;
-#endif
-
   // Only used if running from FLASH
-  // Note that the variable FLASH is defined by the project
-  #ifdef FLASH
   // Copy time critical code and Flash setup code to RAM
   // The RamfuncsLoadStart, RamfuncsLoadEnd, and RamfuncsRunStart
   // symbols are created by the linker. Refer to the linker files.
   memCopy((uint16_t *)&RamfuncsLoadStart,(uint16_t *)&RamfuncsLoadEnd,(uint16_t *)&RamfuncsRunStart);
   InitFlash();
-  #endif
+
 
   // initialize the hardware abstraction layer
   halHandle = HAL_init(&hal,sizeof(hal));
-
-  elm327::mode01::init();
-  elm327::mode09::init();
 
 
   // check for errors in user parameters
   USER_checkForErrors(&gUserParams);
 
-
-
   // store user parameter error in global variable
   gMotorVars.UserErrorCode = USER_getErrorCode(&gUserParams);
-
-
 
   // do not allow code execution if there is a user parameter error
   if(gMotorVars.UserErrorCode != USER_ErrorCode_NoError)
@@ -198,14 +166,9 @@ void main(void)
   HAL_setParams(halHandle,&gUserParams);
 
 
-
   // initialize the controller
-#ifdef FAST_ROM_V1p6
-  ctrlHandle = CTRL_initCtrl(ctrlNumber, estNumber);  		//v1p6 format (06xF and 06xM devices)
-  controller_obj = (CTRL_Obj *)ctrlHandle;
-#else
+  uint_least8_t estNumber = 0; //v1p7 format
   ctrlHandle = CTRL_initCtrl(estNumber,&ctrl,sizeof(ctrl));	//v1p7 format default
-#endif
 
 
   {
@@ -254,21 +217,15 @@ void main(void)
   // enable the Cadence Pulse interrupts
   HAL_enableMotorPulseInt(halHandle);
 
-
-#ifdef DRV8301_SPI
   // turn on the DRV8301 if present
   HAL_enableDrv(halHandle);
   // initialize the DRV8301 interface
   HAL_setupDrvSpi(halHandle,&gDrvSpi8301Vars);
-#endif
 
-#ifdef DRV8305_SPI
-  // turn on the DRV8305 if present
-  HAL_enableDrv(halHandle);
-  // initialize the DRV8305 interface
-  HAL_setupDrvSpi(halHandle,&gDrvSpi8305Vars);
-#endif
 
+  // initialize the communication objects and its variables
+  elm327::mode01::init();
+  elm327::mode09::init();
 
 
   // enable DC bus compensation
@@ -374,7 +331,6 @@ void main(void)
                   {
                     // disable the PWM
                     HAL_disablePwm(halHandle);
-//                    gMotorVars.Flag_Run_Identify = false;
                     elm327::mode08::gVariables.Switch_Run = false;
                   }
 
@@ -390,18 +346,15 @@ void main(void)
           }
 
 
-
         if(EST_isMotorIdentified(obj->estHandle))
           {
             // set the current ramp
             EST_setMaxCurrentSlope_pu(obj->estHandle,gMaxCurrentSlope);
             gMotorVars.Flag_MotorIdentified = true;
 
-
             if(Flag_Latch_softwareUpdate)
             {
               Flag_Latch_softwareUpdate = false;
-
               USER_calcPIgains(ctrlHandle);
             }
 
@@ -433,16 +386,8 @@ void main(void)
         // enable or disable power warp
         CTRL_setFlag_enablePowerWarp(ctrlHandle,gMotorVars.Flag_enablePowerWarp);
 
-#ifdef DRV8301_SPI
         HAL_writeDrvData(halHandle,&gDrvSpi8301Vars);
-
         HAL_readDrvData(halHandle,&gDrvSpi8301Vars);
-#endif
-#ifdef DRV8305_SPI
-        HAL_writeDrvData(halHandle,&gDrvSpi8305Vars);
-
-        HAL_readDrvData(halHandle,&gDrvSpi8305Vars);
-#endif
 
 
         if(newMessage)
@@ -463,7 +408,6 @@ void main(void)
 
     // set the default controller parameters (Reset the control to re-identify the motor)
     CTRL_setParams(ctrlHandle,&gUserParams);
-//    gMotorVars.Flag_Run_Identify = false;
     elm327::mode08::gVariables.Switch_Run = false;
 
   } // end of for(;;) loop
@@ -480,33 +424,21 @@ void main(void)
 #endif
 interrupt void mainISR(void)
 {
-//  // toggle status LED
-//  if(gLEDcnt++ > (uint_least32_t)(USER_ISR_FREQ_Hz / LED_BLINK_FREQ_Hz))
-//  {
-//    HAL_toggleLed(halHandle,(GPIO_Number_e)HAL_Gpio_LED2);
-//    gLEDcnt = 0;
-//  }
-
 
   // acknowledge the ADC interrupt
   HAL_acqAdcInt(halHandle,ADC_IntNumber_1);
 
-
   // convert the ADC data
   HAL_readAdcData(halHandle,&gAdcData);
-
 
   // run the controller
   CTRL_run(ctrlHandle,halHandle,&gAdcData,&gPwmData);
 
-
   // write the PWM compare values
   HAL_writePwmData(halHandle,&gPwmData);
 
-
   // setup the controller
   CTRL_setup(ctrlHandle);
-
 
   return;
 } // end of mainISR() function
@@ -555,19 +487,25 @@ void updateGlobalVariables_motor(CTRL_Handle handle)
   // Get the DC buss voltage
   gMotorVars.VdcBus_kV = _IQmpy(gAdcData.dcBus,_IQ(USER_IQ_FULL_SCALE_VOLTAGE_V/1000.0));
   elm327::mode01::gVariables.Control_module_voltage = (uint16_t) ( _IQtoF(gMotorVars.VdcBus_kV) * 1000000.0 );
+  elm327::mode21::gVariables.Battery_voltage = (uint16_t) _IQ10mpy(_IQtoIQ10(gMotorVars.VdcBus_kV), _IQ10(1000));
 
   // Get the DC buss current
   gMotorVars.IdcBus = _IQmpy(gAdcData.iBus,_IQ(USER_ADC_MAX_POSITIVE_BUS_CURRENT_A));
+  elm327::mode21::gVariables.Battery_current = (uint16_t) _IQtoIQ11(gMotorVars.IdcBus);
 
-  elm327::mode01::gVariables.Calculated_engine_load = (uint8_t) ( _IQtoF(gMotorVars.IdcBus) * _IQtoF(gMotorVars.VdcBus_kV) * (100000.0/USER_MOTOR_MAX_POWER) );
+  elm327::mode01::gVariables.Calculated_engine_load = (uint8_t) ( _IQtoF(_IQmpy(gMotorVars.IdcBus, gMotorVars.VdcBus_kV)) * (100000.0/USER_MOTOR_MAX_POWER) );
+  elm327::mode21::gVariables.Battery_power = (uint16_t) ( (long) _IQ19mpy( _IQtoIQ19(_IQmpy(gMotorVars.IdcBus, gMotorVars.VdcBus_kV)), _IQ19(1000.0)) >> 14);
+
 
   elm327::mode01::gVariables.Run_time = gUpTimeSeconds;
 
+  //fix the km/h to iq also
   elm327::mode01::gVariables.Vehicle_speed = speed::gVars.Kmh;
+
+  elm327::mode21::gVariables.Cadence_RPM = (uint8_t) _IQ8(_IQtoF(cadence::gVars.kRPM)*1000.0);
 
   elm327::mode01::gVariables.Driver_demand_engine_torque = (uint8_t) ( 125.0 + ( _IQtoF( _IQmpy( gMotorVars.IqRef_A, _IQ(100.0/USER_IQ_FULL_SCALE_CURRENT_A) ) ) ) );
 
-  //  gMotorVars.Flag_Run_Identify = elm327::mode08::gVariables.Switch_Run;
   if (elm327::mode01::gVariables.Control_module_voltage < elm327::mode08::gVariables.Battery_cutout)
   {
       elm327::mode08::gVariables.Switch_Run = false;
@@ -581,9 +519,35 @@ void updateGlobalVariables_motor(CTRL_Handle handle)
 void updateIqRef(CTRL_Handle handle)
 {
 
-    // Check this formula to regulate the IqRef based on cadence:
-    //Setpoint = (-.0237*pow(((double)cad/300)-110, 2) + 100)*3.5;
-    // assumes cadence in rpm and output is power (convert to frequency/current)
+    // Controller setpoint:
+    _iq IqRef_pu;
+
+    //TODO: fix the RPM to kRPM
+    switch (elm327::mode08::gVariables.Throttle_ramp)
+    {
+        case WEAK_THROTTLE:
+            IqRef_pu = _IQmpy( _IQ(14), (cadence::gVars.kRPM - _IQ(0.040)) );
+            break;
+
+        case MEDIUM_THROTTLE:
+            IqRef_pu = _IQ( 1 - ( 237 * ( _IQtoF(cadence::gVars.kRPM) - 0.110) * (_IQtoF(cadence::gVars.kRPM) - 0.110) ) );
+            break;
+
+        case STRONG_THROTTLE:
+            IqRef_pu = (_IQtoF(cadence::gVars.kRPM) > 0.040) ?
+                    _IQmpy( _IQ(0.25), _IQ( log((double) (_IQtoF(cadence::gVars.kRPM)*1000 - 39)) ) ) : _IQ(0);
+            break;
+
+        default:
+            IqRef_pu = _IQ(0);
+            break;
+    }
+
+    gMotorVars.IqRef_A = IqRef_pu > _IQ(0) ?
+            _IQmpy( _IQ(elm327::mode08::gVariables.Battery_limit), IqRef_pu ) : _IQ(0);
+    gMotorVars.IqRef_A = IqRef_pu > _IQ(1) ?
+            _IQ(elm327::mode08::gVariables.Battery_limit) : gMotorVars.IqRef_A;
+
 
   _iq iq_ref = _IQmpy(gMotorVars.IqRef_A,_IQ(1.0/USER_IQ_FULL_SCALE_CURRENT_A));
 
@@ -606,7 +570,7 @@ void updateIqRef(CTRL_Handle handle)
   return;
 } // end of updateIqRef() function
 
-
+//TODO: optimize Message class and add this function to its code
 __interrupt void sciaRxFifoISR(void)
 {
 char rdataA;    // Received data for SCI-A
@@ -642,56 +606,18 @@ __interrupt void timer0ISR(void)
 {
 
     cadence::readRPM();
-
     speed::readKmh();
 
     // acknowledge the Timer 0 interrupt
     HAL_acqTimer0Int(halHandle);
 
     // increment up-time
-    gUpTimeSeconds++;
+    if (elm327::mode08::gVariables.Switch_Run)
+        gUpTimeSeconds++;
 
     return;
 } // end of timer0ISR() function
 
-
-//TODO: define the halhandle as extern and have the interruption in cadence.cpp?
-__interrupt void cadencePulseISR(void)
-{
-    if (!GPIO_getData(halHandle->gpioHandle, GPIO_Number_6))
-    {
-        // compute the waveform period
-        uint32_t timeCapture = HAL_readTimerCnt(halHandle, 2);
-
-        // Read if it is in Normal Direction
-        if ( (timeCapture + cadence::gVars.PrevPulseTime) < (2 * cadence::gVars.RisingEdgeTime) ) // off_period < on_period
-        {
-            cadence::gVars.PulsePeriod += (cadence::gVars.PrevPulseTime - timeCapture);
-            cadence::gVars.PulseCounter++;
-        }
-        cadence::gVars.PrevPulseTime = timeCapture;
-
-    }
-    else
-    {
-        cadence::gVars.RisingEdgeTime = HAL_readTimerCnt(halHandle, 2);
-    }
-
-    HAL_acqCadencePulseInt(halHandle);
-}
-
-__interrupt void motorPulseISR(void)
-{
-    // compute the waveform period
-    uint32_t timeCapture = HAL_readTimerCnt(halHandle, 2);
-
-    speed::gVars.MotorPulsePeriod += (speed::gVars.MotorPrevPulseTime - timeCapture);
-    speed::gVars.MotorPulseCounter++;
-
-    speed::gVars.MotorPrevPulseTime = timeCapture;
-
-    HAL_acqMotorPulseInt(halHandle);
-}
 
 //@} //defgroup
 // end of file

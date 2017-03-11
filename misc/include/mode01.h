@@ -83,8 +83,6 @@ namespace elm327 {
 
         }Vars_t;
 
-//        typedef void (*MODE01_HANDLER)();
-
 
         // **************************************************************************
         // the globals

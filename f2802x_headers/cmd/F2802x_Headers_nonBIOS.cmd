@@ -32,7 +32,7 @@ MEMORY
  PAGE 1:    /* Data Memory */
  
    DEV_EMU     : origin = 0x000880, length = 0x000105     /* device emulation registers */
-     SYS_PWR_CTL : origin = 0x000985, length = 0x000003     /* System power control registers */
+   SYS_PWR_CTL : origin = 0x000985, length = 0x000003     /* System power control registers */
    FLASH_REGS  : origin = 0x000A80, length = 0x000060     /* FLASH registers */
    CSM         : origin = 0x000AE0, length = 0x000010     /* code security module registers */
    

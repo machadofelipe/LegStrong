@@ -13,8 +13,8 @@
 // **************************************************************************
 // the defines
 #define SPEED_Vars_INIT     { 0, 0, 0, 0.0 }
-#define WHEEL_CIRC          2.070
-#define KMH_CONSTANT        (3.6*WHEEL_CIRC/6.0)*1000000.0
+
+#define KMH_CONSTANT        (3.6)*1000.0
 
 namespace speed {
 

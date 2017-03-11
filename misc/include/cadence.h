@@ -8,6 +8,7 @@
 // the includes
 
 #include "types.h"
+#include "IQmathLib.h"
 
 
 // **************************************************************************
@@ -26,7 +27,7 @@ namespace cadence {
 
         uint32_t    PulsePeriod;
         uint8_t     PulseCounter;
-        float       RPM;
+        _iq         kRPM;
 
     }Vars_t;
 

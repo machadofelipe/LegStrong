@@ -17,6 +17,7 @@ namespace utility {
 
     typedef enum
     {
+        BOOL = 1,
         UINT8 = 8,
         UINT16 = 16,
         UINT32 = 32,

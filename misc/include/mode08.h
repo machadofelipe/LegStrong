@@ -18,7 +18,34 @@
 //TODO: make one define for each
 //TODO: in the future, store this values is memory
 #define MODE08_Vars_INIT { false, 0x20, \
-                           6, 2095, 2, false, 35, 15, 350, 45, }
+                           6, 6, 2095, 2, /*false,*/ 35, 10, /*350, 45,*/ }
+
+#define TORQUE_CTRL         0
+#define SPEED_CTRL          1
+
+#define WEAK_THROTTLE       1
+#define MEDIUM_THROTTLE     2
+#define STRONG_THROTTLE     3
+
+#define MAX_PAS_MAGNETS     12
+#define MIN_PAS_MAGNETS     1
+
+#define MAX_WHEEL_MAGNETS   12
+#define MIN_WHEEL_MAGNETS   1
+
+#define MAX_WHEEL_CIRC      2326
+#define MIN_WHEEL_CIRC      935
+#define WHEEL_CIRC_STEPS    5
+
+#define MAX_THROTTLE_RAMP   3
+#define MIN_THROTTLE_RAMP   1
+
+#define MAX_BAT_CUTOUT      60
+#define MIN_BAT_CUTOUT      7
+
+#define MAX_BAT_LIMIT      20
+#define MIN_BAT_LIMIT      1
+
 
 namespace elm327 {
 
@@ -70,21 +97,21 @@ namespace elm327 {
 
         // Reserved: uint32_t    PIDs_21__40;
         uint8_t     PAS_magnets;        // PAS magnets [magnets per turn]  [1 - 12]
-//        uint8_t     Wheel_magnets;        // Wheel magnets [magnets per turn]  [1 - 12]
+        uint8_t     Wheel_magnets;        // Wheel magnets [magnets per turn]  [1 - 12]
         uint16_t    Wheel_circ;         // Wheel Circumference [mm]
-        uint8_t     Throttle_ramp;      // Throttle ramp [Slow/Med/Fast]  [1 - 3]
-        bool        Throttle_mode;      // Throttle mode [torque controller / speed controller]  [false/true]
+        uint8_t     Throttle_ramp;      // Throttle ramp [Weak/Med/Strong]  [1 - 3]
+//        bool        Throttle_mode;      // Throttle mode [torque controller / speed controller]  [false/true]
         uint8_t     Battery_cutout;     // Battery voltage cutout [V]  [0V - 60V]
         uint8_t     Battery_limit;      // Battery current limit  [A]  [0A - 20A]
-        uint16_t    Power_limit;        // Power Limit  [W]
-        uint8_t     Speed_limit;        // Rear wheel speed limit [km/h]
+//        uint16_t    Power_limit;        // Power Limit  [W]
+//        uint8_t     Speed_limit;        // Rear wheel speed limit [km/h]
 
         // Reserved: uint32_t    PIDs_41__60;
         // Reserved: uint32_t    PIDs_61__80;
 
     }Vars_t;
 
-    typedef void (*MODE08_HANDLER)();
+    typedef void (*funcptr)();
 
 
     // **************************************************************************
@@ -102,29 +129,17 @@ namespace elm327 {
     void processPid(const std::string &pid, std::string &responseMsg);
 
     //! \brief      PIDs_01__20
-    // Reserved: void PIDs_01__20();
     void swRun();
     void togOption();
 
     //! \brief      pids21_40
-    // Reserved: void pids21_40();
-    void pasMagnets();
-    void wheelCirc();
-    void throttleRamp();
-    void throttleMode();
-    void batteryCutout();
-    void batteryLimit();
-    void powerLimit();
-    void speedLimit();
 
     //! \brief      pids41_60
-    // Reserved: void pids41_60();
     void increaseValue();
     void decreaseValue();
     void resetAll();
 
     //! \brief      pids61_80
-    // Reserved: void pids61_80();
 
 
     }; // mode08
