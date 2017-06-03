@@ -46,6 +46,7 @@ namespace elm327
             m[Battery_capacity_used]    = std::make_pair(UINT16, &gVariables.Battery_capacity_used);
             m[Energy_used]              = std::make_pair(UINT16, &gVariables.Energy_used);
             m[Battery_SOC]              = std::make_pair(UINT16, &gVariables.Battery_SOC);
+            m[Battery_resistance]       = std::make_pair(UINT16, &gVariables.Battery_resistance);
             m[Trip_distance]            = std::make_pair(UINT16, &gVariables.Trip_distance);
 //            m[Trip_Time]                = std::make_pair(UINT16, &gVariables.Trip_Time);
             m[Energy_mileage]           = std::make_pair(UINT16, &gVariables.Energy_mileage);

@@ -58,6 +58,7 @@
 std::string msgBuf;
 bool newMessage = false;
 uint16_t gUpTimeSeconds = 0;  // set to runtime directly ?
+uint32_t  gPrevPulseTime = 0;
 uint_least16_t gCounter_updateGlobals = 0;
 bool Flag_Latch_softwareUpdate = true;
 //END optimize
@@ -116,11 +117,8 @@ HAL_AdcData_t gAdcData;
 _iq gMaxCurrentSlope = _IQ(0.0);
 
 _iq gFlux_pu_to_Wb_sf;
-
 _iq gFlux_pu_to_VpHz_sf;
-
 _iq gTorque_Ls_Id_Iq_pu_to_Nm_sf;
-
 _iq gTorque_Flux_Iq_pu_to_Nm_sf;
 
 
@@ -368,6 +366,7 @@ void main(void)
           }
 
 
+        readSensorsCallback();
         // when appropriate, update the global variables
         if(gCounter_updateGlobals >= NUM_MAIN_TICKS_FOR_GLOBAL_VARIABLE_UPDATE)
           {
@@ -446,75 +445,149 @@ interrupt void mainISR(void)
 
 void updateGlobalVariables_motor(CTRL_Handle handle)
 {
-  CTRL_Obj *obj = (CTRL_Obj *)handle;
+    CTRL_Obj *obj = (CTRL_Obj *)handle;
 
-  // get the speed estimate
-  gMotorVars.Speed_krpm = EST_getSpeed_krpm(obj->estHandle);
-  elm327::mode01::gVariables.Engine_RPM = (uint16_t) ( _IQtoF(gMotorVars.Speed_krpm) * 4000.0 );
+    // Calculations done using C28x IQmath Library
+    // WARNING: avoid using float/double calculations as much as possible
 
-  // get the torque estimate
-  gMotorVars.Torque_Nm = USER_computeTorque_Nm(handle, gTorque_Flux_Iq_pu_to_Nm_sf, gTorque_Ls_Id_Iq_pu_to_Nm_sf);
-  elm327::mode01::gVariables.Engine_reference_torque = (uint16_t) ( _IQtoF(gMotorVars.Torque_Nm) * 1000.0 );
-  elm327::mode01::gVariables.Actual_engine_torque = (uint8_t) ( 125.0 + ( _IQtoF( _IQmpy( gMotorVars.Torque_Nm, (100.0/USER_MOTOR_MAX_TORQUE) ) ) ) );
+    // get the motor speed estimate
+    gMotorVars.Speed_krpm = EST_getSpeed_krpm(obj->estHandle);
+    elm327::mode21::gVariables.Motor_RPM = (uint16_t) ( _IQ19mpy( _IQtoIQ19(gMotorVars.Speed_krpm),
+                                                                _IQ19(1000)                       ) ) >> (19-4);
+    elm327::mode01::gVariables.Engine_RPM = elm327::mode21::gVariables.Motor_RPM >> 2;
 
-  // get the magnetizing current
-  gMotorVars.MagnCurr_A = EST_getIdRated(obj->estHandle);
+    // get the torque estimate
+    gMotorVars.Torque_Nm = USER_computeTorque_Nm(handle, gTorque_Flux_Iq_pu_to_Nm_sf, gTorque_Ls_Id_Iq_pu_to_Nm_sf);
+    elm327::mode01::gVariables.Engine_reference_torque = (uint16_t) (_IQint(gMotorVars.Torque_Nm));
+    elm327::mode01::gVariables.Actual_engine_torque = (uint8_t) ( 125 + ( _IQ21int( _IQ21mpy( _IQtoIQ21(gMotorVars.Torque_Nm), _IQ21(100.0/USER_MOTOR_MAX_TORQUE) ) ) ) );
+    elm327::mode01::gVariables.Driver_demand_engine_torque = (uint8_t) ( 125 + ( _IQ21int( _IQ21mpy( _IQtoIQ21(gMotorVars.IqRef_A), _IQ21(100.0/USER_IQ_FULL_SCALE_CURRENT_A) ) ) ) );
 
-  // get the rotor resistance
-  gMotorVars.Rr_Ohm = EST_getRr_Ohm(obj->estHandle);
+    // get the magnetizing current
+    gMotorVars.MagnCurr_A = EST_getIdRated(obj->estHandle);
 
-  // get the stator resistance
-  gMotorVars.Rs_Ohm = EST_getRs_Ohm(obj->estHandle);
+    // get the rotor resistance
+    gMotorVars.Rr_Ohm = EST_getRr_Ohm(obj->estHandle);
 
-  // get the stator inductance in the direct coordinate direction
-  gMotorVars.Lsd_H = EST_getLs_d_H(obj->estHandle);
+    // get the stator resistance
+    gMotorVars.Rs_Ohm = EST_getRs_Ohm(obj->estHandle);
 
-  // get the stator inductance in the quadrature coordinate direction
-  gMotorVars.Lsq_H = EST_getLs_q_H(obj->estHandle);
+    // get the stator inductance in the direct coordinate direction
+    gMotorVars.Lsd_H = EST_getLs_d_H(obj->estHandle);
 
-  // get the flux in V/Hz in floating point
-  gMotorVars.Flux_VpHz = EST_getFlux_VpHz(obj->estHandle);
+    // get the stator inductance in the quadrature coordinate direction
+    gMotorVars.Lsq_H = EST_getLs_q_H(obj->estHandle);
 
-  // get the flux in Wb in fixed point
-  gMotorVars.Flux_Wb = USER_computeFlux(handle, gFlux_pu_to_Wb_sf);
+    // get the flux in V/Hz in floating point
+    gMotorVars.Flux_VpHz = EST_getFlux_VpHz(obj->estHandle);
 
-  // get the controller state
-  gMotorVars.CtrlState = CTRL_getState(handle);
+    // get the flux in Wb in fixed point
+    gMotorVars.Flux_Wb = USER_computeFlux(handle, gFlux_pu_to_Wb_sf);
 
-  // get the estimator state
-  gMotorVars.EstState = EST_getState(obj->estHandle);
+    // get the controller state
+    gMotorVars.CtrlState = CTRL_getState(handle);
 
-  // Get the DC buss voltage
-  gMotorVars.VdcBus_kV = _IQmpy(gAdcData.dcBus,_IQ(USER_IQ_FULL_SCALE_VOLTAGE_V/1000.0));
-  elm327::mode01::gVariables.Control_module_voltage = (uint16_t) ( _IQtoF(gMotorVars.VdcBus_kV) * 1000000.0 );
-  elm327::mode21::gVariables.Battery_voltage = (uint16_t) _IQ10mpy(_IQtoIQ10(gMotorVars.VdcBus_kV), _IQ10(1000));
+    // get the estimator state
+    gMotorVars.EstState = EST_getState(obj->estHandle);
 
-  // Get the DC buss current
-  gMotorVars.IdcBus = _IQmpy(gAdcData.iBus,_IQ(USER_ADC_MAX_POSITIVE_BUS_CURRENT_A));
-  elm327::mode21::gVariables.Battery_current = (uint16_t) _IQtoIQ11(gMotorVars.IdcBus);
+    // read Vd and Vq vectors per units
+    gMotorVars.Vd = CTRL_getVd_out_pu(ctrlHandle);
+    gMotorVars.Vq = CTRL_getVq_out_pu(ctrlHandle);
 
-  elm327::mode01::gVariables.Calculated_engine_load = (uint8_t) ( _IQtoF(_IQmpy(gMotorVars.IdcBus, gMotorVars.VdcBus_kV)) * (100000.0/USER_MOTOR_MAX_POWER) );
-  elm327::mode21::gVariables.Battery_power = (uint16_t) ( (long) _IQ19mpy( _IQtoIQ19(_IQmpy(gMotorVars.IdcBus, gMotorVars.VdcBus_kV)), _IQ19(1000.0)) >> 14);
+    // calculate vector Vs in per units
+    gMotorVars.Vs = _IQsqrt(_IQmpy(gMotorVars.Vd, gMotorVars.Vd) + _IQmpy(gMotorVars.Vq, gMotorVars.Vq));
+
+    // read Id and Iq vectors in amps
+    gMotorVars.Id_A = _IQmpy(CTRL_getId_in_pu(ctrlHandle), _IQ(USER_IQ_FULL_SCALE_CURRENT_A));
+    gMotorVars.Iq_A = _IQmpy(CTRL_getIq_in_pu(ctrlHandle), _IQ(USER_IQ_FULL_SCALE_CURRENT_A));
+
+    // calculate vector Is in amps
+    gMotorVars.Is_A = _IQsqrt(_IQmpy(gMotorVars.Id_A, gMotorVars.Id_A) + _IQmpy(gMotorVars.Iq_A, gMotorVars.Iq_A));
+
+    // Get the DC buss voltage
+    elm327::mode01::gVariables.Control_module_voltage = (uint16_t) ( _IQtoF(gMotorVars.Vdc) * 1000.0 );
+    elm327::mode21::gVariables.Battery_voltage = (uint16_t) _IQtoIQ10(gMotorVars.Vdc);
+
+    if (_IQ10int(elm327::mode21::gVariables.Battery_voltage) < elm327::mode08::gVariables.Battery_cutout)
+    {
+        elm327::mode08::gVariables.Switch_Run = false;
+    }
+
+    // Calculate the engine load 0-100%
+    elm327::mode01::gVariables.Calculated_engine_load = (uint8_t) _IQ20int( _IQ20mpy( _IQ20mpy(_IQtoIQ20(gMotorVars.Is_A), _IQtoIQ20(gMotorVars.Vdc)),
+                                                                                      _IQ20(100.0/USER_MOTOR_MAX_POWER)                                   ));
+
+    // Get the DC bus current
+    elm327::mode21::gVariables.Battery_current = (uint16_t) _IQtoIQ11(gMotorVars.Idc);
+
+    // Calculate the Battery power output in Watts
+    elm327::mode21::gVariables.Battery_power = (uint16_t) _IQ5mpy( _IQtoIQ5(gMotorVars.Idc), _IQtoIQ5(gMotorVars.Vdc) );
+
+    // Get the speed and trip distance
+    elm327::mode01::gVariables.Vehicle_speed = (uint8_t) _IQint(speed::gVars.Kmh);
+    elm327::mode21::gVariables.Rear_wheel_speed = (uint16_t) _IQtoIQ10(speed::gVars.Kmh);
+    elm327::mode21::gVariables.Trip_distance = (uint16_t) _IQtoIQ8(speed::gVars.Distance);
+
+    // Get the Cadence
+    elm327::mode21::gVariables.Cadence_RPM = (uint16_t) _IQ8mpy( _IQtoIQ8(cadence::gVars.kRPM), _IQ8(1000) );
+
+    // Get the battery resistance and SoC
+    if (gMotorVars.Idc < _IQ(1))
+    {
+        gMotorVars.Vdc_v0 = gMotorVars.Vdc;
+
+        // TODO: TO BE OPTIMIZED:
+        if (gMotorVars.Vdc_v0 > _IQ(3.25*14))
+        {
+            elm327::mode21::gVariables.Battery_SOC = _IQ9( ( ( ( ( ( (double) _IQtoF(gMotorVars.Vdc_v0)) / 14.0 ) - 3.25 ) / ( 4.15 - 3.25 ) ) * 90.0 ) + 10.0 );
+        }
+        else if (gMotorVars.Vdc_v0 > _IQ(2.7*14))
+        {
+            elm327::mode21::gVariables.Battery_SOC = _IQ9( ( ( ( ( (double) _IQtoF(gMotorVars.Vdc_v0)) / 14.0 ) - 2.70 ) / ( 3.25 - 2.7 ) ) * 10.0 );
+        }
+        else
+        {
+            elm327::mode21::gVariables.Battery_SOC = _IQ9(0);
+        }
+    }
+    else if (gMotorVars.Idc > _IQ(2))
+    {
+        elm327::mode21::gVariables.Battery_resistance = _IQ16div( _IQ16mpy( _IQ16(1000), _IQtoIQ16(gMotorVars.Vdc_v0 - gMotorVars.Vdc) ),
+                                                                            _IQ16(gMotorVars.Idc))                                        >> (16-6);  // 1000*(vBat_v0-vBat)/iBat
+    }
 
 
-  elm327::mode01::gVariables.Run_time = gUpTimeSeconds;
 
-  //fix the km/h to iq also
-  elm327::mode01::gVariables.Vehicle_speed = speed::gVars.Kmh;
+    // From readSensorsCallback
+    elm327::mode21::gVariables.Battery_capacity_used = (gMotorVars.mAh) >> (17-2);
+    elm327::mode21::gVariables.Energy_used = (gMotorVars.kWh) >> (30-16);
 
-  elm327::mode21::gVariables.Cadence_RPM = (uint8_t) _IQ8(_IQtoF(cadence::gVars.kRPM)*1000.0);
+    // From timer while running
+    elm327::mode01::gVariables.Run_time = gUpTimeSeconds;
 
-  elm327::mode01::gVariables.Driver_demand_engine_torque = (uint8_t) ( 125.0 + ( _IQtoF( _IQmpy( gMotorVars.IqRef_A, _IQ(100.0/USER_IQ_FULL_SCALE_CURRENT_A) ) ) ) );
-
-  if (elm327::mode01::gVariables.Control_module_voltage < elm327::mode08::gVariables.Battery_cutout)
-  {
-      elm327::mode08::gVariables.Switch_Run = false;
-  }
-
-
-  return;
+    return;
 } // end of updateGlobalVariables_motor() function
 
+void readSensorsCallback() {
+
+    // Read voltage and current
+    gMotorVars.Idc = _IQmpy(gAdcData.iBus,_IQ(USER_ADC_MAX_POSITIVE_BUS_CURRENT_A));
+    gMotorVars.Vdc = _IQmpy(gAdcData.dcBus,_IQ(USER_IQ_FULL_SCALE_VOLTAGE_V));
+
+    // compute the period
+    uint32_t timeCapture = HAL_readTimerCnt(&hal, 2);
+    int32_t readPeriod = gPrevPulseTime - timeCapture;
+
+    //Protected against timer overflow
+    if (gPrevPulseTime > timeCapture)
+    {
+        gMotorVars.mAh += _IQ17mpy( _IQtoIQ17(gMotorVars.Idc) , _IQ17(readPeriod/(60.0*60.0*1000.0)) );
+
+        gMotorVars.kWh += _IQ30( _IQtoF(gMotorVars.Idc) * _IQtoF(gMotorVars.Vdc) * (readPeriod/(60.0*60.0*1000.0*1000.0*1000.0)) );
+    }
+
+    gPrevPulseTime = timeCapture;
+
+}
 
 void updateIqRef(CTRL_Handle handle)
 {
@@ -522,7 +595,6 @@ void updateIqRef(CTRL_Handle handle)
     // Controller setpoint:
     _iq IqRef_pu;
 
-    //TODO: fix the RPM to kRPM
     switch (elm327::mode08::gVariables.Throttle_ramp)
     {
         case WEAK_THROTTLE:

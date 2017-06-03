@@ -76,7 +76,7 @@
 
 //! \brief Defines the number of main iterations before global variables are updated
 //!
-#define NUM_MAIN_TICKS_FOR_GLOBAL_VARIABLE_UPDATE  1
+#define NUM_MAIN_TICKS_FOR_GLOBAL_VARIABLE_UPDATE  10
 
 //! \brief Defines the speed acceleration scale factor.
 //!
@@ -133,6 +133,9 @@
                          _IQ(0.8 * USER_MAX_VS_MAG_PU), \
                          _IQ(0.0), \
                          _IQ(0.0), \
+                         _IQ(0.0), \
+                         _IQ17(0.0), \
+                         _IQ30(0.0), \
                          _IQ(0.0), \
                          _IQ(0.0), \
                          _IQ(0.0), \
@@ -201,9 +204,12 @@ typedef struct _MOTOR_Vars_t_
   _iq Vq;
   _iq Vs;
   _iq VsRef;
-  _iq VdcBus_kV;
+  _iq Vdc;
+  _iq Vdc_v0;
 
-  _iq IdcBus;
+  _iq Idc;
+  _iq17 mAh;
+  _iq30 kWh;
 
   _iq Id_A;
   _iq Iq_A;
@@ -247,6 +253,7 @@ void runSetTrigger(void);
 //! \brief     Updates the global motor variables 
 //! 
 void updateGlobalVariables_motor(CTRL_Handle handle);
+void readSensorsCallback();
 
 
 //! \brief     Updates the global variables 

@@ -26,9 +26,20 @@ void ::speed::readKmh() {
 
     DISABLE_INTERRUPTS;
     {
-        //TODO: make this math using IQ lib?
-        gVars.Kmh = (KMH_CONSTANT * elm327::mode08::gVariables.Wheel_circ * gVars.MotorPulseCounter) /
-                        (gVars.MotorPulsePeriod * elm327::mode08::gVariables.Wheel_magnets);
+
+        if (gVars.MotorPulseCounter < MIN_PULSE_COUNTER)
+        {
+            gVars.Kmh =  _IQ(0.0);
+        }
+        else
+        {
+            double kiloMeterPerSecond = (double) ( 1.0 * elm327::mode08::gVariables.Wheel_circ * gVars.MotorPulseCounter ) /
+                                                 ( gVars.MotorPulsePeriod * elm327::mode08::gVariables.Wheel_magnets        );
+
+            gVars.Distance += _IQ(kiloMeterPerSecond);
+            gVars.Kmh = _IQ( KPS_TO_KPH * kiloMeterPerSecond );
+        }
+
         gVars.MotorPulsePeriod = 0;
         gVars.MotorPulseCounter = 0;
     }

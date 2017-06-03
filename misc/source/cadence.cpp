@@ -26,10 +26,10 @@ void ::cadence::readRPM() {
 
     DISABLE_INTERRUPTS;
     {
-        //TODO: make this math using IQ lib?
-        gVars.kRPM = _IQ( (double)(60000.0 * gVars.PulseCounter) /
-                (gVars.PulsePeriod * elm327::mode08::gVariables.PAS_magnets) );
-        gVars.kRPM = (gVars.kRPM > _IQ(0)) && (gVars.kRPM < _IQ(0.220)) ? gVars.kRPM : _IQ(0);
+        gVars.kRPM = gVars.PulseCounter < MIN_PULSE_COUNTER ? 0 :
+                _IQ( (double) (RPM_CONSTANT * gVars.PulseCounter) /
+                              (gVars.PulsePeriod * elm327::mode08::gVariables.PAS_magnets) );
+
         gVars.PulsePeriod = 0;
         gVars.PulseCounter = 0;
     }
@@ -47,15 +47,20 @@ __interrupt void cadencePulseISR(void)
         // Read if it is in Normal Direction
         if ( (timeCapture + cadence::gVars.PrevPulseTime) < (2 * cadence::gVars.RisingEdgeTime) ) // off_period < on_period
         {
-            cadence::gVars.PulsePeriod += (cadence::gVars.PrevPulseTime - timeCapture);
-            cadence::gVars.PulseCounter++;
+            gVars.PulsePeriod += (cadence::gVars.PrevPulseTime - timeCapture);
+            gVars.PulseCounter++;
         }
-        cadence::gVars.PrevPulseTime = timeCapture;
+        else
+        {
+            gVars.PulsePeriod = 0;
+            gVars.PulseCounter = 0;
+        }
+        gVars.PrevPulseTime = timeCapture;
 
     }
     else
     {
-        cadence::gVars.RisingEdgeTime = HAL_readTimerCnt(&hal, 2);
+        gVars.RisingEdgeTime = HAL_readTimerCnt(&hal, 2);
     }
 
     HAL_acqCadencePulseInt(&hal);

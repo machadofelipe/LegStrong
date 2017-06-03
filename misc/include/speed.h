@@ -8,13 +8,15 @@
 // the includes
 
 #include "types.h"
+#include "IQmathLib.h"
 
 
 // **************************************************************************
 // the defines
-#define SPEED_Vars_INIT     { 0, 0, 0, 0.0 }
+#define SPEED_Vars_INIT     { 0, 0, 0, _IQ(0.0), _IQ(0.0) }
 
-#define KMH_CONSTANT        (3.6)*1000.0
+#define KPS_TO_KPH          3600.0
+#define MIN_PULSE_COUNTER   2
 
 namespace speed {
 
@@ -27,7 +29,8 @@ namespace speed {
 
         uint32_t    MotorPulsePeriod;
         uint8_t     MotorPulseCounter;
-        float       Kmh;
+        _iq         Kmh;
+        _iq         Distance;
 
     }Vars_t;
 
