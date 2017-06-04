@@ -3,6 +3,7 @@
 //! \file   Message.h
 //! \brief
 //!
+ //TODO: To be replaced in the future with the ELM327 class
 
 // **************************************************************************
 // the includes

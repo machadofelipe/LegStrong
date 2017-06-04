@@ -37,6 +37,7 @@ namespace elm327
 //            m[Battery_voltage_min]      = std::make_pair(UINT16, &gVariables.Battery_voltage_min);
             m[Rear_wheel_speed]         = std::make_pair(UINT16, &gVariables.Rear_wheel_speed);
 //            m[Rear_wheel_speed_avg]     = std::make_pair(UINT16, &gVariables.Rear_wheel_speed_avg);
+            m[Motor_kRPM]               = std::make_pair(UINT16, &gVariables.Motor_kRPM);
             m[Cadence_RPM]              = std::make_pair(UINT16, &gVariables.Cadence_RPM);
 //            m[Cadence_RPM_avg]          = std::make_pair(UINT16, &gVariables.Cadence_RPM_avg);
 //            m[Cadence_RPM_max]          = std::make_pair(UINT16, &gVariables.Cadence_RPM_max);
@@ -49,7 +50,7 @@ namespace elm327
             m[Battery_resistance]       = std::make_pair(UINT16, &gVariables.Battery_resistance);
             m[Trip_distance]            = std::make_pair(UINT16, &gVariables.Trip_distance);
 //            m[Trip_Time]                = std::make_pair(UINT16, &gVariables.Trip_Time);
-            m[Energy_mileage]           = std::make_pair(UINT16, &gVariables.Energy_mileage);
+//            m[Energy_mileage]           = std::make_pair(UINT16, &gVariables.Energy_mileage);
             m[Status]                   = std::make_pair(UINT8, &gVariables.Status);
 
         //    m[Battery_cycles]           = std::make_pair(UINT16, &gVariables.Battery_cycles);

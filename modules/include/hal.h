@@ -433,6 +433,10 @@ static inline _iq HAL_getOffsetBeta_lp_pu(HAL_Handle handle,
     {
       beta_lp_pu = OFFSET_getBeta(obj->offsetHandle_V[sensorNumber]);
     }
+  else if(sensorType == HAL_SensorType_BusCurrent)
+    {
+      beta_lp_pu = OFFSET_getBeta(obj->offsetHandle_Idc);
+    }
 
   return(beta_lp_pu);
 } // end of HAL_getOffsetBeta_lp_pu() function
@@ -460,6 +464,10 @@ static inline _iq HAL_getOffsetValue(HAL_Handle handle,
   else if(sensorType == HAL_SensorType_Voltage)
     {
       offset = OFFSET_getOffset(obj->offsetHandle_V[sensorNumber]);
+    }
+  else if(HAL_SensorType_BusCurrent)
+    {
+      offset = OFFSET_getOffset(obj->offsetHandle_Idc);
     }
 
   return(offset);
@@ -536,7 +544,6 @@ static inline void HAL_readAdcData(HAL_Handle handle,HAL_AdcData_t *pAdcData)
   _iq voltage_sf = HAL_getVoltageScaleFactor(handle);
   _iq bus_current_sf = HAL_getBusCurrentScaleFactor(handle);
 
-
   // convert current A
   // sample the first sample twice due to errata sprz342f, ignore the first sample
   value = (_iq)ADC_readResult(obj->adcHandle,ADC_ResultNumber_1);
@@ -575,7 +582,7 @@ static inline void HAL_readAdcData(HAL_Handle handle,HAL_AdcData_t *pAdcData)
 
   // read the iBus current value
   value = (_iq)ADC_readResult(obj->adcHandle,ADC_ResultNumber_8);     // divide by 2^numAdcBits = 2^12
-  value = obj->adcBias.iBus - _IQ12mpy(value,bus_current_sf);
+  value = _IQ12mpy(value,bus_current_sf) - obj->adcBias.iBus;
   pAdcData->iBus = value;
 
   return;
@@ -919,6 +926,10 @@ static inline void HAL_setOffsetBeta_lp_pu(HAL_Handle handle,
     {
       OFFSET_setBeta(obj->offsetHandle_V[sensorNumber],beta_lp_pu);
     }
+  else if(sensorType == HAL_SensorType_BusCurrent)
+    {
+      OFFSET_setBeta(obj->offsetHandle_Idc,beta_lp_pu);
+    }
 
   return;
 } // end of HAL_setOffsetBeta_lp_pu() function
@@ -944,6 +955,10 @@ static inline void HAL_setOffsetInitCond(HAL_Handle handle,
     {
       OFFSET_setInitCond(obj->offsetHandle_V[sensorNumber],initCond);
     }
+  else if(sensorType == HAL_SensorType_BusCurrent)
+    {
+      OFFSET_setInitCond(obj->offsetHandle_Idc,initCond);
+    }
 
   return;
 } // end of HAL_setOffsetInitCond() function
@@ -968,6 +983,10 @@ static inline void HAL_setOffsetValue(HAL_Handle handle,
   else if(sensorType == HAL_SensorType_Voltage)
     {
       OFFSET_setOffset(obj->offsetHandle_V[sensorNumber],value);
+    }
+  else if(sensorType == HAL_SensorType_BusCurrent)
+    {
+      OFFSET_setOffset(obj->offsetHandle_Idc,value);
     }
 
   return;
@@ -1086,11 +1105,15 @@ static inline void HAL_updateAdcBias(HAL_Handle handle)
     }
 
   // update the bus current bias
-  for(cnt=0;cnt<HAL_getNumBusCurrentSensors(handle);cnt++)
+  if(HAL_getNumBusCurrentSensors(handle))
     {
-      bias = HAL_getBias(handle,HAL_SensorType_BusCurrent,cnt);
+      bias = HAL_getBias(handle,HAL_SensorType_BusCurrent,0);
 
-      HAL_setBias(handle,HAL_SensorType_BusCurrent,cnt,bias);
+      bias += OFFSET_getOffset(obj->offsetHandle_Idc);
+
+      bias -= _IQ(USER_MIN_BUS_CURRENT_CONSUMPTION_A/USER_IQ_FULL_SCALE_BUS_CURRENT_A);
+
+      HAL_setBias(handle,HAL_SensorType_BusCurrent,0,bias);
     }
 
 
@@ -1523,7 +1546,7 @@ static inline void HAL_enableMotorPulseInt(HAL_Handle handle)
   return;
 } // end of HAL_enableSciInt() function
 
-//! \brief Acknowledges an interrupt from cadencePulseISR so that another
+//! \brief Acknowledges an interrupt from motorPulseISR so that another
 //! cadencePulseISR interrupt can happen again.
 //! \param[in] handle The hardware abstraction layer (HAL) handle
 static inline void HAL_acqMotorPulseInt(HAL_Handle handle)

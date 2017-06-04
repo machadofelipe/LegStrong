@@ -69,6 +69,7 @@ extern "C" {
 // **************************************************************************
 // the defines
 
+#define LEGSTRONG_REVA
 
 //! \brief CURRENTS AND VOLTAGES
 // **************************************************************************
@@ -104,7 +105,7 @@ extern "C" {
 //! \brief Defines the maximum current at the AD converter
 //! \brief The value that will be represented by the maximum ADC input (3.3V) and conversion (0FFFh)
 //! \brief Hardware dependent, this should be based on the current sensing and scaling to the ADC input
-#define USER_ADC_FULL_SCALE_CURRENT_A        (41.25)  // 33.0 boostxldrv8301_revB current scaling
+#define USER_ADC_FULL_SCALE_CURRENT_A        (41.25)  // 41.25 LegStrong revA current scaling
 //#define USER_ADC_FULL_SCALE_CURRENT_A        (33.0)  // 33.0 boostxldrv8301_revB current scaling
 
 //! \brief Defines the current scale factor for the system
@@ -116,14 +117,18 @@ extern "C" {
 //! \brief Hardware dependent, this should be based on the current sensing and scaling to the ADC input
 #define USER_ADC_FULL_SCALE_BUS_CURRENT_A        (41.25)
 
-//! \brief Defines the maximum bus current at the AD converter
-//! \brief The value that will be represented by the maximum ADC input (3.3V) and conversion (0FFFh)
-//! \brief Hardware dependent, this should be based on the current sensing and scaling to the ADC input
-#define USER_ADC_MAX_POSITIVE_BUS_CURRENT_A        (28.875)
+//! \brief Defines the full scale current for the IQ variables, A
+//! \brief All currents are converted into (pu) based on the ratio to this value
+//! \brief Hardware dependent, typically the max. positive current
+#define USER_IQ_FULL_SCALE_BUS_CURRENT_A        (28.875)
+
+//TODO: Find if there is places forcing speed/current in inverted direction due to the AmpOps inversion
+//TODO: create a MACRO for boards with inverted AmpOps (e.g. LegStrong revA)
+// due to issue with LegStrong revA, current is inverted on AmpOp readings
 
 //! \brief Defines the current scale factor for the system
 //! \brief Compile time calculation for scale factor (ratio) used throughout the system
-#define USER_BUS_CURRENT_SF               ((float_t)((USER_ADC_FULL_SCALE_BUS_CURRENT_A)/(USER_ADC_MAX_POSITIVE_BUS_CURRENT_A)))
+#define USER_BUS_CURRENT_SF               ((float_t)(-(USER_ADC_FULL_SCALE_BUS_CURRENT_A)/(USER_IQ_FULL_SCALE_BUS_CURRENT_A)))
 
 //! \brief Defines the number of current sensors used
 //! \brief Defined by the hardware capability present
@@ -139,13 +144,14 @@ extern "C" {
 //! \brief Must be (3)
 #define USER_NUM_VOLTAGE_SENSORS            (3) // 3 Required
 
+//TODO: Remove all offsets from defines and include calculation every time board starts up
 //! \brief ADC current offsets for A, B, and C phases
 //! \brief One-time hardware dependent, though the calibration can be done at run-time as well
 //! \brief After initial board calibration these values should be updated for your specific hardware so they are available after compile in the binary to be loaded to the controller
 #define   I_A_offset    (1.022173703)
 #define   I_B_offset    (1.019550025)
 #define   I_C_offset    (0.9683718681)
-#define	  I_BUS_offset	(0.9811255411)
+#define	  I_BUS_offset	(0.0) //do not show power/current values before first offset calculation
 
 //! \brief ADC voltage offsets for A, B, and C phases
 //! \brief One-time hardware dependent, though the calibration can be done at run-time as well
@@ -153,6 +159,11 @@ extern "C" {
 #define   V_A_offset    (0.2992678881)
 #define   V_B_offset    (0.2969619036)
 #define   V_C_offset    (0.2959411144)
+
+//TODO: future hardware versions are not going to need this
+//! \brief Defines the board + sensors idle current consumption
+//! \brief Used to set the initial BUS offset
+#define USER_MIN_BUS_CURRENT_CONSUMPTION_A            (0.1) // typical 100mA in LegStrong revA + sensors
 
 
 //! \brief CLOCKS & TIMERS

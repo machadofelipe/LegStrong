@@ -316,6 +316,7 @@ void main(void)
                     gMotorVars.I_bias.value[0] = HAL_getBias(halHandle,HAL_SensorType_Current,0);
                     gMotorVars.I_bias.value[1] = HAL_getBias(halHandle,HAL_SensorType_Current,1);
                     gMotorVars.I_bias.value[2] = HAL_getBias(halHandle,HAL_SensorType_Current,2);
+                    gMotorVars.Idc_bias = HAL_getBias(halHandle,HAL_SensorType_BusCurrent,0);
 
                     // Return the bias value for voltages
                     gMotorVars.V_bias.value[0] = HAL_getBias(halHandle,HAL_SensorType_Voltage,0);
@@ -451,10 +452,10 @@ void updateGlobalVariables_motor(CTRL_Handle handle)
     // WARNING: avoid using float/double calculations as much as possible
 
     // get the motor speed estimate
-    gMotorVars.Speed_krpm = EST_getSpeed_krpm(obj->estHandle);
-    elm327::mode21::gVariables.Motor_RPM = (uint16_t) ( _IQ19mpy( _IQtoIQ19(gMotorVars.Speed_krpm),
-                                                                _IQ19(1000)                       ) ) >> (19-4);
-    elm327::mode01::gVariables.Engine_RPM = elm327::mode21::gVariables.Motor_RPM >> 2;
+    gMotorVars.Speed_krpm = elm327::mode08::gVariables.Switch_Run ? EST_getSpeed_krpm(obj->estHandle) : _IQ(0.0);
+    elm327::mode21::gVariables.Motor_kRPM = gMotorVars.Speed_krpm > _IQ(0.0) ? (uint16_t) _IQtoIQ15(gMotorVars.Speed_krpm) : _IQ15(0.0);
+    //TODO: engine RPM calculations are not optimal, try IQ Math
+    elm327::mode01::gVariables.Engine_RPM = _IQ2( (float) (_IQ15toF(elm327::mode21::gVariables.Motor_kRPM)*1000.0) );
 
     // get the torque estimate
     gMotorVars.Torque_Nm = USER_computeTorque_Nm(handle, gTorque_Flux_Iq_pu_to_Nm_sf, gTorque_Ls_Id_Iq_pu_to_Nm_sf);
@@ -517,10 +518,10 @@ void updateGlobalVariables_motor(CTRL_Handle handle)
                                                                                       _IQ20(100.0/USER_MOTOR_MAX_POWER)                                   ));
 
     // Get the DC bus current
-    elm327::mode21::gVariables.Battery_current = (uint16_t) _IQtoIQ11(gMotorVars.Idc);
+    elm327::mode21::gVariables.Battery_current = (uint16_t) _IQtoIQ11(gMotorVars.Idc + _IQ(8)); // Add the max. negative current
 
     // Calculate the Battery power output in Watts
-    elm327::mode21::gVariables.Battery_power = (uint16_t) _IQ5mpy( _IQtoIQ5(gMotorVars.Idc), _IQtoIQ5(gMotorVars.Vdc) );
+    elm327::mode21::gVariables.Battery_power = (uint16_t) ( _IQ5mpy(_IQtoIQ5(gMotorVars.Idc), _IQtoIQ5(gMotorVars.Vdc)) + _IQ5 (512) ); // Add the max. negative power
 
     // Get the speed and trip distance
     elm327::mode01::gVariables.Vehicle_speed = (uint8_t) _IQint(speed::gVars.Kmh);
@@ -535,27 +536,26 @@ void updateGlobalVariables_motor(CTRL_Handle handle)
     {
         gMotorVars.Vdc_v0 = gMotorVars.Vdc;
 
-        // TODO: TO BE OPTIMIZED:
-        if (gMotorVars.Vdc_v0 > _IQ(3.25*14))
+        // TODO: To be optimized with IQ Math and support different batteries (equations are good for LG 18650 MJ1)
+        if (gMotorVars.Vdc_v0 > _IQ(3.25*BATTERY_CELLS))
         {
-            elm327::mode21::gVariables.Battery_SOC = _IQ9( ( ( ( ( ( (double) _IQtoF(gMotorVars.Vdc_v0)) / 14.0 ) - 3.25 ) / ( 4.15 - 3.25 ) ) * 90.0 ) + 10.0 );
+            elm327::mode21::gVariables.Battery_SOC = (uint16_t) _IQ9( ( ( ( ( ( (double) _IQtoF(gMotorVars.Vdc_v0)) / BATTERY_CELLS ) - 3.25 ) / ( 4.15 - 3.25 ) ) * 90.0 ) + 10.0 );
         }
-        else if (gMotorVars.Vdc_v0 > _IQ(2.7*14))
+        else if (gMotorVars.Vdc_v0 > _IQ(2.7*BATTERY_CELLS))
         {
-            elm327::mode21::gVariables.Battery_SOC = _IQ9( ( ( ( ( (double) _IQtoF(gMotorVars.Vdc_v0)) / 14.0 ) - 2.70 ) / ( 3.25 - 2.7 ) ) * 10.0 );
+            elm327::mode21::gVariables.Battery_SOC = (uint16_t) _IQ9( ( ( ( ( (double) _IQtoF(gMotorVars.Vdc_v0)) / BATTERY_CELLS ) - 2.70 ) / ( 3.25 - 2.7 ) ) * 10.0 );
         }
         else
         {
-            elm327::mode21::gVariables.Battery_SOC = _IQ9(0);
+            elm327::mode21::gVariables.Battery_SOC = (uint16_t) _IQ9(0);
         }
     }
-    else if (gMotorVars.Idc > _IQ(2))
-    {
-        elm327::mode21::gVariables.Battery_resistance = _IQ16div( _IQ16mpy( _IQ16(1000), _IQtoIQ16(gMotorVars.Vdc_v0 - gMotorVars.Vdc) ),
-                                                                            _IQ16(gMotorVars.Idc))                                        >> (16-6);  // 1000*(vBat_v0-vBat)/iBat
-    }
-
-
+    // TODO: Need new math calculation
+//    else if (gMotorVars.Idc > _IQ(2))
+//    {
+//        elm327::mode21::gVariables.Battery_resistance = _IQ16div( _IQ16mpy( _IQ16(1000), _IQtoIQ16(gMotorVars.Vdc_v0 - gMotorVars.Vdc) ),
+//                                                                            _IQ16(gMotorVars.Idc))                                        >> (16-6);  // 1000*(vBat_v0-vBat)/iBat
+//    }
 
     // From readSensorsCallback
     elm327::mode21::gVariables.Battery_capacity_used = (gMotorVars.mAh) >> (17-2);
@@ -569,9 +569,9 @@ void updateGlobalVariables_motor(CTRL_Handle handle)
 
 void readSensorsCallback() {
 
-    // Read voltage and current
-    gMotorVars.Idc = _IQmpy(gAdcData.iBus,_IQ(USER_ADC_MAX_POSITIVE_BUS_CURRENT_A));
+    // Read voltage and current (if CTRL already has Idc_bias calculate)
     gMotorVars.Vdc = _IQmpy(gAdcData.dcBus,_IQ(USER_IQ_FULL_SCALE_VOLTAGE_V));
+    gMotorVars.Idc = gMotorVars.Idc_bias ? _IQmpy(gAdcData.iBus,_IQ(USER_IQ_FULL_SCALE_BUS_CURRENT_A)) : _IQ(0.0);
 
     // compute the period
     uint32_t timeCapture = HAL_readTimerCnt(&hal, 2);
@@ -595,8 +595,14 @@ void updateIqRef(CTRL_Handle handle)
     // Controller setpoint:
     _iq IqRef_pu;
 
+    //TODO: FIX magic numbers / create MACRO for the equations
+    //TODO: Implement a boost button for hill climbing
+    // Switches on only while cadence > 10
+    // Full power while cadence > 10
+    // Back to previous mode after candence = 0
     switch (elm327::mode08::gVariables.Throttle_ramp)
     {
+        //TODO: maybe remove the weak in future
         case WEAK_THROTTLE:
             IqRef_pu = _IQmpy( _IQ(14), (cadence::gVars.kRPM - _IQ(0.040)) );
             break;
@@ -607,7 +613,12 @@ void updateIqRef(CTRL_Handle handle)
 
         case STRONG_THROTTLE:
             IqRef_pu = (_IQtoF(cadence::gVars.kRPM) > 0.040) ?
-                    _IQmpy( _IQ(0.25), _IQ( log((double) (_IQtoF(cadence::gVars.kRPM)*1000 - 39)) ) ) : _IQ(0);
+                        _IQmpy( _IQ(0.25), _IQ( log((double) (_IQtoF(cadence::gVars.kRPM)*1000 - 39)) ) ) : _IQ(0);
+            break;
+
+        case BOOST_THROTTLE:
+            IqRef_pu = (_IQtoF(cadence::gVars.kRPM) > 0.020) ?
+                        _IQ(elm327::mode08::gVariables.Battery_limit) : _IQ(0);
             break;
 
         default:

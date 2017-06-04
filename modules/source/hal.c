@@ -637,6 +637,12 @@ HAL_Handle HAL_init(void *pMemory,const size_t numBytes)
       obj->offsetHandle_V[cnt] = OFFSET_init(&obj->offset_V[cnt],sizeof(obj->offset_V[cnt]));
     }
 
+  // initialize the bus current offset estimator handles
+  if(USER_NUM_BUS_CURRENT_SENSORS)
+    {
+      obj->offsetHandle_Idc = OFFSET_init(&obj->offset_Idc,sizeof(obj->offset_Idc));
+    }
+
 
   // initialize the oscillator handle
   obj->oscHandle = OSC_init((void *)OSC_BASE_ADDR,sizeof(OSC_Obj));
@@ -704,6 +710,13 @@ void HAL_setParams(HAL_Handle handle,const USER_Params *pUserParams)
       HAL_setOffsetBeta_lp_pu(handle,HAL_SensorType_Voltage,cnt,beta_lp_pu);
       HAL_setOffsetInitCond(handle,HAL_SensorType_Voltage,cnt,_IQ(0.0));
       HAL_setOffsetValue(handle,HAL_SensorType_Voltage,cnt,_IQ(0.0));
+    }
+
+  if(HAL_getNumBusCurrentSensors(handle))
+    {
+      HAL_setOffsetBeta_lp_pu(handle,HAL_SensorType_BusCurrent,0,beta_lp_pu);
+      HAL_setOffsetInitCond(handle,HAL_SensorType_BusCurrent,0,_IQ(0.0));
+      HAL_setOffsetValue(handle,HAL_SensorType_BusCurrent,0,_IQ(0.0));
     }
 
 
@@ -794,12 +807,12 @@ void HAL_setParams(HAL_Handle handle,const USER_Params *pUserParams)
 
  // set the default bus current bias
 {
-  uint_least8_t cnt;
-  _iq bias = _IQ12mpy((4096.0/pUserParams->bus_current_sf),_IQ(pUserParams->bus_current_sf));
+    //TODO: find a way to remove the division
+  _iq bias = _IQ12mpy(((1 << ADC_numBits)/pUserParams->bus_current_sf),_IQ(pUserParams->bus_current_sf));
 
-  for(cnt=0;cnt<HAL_getNumBusCurrentSensors(handle);cnt++)
+  if(HAL_getNumBusCurrentSensors(handle))
     {
-      HAL_setBias(handle,HAL_SensorType_BusCurrent,cnt,bias);
+      HAL_setBias(handle,HAL_SensorType_BusCurrent,0,bias);
     }
 }
 

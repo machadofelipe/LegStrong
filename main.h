@@ -91,7 +91,7 @@
                          false, \
                          false, \
                          true, \
-                         false, \
+                         true, \
                          false, \
                          false, \
                          CTRL_State_Idle, \
@@ -140,7 +140,8 @@
                          _IQ(0.0), \
                          _IQ(0.0), \
                          {0,0,0}, \
-                         {0,0,0}}
+                         {0,0,0}, \
+                         _IQ(0.0)}
 
 
 // **************************************************************************
@@ -217,6 +218,8 @@ typedef struct _MOTOR_Vars_t_
 
   MATH_vec3 I_bias;
   MATH_vec3 V_bias;
+  _iq Idc_bias;
+
 
 }MOTOR_Vars_t;
 

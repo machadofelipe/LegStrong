@@ -15,10 +15,16 @@
 
 // **************************************************************************
 // the defines
+
+//TODO: Change BATTERY_CELLS to a mode 08 setting
+//TODO: redo the battery cutout based on this number
+#define BATTERY_CELLS         14.0
+
+
 //TODO: make one define for each
 //TODO: in the future, store this values is memory
 #define MODE08_Vars_INIT { false, 0x20, \
-                           6, 6, 2095, 2, /*false,*/ 35, 10, /*350, 45,*/ }
+                           12, 6, 2095, 2, /*false,*/ 35, 10, /*350, 45,*/ }
 
 #define TORQUE_CTRL         0
 #define SPEED_CTRL          1
@@ -26,6 +32,7 @@
 #define WEAK_THROTTLE       1
 #define MEDIUM_THROTTLE     2
 #define STRONG_THROTTLE     3
+#define BOOST_THROTTLE      4
 
 #define MAX_PAS_MAGNETS     12
 #define MIN_PAS_MAGNETS     1
@@ -37,7 +44,7 @@
 #define MIN_WHEEL_CIRC      935
 #define WHEEL_CIRC_STEPS    5
 
-#define MAX_THROTTLE_RAMP   3
+#define MAX_THROTTLE_RAMP   4
 #define MIN_THROTTLE_RAMP   1
 
 #define MAX_BAT_CUTOUT      60
@@ -102,6 +109,8 @@ namespace elm327 {
         uint8_t     Throttle_ramp;      // Throttle ramp [Weak/Med/Strong]  [1 - 3]
 //        bool        Throttle_mode;      // Throttle mode [torque controller / speed controller]  [false/true]
         uint8_t     Battery_cutout;     // Battery voltage cutout [V]  [0V - 60V]
+        //TODO: Battery_limit is being used as Max. motor current (IqRef_A)
+        // This current is input for the throttle ramp
         uint8_t     Battery_limit;      // Battery current limit  [A]  [0A - 20A]
 //        uint16_t    Power_limit;        // Power Limit  [W]
 //        uint8_t     Speed_limit;        // Rear wheel speed limit [km/h]

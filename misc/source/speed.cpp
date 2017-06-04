@@ -33,11 +33,12 @@ void ::speed::readKmh() {
         }
         else
         {
-            double kiloMeterPerSecond = (double) ( 1.0 * elm327::mode08::gVariables.Wheel_circ * gVars.MotorPulseCounter ) /
-                                                 ( gVars.MotorPulsePeriod * elm327::mode08::gVariables.Wheel_magnets        );
+            gVars.Kmh = _IQ ( (double) ( KPS_TO_KPH * elm327::mode08::gVariables.Wheel_circ * gVars.MotorPulseCounter ) /
+                                        ( gVars.MotorPulsePeriod * elm327::mode08::gVariables.Wheel_magnets ) );
 
-            gVars.Distance += _IQ(kiloMeterPerSecond);
-            gVars.Kmh = _IQ( KPS_TO_KPH * kiloMeterPerSecond );
+            //TODO: fix issues with the approximations
+            gVars.Distance += _IQ ( (double) ( 1.0 * elm327::mode08::gVariables.Wheel_circ * gVars.MotorPulseCounter ) /
+                    ( gVars.MotorPulsePeriod * elm327::mode08::gVariables.Wheel_magnets ) );
         }
 
         gVars.MotorPulsePeriod = 0;
@@ -47,7 +48,7 @@ void ::speed::readKmh() {
 
 }
 
-
+//TODO: find the issue with the speed (probally in the speed interruption
 __interrupt void motorPulseISR(void)
 {
     // compute the waveform period

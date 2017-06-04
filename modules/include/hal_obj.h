@@ -139,6 +139,9 @@ typedef struct _HAL_Obj_
   OFFSET_Handle offsetHandle_I[3];  //!< the handles for the current offset estimators
   OFFSET_Obj    offset_I[3];        //!< the current offset objects
 
+  OFFSET_Handle offsetHandle_Idc;  //!< the handles for the bus current offset estimators
+  OFFSET_Obj    offset_Idc;        //!< the bus current offset objects
+
   OFFSET_Handle offsetHandle_V[3];  //!< the handles for the voltage offset estimators
   OFFSET_Obj    offset_V[3];        //!< the voltage offset objects
 
@@ -210,6 +213,12 @@ inline void HAL_runOffsetEst(HAL_Handle handle,const HAL_AdcData_t *pAdcData)
   for(cnt=0;cnt<obj->numCurrentSensors;cnt++)
     {
       OFFSET_run(obj->offsetHandle_I[cnt],pAdcData->I.value[cnt]);
+    }
+
+  // estimate the current offsets
+  if(obj->numBusCurrentSensors)
+    {
+      OFFSET_run(obj->offsetHandle_Idc,pAdcData->iBus);
     }
 
 

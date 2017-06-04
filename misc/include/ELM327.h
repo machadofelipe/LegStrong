@@ -3,7 +3,8 @@
 //! \file   ELM327.h
 //! \brief
 //!
-
+ //TODO: New architecture, ELM327 needs to be the message framework/controller
+// For now this is a dummy class that responds well only for Torque App
 // **************************************************************************
 // the includes
 
@@ -91,7 +92,7 @@ static ELM327_Pair_t ELM327_Pairs[ELM327_Commands_size] = {
         {"E",   &ELM327_echoOffOn},                 // EchoOffOn
         {"ST",  &ELM327_setTimeout},                // SetTimeout
         {"S",   &ELM327_spacesOffOn},               // SpacesOffOn
-        {"H",   &ELM327_headersOffOn},              // HeadersOffOn //TODO
+        {"H",   &ELM327_headersOffOn},              // HeadersOffOn
         {"AT",  &ELM327_adaptiveTiming},            // AdaptiveTiming
         {"SP",  &ELM327_setProtocol}                // SetProtocol
 };
