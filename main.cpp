@@ -551,11 +551,10 @@ void updateGlobalVariables_motor(CTRL_Handle handle)
         }
     }
     // TODO: Need new math calculation
-//    else if (gMotorVars.Idc > _IQ(2))
-//    {
-//        elm327::mode21::gVariables.Battery_resistance = _IQ16div( _IQ16mpy( _IQ16(1000), _IQtoIQ16(gMotorVars.Vdc_v0 - gMotorVars.Vdc) ),
-//                                                                            _IQ16(gMotorVars.Idc))                                        >> (16-6);  // 1000*(vBat_v0-vBat)/iBat
-//    }
+    else if (gMotorVars.Idc > _IQ(2))
+    {
+        elm327::mode21::gVariables.Battery_resistance = _IQ6( (float) (1000.0 * _IQtoF(gMotorVars.Vdc_v0 - gMotorVars.Vdc)) / _IQtoF(gMotorVars.Idc));
+    }
 
     // From readSensorsCallback
     elm327::mode21::gVariables.Battery_capacity_used = (gMotorVars.mAh) >> (17-2);
@@ -696,7 +695,18 @@ __interrupt void timer0ISR(void)
 
     // increment up-time
     if (elm327::mode08::gVariables.Switch_Run)
+    {
         gUpTimeSeconds++;
+
+    		if (elm327::mode08::gVariables.Boost_timer)
+    		{
+    			elm327::mode08::gVariables.Boost_timer--;
+    		}
+    		else if(elm327::mode08::gVariables.Throttle_ramp == BOOST_THROTTLE)
+    		{
+    			elm327::mode08::setBoost(false);
+    		}
+    }
 
     return;
 } // end of timer0ISR() function

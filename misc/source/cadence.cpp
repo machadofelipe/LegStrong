@@ -26,7 +26,7 @@ void ::cadence::readRPM() {
 
     DISABLE_INTERRUPTS;
     {
-        gVars.kRPM = gVars.PulseCounter < MIN_PULSE_COUNTER ? _IQ(0) :
+        gVars.kRPM = gVars.PulseCounter < MIN_CAD_PULSE_COUNTER ? _IQ(0) :
                 _IQ( (double) (RPM_CONSTANT * gVars.PulseCounter) /
                               (gVars.PulsePeriod * elm327::mode08::gVariables.PAS_magnets) );
 

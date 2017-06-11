@@ -27,17 +27,17 @@ void ::speed::readKmh() {
     DISABLE_INTERRUPTS;
     {
 
-        if (gVars.MotorPulseCounter < MIN_PULSE_COUNTER)
+        if (gVars.MotorPulseCounter < MIN_SPEED_PULSE_COUNTER)
         {
             gVars.Kmh =  _IQ(0.0);
         }
         else
         {
-            gVars.Kmh = _IQ ( (double) ( KPS_TO_KPH * elm327::mode08::gVariables.Wheel_circ * gVars.MotorPulseCounter ) /
+            gVars.Kmh = _IQ ( (double) ( KPH_CONSTANT * elm327::mode08::gVariables.Wheel_circ * gVars.MotorPulseCounter ) /
                                         ( gVars.MotorPulsePeriod * elm327::mode08::gVariables.Wheel_magnets ) );
 
             //TODO: fix issues with the approximations
-            gVars.Distance += _IQ ( (double) ( 1.0 * elm327::mode08::gVariables.Wheel_circ * gVars.MotorPulseCounter ) /
+            gVars.Distance += _IQ ( (double) ( KPS_CONSTANT * elm327::mode08::gVariables.Wheel_circ * gVars.MotorPulseCounter ) /
                     ( gVars.MotorPulsePeriod * elm327::mode08::gVariables.Wheel_magnets ) );
         }
 

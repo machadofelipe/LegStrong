@@ -15,8 +15,9 @@
 // the defines
 #define SPEED_Vars_INIT     { 0, 0, 0, _IQ(0.0), _IQ(0.0) }
 
-#define KPS_TO_KPH          3600.0
-#define MIN_PULSE_COUNTER   2
+#define KPH_CONSTANT        			3600.0
+#define KPS_CONSTANT        			1.0
+#define MIN_SPEED_PULSE_COUNTER   	1
 
 namespace speed {
 

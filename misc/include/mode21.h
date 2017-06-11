@@ -75,7 +75,7 @@ namespace elm327 {
         {
             // Reserved: uint32_t    PIDs_01__20;
             // Direct acquired variable
-//            uint8_t     Battery_temperature;       // Battery temperature, [ºC], [-40ºC - 215ºC], [A-40]
+//            uint8_t     Battery_temperature;       // Battery temperature, [ï¿½C], [-40ï¿½C - 215ï¿½C], [A-40]
             uint16_t    Battery_current;            // Battery current, [A],  [-8A - 24A], [((256*A+B)/2048)-8]
 //            uint16_t    Battery_current_avg;        // Battery current, [A],  [0A - 21.845A], [(256*A+B)/3000]
 //            uint16_t    Battery_current_max;        // Battery current, [A],  [0A - 21.845A], [(256*A+B)/3000]

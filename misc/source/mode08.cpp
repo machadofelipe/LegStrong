@@ -57,6 +57,8 @@ namespace elm327
 // **************************************************************************
 // the functions
 
+uint8_t last_throttle_ramp = MEDIUM_THROTTLE;
+
 void ::elm327::mode08::processPid(const std::string &pidString, std::string &responseMsg)
 {
     int pidNumber = (int) strtol(pidString.c_str(), NULL, 16);
@@ -102,9 +104,36 @@ void ::elm327::mode08::processPid(const std::string &pidString, std::string &res
 void ::elm327::mode08::swRun()
 {
     gVariables.Toggle_option = Options_START;
-    gVariables.Switch_Run ^= true;
+
+    // If controller is On and no Boost, activate boost
+    if (gVariables.Switch_Run && (gVariables.Throttle_ramp != BOOST_THROTTLE))
+    {
+    	    setBoost(true);
+    }
+    else
+    {
+        gVariables.Switch_Run ^= true;
+	    setBoost(false);
+    }
 
     return;
+}
+
+void ::elm327::mode08::setBoost(bool boost)
+{
+	if (boost)
+	{
+	    last_throttle_ramp = gVariables.Throttle_ramp;
+	    gVariables.Throttle_ramp = BOOST_THROTTLE;
+		gVariables.Boost_timer = BOOST_TIMER;
+	}
+	else
+	{
+		gVariables.Throttle_ramp = last_throttle_ramp;
+		gVariables.Boost_timer = 0;
+	}
+
+	return;
 }
 
 void ::elm327::mode08::togOption()

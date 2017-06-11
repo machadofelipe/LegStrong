@@ -15,8 +15,8 @@
 // the defines
 #define CADENCE_Vars_INIT { 0, 0, 0, 0, 0.0 }
 
-#define RPM_CONSTANT        60000.0
-#define MIN_PULSE_COUNTER   2
+#define RPM_CONSTANT        		60000.0
+#define MIN_CAD_PULSE_COUNTER   	2
 
 namespace cadence {
 

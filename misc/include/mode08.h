@@ -24,7 +24,8 @@
 //TODO: make one define for each
 //TODO: in the future, store this values is memory
 #define MODE08_Vars_INIT { false, 0x20, \
-                           12, 6, 2095, 2, /*false,*/ 35, 10, /*350, 45,*/ }
+                           12, 6, 2095, 2, /*false,*/ 35, 10, /*350, 45,*/ \
+                           0 }
 
 #define TORQUE_CTRL         0
 #define SPEED_CTRL          1
@@ -33,6 +34,8 @@
 #define MEDIUM_THROTTLE     2
 #define STRONG_THROTTLE     3
 #define BOOST_THROTTLE      4
+
+#define BOOST_TIMER         59
 
 #define MAX_PAS_MAGNETS     12
 #define MIN_PAS_MAGNETS     1
@@ -44,7 +47,7 @@
 #define MIN_WHEEL_CIRC      935
 #define WHEEL_CIRC_STEPS    5
 
-#define MAX_THROTTLE_RAMP   4
+#define MAX_THROTTLE_RAMP   3
 #define MIN_THROTTLE_RAMP   1
 
 #define MAX_BAT_CUTOUT      60
@@ -118,6 +121,8 @@ namespace elm327 {
         // Reserved: uint32_t    PIDs_41__60;
         // Reserved: uint32_t    PIDs_61__80;
 
+        uint16_t    Boost_timer;
+
     }Vars_t;
 
     typedef void (*funcptr)();
@@ -139,6 +144,7 @@ namespace elm327 {
 
     //! \brief      PIDs_01__20
     void swRun();
+    void setBoost(bool boost);
     void togOption();
 
     //! \brief      pids21_40
