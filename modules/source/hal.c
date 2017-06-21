@@ -1022,7 +1022,7 @@ void HAL_setupGpios(HAL_Handle handle)
   // PWM6
   GPIO_setMode(obj->gpioHandle,GPIO_Number_5,GPIO_5_Mode_EPWM3B);
 
-  // CAD_PULSE
+  // CAD_PULSE / SPD_PULSE
   GPIO_setMode(obj->gpioHandle,GPIO_Number_6,GPIO_6_Mode_GeneralPurpose);
   GPIO_setDirection(obj->gpioHandle, GPIO_Number_6, GPIO_Direction_Input);
   GPIO_setQualification(obj->gpioHandle, GPIO_Number_6, GPIO_Qual_ASync);
@@ -1054,7 +1054,7 @@ void HAL_setupGpios(HAL_Handle handle)
   // FAULTn
   GPIO_setMode(obj->gpioHandle,GPIO_Number_28,GPIO_28_Mode_TZ2_NOT);
 
-  // SPD_PULSE
+  // SPD_PULSE / CAD_PULSE
   GPIO_setMode(obj->gpioHandle,GPIO_Number_29,GPIO_29_Mode_GeneralPurpose);
   GPIO_setDirection(obj->gpioHandle, GPIO_Number_29, GPIO_Direction_Input);
   GPIO_setQualification(obj->gpioHandle, GPIO_Number_29, GPIO_Qual_ASync);

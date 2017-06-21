@@ -39,7 +39,8 @@ void ::cadence::readRPM() {
 
 __interrupt void cadencePulseISR(void)
 {
-    if (!GPIO_getData(hal.gpioHandle, GPIO_Number_6))
+//    if (!GPIO_getData(hal.gpioHandle, GPIO_Number_6))
+    if (!GPIO_getData(hal.gpioHandle, GPIO_Number_29))
     {
         // compute the waveform period
         uint32_t timeCapture = HAL_readTimerCnt(&hal, 2);

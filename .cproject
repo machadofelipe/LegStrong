@@ -87,10 +87,10 @@
 						</toolChain>
 					</folderInfo>
 					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.5101824" name="est_Rr_states.h" rcbsApplicability="disable" resourcePath="modules/include/est_Rr_states.h" toolsToInvoke=""/>
-					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.397995277" name="est_Traj_states.h" rcbsApplicability="disable" resourcePath="modules/include/est_Traj_states.h" toolsToInvoke=""/>
 					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.1091151859" name="fw.h" rcbsApplicability="disable" resourcePath="modules/include/fw.h" toolsToInvoke=""/>
-					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.294514974" name="fem.h" rcbsApplicability="disable" resourcePath="modules/include/fem.h" toolsToInvoke=""/>
+					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.397995277" name="est_Traj_states.h" rcbsApplicability="disable" resourcePath="modules/include/est_Traj_states.h" toolsToInvoke=""/>
 					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.488445308" name="est_Ls_states.h" rcbsApplicability="disable" resourcePath="modules/include/est_Ls_states.h" toolsToInvoke=""/>
+					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.294514974" name="fem.h" rcbsApplicability="disable" resourcePath="modules/include/fem.h" toolsToInvoke=""/>
 					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.1430238302" name="userParams.h" rcbsApplicability="disable" resourcePath="modules/include/userParams.h" toolsToInvoke="">
 						<tool customBuildStep="true" id="org.eclipse.cdt.managedbuilder.ui.rcbs.380896083" name="Resource Custom Build Step">
 							<inputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.inputtype.1304613992" name="Resource Custom Build Step Input Type">
@@ -103,7 +103,6 @@
 					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.1022817883" name="est_Flux_states.h" rcbsApplicability="disable" resourcePath="modules/include/est_Flux_states.h" toolsToInvoke=""/>
 					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.1538199087" name="est.h" rcbsApplicability="disable" resourcePath="modules/include/est.h" toolsToInvoke=""/>
 					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.596334619" name="est_Rs_states.h" rcbsApplicability="disable" resourcePath="modules/include/est_Rs_states.h" toolsToInvoke=""/>
-					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.1608996653" name="math.h" rcbsApplicability="disable" resourcePath="modules/include/math.h" toolsToInvoke=""/>
 					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.624503135" name="cpu_usage.h" rcbsApplicability="disable" resourcePath="modules/include/cpu_usage.h" toolsToInvoke="">
 						<tool customBuildStep="true" id="org.eclipse.cdt.managedbuilder.ui.rcbs.1800890359" name="Resource Custom Build Step">
 							<inputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.inputtype.1737478670" name="Resource Custom Build Step Input Type">
@@ -112,6 +111,7 @@
 							<outputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.outputtype.95978085" name="Resource Custom Build Step Output Type"/>
 						</tool>
 					</fileInfo>
+					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.1608996653" name="math.h" rcbsApplicability="disable" resourcePath="modules/include/math.h" toolsToInvoke=""/>
 					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.430363450.1903852119" name="types.h" rcbsApplicability="disable" resourcePath="modules/include/types.h" toolsToInvoke=""/>
 					<sourceEntries>
 						<entry excluding="modules/slip|modules/queue|modules/pi|modules/fstart|modules/afsel|modules/enc|modules/angle|modules/cpu_usage|drivers/lib|modules/throttle|modules/source/ctrlQEP.c|f2802x_headers/cmd/F2802x_Headers_BIOS.cmd|modules/motor|modules/math|modules/spintac|modules/vib_comp|modules/docs|modules/source/ctrl_eou.c|modules/source/svgen_current.c|drivers/gel|modules/fem|modules/est|28027_RAM_lnk.cmd|modules/source/dlog4ch.c|cmd|modules/angle_comp|modules/hallbldc|modules/source/filter_so.c|modules/fw|modules/ipd" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
