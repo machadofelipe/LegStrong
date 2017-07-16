@@ -453,9 +453,9 @@ void updateGlobalVariables_motor(CTRL_Handle handle)
 
     // get the motor speed estimate
     gMotorVars.Speed_krpm = elm327::mode08::gVariables.Switch_Run ? EST_getSpeed_krpm(obj->estHandle) : _IQ(0.0);
-    elm327::mode21::gVariables.Motor_kRPM = gMotorVars.Speed_krpm > _IQ(0.0) ? (uint16_t) _IQtoIQ15(gMotorVars.Speed_krpm) : _IQ15(0.0);
+    elm327::mode21::gVariables.Motor_kRPM = gMotorVars.Speed_krpm > _IQ(0.0) ? (uint16_t) _IQtoIQ14(gMotorVars.Speed_krpm) : _IQ14(0.0);
     //TODO: engine RPM calculations are not optimal, try IQ Math
-    elm327::mode01::gVariables.Engine_RPM = _IQ2( (float) (_IQ15toF(elm327::mode21::gVariables.Motor_kRPM)*1000.0) );
+    elm327::mode01::gVariables.Engine_RPM = _IQ2( (float) (_IQ14toF(elm327::mode21::gVariables.Motor_kRPM)*1000.0) );
 
     // get the torque estimate
     gMotorVars.Torque_Nm = USER_computeTorque_Nm(handle, gTorque_Flux_Iq_pu_to_Nm_sf, gTorque_Ls_Id_Iq_pu_to_Nm_sf);
@@ -551,10 +551,10 @@ void updateGlobalVariables_motor(CTRL_Handle handle)
         }
     }
     // TODO: Need new math calculation
-    else if (gMotorVars.Idc > _IQ(2))
-    {
-        elm327::mode21::gVariables.Battery_resistance = _IQ6( (float) (1000.0 * _IQtoF(gMotorVars.Vdc_v0 - gMotorVars.Vdc)) / _IQtoF(gMotorVars.Idc));
-    }
+//    else if (gMotorVars.Idc > _IQ(2))
+//    {
+//        elm327::mode21::gVariables.Battery_resistance = _IQ6( (float) (1000.0 * _IQtoF(gMotorVars.Vdc_v0 - gMotorVars.Vdc)) / _IQtoF(gMotorVars.Idc));
+//    }
 
     // From readSensorsCallback
     elm327::mode21::gVariables.Battery_capacity_used = (gMotorVars.mAh) >> (17-2);

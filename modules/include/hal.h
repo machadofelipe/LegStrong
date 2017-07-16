@@ -1496,7 +1496,7 @@ static inline void HAL_enableCadencePulseInt(HAL_Handle handle)
 
 
   // Configure XINT3
-  PIE_setExtIntPolarity(obj->pieHandle, CPU_ExtIntNumber_3, PIE_ExtIntPolarity_FallingEdge);
+  PIE_setExtIntPolarity(obj->pieHandle, CPU_ExtIntNumber_3, PIE_ExtIntPolarity_RisingAndFallingEdge);
 
   PIE_enableExtInt(obj->pieHandle, CPU_ExtIntNumber_3);
 
@@ -1539,7 +1539,7 @@ static inline void HAL_enableMotorPulseInt(HAL_Handle handle)
 
 
     // Configure XINT3
-    PIE_setExtIntPolarity(obj->pieHandle, CPU_ExtIntNumber_1, PIE_ExtIntPolarity_RisingAndFallingEdge);
+    PIE_setExtIntPolarity(obj->pieHandle, CPU_ExtIntNumber_1, PIE_ExtIntPolarity_FallingEdge);
 
     PIE_enableExtInt(obj->pieHandle, CPU_ExtIntNumber_1);
 

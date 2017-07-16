@@ -15,7 +15,7 @@
 // **************************************************************************
 // the defines
 #define MODE21_Vars_INIT { 0, 0, 0, 0, 0,      \
-                           0, 0, 0, 0, 0, 0, 0 \
+                           0, 0, 0, 0, 0, 0    \
                                                }
 
 namespace elm327 {
@@ -95,7 +95,7 @@ namespace elm327 {
             uint16_t    Battery_capacity_used;      // Current consumed in Amp-hours, [mAh], [0Ah - 16,384mAh], [(256*A+B)/4]
             uint16_t    Energy_used;                // Energy consumed in kiloWatt-hours, [kWh], [0kWh - 1kWh], [(256*A+B)/65536]
             uint16_t    Battery_SOC;                // Battery State of Charge, [%], [0% - 128%], [(256*A+B)/512]
-            uint16_t    Battery_resistance;         // Battery equivalent series resistance, [mOhm],  [0mOhm - 1024 mOhm], [(256*A+B)/64]
+//            uint16_t    Battery_resistance;         // Battery equivalent series resistance, [mOhm],  [0mOhm - 1024 mOhm], [(256*A+B)/64]
             uint16_t    Trip_distance;              // Trip distance based on rear wheel, [km], [0 - 256km], [(256*A+B)]
 //            uint16_t    Trip_Time;                // Trip Time in seconds, [s],  [0s - 65,535s], [(256*A+B)]
 //            uint16_t    Energy_mileage;             // Energy mileage, [Wh/km], [0Wh/km - 64Wh/km], [(256*A+B)/1024]
